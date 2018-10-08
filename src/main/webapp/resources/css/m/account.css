@@ -1,0 +1,171 @@
+/* @import "../static/reset.css"; */
+@charset "UTF-8";
+body {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+::-webkit-input-placeholder {
+  color: #999;
+}
+:-moz-placeholder {
+  color: #999;
+}
+::-moz-placeholder {
+  color: #999;
+}
+:-ms-input-placeholder {
+  color: #999;
+}
+header {
+  position: relative;
+  width: 100%;
+ font-size: 2rem;
+  text-align: center;
+  background-color: #e51c23;
+  color: #fff;
+      line-height: 3.5rem;
+}
+header .backBtn {
+  position: absolute;
+ top: 1.5rem;
+  left: 1.2rem;
+  width: 1rem;
+  height: 2rem;
+   text-align: center;
+  background: url("../../img/m/1.jpg") no-repeat;
+  background-size:100%;
+} 
+.account-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: 0 30px 0 10px;
+  line-height: 40px;
+  font-size: 14px;
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+}
+.account-item div:nth-child(1) {
+  width: 25%;
+  color: #333333;
+}
+.account-item div:nth-child(2) {
+  width: 75%;
+  text-align: right;
+}
+.account-item i {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  width: 10px;
+  height: 20px;
+  background: url(../../img/m/go_to.png);
+  background-size: 100% 100%;
+}
+.quit {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 30px 0 10px;
+  line-height: 40px;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+  color: #333333;
+  text-align: center;
+}
+.uploader-list {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto 0;
+}
+.photoBtn {
+  margin: 50px auto 0;
+  width: 96%;
+  text-align: center;
+  font-size: 16px;
+  height: 40px;
+  border-radius: 5px;
+}
+.photoBtn .webuploader-pick {
+  width: 96%;
+  height: 40px;
+  background-color: #e51c23;
+  color: #fff;
+  line-height: 40px;
+  padding: 0;
+}
+/*鏉堟挸鍙嗗锟�*/
+.input-item {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  background-color: #FFFFFF;
+  outline: none;
+  border: none;
+  line-height: 40px;
+  font-size: 16px;
+}
+/*閹冨焼*/
+.sex-item {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 10px;
+  background-color: #FFFFFF;
+}
+.sex-item i {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  background: url(../../img/m/car_no.png);
+  background-size: 100% 100%;
+}
+.sex-item .sex-active {
+  background: url(../../img/m/car_s.png);
+  background-size: 100% 100%;
+}
+.btn-warp {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  margin-top: 50px;
+}
+.btn-warp button {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #D73535;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+}
+#head {
+  display: none;
+}
+#nc {
+  display: none;
+}
+#sex {
+  display: none;
+}
+#telnum {
+  display: none;
+}
+#carnum {
+  display: none;
+}
+#name {
+  display: none;
+}

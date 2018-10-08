@@ -1,0 +1,161 @@
+/* @import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css"; */
+@charset "UTF-8";
+.hosts {
+  width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+  background: white;
+}
+.hosts ul {
+  width: 100%;
+}
+.hosts ul li {
+  width: 16.66%;
+  float: left;
+  text-align: center;
+  border-right: 1px solid #d3d3d3;
+  margin: 10px 0;
+}
+.hosts ul li:last-of-type {
+  border-right: none;
+}
+.hosts ul li img {
+  width: 90%;
+  height:179px;
+  margin-bottom: 5px;
+}
+.hosts ul li p {
+  width: 94%;
+  margin: 0 auto;
+  color: #787878;
+  font-size: 12px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 20px;
+}
+.hosts ul li .price {
+  width: 100%;
+  font-size: 0px;
+  text-align: left;
+  margin-top: 10px;
+}
+.hosts ul li .price div {
+  display: inline-block;
+}
+.hosts ul li .price .newPrice {
+  font-size: 0px;
+  overflow: hidden;
+  float: left;
+  margin-left: 2%;
+}
+.hosts ul li .price .newPrice span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #d73532;
+  vertical-align: middle;
+}
+.hosts ul li .price .newPrice mark {
+  display: inline-block;
+  font-weight: bold;
+  color: #d73532;
+  font-size: 18px;
+  background: none;
+  vertical-align: middle;
+}
+.hosts ul li .oldPrice {
+  float: left;
+  margin-left: 15px;
+  margin-top: 2.5px;
+}
+.hosts ul li .oldPrice span {
+  font-size: 10px;
+  color: #bababa;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.hosts ul li .oldPrice mark {
+  background: none;
+  font-size: 14px;
+  color: #bababa;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.h2 {
+  width: 1200px;
+  text-align: center;
+  overflow: hidden;
+  margin: 15px auto;
+}
+.h2 span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  position: relative;
+}
+.h2 span::before {
+  content: "";
+  width: 4px;
+  height: 20px;
+  position: absolute;
+  display: block;
+  left: -10px;
+  margin-left: -2px;
+  background: #ff9934;
+}
+.h2 a {
+  float: right;
+  color: #000000;
+  font-weight: 600;
+}
+.Floor {
+  width: 1200px;
+  margin: 0 auto;
+  height: 440px;
+  background: white;
+}
+.Floor ul {
+  width: 945px;
+  overflow: hidden;
+}
+.Floor ul li {
+  width: 20%;
+  float: left;
+  text-align: center;
+  height: 220px;
+  border-right: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+}
+.Floor ul li img {
+  width: 90%;
+  height:169px;
+  margin-bottom: 5px;
+}
+.Floor ul li p {
+  font-size: 12px;
+  color: #181411;
+  margin-bottom: 5px;
+}
+.Floor ul li mark {
+  background: none;
+  margin-top: 8px;
+  color: #d73435;
+  font-size: 14px;
+  font-weight: bold;
+}
+.Floor .anis {
+  width: 255px;
+  height: 440px;
+  float: left;
+}
+.Floor .anis img {
+  width: 100%;
+  height: 100%;
+}

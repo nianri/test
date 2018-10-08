@@ -1,0 +1,570 @@
+/* @import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css"; */
+@charset "UTF-8";
+body {
+  background-color: #FFFFFF;
+}
+.bg {
+  background-color: #EEEEEE;
+  padding-bottom: 20px;
+}
+.footer {
+  margin-top: 0!important;
+}
+.title {
+  width: 1200px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+.title span:nth-child(1) {
+  color: #FF9934;
+  font-size: 10px;
+}
+.title span:nth-child(2) {
+  color: #999999;
+}
+.title span:nth-child(3) {
+  color: #666666;
+}
+.content {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+.statusWrap {
+  padding: 20px 0 20px 20px;
+  height: 160px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.statusWrap > div {
+  float: left;
+}
+.statusWrap .statusDes {
+  width: 255px;
+  height: 120px;
+  border-right: 1px solid #CCCCCC;
+}
+.statusWrap .statusDes p:first-of-type {
+  font-size: 14px;
+  color: #666666;
+}
+.statusWrap .statusDes p:last-of-type {
+  font-size: 14px;
+  margin-top: 20px;
+}
+.statusWrap .statusDes p:last-of-type span:nth-child(1) {
+  color: #666666;
+}
+.statusWrap .statusDes p:last-of-type span:nth-child(2) {
+  color: #D73535;
+}
+.statusWrap .statusDes .payOrder {
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #FF9934;
+  margin-top: 20px;
+  margin-bottom: 7px;
+}
+.statusWrap .statusDes .cancleOrder {
+  font-size: 14px;
+  color: #666666;
+}
+.statusWrap .statusImg {
+  width: 925px;
+  height: 120px;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+.statusWrap .statusImg img {
+  display: block;
+}
+.goodsStatus {
+  padding: 20px 0 20px 20px;
+  border-bottom: 1px solid #CCCCCC;
+}
+.goodsStatus > div {
+  float: left;
+}
+.goodsStatus .goodsDes {
+  width: 255px;
+  padding-left: 20px;
+  padding-top: 30px;
+  border-right: 1px solid #CCCCCC;
+}
+.goodsStatus .goodsDes .imgWrap {
+  float: left;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #CCCCCC ;
+}
+.goodsStatus .goodsDes .goodsName {
+  float: left;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+.goodsStatus .logisticsStatus {
+  width: 925px;
+  font-size: 14px;
+  color: #666666;
+  padding-left: 20px;
+}
+.goodsStatus .logisticsStatus div {
+  margin-bottom: 15px;
+}
+.goodsStatus .logisticsStatus p {
+  line-height: 20px;
+}
+.goodsStatus .logisticsStatus p span:nth-child(1) {
+  margin-right: 15px;
+}
+.buyInfo {
+  padding: 20px 0;
+  border-bottom: 1px solid #CCCCCC;
+}
+.buyInfo > div {
+  float: left;
+}
+.buyInfo .receiverInfo,
+.buyInfo .payInfo {
+  padding-left: 20px;
+}
+.buyInfo .receiverInfo div:nth-child(1),
+.buyInfo .payInfo div:nth-child(1) {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+.buyInfo .receiverInfo div:nth-child(n+2),
+.buyInfo .payInfo div:nth-child(n+2) {
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+  height: 20px;
+}
+.buyInfo .receiverInfo div:nth-child(n+2) > span,
+.buyInfo .payInfo div:nth-child(n+2) > span {
+  display: block;
+  float: left;
+}
+.buyInfo .receiverInfo {
+  width: 430px;
+}
+.buyInfo .receiverInfo > div span:nth-child(1) {
+  width: 70px;
+}
+.buyInfo .payInfo > div span:nth-child(1) {
+  width: 100px;
+}
+.goodsShow {
+  width: 1160px;
+  margin: 20px auto 0;
+  border: 1px solid #CCCCCC;
+}
+.goodsShow .goodsTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  color: #333333;
+  font-size: 14px;
+  background-color: #EEEEEE;
+}
+.goodsShow .goodsTitle > li {
+  float: left;
+}
+.goodsShow .goodsTitle > li:nth-child(1) {
+  margin-left: 163px;
+}
+.goodsShow .goodsTitle > li:nth-child(2) {
+  margin-left: 308px;
+}
+.goodsShow .goodsTitle > li:nth-child(3) {
+  margin-left: 173px;
+}
+.goodsShow .goodsTitle li:nth-child(4) {
+  margin-left:160px;
+  
+}
+.goodsNote{
+	width: 290px;
+height: 100px;
+word-wrap: break-word;
+padding-top: 20px;
+text-align: center;
+padding-left: 10px;
+padding-right: 5px;
+word-break:normal;
+
+}
+
+.goodsShow .shop .goods {
+  width: 100%;
+  height: 100px;
+}
+.goodsShow .shop .goods > div {
+  float: left;
+}
+.goodsShow .shop .goods .goodsInformation {
+  width: 407px;
+  height: 100px;
+  padding: 10px;
+  border-right: 1px solid #CCCCCC;
+}
+.goodsShow .shop .goods .goodsInformation .goodsImg {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #CCCCCC;
+  float: left;
+}
+.goodsShow .shop .goods .goodsInformation .goodsDes {
+  float: left;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-left: 10px;
+  color: #666666;
+  line-height: 20px;
+}
+.goodsShow .shop .goods .goodsInformation .goodsDes p:nth-child(2) span:nth-child(2n) {
+  margin-right: 5px;
+}
+.goodsShow .shop .goods .goodsNumber,
+.goodsShow .shop .goods .goodsPrice,
+.goodsShow .shop .goods .goodsAmount {
+  width: 216px;
+  height: 100px;
+  text-align: center;
+  border-right: 1px solid #CCCCCC;
+  font-size: 14px;
+  color: #666666;
+  padding-top: 20px;
+}
+.goodsShow .shop .goods .goodsOperation {
+  font-size: 14px;
+  color: #666666;
+  padding-top: 20px;
+  text-align: center;
+  width: 190px;
+  height: 100px;
+  border-right: 1px solid #ccc;
+}
+.goodsShow .shop .goods .goodsOperation .evaluate {
+  display: block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #ff9934;
+  color: #FFFFFF;
+  font-size: 14px;
+  margin: 0 auto;
+}
+.goodsShow .shop .goods .goodsOperation div {
+  color: #666666;
+  margin-top: 5px;
+}
+.lastWrap {
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+.lastWrap .lastBill {
+  float: right;
+  font-size: 14px;
+  color: #666666;
+}
+.lastWrap .lastBill > div {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 15px;
+}
+.lastWrap .lastBill > div span {
+  display: block;
+  float: left;
+}
+.lastWrap .lastBill > div span:nth-child(1) {
+  width: 70px;
+  text-align: right;
+}
+.contentP {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 60px 20px;
+  background-color: #FFFFFF;
+}
+.shopPingJia {
+  width: 1160px;
+  height: 100px;
+  padding: 10px;
+  background-color: #EEEEEE;
+}
+.shopPingJia > div {
+  float: left;
+}
+.shopPingJia .imgGoods {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #cccccc;
+}
+.shopPingJia .shopAbout {
+  padding-left: 10px;
+  padding-top: 8px;
+  font-size: 14px;
+  color: #666666;
+}
+.shopPingJia .shopAbout .pingFen {
+  height: 14px;
+  margin-top: 15px;
+}
+.shopPingJia .shopAbout .pingFen .shopName {
+  float: left;
+  margin-right: 3px;
+}
+.shopPingJia .shopAbout .pingFen .starLists {
+  height: 14px;
+  float: left;
+}
+.shopPingJia .shopAbout .pingFen .starLists li {
+  width: 12px;
+  height: 12px;
+  float: left;
+  position: relative;
+  top: 1px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+.shopPingJia .shopAbout .pingFen .pingFenNumber {
+  float: left;
+  margin-left: 3px;
+}
+.pingjiaType {
+  height: 50px;
+  font-size: 14px;
+  line-height: 50px;
+  color: #666666;
+}
+.pingjiaType > div {
+  float: left;
+  height: 50px;
+  margin-right: 50px;
+  padding-left: 20px;
+  position: relative;
+}
+.pingjiaType > div > i {
+  position: absolute;
+  top: 19px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  background: url(../../img/f/weixuanze.png);
+}
+.pingjiaType > div .xuanzeActive {
+  background: url(../../img/f/xuanze.png);
+}
+.textPinglun {
+  width: 600px;
+  height: 100px;
+  border: 1px solid #ff9934;
+}
+.textPinglun .text {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #666666;
+  padding-top: 8px;
+  padding-left: 8px;
+  resize: none;
+}
+textarea::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999999;
+}
+textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999999;
+}
+textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999999;
+}
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999999;
+}
+.upLoadImages {
+  margin-top: 10px;
+}
+.upLoadImages .uploadWrap {
+  width: 100%;
+  height: 50px;
+}
+.upLoadImages .uploadWrap > div {
+  float: left;
+}
+.upLoadImages .uploadWrap .photoBtn {
+  width: 50px;
+  height: 50px;
+  background: url(../../img/f/photoBtn.png);
+}
+.upLoadImages .uploadWrap .photoBtn .webuploader-pick {
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+.upLoadImages .uploadWrap div:last-of-type {
+  line-height: 50px;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 10px;
+}
+.upLoadImages .uploadWrap div:last-of-type span {
+  color: #FF9934;
+}
+.upLoadImages .uploader-list {
+  margin-top: 10px;
+}
+.upLoadImages .uploader-list .file-item {
+  float: left;
+  width: 200px;
+  height: 240px;
+  margin-right: 20px;
+  position: relative;
+}
+.upLoadImages .uploader-list .file-item .info,
+.upLoadImages .uploader-list .file-item .error {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
+  text-align: center;
+}
+.upLoadImages .uploader-list .file-item .delBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/f/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.pingfenAll .pingFen {
+  font-size: 14px;
+  color: #666666;
+  height: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+}
+.pingfenAll .pingFen .pingName {
+  width: 150px;
+  height: 20px;
+  float: left;
+}
+.pingfenAll .pingFen .starLists {
+  float: left;
+  height: 20px;
+}
+.pingfenAll .pingFen .starLists li {
+  float: left;
+  width: 17px;
+  height: 16px;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+}
+.pingfenAll .pingFen .pingFenNumber {
+  float: left;
+  margin-left: 110px;
+}
+.relase {
+  display: block;
+  margin-left: 150px;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #FF9934;
+}
+.main {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  padding: 20px 20px 400px 20px;
+}
+.main .successInfo {
+  width: 100%;
+  height: 100px;
+  padding: 20px 30px;
+  background-color: #EEEEEE;
+}
+.main .successInfo p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+}
+.main .successInfo p a {
+  color: #ff9934;
+}
+.cancelTitle {
+  padding-left: 20px;
+  font-size: 14px;
+  color: #333333;
+  height: 50px;
+  line-height: 50px;
+}
+.cancelGoods {
+  width: 1160px;
+  margin: 0  auto;
+  border: 1px solid #CCCCCC;
+}
+.cancelGoods .cancelGoodsTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 39px;
+  color: #333333;
+  border-bottom: 1px solid #CCCCCC;
+  font-size: 14px;
+  background-color: #EEEEEE;
+}
+.cancelGoods .cancelGoodsTitle li {
+  width: 231px;
+  float: left;
+  text-align: center;
+}
+.cancelGoods .cancelGoodsTitle li:first-of-type {
+  width: 234px;
+}
+.cancelGoods .cancelGoodsInfo {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+.cancelGoods .cancelGoodsInfo li {
+  width: 231px;
+  float: left;
+  text-align: center;
+  border-left: 1px solid #CCCCCC;
+}
+.cancelGoods .cancelGoodsInfo li:first-of-type {
+  border-left: none;
+  width: 234px;
+}

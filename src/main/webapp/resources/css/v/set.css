@@ -1,0 +1,705 @@
+/*个人信息设置*/
+.setTab {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+.setTab > li {
+  float: left;
+  line-height: 40px;
+  margin-right: 20px;
+}
+.setTab > li a {
+  font-size: 14px;
+  color: #666666;
+}
+.setTab > li .setTabActive {
+  color: #ff9934;
+}
+.personInformation {
+  margin-top: 15px;
+}
+.personInformation > div {
+  float: left;
+}
+.personInformation .infoLeft {
+  width: 200px;
+  padding-top: 30px;
+}
+.personInformation .infoLeft .headImg {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+.personInformation .infoLeft .headImg img {
+  border-radius: 50%;
+}
+.personInformation .infoLeft .cardGrade {
+  margin-top: 10px;
+  width: 120px;
+  color: #D73535;
+  font-size: 14px;
+  text-align: center;
+}
+.personInformation .infoRight .setBtn {
+  display: block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #ff9934;
+  margin-left: 110px;
+  margin-top: 20px;
+}
+.personInformation .infoRight .infoItem {
+  height: 30px;
+  line-height: 30px;
+  width: 860px;
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 10px;
+}
+.personInformation .infoRight .infoItem > div {
+  float: left;
+}
+.personInformation .infoRight .infoItem .itemName {
+  width: 70px;
+  text-align: right;
+}
+.personInformation .infoRight .infoItem .itemInfo {
+  margin-left: 40px;
+}
+.personInformation .infoRight .infoItem .itemInfo .nicheng {
+  width: 300px;
+  height: 30px;
+  outline: none;
+  display: block;
+  border: 1px solid #CCCCCC;
+  color: #666666;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.personInformation .infoRight .infoItem .itemInfo .trueName {
+  width: 300px;
+  height: 30px;
+  outline: none;
+  display: block;
+  border: 1px solid #CCCCCC;
+  color: #666666;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.personInformation .infoRight .infoItem .itemInfo .sex {
+  display: block;
+  float: left;
+  padding-left: 20px;
+  position: relative;
+  margin-right: 40px;
+}
+.personInformation .infoRight .infoItem .itemInfo .sex i {
+  position: absolute;
+  top: 9px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  background: url(../../img/f/weixuanze.png);
+  cursor: pointer;
+}
+.personInformation .infoRight .infoItem .itemInfo .sex .sexActive {
+  background: url(../../img/f/xuanze.png);
+}
+.personInformation .infoRight .infoItem .itemInfo .dateWrap {
+  float: left;
+  width: 140px;
+}
+.personInformation .infoRight .infoItem .itemInfo .dateWrap select {
+  outline: none;
+  width: 90px;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  padding-left: 20px;
+}
+.personInformation .infoRight .infoItem .itemInfo .bingdEmail {
+  color: #ff9934;
+}
+.headUplod {
+  display: none;
+  margin-top: 10px;
+}
+.headUplod .preview {
+  margin-top: 10px;
+  width: 200px;
+  height: 200px;
+  background-color: #EEEEEE;
+}
+.headUplod .photoBtn {
+  width: 80px;
+  height: 30px;
+}
+.headUplod .photoBtn .webuploader-pick {
+  width: 90px;
+  height: 30px;
+  background-color: #ff9934;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-align: center;
+}
+.headUplod .uploader-list {
+  margin-top: 10px;
+}
+.headUplod .uploader-list .file-item {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+  position: relative;
+}
+.headUplod .uploader-list .file-item .info,
+.headUplod .uploader-list .file-item .error {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
+  text-align: center;
+}
+.headUplod .uploader-list .file-item .delBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/f/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.headUplod .headSave {
+  display: block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #ff9934;
+  margin-top: 20px;
+}
+/*收货地址*/
+.addReceiver {
+  display: block;
+  margin-top: 15px;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #ff9934;
+}
+.addressLists {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666666;
+}
+.addressLists .address {
+  position: relative;
+  width: 100%;
+  padding: 15px 0 20px 20px;
+  border: 1px solid #CCCCCC;
+}
+.addressLists .address > div {
+  height: 20px;
+  line-height: 20px;
+}
+.addressLists .address > div span {
+  display: block;
+  float: left;
+}
+.addressLists .address div:nth-child(n+2) {
+  margin-top: 8px;
+}
+.addressLists .address div:nth-child(n+2) span:nth-child(1) {
+  width: 60px;
+  text-align: right;
+  margin-right: 4px;
+}
+.addressLists .address .addressType .defaultBtn {
+  width: 40px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #d73535;
+  margin-left: 10px;
+}
+.addressLists .address .addressOperation {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+.addressLists .address .addressOperation li {
+  float: left;
+  padding: 0 15px;
+  height: 20px;
+  line-height: 20px;
+  border-right: 2px solid #CCCCCC;
+}
+.addressLists .address .addressOperation li:last-of-type {
+  border: none;
+}
+.chanageShade {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+}
+.changeAddressWrap {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 30%;
+  width: 760px;
+  height: 500px;
+  background-color: #ffffff;
+  border: 1px solid #BCBCBC;
+  box-shadow: 0 0 5px #bdb8b3;
+}
+.changeAddressWrap .title {
+  position: relative;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  color: #272727;
+  background-color: #EEEEEE;
+  padding-left: 20px;
+}
+.changeAddressWrap .title i {
+  position: absolute;
+  width: 13px;
+  height: 16px;
+  top: 5px;
+  right: 10px;
+  background: url(../../img/f/changeaddressHide.png);
+  cursor: pointer;
+}
+.publicTitle {
+  margin-top: 20px;
+  padding-left: 25px;
+  font-size: 12px;
+  color: #999999;
+}
+.publicTitle i {
+  color: #d73535;
+  margin-right: 3px;
+  position: relative;
+  top: 2px;
+}
+.publicTitle span {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 264px;
+}
+.receiverWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.receiverWrap .receiverName {
+  width: 235px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.receiverWrap span {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.detailAddressWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.detailAddressWrap .detailAddress {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.detailAddressWrap span {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.areaWrap {
+  margin-top: 10px;
+  height: 30px;
+  font-size: 14px;
+  padding-left: 30px;
+  position: relative;
+  color: #272727;
+}
+.areaWrap .citys,
+.areaWrap .provice,
+.areaWrap .twon {
+  float: left;
+  position: relative;
+  font-size: 14px;
+  height: 30px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  border: 1px solid #C4C4C4;
+  z-index: 999;
+}
+.areaWrap .citys i,
+.areaWrap .provice i,
+.areaWrap .twon i {
+  position: absolute;
+  width: 11px;
+  height: 7px;
+  top: 14px;
+  right: 5px;
+  cursor: pointer;
+  background: url(../../img/f/areaxiala.png);
+}
+.areaWrap .selectareaActive {
+  border-bottom: 1px solid #FFFFFF;
+}
+.showArea {
+  position: absolute;
+  display: none;
+  top: 29px;
+  left: 0px;
+  width: 400px;
+  min-height: 120px;
+  background-color: #FFFFFF;
+  z-index: 100;
+  left: 30px;
+  border: 1px solid #C4C4C4;
+  padding-top: 6px;
+}
+.showArea > a {
+  display: block;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 3px;
+  font-size: 14px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  color: #272727;
+}
+.showArea .areaActive {
+  background-color: #ff9934;
+  color: #FFFFFF;
+}
+.phoneWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.phoneWrap .movePhone,
+.phoneWrap .telPhone {
+  width: 235px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.phoneWrap .note {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.phoneWrap .orLink {
+  font-size: 12px;
+  color: #999999;
+  line-height: 30px;
+  padding: 0 5px;
+}
+.emailWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.emailWrap .email {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.setDefaultWrap {
+  margin-top: 10px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c5c5c;
+  padding-left: 40px;
+  position: relative;
+}
+.setDefaultWrap i {
+  position: absolute;
+  left: 24px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  background: url(../../img/f/setDefault.png);
+  cursor: pointer;
+}
+.saveAddress {
+  margin-top: 30px;
+  display: block;
+  width: 96px;
+  height: 28px;
+  background-color: #ff9934;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  color: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 3px;
+  margin-left: 24px;
+}
+/*我的验光单列表*/
+.myEyeGlassTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #FF9934;
+}
+.myEyeTilte {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #333333;
+  background-color: #EEEEEE;
+}
+.myEyeTilte > li {
+  float: left;
+  width: 90px;
+  text-align: center;
+}
+.myEyeTilte > li:nth-child(3),
+.myEyeTilte > li:nth-child(9) {
+  width: 125px;
+}
+.myEyeInfoLists .myEyeItem {
+  width: 1060px;
+  height: 88px;
+  border: 1px solid #CCCCCC;
+  margin-top: 10px;
+}
+.myEyeInfoLists .myEyeItem > div {
+  float: left;
+  width: 90px;
+  height: 86px;
+  border-right: 1px solid #CCCCCC;
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+  line-height: 86px;
+}
+.myEyeInfoLists .myEyeItem > div:nth-child(3),
+.myEyeInfoLists .myEyeItem > div:nth-child(9) {
+  width: 124px;
+}
+.myEyeInfoLists .myEyeItem > div:last-child {
+  border-right: none;
+  line-height: 30px;
+  padding-top: 18px;
+}
+.myEyeInfoLists .myEyeItem > div:last-child a:first-of-type {
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #ff9934;
+  margin: 0 auto;
+}
+.myEyeInfoLists .myEyeItem > div:last-child a:last-of-type {
+  color: #666666;
+}
+.myEyeInfoLists .myEyeItem .myEyeItemNow {
+  position: relative;
+  cursor: pointer;
+}
+.myEyeInfoLists .myEyeItem .myEyeItemNow i {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: url(../../img/f/weixuanze.png);
+  top: 37px;
+  left: 38px;
+}
+.myEyeInfoLists .myEyeItem .myEyeItemNow .eyeInfoActive {
+  background: url(../../img/f/xuanze.png);
+}
+.myEyeInfoLists .myEyeItem > div:nth-child(3) {
+  line-height: 20px;
+  padding-top: 30px;
+}
+.eyeInfoProp {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 30%;
+  width: 865px;
+  background-color: #FFFFFF;
+}
+.eyeInfoProp .eyePropTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333333;
+  padding-left: 20px;
+  background-color: #EEEEEE;
+  position: relative;
+}
+.eyeInfoProp .eyePropTitle i {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/f/ModuleDelete.png);
+  right: 10px;
+  top: 13px;
+  cursor: pointer;
+}
+.eyeInfoProp table {
+  width: 845px;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+.eyeInfoProp table td {
+  border: 1px solid #FFFFFF;
+}
+.eyeInfoProp table tr:nth-child(1) {
+  height: 54px;
+  background-color: #ff9934;
+  color: #FFFFFF;
+  line-height: 20px;
+}
+.eyeInfoProp table tr:nth-child(1) td {
+  padding-top: 8px;
+  width: 140px;
+}
+.eyeInfoProp table tr:nth-child(1) td:nth-child(1) {
+  background-color: #EEEEEE;
+}
+.eyeInfoProp table tr:nth-child(2),
+.eyeInfoProp table tr:nth-child(3) {
+  height: 40px;
+  line-height: 40px;
+  background-color: #EEEEEE;
+}
+.eyeInfoProp table tr:nth-child(2) td:nth-child(1),
+.eyeInfoProp table tr:nth-child(3) td:nth-child(1) {
+  background-color: #FF9934;
+  color: #FFFFFF;
+}
+.eyeInfoShow {
+  width: 845px;
+  margin: 10px auto 0;
+  border: 1px solid #CCCCCC;
+  font-size: 14px;
+  color: #666666;
+}
+.eyeInfoShow > div {
+  height: 26px;
+  line-height: 26px;
+}
+.eyeInfoShow > div span {
+  display: block;
+  float: left;
+}
+.eyeInfoShow > div span:nth-child(1) {
+  width: 106px;
+  text-align: right;
+}
+.closeBtn {
+  display: block;
+  margin: 20px auto;
+  width: 100px;
+  height: 30px;
+  background-color: #ff9934;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 30px;
+}
+/*账号绑定*/
+.accountLists {
+  margin-top: 15px;
+  width: 100%;
+}
+.accountLists .accountItem {
+  margin-top: 10px;
+  padding-left: 30px;
+  width: 100%;
+  height: 50px;
+  background-color: #EEEEEE;
+  position: relative;
+}
+.accountLists .accountItem .accountImg {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 18px;
+  left: 7px;
+}
+.accountLists .accountItem > div {
+  float: left;
+}
+.accountLists .accountItem div:nth-child(2) {
+  line-height: 50px;
+  font-size: 14px;
+  color: #666666;
+}
+.accountLists .accountItem div:nth-child(3) {
+  color: #d73535;
+  margin-left: 8px;
+  font-size: 14px;
+  line-height: 50px;
+}
+.accountLists .accountItem a {
+  position: absolute;
+  right: 20px;
+  font-size: 14px;
+  top: 18px;
+  color: #ff9934;
+}

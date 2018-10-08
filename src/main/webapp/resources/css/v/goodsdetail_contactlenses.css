@@ -1,0 +1,991 @@
+/* @import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css"; */
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.deliverFooter {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #fff;
+  height: 25px;
+}
+.titleWrap {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #cbcbcb;
+}
+.title {
+  width: 1200px;
+  height: 40px;
+  margin: 0 auto;
+}
+.title div:first-of-type {
+  float: left;
+}
+.title div:first-of-type span:nth-child(1) {
+  font-size: 14px;
+  color: #787777;
+}
+.title div:first-of-type span:nth-child(2),
+.title div:first-of-type span:nth-child(4) {
+  font-size: 22px;
+  color: #787777;
+  position: relative;
+  top: 2px;
+}
+.title div:last-of-type {
+  float: right;
+}
+.title div:last-of-type span:first-of-type {
+  font-size: 14px;
+  margin-right: 45px;
+}
+.title div:last-of-type span:last-of-type {
+  margin-right: 45px;
+}
+.title div:last-of-type a {
+  font-size: 12px;
+  color: #181412;
+}
+.title div:last-of-type a:first-of-type {
+  margin-right: 45px;
+}
+.title img{
+	position: relative;
+	top:6px;
+	left:3px;
+	
+	
+}
+.goods {
+  width: 1200px;
+  margin: 10px auto 0;
+}
+.goods .goodsImg {
+  float: left;
+  width: 400px;
+}
+.goods .goodsImg .wrap {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border: 1px solid #cbcbcb;
+}
+.goods .goodsImg .wrap .img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+}
+.goods .goodsImg .wrap .img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.goods .goodsImg .wrap .img #moveBar {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url("../../img/f/movebar.png") no-repeat;
+  background-size: 100% 100%;
+  display: none;
+}
+.goods .goodsImg .wrap #enlargeImg {
+  position: absolute;
+  top: 0;
+  left: 420px;
+  width: 400px;
+  height: 400px;
+  background: url("../../img/f/36.png") no-repeat;
+  background-position: 0 0;
+   background-size:150% 150%;
+  display: none;
+  z-index: 100;
+ 
+}
+.goods .goodsImg .imgLists {
+  margin-top: 10px;
+  height: 61px;
+  padding-left: 40px;
+  padding-right: 35px;
+}
+.goods .goodsImg .imgLists li {
+  float: left;
+  margin-right: 5px;
+  width: 61px;
+  height: 61px;
+  border: 1px solid #d2d2d2;
+}
+.goods .goodsImg .imgLists li:last-of-type {
+  margin-right: 0;
+}
+.goods .goodsImg .imgLists .active {
+  border: 1px solid green;
+}
+.goods .goodsImg .share {
+  margin-top: 15px;
+  padding-left: 40px;
+  padding-right: 35px;
+}
+.goods .goodsImg .share a {
+  font-size: 12px;
+  color: #787777;
+}
+.goods .goodsImg .share a:first-of-type {
+  padding-left: 20px;
+  margin-right: 30px;
+  position: relative;
+}
+.goods .goodsImg .share a:first-of-type i {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 11px;
+  height: 14px;
+  background: url("../../img/f/fenxiang.png");
+}
+.goods .goodsImg .share a:nth-child(2) {
+  padding-left: 20px;
+  position: relative;
+}
+.goods .goodsImg .share a:nth-child(2) i {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 1px;
+  left: 0 ;
+  background: url("../../img/f/shoucang.png");
+  background-size: 14px 14px;
+}
+.goods .goodsImg .share a:last-of-type {
+  float: right;
+  position: relative;
+  top: 3px;
+}
+.goods .goodsDetail {
+  width: 800px;
+  float: left;
+  padding-left: 20px;
+  padding-top: 30px;
+}
+.goods .goodsDetail > p {
+  font-size: 16px;
+  color: #272727;
+  font-weight: bold;
+}
+.goods .goodsDetail > div:first-of-type {
+  margin-top: 10px;
+  width: 500px;
+  height: 100px;
+  padding: 20px 5px;
+  background-color: #eeeeee;
+}
+.goods .goodsDetail > div:first-of-type p {
+  font-size: 12px;
+  color: #787777;
+}
+.goods .goodsDetail > div:first-of-type p:first-of-type span:first-of-type {
+  margin-right: 50px;
+}
+.goods .goodsDetail > div:first-of-type p:first-of-type span:nth-child(2) {
+  font-size: 16px;
+  color: #d73535;
+}
+.goods .goodsDetail > div:first-of-type p:first-of-type span:last-of-type {
+  font-size: 24px;
+  color: #d73535;
+}
+.goods .goodsDetail > div:first-of-type p:last-of-type {
+  margin-top: 20px;
+}
+.goods .goodsDetail > div:first-of-type p:last-of-type span:first-of-type {
+  margin-right: 38px;
+}
+.goods .goodsDetail > div:nth-of-type(2) {
+  margin-top: 15px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeLeft {
+  float: left;
+  width: 85px;
+  height: 16px;
+  line-height: 16px;
+  padding-left: 5px;
+  font-size: 12px;
+  color: #787777;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight {
+  width: 695px;
+  float: left;
+  margin-top: 0px;
+  font-size: 12px;
+  color: #787777;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft {
+  height: 16px;
+  line-height: 16px;
+  width: 100%;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft > div {
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(1) {
+  margin-right: 15px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) {
+  margin-right: 15px;
+  height: 16px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) span {
+  display: block;
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) span:nth-child(2) {
+  padding-left: 10px;
+  width: 70px;
+  height: 16px;
+  line-height: 14px;
+  border: 1px solid #bcbcbc;
+  border-right: 0;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) span:nth-child(3) {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) span:nth-child(3) i:nth-child(1) {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  top: 0;
+  left: 0;
+  background: url(../../img/f/images/dianji_03.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(2) span:nth-child(3) i:nth-child(2) {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  top: 8px;
+  left: 0;
+  background: url(../../img/f/images/dianji_03.png);
+  background-position: 0 8px;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(3) span {
+  display: block;
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(3) .reduce,
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(3) .add {
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  line-height: 14px;
+  background-color: #EEEEEE;
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesLeft div:nth-child(3) .number {
+  border: 1px solid #bcbcbc;
+  width: 30px;
+  height: 16px;
+  line-height: 14px;
+  text-align: center;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight {
+  height: 16px;
+  line-height: 16px;
+  width: 100%;
+  margin-top: 15px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight > div {
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(1) {
+  margin-right: 15px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) {
+  margin-right: 15px;
+  height: 16px;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) span {
+  display: block;
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) span:nth-child(2) {
+  padding-left: 10px;
+  width: 70px;
+  height: 16px;
+  line-height: 14px;
+  border: 1px solid #bcbcbc;
+  border-right: 0;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) span:nth-child(3) {
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) span:nth-child(3) i:nth-child(1) {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  top: 0;
+  left: 0;
+  background: url(../../img/f/images/dianji_03.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(2) span:nth-child(3) i:nth-child(2) {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  top: 8px;
+  left: 0;
+  background: url(../../img/f/images/dianji_03.png);
+  background-position: 0 8px;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(3) span {
+  display: block;
+  float: left;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(3) .reduce,
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(3) .add {
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  line-height: 14px;
+  background-color: #EEEEEE;
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(2) .DegreeRight .eyesRight div:nth-child(3) .number {
+  border: 1px solid #bcbcbc;
+  width: 30px;
+  height: 16px;
+  line-height: 14px;
+  text-align: center;
+}
+.goods .goodsDetail > div:nth-of-type(3) {
+  height: 30px;
+  margin-top: 30px;
+  padding-left: 5px;
+}
+.goods .goodsDetail > div:nth-of-type(3) span {
+  display: block;
+  float: left;
+  width: 120px;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.goods .goodsDetail > div:nth-of-type(3) span:first-of-type {
+  background-color: #ff9934;
+  color: #ffffff;
+  line-height: 30px;
+  margin-right: 20px;
+}
+.goods .goodsDetail > div:nth-of-type(3) span:last-of-type {
+  line-height: 28px;
+  border: 1px solid #ff9934;
+  color: #ff9934;
+}
+.goods .goodsDetail > div:last-of-type {
+  margin-top: 25px;
+  padding-left: 5px;
+  font-size: 12px;
+  color: #787777;
+}
+.goods .goodsDetail > div:last-of-type span:nth-of-type(2) {
+  margin-right: 10px;
+}
+.goods .goodsDetail > div:last-of-type span:nth-of-type(3) {
+  margin-right: 10px;
+}
+.aboutGoods {
+  width: 1200px;
+  margin: 30px auto 0;
+}
+.aboutGoods .adLeft {
+  width: 245px;
+  float: left;
+}
+.aboutGoods .adLeft .store {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #ff9934;
+}
+.aboutGoods .adLeft .store div:first-of-type {
+  width: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.aboutGoods .adLeft .store div:first-of-type span:first-of-type {
+  font-size: 14px;
+  margin-right: 25px;
+}
+.aboutGoods .adLeft .store div:first-of-type span:nth-of-type(2),
+.aboutGoods .adLeft .store div:first-of-type span:nth-of-type(3) {
+  font-size: 12px;
+  color: #787777;
+}
+.aboutGoods .adLeft .store .storeLogo {
+  width: 100%;
+  height: 80px;
+}
+.aboutGoods .adLeft .store .goStore {
+  padding-left: 25px;
+  height: 25px;
+}
+.aboutGoods .adLeft .store .goStore a {
+  display: block;
+  width: 80px;
+  height: 25px;
+  float: left;
+  font-size: 12px;
+  border-radius: 3px;
+  line-height: 23px;
+  text-align: center;
+  cursor: pointer;
+}
+.aboutGoods .adLeft .store .goStore a:first-of-type {
+  border: 1px solid #ff9934;
+  color: #ff9934;
+  margin-right: 20px;
+}
+.aboutGoods .adLeft .store .goStore a:last-of-type {
+  border: 1px solid #bcbcbc;
+  color: #787777;
+}
+.aboutGoods .adLeft .hotProducts {
+  margin-top: 10px;
+  border-top: 1px solid #ff9934;
+  border-left: 1px solid #bcbcbc;
+  border-right: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
+}
+.aboutGoods .adLeft .hotProducts .title {
+  width: 100%;
+  height: 34px;
+  font-size: 14px;
+  color: #272727;
+  padding-left: 25px;
+  line-height: 34px;
+  background-color: #eeeeee;
+}
+.aboutGoods .adLeft .hotProducts .productLists {
+  padding: 0 10px;
+}
+.aboutGoods .adLeft .hotProducts .productLists li {
+  width: 100%;
+  border-bottom: 1px solid #bcbcbc;
+}
+.aboutGoods .adLeft .hotProducts .productLists li img {
+  display: block;
+  width: 100%;
+  height: 223px;
+}
+.aboutGoods .adLeft .hotProducts .productLists li p:first-of-type {
+  padding: 0 20px;
+  font-size: 12px;
+  color: #999999;
+  line-height: 16px;
+}
+.aboutGoods .adLeft .hotProducts .productLists li p:last-of-type {
+  color: #d73535;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+.aboutGoods .adLeft .hotProducts .productLists li:last-of-type {
+  border-bottom: none;
+}
+.aboutGoods .productsParameters {
+  float: left;
+  width: 935px;
+  margin-left: 20px;
+  border-left: 1px solid #bcbcbc;
+  border-right: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
+}
+.aboutGoods .productsParameters .tabControl {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  background-color: #eeeeee;
+}
+.aboutGoods .productsParameters .tabControl li {
+  float: left;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.aboutGoods .productsParameters .tabControl .currentLi {
+  color: #ffffff;
+  background-color: #ff9934;
+}
+.aboutGoods .productsParameters > div {
+  display: none;
+}
+.aboutGoods .productsParameters .currentDiv {
+  display: block;
+}
+.graphicIntroduction {
+  padding: 30px 72px 100px 71px;
+}
+.parameter {
+  padding: 25px 35px 100px;
+}
+.parameter table {
+  border-collapse: collapse;
+  line-height: 29px;
+  font-size: 12px;
+  color: #787777;
+}
+.parameter th,
+.parameter td {
+  border: 1px solid #dcdcdc;
+  width: 863px;
+  text-align: left;
+  padding-left: 5px;
+  color: #787777;
+}
+.parameter tr {
+  height: 30px;
+}
+.parameter tr th {
+  background-color: #eeeeee;
+  color: #181412;
+  font-weight: bold;
+}
+.parameter tr td:first-of-type {
+  width: 180px;
+}
+.afterPacking {
+  padding: 15px 20px 100px;
+}
+.afterPacking dt {
+  font-size: 14px;
+  color: #ff9934;
+  margin-bottom: 5px;
+}
+.afterPacking dd {
+  margin-bottom: 15px;
+}
+.afterPacking dd p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #787777;
+}
+.afterPacking table {
+  border-collapse: collapse;
+  line-height: 29px;
+  font-size: 12px;
+  color: #787777;
+}
+.afterPacking th,
+.afterPacking td {
+  border: 1px solid #dcdcdc;
+  width: 863px;
+  text-align: left;
+  padding-left: 5px;
+  color: #787777;
+}
+.afterPacking tr {
+  height: 30px;
+}
+.afterPacking tr th {
+  background-color: #eeeeee;
+  color: #181412;
+  font-weight: bold;
+}
+.afterPacking tr td:first-of-type {
+  width: 180px;
+}
+.reviews {
+  margin-top: 20px;
+}
+.reviews .catalog {
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
+  font-size: 14px;
+  line-height: 28px;
+  padding-left: 5px;
+  background-color: #eeeeee;
+}
+.reviews .particular {
+  padding: 15px 0 10px;
+}
+.reviews .particular .particularLeft {
+  float: left;
+  width: 100px;
+  height: 60px;
+  padding-top: 4px;
+}
+.reviews .particular .particularLeft span {
+  display: block;
+  text-align: center;
+}
+.reviews .particular .particularLeft span:first-of-type {
+  font-size: 14px;
+  color: #787777;
+}
+.reviews .particular .particularLeft span:last-of-type {
+  font-size: 22px;
+  color: #d73535;
+  margin-top: 10px;
+}
+.reviews .particular div:nth-child(2) {
+  float: left;
+  width: 833px;
+}
+.reviews .bfb {
+  height: 20px;
+  line-height: 20px;
+}
+.reviews .bfb > div {
+  float: left;
+}
+.reviews .bfb div:nth-child(1) {
+  font-size: 14px;
+  margin-right: 2px;
+}
+.reviews .bfb div:nth-child(2) {
+  width: 200px;
+  height: 20px;
+  padding: 6px 0;
+}
+.reviews .bfb div:nth-child(2) > div {
+  width: 0;
+  height: 8px;
+}
+.reviews .bfb div:nth-child(3) {
+  font-size: 14px;
+  margin-left: 3px;
+}
+.reviews .commentTab .listsController {
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid #bcbcbc;
+  border-bottom: 1px solid #bcbcbc;
+  line-height: 28px;
+  padding-left: 5px;
+  font-size: 12px;
+  background-color: #eeeeee;
+}
+.reviews .commentTab .listsController li {
+  float: left;
+  text-align: center;
+  margin-right: 20px;
+}
+.reviews .commentTab .listsController li span {
+  color: #787777;
+  cursor: pointer;
+}
+.reviews .commentTab .listsController li span:nth-child(1) {
+  color: #181412;
+}
+.reviews .commentTab .listsController .commentActive span {
+  color: #ff9934!important;
+}
+.reviews .commentTab .commentView .commentItem {
+  border-bottom: 1px solid #eeeeee;
+  font-size: 12px;
+  color: #999999;
+  padding: 15px 0 15px 5px;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyerText {
+  float: left;
+  width: 500px;
+  color: #181412;
+  line-height: 20px;
+  margin-right: 100px;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyerGoods {
+  float: left;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyerGoods p:nth-child(1) {
+  margin-bottom: 6px;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyer {
+  float: right;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyer p {
+  padding-right: 20px;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyer p span:nth-child(1) {
+  color: #181412;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyer div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.reviews .commentTab .commentView .commentItem .buyerDes .buyer div img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showLists .item {
+  float: left;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffffff;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showLists .item img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showLists .itemActive {
+  border: 1px solid #ff9934;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showBig {
+  margin-top: 5px;
+  position: relative;
+  display: none;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showBig img {
+  display: block;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  padding: 3px 2px;
+  max-width: 933px;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showBig .btnPre {
+  position: absolute;
+  top: calc(42%);
+  left: 10px;
+  z-index: 1000;
+  width: 10px;
+  height: 18px;
+  background: url("../../img/f/btnPre.png");
+  cursor: pointer;
+}
+.reviews .commentTab .commentView .commentItem .buyerShow .showBig .btnNext {
+  position: absolute;
+  top: calc(42%);
+  left: 50px;
+  z-index: 1000;
+  width: 10px;
+  height: 18px;
+  background: url("../../img/f/btnNext.png");
+  cursor: pointer;
+}
+.reviews .commentTab .commentView .commentItem .publishDate {
+  margin-top: 20px;
+}
+.reviews .commentTab .commentView .commentItem .addComment {
+  margin-top: 10px;
+}
+.reviews .commentTab .commentView .commentItem .addComment .numberComment {
+  height: 20px;
+  line-height: 20px;
+}
+.reviews .commentTab .commentView .commentItem .addComment .numberComment > div {
+  float: left;
+  padding-left: 18px;
+  position: relative;
+}
+.reviews .commentTab .commentView .commentItem .addComment .numberComment > div i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  background: url("../../img/f/dianzan.png");
+  cursor: pointer;
+}
+.reviews .commentTab .commentView .commentItem .addComment .numberComment div:nth-child(2) {
+  margin-left: 15px;
+}
+.reviews .commentTab .commentView .commentItem .addComment .numberComment div:nth-child(2) i {
+  width: 14px;
+  height: 11px;
+  top: 6px;
+  background: url("../../img/f/huifu.png");
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists {
+  margin-top: 10px;
+  width: 700px;
+  border-top: 1px solid #eeeeee;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li {
+  margin-top: 5px;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li .des div:nth-child(1) {
+  float: left;
+  width: 600px;
+  line-height: 20px;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li .des div:nth-child(1) .blue {
+  color: #66a9df;
+  cursor: pointer;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li .des div:nth-child(2) {
+  float: right;
+  width: 48px;
+  height: 20px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #d2d2d2;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li .des .replayActive {
+  color: #ffa347;
+  border: 1px solid #ffa347!important;
+}
+.reviews .commentTab .commentView .commentItem .addCommentLists li .date {
+  margin-top: 10px;
+}
+.replayWrap {
+  width: 700px;
+  margin-top: 6px;
+  display: none;
+}
+.replayWrap .textWrap {
+  padding: 0;
+  width: 700px;
+  height: 50px;
+  border: 1px solid #d2d2d2;
+}
+.replayWrap .textWrap textarea {
+  border: none;
+  outline: none;
+  width: 698px;
+  height: 48px;
+  resize: none;
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #999999!important;
+}
+.replayWrap .numWrap {
+  margin-top: 5px;
+  height: 20px;
+  line-height: 20px;
+}
+.replayWrap .numWrap .submitComment {
+  display: block;
+  float: left;
+  width: 50px;
+  font-size: 14px;
+  height: 20px;
+  color: #ffffff;
+  background-color: #ff9934;
+  text-align: center;
+  cursor: pointer;
+}
+.replayWrap .numWrap .num {
+  float: right;
+  display: block;
+  text-align: right;
+}
+/*页面的跳转*/
+.page_wrap {
+  width: 100%;
+  padding: 80px 10px 30px 0;
+  height: 146px;
+}
+.pageGoto {
+  float: right;
+  width: 420px;
+  height: 36px;
+  line-height: 36px;
+}
+.pageGoto li {
+  float: left;
+}
+.pageGoto li:nth-child(1),
+.pageGoto li:nth-child(4) {
+  position: relative;
+  width: 84px;
+  height: 36px;
+  font-size: 14px;
+  color: #cfcfcf;
+  border: 1px solid #cbcbcb;
+  cursor: pointer;
+}
+.pageGoto li:nth-child(1) {
+  padding-left: 32px;
+  margin-right: 20px;
+}
+.pageGoto li:nth-child(1) .pre {
+  position: absolute;
+  width: 17px;
+  height: 11px;
+  background: url("../../img/f/pre.png");
+  top: 13px;
+  left: 12px;
+}
+.pageGoto li:nth-child(4) {
+  padding-left: 7px;
+  padding-right: 30px;
+}
+.pageGoto li:nth-child(4) .next {
+  position: absolute;
+  width: 17px;
+  height: 11px;
+  background: url("../../img/f/next.png");
+  top: 12px;
+  right: 10px;
+}
+.pageGoto li:nth-child(2) span {
+  float: left;
+  display: block;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  font-size: 18px;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  border-right: 1px solid #cbcbcb;
+  cursor: pointer;
+}
+.pageGoto li:nth-child(2) span:first-of-type {
+  border-left: 1px solid #cbcbcb;
+}
+.pageGoto li:nth-child(2) .pageActive {
+  border: 0;
+  color: #ffffff;
+  background-color: #ff9913;
+}
+.pageGoto li:nth-child(3) span {
+  display: block;
+  float: left;
+  text-align: center;
+}
+.pageGoto li:nth-child(3) span:first-of-type {
+  width: 16px;
+  height: 36px;
+}
+.pageGoto li:nth-child(3) span:last-of-type {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  border-left: 1px solid #cbcbcb;
+}

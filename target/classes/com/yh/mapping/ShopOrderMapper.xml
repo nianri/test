@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopOrderMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.ShopOrder">
+		<result column="orderid" jdbcType="VARCHAR" property="orderid" />
+		<result column="ordercode" jdbcType="INTEGER" property="ordercode" />
+		<result column="shopid" jdbcType="VARCHAR" property="shopid" />
+		<result column="oilsid" jdbcType="VARCHAR" property="oilsid" />
+		<result column="memberid" jdbcType="VARCHAR" property="memberid" />
+		<result column="ordertime" jdbcType="VARCHAR" property="ordertime" />
+		<result column="totalprice" jdbcType="DOUBLE" property="totalprice" />
+		<result column="couponprice" jdbcType="DOUBLE" property="couponprice" />
+		<result column="realprice" jdbcType="DOUBLE" property="realprice" />
+		<result column="couponid" jdbcType="VARCHAR" property="couponid" />
+		<result column="orderdesc" jdbcType="VARCHAR" property="orderdesc" />
+		<result column="paytype" jdbcType="VARCHAR" property="paytype" />
+		<result column="paytime" jdbcType="VARCHAR" property="paytime" />
+		<result column="paycode" jdbcType="VARCHAR" property="paycode" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="memo" jdbcType="VARCHAR" property="memo" />
+	</resultMap>
+	<insert id="insertShopOrder" parameterType="com.yh.model.ShopOrder">
+		insert into
+		shop_order (orderid, ordercode, shopid,oilsid,memberid, ordertime,
+		totalprice,
+		couponprice, realprice, couponid,orderdesc, paytype,
+		paytime,paycode, status, memo
+		)
+		values (#{orderid,jdbcType=VARCHAR},#{ordercode,jdbcType=INTEGER},
+		#{shopid,jdbcType=VARCHAR},#{oilsid,jdbcType=VARCHAR},
+		#{memberid,jdbcType=VARCHAR}, #{ordertime,jdbcType=VARCHAR},
+		#{totalprice,jdbcType=DOUBLE},#{couponprice,jdbcType=DOUBLE},
+		#{realprice,jdbcType=DOUBLE},#{couponid,jdbcType=VARCHAR},
+		#{orderdesc,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR},
+		#{paytime,jdbcType=VARCHAR},#{paycode,jdbcType=VARCHAR},
+		#{status,jdbcType=VARCHAR},	#{memo,jdbcType=VARCHAR})
+	</insert>
+	<select id="getShopOrderList" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopOrder">
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,
+		paytype,paytime,paycode,t1.status,t1.memo,t1.shopid,t2.shopname,t1.memberid,integral,
+		(select oilsname from dic_oils t3 where t1.oilsid=t3.oilsid) as oilsname 
+		from shop_order t1 left	join shop_info t2 on t1.shopid=t2.shopid where 1=1
+		<if test="status != null and status !=''">
+			and t1.status = #{status}
+		</if>
+		<if test="shopname != null and shopname !=''">
+			and t2.shopname = #{shopname}
+		</if>
+		<if test="begintime != null and begintime !=''">
+			and t1.ordertime <![CDATA[ >= ]]>
+			#{begintime}
+		</if>
+		<if test="endtime != null and endtime !=''">
+			and t1.ordertime <![CDATA[ <= ]]>
+			#{endtime}
+		</if>
+		<if test="memberid != null and memberid !=''">
+			and t1.memberid = #{memberid}
+		</if>
+		order by ordertime desc
+	</select>
+	<select id="getShopOrderById" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOrder">
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,paytype,paytime,paycode,t1.status,t1.memo,
+		t1.shopid,t2.shopname,t1.memberid,concat_ws("-",t3.membercode,t3.memberphone,t3.realname) as memberdesc,
+		t1.integral,(select oilsname from dic_oils t3 where t1.oilsid=t3.oilsid) as oilsname 
+		from shop_order t1
+		left join shop_info t2 on	t1.shopid=t2.shopid left join member_info t3 on
+		t1.memberid=t3.memberid where orderid = #{orderid}
+	</select>
+	<select id="getShopOrderByMemberId" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOrder">
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,
+		paytype,paytime,paycode,t1.status,t1.memo,t1.shopid,t2.shopname,t1.memberid,integral 
+		from shop_order t1 left	join shop_info t2 on t1.shopid=t2.shopid 
+		where t1.memberid = #{memberid}
+	</select>
+</mapper>

@@ -1,0 +1,132 @@
+@import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.deliverFooter {
+  width: 100%;
+  background-color: #EEEEEE;
+  height: 10px;
+  margin-top: 20px;
+}
+.tab {
+  margin: 0 auto;
+  width: 1200px;
+  border: 1px solid #d2d2d2;
+}
+.tab ul li {
+  width: 1200px;
+  border-bottom: 1px solid #d2d2d2;
+  position: relative;
+}
+.tab ul li div:first-of-type {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 110px;
+  font-size: 14px;
+  background-color: #ececec;
+  color: #787878;
+}
+.tab ul li div:last-of-type {
+  float: left;
+  margin-left: 110px;
+  width: 1088px;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 30px;
+}
+.tab ul li div:last-of-type a {
+  color: #181411;
+  margin-right: 30px;
+}
+.tab ul li:last-of-type {
+  border-bottom: 0;
+}
+.ranking {
+  width: 1200px;
+  margin: 25px auto 10px;
+  border: 1px solid  #d2d2d2;
+  padding: 8px 10px;
+}
+.ranking span {
+  display: block;
+  float: left;
+  height: 24px;
+  line-height: 22px;
+  text-align: center;
+  padding: 0 5px;
+  font-size: 16px;
+  border-top: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  border-right: 1px solid #d2d2d2;
+  cursor: pointer;
+}
+.ranking span:nth-child(1) {
+  background-color: #fd9a32;
+  color: #ffffff;
+}
+.ranking span:last-of-type {
+  position: relative;
+  padding-right: 18px;
+}
+.ranking span:last-of-type b:first-of-type {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -6px;
+  right: 5px;
+  font-size: 10px;
+}
+.ranking span:last-of-type b:last-of-type {
+  position: absolute;
+  font-size: 10px;
+  width: 10px;
+  height: 10px;
+  bottom: 7px;
+  right: 5px;
+}
+.ProductLists {
+  width: 1200px;
+  margin: 0 auto;
+}
+.ProductLists li {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  width: 224px;
+  height: 297px;
+  border: 1px solid #d2d2d2;
+}
+.ProductLists li img {
+  width: 100%;
+  height: 222px;
+  display: block;
+}
+.ProductLists li p:first-of-type {
+  margin-top: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #d73535;
+}
+.ProductLists li p:last-of-type {
+  margin-top: 3px;
+  padding: 0 10px;
+  font-size: 12px;
+  color: #181412;
+  line-height: 18px;
+  max-height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ProductLists li:nth-child(5n) {
+  margin-right: 0;
+}

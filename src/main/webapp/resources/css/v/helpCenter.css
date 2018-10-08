@@ -1,0 +1,75 @@
+@import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "UTF-8";
+body {
+  background-color: #EEEEEE;
+}
+.footer {
+  margin-top: 0!important;
+}
+.content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: #FFFFFF;
+}
+.helpTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #333333;
+}
+.helpLeft {
+  width: 200px;
+  float: left;
+}
+.helpLeft .helpTab {
+  width: 200px;
+}
+.helpLeft .helpTab > li {
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  background-color: #EEEEEE;
+  font-size: 14px;
+  color: #666666;
+  line-height: 40px;
+  border-bottom: 1px solid #FFFFFF;
+}
+.helpLeft .helpTab .helpTabActive {
+  background-color: #ff9934;
+  color: #FFFFFF;
+}
+.helpLeft a {
+  display: block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: #D73535;
+  color: #FFFFFF;
+  font-size: 14px;
+  margin: 40px auto 0;
+}
+.helpLeft div {
+  line-height: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+.helpRight {
+  float: left;
+  width: 940px;
+  border: 1px solid #CCCCCC;
+  font-size: 14px;
+  color: #666666;
+  margin-left: 20px;
+  padding: 10px 20px;
+  text-indent: 2em;
+  line-height: 18px;
+  text-align: justify;
+}

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.Shop">
+	    <result column="shopid"  jdbcType="VARCHAR" property="shopid" />
+	    <result column="userid" jdbcType="VARCHAR" property="userid" />
+	    <result column="shopcode" jdbcType="INTEGER" property="shopcode" />
+	    <result column="shopname" jdbcType="VARCHAR" property="shopname" />
+	    <result column="shopdesc" jdbcType="VARCHAR" property="shopdesc" />
+	    <result column="shopservice" jdbcType="VARCHAR" property="shopservice" />
+	    <result column="proviceid" jdbcType="VARCHAR" property="proviceid" />
+	    <result column="cityid" jdbcType="VARCHAR" property="cityid" />
+	    <result column="address" jdbcType="VARCHAR" property="address" />
+	    <result column="positionxy" jdbcType="VARCHAR" property="positionxy" />
+	    <result column="shoplogo" jdbcType="VARCHAR" property="shoplogo" />
+	    <result column="shopimg" jdbcType="VARCHAR" property="shopimg" />
+	    <result column="leadername" jdbcType="VARCHAR" property="leadername" />
+	    <result column="leadertel" jdbcType="VARCHAR" property="leadertel" />
+	    <result column="leaderemail" jdbcType="VARCHAR" property="leaderemail" />
+	    <result column="accountbank" jdbcType="VARCHAR" property="accountbank" />
+	    <result column="accountnums" jdbcType="VARCHAR" property="accountnums" />
+	    <result column="accountname" jdbcType="VARCHAR" property="accountname" />
+	    <result column="licenseimg" jdbcType="VARCHAR" property="licenseimg" />
+	    <result column="prolicenseimg" jdbcType="VARCHAR" property="prolicenseimg" />
+	    <result column="cardtop" jdbcType="VARCHAR" property="cardtop" />
+	    <result column="carddown" jdbcType="VARCHAR" property="carddown" />
+	    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+	    <result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+	    <result column="isdelete" jdbcType="VARCHAR" property="isdelete" />
+	    <result column="status" jdbcType="VARCHAR" property="status" />
+	    <result column="memo" jdbcType="VARCHAR" property="memo" />
+	    <result column="mchid" jdbcType="VARCHAR" property="mchid" />
+	    <result column="trmno" jdbcType="VARCHAR" property="trmno" />
+	    <result column="shopkey" jdbcType="VARCHAR" property="shopkey" />
+	</resultMap>
+	<insert id="insert" parameterType="com.yh.model.Shop">
+	    insert into shop_info (shopid, userid, shopcode, 
+	      shopname, shopdesc, shopservice, 
+	      proviceid, cityid, address, 
+	      positionxy, shoplogo, shopimg, 
+	      leadername, leadertel, leaderemail, 
+	      accountbank, accountnums, accountname, 
+	      licenseimg, prolicenseimg, cardtop, 
+	      carddown, createtime, creatorid, 
+	      isdelete, status, memo, 
+	      mchid, trmno, shopkey
+	      )
+	    values (#{shopid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{shopcode,jdbcType=INTEGER}, 
+	      #{shopname,jdbcType=VARCHAR}, #{shopdesc,jdbcType=VARCHAR}, #{shopservice,jdbcType=VARCHAR}, 
+	      #{proviceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+	      #{positionxy,jdbcType=VARCHAR}, #{shoplogo,jdbcType=VARCHAR}, #{shopimg,jdbcType=VARCHAR}, 
+	      #{leadername,jdbcType=VARCHAR}, #{leadertel,jdbcType=VARCHAR}, #{leaderemail,jdbcType=VARCHAR}, 
+	      #{accountbank,jdbcType=VARCHAR}, #{accountnums,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, 
+	      #{licenseimg,jdbcType=VARCHAR}, #{prolicenseimg,jdbcType=VARCHAR}, #{cardtop,jdbcType=VARCHAR}, 
+	      #{carddown,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+	      #{isdelete,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+	      #{mchid,jdbcType=VARCHAR}, #{trmno,jdbcType=VARCHAR}, #{shopkey,jdbcType=VARCHAR}
+	      )
+	</insert>
+  	<insert id="insertSelective" parameterType="com.yh.model.Shop">
+	    insert into shop_info
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	      <if test="shopid != null">
+	        shopid,
+	      </if>
+	      <if test="userid != null">
+	        userid,
+	      </if>
+	      <if test="shopcode != null">
+	        shopcode,
+	      </if>
+	      <if test="shopname != null">
+	        shopname,
+	      </if>
+	      <if test="shopdesc != null">
+	        shopdesc,
+	      </if>
+	      <if test="shopservice != null">
+	        shopservice,
+	      </if>
+	      <if test="proviceid != null">
+	        proviceid,
+	      </if>
+	      <if test="cityid != null">
+	        cityid,
+	      </if>
+	      <if test="address != null">
+	        address,
+	      </if>
+	      <if test="positionxy != null">
+	        positionxy,
+	      </if>
+	      <if test="shoplogo != null">
+	        shoplogo,
+	      </if>
+	      <if test="shopimg != null">
+	        shopimg,
+	      </if>
+	      <if test="leadername != null">
+	        leadername,
+	      </if>
+	      <if test="leadertel != null">
+	        leadertel,
+	      </if>
+	      <if test="leaderemail != null">
+	        leaderemail,
+	      </if>
+	      <if test="accountbank != null">
+	        accountbank,
+	      </if>
+	      <if test="accountnums != null">
+	        accountnums,
+	      </if>
+	      <if test="accountname != null">
+	        accountname,
+	      </if>
+	      <if test="licenseimg != null">
+	        licenseimg,
+	      </if>
+	      <if test="prolicenseimg != null">
+	        prolicenseimg,
+	      </if>
+	      <if test="cardtop != null">
+	        cardtop,
+	      </if>
+	      <if test="carddown != null">
+	        carddown,
+	      </if>
+	      <if test="createtime != null">
+	        createtime,
+	      </if>
+	      <if test="creatorid != null">
+	        creatorid,
+	      </if>
+	      <if test="isdelete != null">
+	        isdelete,
+	      </if>
+	      <if test="status != null">
+	        status,
+	      </if>
+	      <if test="memo != null">
+	        memo,
+	      </if>
+	      <if test="mchid != null">
+	        mchid,
+	      </if>
+	      <if test="trmno != null">
+	        trmno,
+	      </if>
+	      <if test="shopkey != null">
+	        shopkey,
+	      </if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides=",">
+	      <if test="shopid != null">
+	        #{shopid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="userid != null">
+	        #{userid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shopcode != null">
+	        #{shopcode,jdbcType=INTEGER},
+	      </if>
+	      <if test="shopname != null">
+	        #{shopname,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shopdesc != null">
+	        #{shopdesc,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shopservice != null">
+	        #{shopservice,jdbcType=VARCHAR},
+	      </if>
+	      <if test="proviceid != null">
+	        #{proviceid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="cityid != null">
+	        #{cityid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="address != null">
+	        #{address,jdbcType=VARCHAR},
+	      </if>
+	      <if test="positionxy != null">
+	        #{positionxy,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shoplogo != null">
+	        #{shoplogo,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shopimg != null">
+	        #{shopimg,jdbcType=VARCHAR},
+	      </if>
+	      <if test="leadername != null">
+	        #{leadername,jdbcType=VARCHAR},
+	      </if>
+	      <if test="leadertel != null">
+	        #{leadertel,jdbcType=VARCHAR},
+	      </if>
+	      <if test="leaderemail != null">
+	        #{leaderemail,jdbcType=VARCHAR},
+	      </if>
+	      <if test="accountbank != null">
+	        #{accountbank,jdbcType=VARCHAR},
+	      </if>
+	      <if test="accountnums != null">
+	        #{accountnums,jdbcType=VARCHAR},
+	      </if>
+	      <if test="accountname != null">
+	        #{accountname,jdbcType=VARCHAR},
+	      </if>
+	      <if test="licenseimg != null">
+	        #{licenseimg,jdbcType=VARCHAR},
+	      </if>
+	      <if test="prolicenseimg != null">
+	        #{prolicenseimg,jdbcType=VARCHAR},
+	      </if>
+	      <if test="cardtop != null">
+	        #{cardtop,jdbcType=VARCHAR},
+	      </if>
+	      <if test="carddown != null">
+	        #{carddown,jdbcType=VARCHAR},
+	      </if>
+	      <if test="createtime != null">
+	        #{createtime,jdbcType=VARCHAR},
+	      </if>
+	      <if test="creatorid != null">
+	        #{creatorid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="isdelete != null">
+	        #{isdelete,jdbcType=VARCHAR},
+	      </if>
+	      <if test="status != null">
+	        #{status,jdbcType=VARCHAR},
+	      </if>
+	      <if test="memo != null">
+	        #{memo,jdbcType=VARCHAR},
+	      </if>
+	      <if test="mchid != null">
+	        #{mchid,jdbcType=VARCHAR},
+	      </if>
+	      <if test="trmno != null">
+	        #{trmno,jdbcType=VARCHAR},
+	      </if>
+	      <if test="shopkey != null">
+	        #{shopkey,jdbcType=VARCHAR},
+	      </if>
+	    </trim>
+	</insert>
+ 	<select id="getShopById" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select *,
+		(select n.areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select n.areaname from dic_area n where m.cityid=n.areaid) as cityname,
+		(select n.areaname from dic_area n where m.countyid=n.areaid) as countyname
+		 from shop_info m where isdelete='1' and shopid = #{shopid}
+	</select>
+ 	<select id="getShopList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg,
+		(select areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
+		(select areaname from dic_area n where m.countyid=n.areaid) as countyname
+		from shop_info m where isdelete='1'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		order by shopcode desc
+	</select>
+	<update id="updateShopStatus" parameterType="com.yh.model.Shop">
+	     update shop_info set status=#{status} ,positionxy=#{positionxy}where shopid=#{shopid}             
+	</update>
+	<update  id="deleteShop" parameterType="com.yh.model.Shop">
+ 		 update shop_info set isdelete='0' where shopid=#{shopid}             
+ 	</update >
+  	<select id="getShopCheckList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select m.shopid,n.submittime,shopname,address,n.status as checkstatus,
+		(select areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
+		(select areaname from dic_area n where m.countyid=n.areaid) as countyname,
+		(select concat_ws("-",membercode,memberphone,realname) from member_info t where t.memberid=n.submitterid) member
+		from shop_info m left join shop_check n on n.status='0' and m.shopid=n.shopid 
+		where m.isdelete='1' and m.status ='1'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		<if test="checkstatus != null and checkstatus !=''">
+			and n.status = #{checkstatus}
+		</if>
+		order by submittime desc
+	</select>
+	<select id="getShopByRight" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg from shop_info where isdelete='1'		
+		order by shopcode
+	</select>
+	<update  id="saveShopXY" parameterType="com.yh.model.Shop">
+ 		 update shop_info set positionxy=#{positionxy} where shopid=#{shopid}             
+ 	</update > 
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopOilsMapper">
+  <resultMap id="BaseResultMap" type="com.yh.model.ShopOils">
+    <result column="shopoilsid" jdbcType="VARCHAR" property="shopoilsid" />
+    <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+    <result column="oilsid" jdbcType="VARCHAR" property="oilsid" />
+    <result column="sourceprice" jdbcType="DOUBLE" property="sourceprice" />
+    <result column="couponprice" jdbcType="DOUBLE" property="couponprice" />
+    <result column="payprice1" jdbcType="DOUBLE" property="payprice1" />
+    <result column="payprice2" jdbcType="DOUBLE" property="payprice2" />
+    <result column="payprice3" jdbcType="DOUBLE" property="payprice3" />
+    <result column="payprice4" jdbcType="DOUBLE" property="payprice4" />
+    <result column="payprice5" jdbcType="DOUBLE" property="payprice5" />
+    <result column="payprice6" jdbcType="DOUBLE" property="payprice6" />
+    <result column="payprice7" jdbcType="DOUBLE" property="payprice7" />
+    <result column="runtime" jdbcType="VARCHAR" property="runtime" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="ordernum" jdbcType="VARCHAR" property="ordernum" />
+  </resultMap>
+  <insert id="insertShopOils" parameterType="com.yh.model.ShopOils">
+    insert into shop_oils (shopoilsid,shopid,oilsid,sourceprice,couponprice,payprice1, 
+    payprice2,payprice3,payprice4,payprice5,payprice6,payprice7,runtime,createtime,creatorid,status,memo,ordernum)
+    values (#{shopoilsid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{oilsid,jdbcType=VARCHAR}, 
+      #{sourceprice,jdbcType=DOUBLE}, #{couponprice,jdbcType=DOUBLE}, #{payprice1,jdbcType=DOUBLE}, 
+      #{payprice2,jdbcType=DOUBLE},#{payprice3,jdbcType=DOUBLE},#{payprice4,jdbcType=DOUBLE},
+      #{payprice5,jdbcType=DOUBLE},#{payprice6,jdbcType=DOUBLE},#{payprice7,jdbcType=DOUBLE}, 
+      #{runtime,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{ordernum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yh.model.ShopOils">
+    insert into shop_oils
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shopoilsid != null">
+        shopoilsid,
+      </if>
+      <if test="shopid != null">
+        shopid,
+      </if>
+      <if test="oilsid != null">
+        oilsid,
+      </if>
+      <if test="sourceprice != null">
+        sourceprice,
+      </if>
+      <if test="couponprice != null">
+        couponprice,
+      </if>
+      <if test="payprice1 != null">
+        payprice1,
+      </if>
+      <if test="payprice2 != null">
+        payprice2,
+      </if>
+      <if test="payprice3 != null">
+        payprice3,
+      </if>
+      <if test="payprice4 != null">
+        payprice4,
+      </if>
+      <if test="payprice5 != null">
+        payprice5,
+      </if>
+      <if test="payprice6 != null">
+        payprice6,
+      </if>
+      <if test="payprice7 != null">
+        payprice7,
+      </if>
+      <if test="runtime != null">
+        runtime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="creatorid != null">
+        creatorid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="ordernum != null">
+        ordernum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shopoilsid != null">
+        #{shopoilsid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="oilsid != null">
+        #{oilsid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceprice != null">
+        #{sourceprice,jdbcType=DOUBLE},
+      </if>
+      <if test="couponprice != null">
+        #{couponprice,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice1 != null">
+        #{payprice1,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice2 != null">
+        #{payprice2,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice3 != null">
+        #{payprice3,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice4 != null">
+        #{payprice4,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice5 != null">
+        #{payprice5,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice6 != null">
+        #{payprice6,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice7 != null">
+        #{payprice7,jdbcType=DOUBLE},
+      </if>
+      <if test="runtime != null">
+        #{runtime,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getShopOilsList" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOils">
+	   select t1.shopoilsid,t1.shopid,t1.oilsid,t1.sourceprice,t1.couponprice,t1.payprice1,
+		t1.payprice2,t1.payprice3,t1.payprice4,t1.payprice5,t1.payprice6,t1.payprice7,
+		t1.runtime,t1.createtime,t1.creatorid,t1.status,t1.memo,t1.ordernum,
+		t2.shopname,t3.oilscode,t3.oilsname
+		from shop_oils t1 
+		left join shop_info t2 on t1.shopid=t2.shopid
+		left join dic_oils t3 on t1.oilsid=t3.oilsid
+		where 1=1
+		<if test="status != null and status !=''" >
+	        and t1.status = #{status}
+	    </if>
+	    <if test="shopname != null and shopname !=''" >
+	        and t2.shopname like "%"#{shopname}"%"
+	    </if>
+	    order by ordernum
+  </select>
+  <select id="getShopOilsById" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOils">
+    select shopoilsid,shopid,oilsid,sourceprice,couponprice,payprice1,payprice2,
+    payprice3,payprice4,payprice5,payprice6,payprice7,runtime,createtime,creatorid,status,memo,
+    (select shopname from shop_info n where m.shopid=n.shopid ) as shopname,
+	(select oilsname from dic_oils n where m.oilsid=n.oilsid ) as oilsname,ordernum 
+    from shop_oils m where shopoilsid = #{shopoilsid}
+  </select>
+  <update id="deleteShopOils" parameterType="com.yh.model.ShopOils">
+    delete from  shop_oils where shopoilsid=#{shopoilsid}
+  </update>
+  <update id="updateShopOilsById" parameterType="com.yh.model.ShopOils">
+    update shop_oils set shopid=#{shopid},oilsid=#{oilsid},sourceprice=#{sourceprice}, 
+    couponprice=#{couponprice},payprice1=#{payprice1},payprice2=#{payprice2},payprice3=#{payprice3},
+    payprice4=#{payprice4},payprice5=#{payprice5},payprice6=#{payprice6},payprice7=#{payprice7},
+    runtime=#{runtime},status=#{status},ordernum=#{ordernum}
+    where shopoilsid=#{shopoilsid}             
+  </update>
+  <select id="isExistsShopOils" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOils">
+	    select shopoilsid from shop_oils m where shopid = #{shopid} and oilsid = #{oilsid}	     
+  </select>
+</mapper>

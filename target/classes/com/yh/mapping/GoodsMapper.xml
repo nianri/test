@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.yh.model.Goods">
+    <result column="goodsid" jdbcType="VARCHAR" property="goodsid" />
+    <result column="goodscode" jdbcType="INTEGER" property="goodscode" />
+    <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+    <result column="goodsdesc" jdbcType="VARCHAR" property="goodsdesc" />
+    <result column="goodstype" jdbcType="VARCHAR" property="goodstype" />
+    <result column="goodsimg" jdbcType="VARCHAR" property="goodsimg" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="integral" jdbcType="INTEGER" property="integral" />
+    <result column="goodspack" jdbcType="VARCHAR" property="goodspack" />
+    <result column="brandname" jdbcType="VARCHAR" property="brandname" />
+    <result column="companyname" jdbcType="VARCHAR" property="companyname" />
+    <result column="classid" jdbcType="VARCHAR" property="classid" />
+    <result column="subclassid" jdbcType="VARCHAR" property="subclassid" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="isdelete" jdbcType="VARCHAR" property="isdelete" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <insert id="insertGoods" parameterType="com.yh.model.Goods">
+    insert into goods_info (goodsid, goodscode, goodsname, 
+      goodsdesc, goodstype, goodsimg, 
+      price, integral, goodspack, 
+      brandname, companyname, classid, 
+      subclassid, createtime, creatorid, 
+      status, isdelete, memo
+      )
+    values (#{goodsid,jdbcType=VARCHAR}, #{goodscode,jdbcType=INTEGER}, #{goodsname,jdbcType=VARCHAR}, 
+      #{goodsdesc,jdbcType=VARCHAR}, #{goodstype,jdbcType=VARCHAR}, #{goodsimg,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DOUBLE}, #{integral,jdbcType=INTEGER}, #{goodspack,jdbcType=VARCHAR}, 
+      #{brandname,jdbcType=VARCHAR}, #{companyname,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, 
+      #{subclassid,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{isdelete,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yh.model.Goods">
+    insert into goods_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="goodscode != null">
+        goodscode,
+      </if>
+      <if test="goodsname != null">
+        goodsname,
+      </if>
+      <if test="goodsdesc != null">
+        goodsdesc,
+      </if>
+      <if test="goodstype != null">
+        goodstype,
+      </if>
+      <if test="goodsimg != null">
+        goodsimg,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="goodspack != null">
+        goodspack,
+      </if>
+      <if test="brandname != null">
+        brandname,
+      </if>
+      <if test="companyname != null">
+        companyname,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="subclassid != null">
+        subclassid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="creatorid != null">
+        creatorid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="isdelete != null">
+        isdelete,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="goodscode != null">
+        #{goodscode,jdbcType=INTEGER},
+      </if>
+      <if test="goodsname != null">
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsdesc != null">
+        #{goodsdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="goodstype != null">
+        #{goodstype,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsimg != null">
+        #{goodsimg,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="goodspack != null">
+        #{goodspack,jdbcType=VARCHAR},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="subclassid != null">
+        #{subclassid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="getGoodsList" resultMap="BaseResultMap" parameterType="com.yh.model.Goods">
+    select goodsid,goodscode,goodsname,goodstype,goodsdesc,goodspack,brandname,goodsimg,integral,price,createtime,status 
+    from goods_info where isdelete='1' 
+    <if test="status != null and status !=''" >
+        and status = #{status}
+    </if>
+    <if test="goodsname != null and goodsname !=''" >
+        and goodsname like "%"#{goodsname}"%"
+    </if>
+    order by goodscode desc
+  </select>
+  <select id="getGoodsById" resultMap="BaseResultMap" parameterType="com.yh.model.Goods">
+    select goodsid,goodscode,goodsname,goodsdesc,goodspack,brandname,goodstype,goodsimg,integral,price,createtime,status 
+    from goods_info where goodsid = #{goodsid}
+  </select>
+  <update id="deleteGoods" parameterType="com.yh.model.Goods">
+		update goods_info set isdelete='0' where goodsid=#{goodsid}
+  </update>
+  <update id="updateGoodsById" parameterType="com.yh.model.Goods">
+	   update goods_info set goodsname=#{goodsname},goodsdesc=#{goodsdesc},goodstype=#{goodstype}, 
+       price=#{price},goodspack=#{goodspack},brandname=#{brandname},integral=#{integral},goodsimg=#{goodsimg},
+       status=#{status}  where goodsid=#{goodsid}             
+  </update>
+</mapper>

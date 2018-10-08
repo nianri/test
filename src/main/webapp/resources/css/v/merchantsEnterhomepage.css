@@ -1,0 +1,94 @@
+@import "./head.css";
+@import "./footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.contentRight>.investment{
+	display:none;
+}
+.contentRight>.qualification{
+	display:none;
+}
+.contentRight>.expense{
+	display:none;
+}
+.contentRight>.information{
+	display:none;
+}
+
+.content {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.contentLeft {
+  width: 200px;
+  float: left;
+}
+.contentLeft > li {
+  width: 200px;
+  height: 41px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #eeeeee;
+  border-top: 1px solid #FFFFFF;
+  margin-bottom:14px;
+}
+.contentLeft > li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #666666;
+  font-size: 14px;
+}
+.contentRight {
+  float: left;
+  margin-left: 20px;
+  width: 980px;
+  height: 316px;
+  border: 1px solid #cccccc;
+  padding: 0 0 20px 18px;
+}
+.contentRight .enterWrap {
+  margin-top: 10px;
+  line-height: 30px;
+  height: 30px;
+}
+.contentRight .enterWrap span {
+  display: block;
+  float: left;
+  font-size: 14px;
+  color: #666666;
+}
+.contentRight .enterWrap a {
+  display: block;
+  float: left;
+  margin-left: 15px;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  background-color: #ff9934;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.imgShow {
+  margin-top: 34px;
+}
+.imgShow img {
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+@media screen and (min-height: 750px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}

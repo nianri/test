@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>油种类</title>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="msapplication-TileImage"
+	content="assets/i/app-icon72x72@2x.png">
+<meta name="msapplication-TileColor" content="#0e90d2">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="assets/css/amazeui.min.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<script src="assets/js/jquery-3.1.1.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="../js/user/jquery.cookie.js"></script>
+<link rel="stylesheet" href="css/bothstyle.css">
+<link rel="stylesheet" href="css/oilKindstyle.css">
+</head>
+<style>
+img {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+}
+
+.price {
+	color: #e51c23;
+	font-size: 26px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.userable {
+	color: #a8a8a8;
+	font-size: 1.2rem;
+	padding: 0;
+	margin: 0;
+	margin-left: -8px;
+}
+
+.youhui {
+	color: #000;
+	font-weight: 600;
+	line-height: 41px;
+	margin-bottom: 0;
+	font-size: 1.6rem;
+}
+
+.end {
+	margin: 0;
+	font-size: 1.2rem;
+	color: #a8a8a8;
+}
+
+.phone {
+	margin: 0;
+	font-size: 1.2rem;
+	color: #a8a8a8;
+}
+
+.surp {
+	height: 2rem;
+	background: #ff0000;
+	margin-top: 2.3rem;
+	color: #fff;
+	border-radius: 7px;
+	text-align: center;
+	font-size: 1.3rem;
+	line-height: 2rem;
+}
+
+.expire {
+	margin: 0;
+	font-size: 1.2rem;
+	color: #a8a8a8;
+}
+
+.yhbigbox {
+	height: 83px;
+	background: #ffffff;
+}
+
+.yhbox1 {
+	width: 74px;
+	height: 100%;
+	position: relative;
+	float: left;
+}
+</style>
+<body>
+	<!--头部按钮-->
+	<div class="am-g btnZ">
+		<div class="am-u-sm">
+			<button class="am-btn-sm am-circle"
+				onclick="javascript:history.go(-1)">
+				<i class="am-icon-chevron-left"
+					style='position: absolute; top: 0.5rem; left: 1.6rem'></i>
+			</button>
+			<button class="am-btn-sm am-circle" onclick="addShopColl()">
+				<i class="am-icon-star-o"
+					style='font-size: 2rem; position: absolute; top: 0; left: 0.45rem;'></i>
+			</button>
+			<button class="am-btn-sm am-circle floatR"></button>
+		</div>
+	</div>
+	<!--加油站展示图-->
+	<div class="am-g am-g-collapse">
+		<div class="am-u-sm">
+			<!--优惠券 -->
+			<div id="imageHongbao">
+				<img src="image/hongbao.png"style="position: absolute; bottom: 54px; right: 12px; width: 3.5rem; height: 3.5rem;"alt="加载失败" data-am-modal="{target: '#my-alert'}" />
+			</div>
+			<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+				<div class="am-modal-dialog" style="background: red;" id="cf">
+					<!--<div class="am-modal-hd">优惠券</div>-->
+					<!--  <div class="am-modal-bd" style="background: red;" > -->
+					<!--   <div class='yhbigbox' >
+                         <div class="yhbox1">
+                            <span style="color:#e51c23;font-size:12px;position:absolute;top: 8px;left: 9px;font-weight:600;" >￥</span>
+                            <span class="price">20</span>
+                            <p class="userable">满200可用</p>
+                        </div>
+                        <div style="float:left;">
+                            <p class="youhui">优惠券</p>
+                            <p class="end">2018-11-12到期</p>
+                        </div>
+                        <div style="float:right;height:100%;margin-right: 1%;width: 30%;">
+                            <div class="surp">还剩300日</div>
+                        </div> 
+
+                    </div>
+                    <p style='text-align:center;color:#f17918;margin:0;font-size:17px;'>立即使用</p>  -->
+					<!--  </div> -->
+
+				</div>
+			</div>
+			<!--优惠券结束-->
+			<span style='display: block; width: 100%; height: 17.1rem;'
+				id='shopShowImg'> </span>
+			<p class="gasPic">
+				<span id="Shop_name" class="gasname" style='font-size: 1.8rem;'></span>
+				<!--<a href="gaspicture.html" style='margin-right: 2rem;'>更多图片<i class="am-icon-angle-right"></i></a>-->
+			</p>
+		</div>
+	</div>
+	<!--地址-->
+	<div class="am-g gasAddress">
+		<div class="am-u-sm floatL">
+			<div class="floatL" style="width: 18rem;">
+				<p class="address floatL">某某银座购物广场大开发阶段</p>
+				<p class="path" style='font-size: 13px; margin-top: 1%;'></p>
+			</div>
+			<div class="floatR">
+				<a href="javascript:void(0)" class="mapNav floatR" id="tzmap" data-am-modal="{target: '#my-actions2'}">地图导航<i class="am-icon-angle-right"></i></a>
+			</div>
+		</div>
+
+
+	</div>
+	
+	<!-- 地图导航 -->
+	<div class="am-modal-actions" id="my-actions2">
+    <div class="am-modal-actions-group">
+        <ul class="am-list">
+            <li id="bd">
+                <a href="#" style="color: #000;">百度地图</a>
+            </li>
+            <li id="gdtz">
+                <a href="#" style="color: #000;">高德地图</a>
+            </li>
+            <li id="txtz">
+                <a href="#" style="color: #000;">腾讯地图</a>
+            </li>
+        </ul>
+    </div>
+    <div class="am-modal-actions-group">
+        <button class="am-btn am-btn-secondary am-btn-block" data-am-modal-close>取消</button>
+    </div>
+</div>
+	<!--评论评分-->
+	<div class="am-g score">
+		<div class="am-u-sm floatL">
+			<span id="score" class='floatL' style="font-weight:700;">0</span><span class="floatL" style='font-size: 1.6rem; color: #f00;'>分</span>
+			<div id="Gas"></div>
+		</div>
+	</div>
+	<!--点击加油-->
+	
+	<div class="am-g oillist" id="div">
+		<!--<div class="am-u-sm oilItem">
+        <span class="floatL">92#汽油</span>
+        <div class="floatL itemPrice">
+            <p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>
+        </div>
+        <button class="floatR am-btn-secondary" data-am-modal="{target: '#my-actions'}">点击加油</button>
+    </div>-->
+		<!--<div class="am-u-sm oilItem">-->
+		<!--<span class="floatL">92#汽油</span>-->
+		<!--<div class="floatL itemPrice">-->
+		<!--<p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>-->
+		<!--</div>-->
+		<!--<button class="floatR">点击加油</button>-->
+		<!--</div>-->
+		<!--<div class="am-u-sm oilItem">-->
+		<!--<span class="floatL">92#汽油</span>-->
+		<!--<div class="floatL itemPrice">-->
+		<!--<p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>-->
+		<!--</div>-->
+		<!--<button class="floatR">点击加油</button>-->
+		<!--</div>-->
+		<!--<div class="am-u-sm oilItem">-->
+		<!--<span class="floatL">92#汽油</span>-->
+		<!--<div class="floatL itemPrice">-->
+		<!--<p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>-->
+		<!--</div>-->
+		<!--<button class="floatR">点击加油</button>-->
+		<!--</div>-->
+		<!--<div class="am-u-sm oilItem">-->
+		<!--<span class="floatL">92#汽油</span>-->
+		<!--<div class="floatL itemPrice">-->
+		<!--<p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>-->
+		<!--</div>-->
+		<!--<button class="floatR">点击加油</button>-->
+		<!--</div>-->
+		<!--<div class="am-u-sm oilItem">-->
+		<!--<span class="floatL">92#汽油</span>-->
+		<!--<div class="floatL itemPrice">-->
+		<!--<p>11.50元/升</p>-->
+		<!--<p>油站价格：12.00/升</p>-->
+		<!--</div>-->
+		<!--<button class="floatR">点击加油</button>-->
+		<!--</div>-->
+	</div>
+	<!--油站服务-->
+	<div class="am-g gasSurver" style='height: 6.0rem;'>
+		<div class="am-u-sm">
+			<p>油站服务：</p>
+			<div class="oul">
+				<!--<span>免费洗车</span>-->
+				<!--<span>礼品赠送</span>-->
+				<!--<span>加油即送积分</span>-->
+			</div>
+
+		</div>
+	</div>
+	
+	<!--弹出框-->
+	<div class="am-modal-actions box" id="my-actions">
+		<div class="am-g">
+			<div class="am-u-sm">
+				<p>
+					<span class="floatL">金额</span>
+					
+				</p>
+				<div class="priceBtn" id="pri">
+					<button class="yuanj" value="20" onclick="jine(this)" id="fl20">
+						<!-- onclick="jine(this)" -->
+						20元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+					<button class="yuanj" value="30" onclick="jine(this)" id="fl30">
+						30元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+					<button class="yuanj" value="50" onclick="jine(this)" id="fl50">
+						50元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+					<button class="yuanj" value="100" onclick="jine(this)" id="fl100">
+						100元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+					<button class="yuanj" value="200" onclick="jine(this)" id="fl200">
+						200元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+					<button class="yuanj" value="300" onclick="jine(this)" id="fl300">
+						300元
+						<p>
+							售：<span class="shouj">12.00</span>元
+						</p>
+					</button>
+				</div>
+			</div>
+			<div class="am-u-sm oilNum floatL">
+				<div class="floatR" style="margin-right:2.3rem">
+					<span class="floatL" style='font-size: 1.6rem; margin-right: 4px; margin-top: 2%;'>定义金额：</span>
+					<span class="floatR jtNum">
+                <input type="tel"  maxlength="5" class='inpo' onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');" style="width: 8rem; height: 2.8rem; border-radius: 9px; border: 1px solid #ccc; padding-left: 5%; font-size: 1.4rem;"  required ></input>
+					</span>
+				</div>
+				<div class="zuidi"
+					style="display: none; color: #ff0000; font-size: 12px; position: absolute; bottom: -13px; right: 18px;">最低金额不少于10元</div>
+				
+
+			</div>
+			<div class="am-u-sm" style="margin-bottom:1rem;">
+				<div class="floatR total">
+					<p>
+						总计：<span style="color: red;" class="cl">230</span><span style="color: red;">元</span>
+					</p>
+					<p class="second">
+						已优惠：<span class='yuan'>23.02</span>元
+					</p>
+				</div>
+			</div>
+			<button class="am-btn am-btn-block sure ti" disabled="disabled">提交订单</button>
+		</div>
+	</div>
+
+<input type="hidden" value="" id="button">
+<input type="hidden" value="" id="Shop_logo"/>
+<input type="hidden" value="" id="storeid"/>
+<input type="hidden" value="" id="goodsName"/>
+<input type="hidden" value="" id="Shop_showImage"/>
+	<script>
+	var tk=$.cookie("token");
+	/* if(!tk){
+		   location.href="login.html";
+	}else{
+		  sessionStorage.removeItem("tui");
+	} */
+var storeId=getUrlParam('storeId');
+function getUrlParam(name) {//获取url中参数
+	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	   var r = window.location.search.substr(1).match(reg); 
+	   if (r != null) return unescape(r[2]); return null; 
+};
+
+/* $(".closeBtn").click(function(){
+	$(this).parents('.am-modal-actions').addClass('am-modal-out').removeClass('am-modal-active');
+	$(this).parents('body').removeClass('am-dimmer-active')
+	$('.am-dimmer').css("display","none")
+}) */
+
+var a2;
+var a3;
+var orderData=new Array();
+var tz=document.getElementById('tzmap');
+			$(function(){
+				$.post("../shop/getShopInfo",{"storeId":storeId,"date":getServerDate()},function(data){
+					console.log(data+"**");
+					 var jing=data[0].coordinate.split(',')[0];
+					var wei=data[0].coordinate.split(',')[1];
+					var weijing=wei+','+jing;
+					var jingwei=jing+','+wei;
+					var dizhi=data[0].store_province+data[0].store_city+data[0].store_district;
+				 
+					 $("#bd").click(function () {
+						 var lat=sessionStorage.getItem("lat");
+						 var lon=sessionStorage.getItem("lon");
+						 console.log(lat+","+lon);
+						 location.href= "http://api.map.baidu.com/line?region="+data[0].Shop_name+"&name="+data[0].Shop_name+"&output=html&src=yourCompanyName|yourAppName" ;
+/* 						location.href="http://api.map.baidu.com/marker?location="+weijing+'&title='+data[0].Shop_name+'&content='+dizhi+'&output=html&src=南京宝利信科通信科技有限公司|油虎';  */
+					    })
+					    $("#gdtz").click(function(){
+					    	 var lat=sessionStorage.getItem("lat");
+							 var lon=sessionStorage.getItem("lon");
+							 var qidian=lon+','+lat
+							 console.log(qidian)
+							location.href= "http://uri.amap.com/marker?position="+qidian+'&name='+data[0].Shop_name+'&src=mypage&coordinate=gaode&callnative=0'
+							/*  location.href="https://m.amap.com/navigation/carmap/saddr="+qidian+','+'我的位置'+'&daddr='+jingwei+','+data[0].Shop_name+'&sort=dist'; */
+				/* 	location.href="http://uri.amap.com/navigation?from="+qidian+','+'我的位置'+'&to='+weijing+','+data[0].Shop_name+'&mode=car&policy=1&src=mypage&coordinate=gaode&callnative=0'; */
+
+	  			  })
+	  			  $("#txtz").click(function(){
+	    			 var lat=sessionStorage.getItem("lat");
+			 		var lon=sessionStorage.getItem("lon"); 
+					 var qidian=lat+','+lon
+					 console.log(lat+","+lon);
+	      			 location.href="http://apis.map.qq.com/uri/v1/routeplan?type=drive&fromcoord="+qidian+'&to='+data[0].Shop_name+'&tocoord='+weijing+'&policy=1&referer=tengxun';
+	    			})
+					 
+					for(var j=0;j<data.length;j++){
+						if(data[j].couid!=null){
+							orderData.push(data[j].couid);
+						}
+					}
+					
+			 var aptImg="";
+	            // if(storeCompany){
+	            // aptImg =storeCompany.aptitude_photo;
+	          
+	            aptImg =data[0].Shop_showImage;
+				 var imglist = aptImg.split(",");
+	            var html ="";
+				 html= "<img src='"+suv(imglist[0]) +"' class='picGas'/>";
+				  
+				  $('#shopShowImg').append(html);
+					$("#shopShowImg").click(function(){
+						location.href="gaspicture.html?storeId="+storeId;
+						
+						})
+					
+			
+				  $("#Shop_name").after('<a style="font-size:1.6rem;" href="gaspicture.html?storeId='+""+storeId+'">'+'更多图片'+'<i class="am-icon-angle-right" style="margin-left:5px;"></i>'+'</a>');
+			  var content=data[0].content;
+			for(var i=0;i<data.length;i++){
+		 	var d=	data[i].content;
+			var Shop_name=	data[i].Shop_name;
+			var score= data[i].score;
+			var goods_name=	data[i].goods_name;
+			var marketPrice=data[i].marketPrice;
+			 var price=	data[i].price;
+			var Shop_logo=	data[i].Shop_logo;
+			var storeid=	data[i].storeid;
+			var Shop_showImage=suv(imglist[0]);
+			var couid=data[i].couid;
+			$("#storeid").val(storeid);
+			$("#content").text(d);
+			$("#Shop_name").text(Shop_name);
+			if(score==null){
+				$("#score").html("0");
+			}
+				
+				 if(goods_name!=null&&marketPrice!=null&&price!=null){
+					 var $span=$("<span></span>");
+					 var $sp=$("<p hidden='hidden'></p>"); 
+					 var $btn=$("<button></button>");
+			
+				 var $divoilitem=$("<div></div>").addClass("am-u-sm oilItem");
+				 $span.addClass("floatL").html(goods_name+"汽油");
+				  $sp.addClass("float").html(Shop_logo); 
+				 var $itemprice=$("<div></div>").addClass("floatL itemPrice");
+				 var $ptprice=$("<p></p>").html(price+"元/升");
+				 var $scprice=$("<p class='num'></p>").html("油站价格:"+marketPrice+"元/升");
+				 $btn.addClass("floatR am-btn-secondary").attr("data-am-modal","{target: '#my-actions'}").html("点击加油");
+				 }
+	                $span.appendTo($divoilitem);
+	                 $sp.appendTo($divoilitem); 
+	                $itemprice.appendTo($divoilitem);
+	                $ptprice.appendTo($itemprice);
+	                $scprice.appendTo($itemprice);
+	                $btn.appendTo($divoilitem);
+	                $divoilitem.appendTo($(".oillist"));
+	                
+	                if(data[i].syscoupon_amount==null&&data[i].fullamount==null&&data[i].endtime==null){
+	                	document.getElementById("imageHongbao").style.display="none";
+	                }
+	                if(data[i].syscoupon_amount!=null&&data[i].fullamount!=null&&data[i].endtime!=null){
+	                	document.getElementById("imageHongbao").style.display="block";
+	                	var dbgdfgdgf=$("#ssfs").children("p").html();
+	                	
+	                	$("#cf").append('<div class="am-modal-bd" >'+
+	                	'<div class="yhbigbox" >'+
+	                	'<div class="yhbox1">'+
+	                	'<span style="color:#e51c23;font-size:12px;position:absolute;top: 8px;left: 9px;font-weight:600;" >￥'+'</span>'+
+	                	'<span class="price">'+data[i].syscoupon_amount+'</span>'+
+	                	'<p class="userable">'+"满"+data[i].fullamount+"可用"+'</p>'+
+	                	' </div>'+
+	                	 '<div style="float:left;">'+
+                       ' <p class="youhui">'+data[i].syscoupon_name+'</p>'+
+                        '<p class="end">'+data[i].endtime+"到期"+'</p>'+
+                   ' </div>'+
+                   ' <div style="float:right;height:100%;margin-right: 1%;width: 30%;">'+
+                        '<div class="surp">'+"还剩"+getDates(data[i].endtime)+"日"+'</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div style="display: none" id="sss">'+'<p  id="ko">'+'</p>'+'</div>'+'<div>'
+                   
+                    +"<p  onclick='getCoupon(this,\""+data[i].id+"\")' style='text-align:center;border-top:1px solid #ccc;color:#f17918;background:#fff;margin:0;font-size:17px;' class='getL'>"
+					+"立即领取"+ "</p>"
+					+ '</div>'
+					+ '</div>'
+					);
+	                /* for(var k=0;k<orderData.length;k++){
+										alert(orderData[k]);
+										alert(data[i].id);
+										alert(orderData[k]==data[i].id);
+										if(orderData[k]==data[i].id){
+											$("#getL").html("已领取");
+										
+									}
+									} */
+
+								}
+
+							}
+
+							$("#cf").append(
+											'<div class="am-modal-footer">'
+											
+													+ '<span class="am-modal-btn" style="background: white;">'
+													+ "确定" + '</span>'
+													+ ' </div>')
+							$(".am-btn-secondary").mousedown(function() {
+												var a = $(this).parent(".oilItem").children("span").text();
+												$("#goodsName").val(a);
+												a2 = $(this).parent(".oilItem").children("div").children("p").html();
+												a3 = $(this).parent(".oilItem").children("div").children("p.num").html()
+												var shop_logo = $(this).parent(".oilItem").children("p").html();
+												$("#Shop_logo").val(shop_logo);
+												$("#Shop_showImage").val(Shop_showImage);
+												var b = a.substring(0, 3);
+												var $yuanj = $(".yuanj");
+												var $shouj = $(".shouj");
+												for (var i = 0; i <= $yuanj.length; i++) {
+
+													 	
+													$shouj.eq(i).html(((parseInt($yuanj.eq(i).val()) / parseFloat(isNaNa(a3))).toFixed(2) * isNaNa(a2)).toFixed(2));
+												}
+
+												$(".cl").text("");
+												$(".second").children("span").text("");
+											})
+
+						})
+					
+	})
+
+
+	/* function ssssss(id) {
+		if(orderData.length>0){
+		for (var k = 0; k < orderData.length; k++) {
+			if(id!=null){
+					if (orderData[k] == id) {
+				
+				return "已领取";
+				
+			} else {
+				return "立即领取";
+			}
+			}
+		}
+		}else{
+			return null;
+		}
+	} */
+	function getServerDate() {
+		var xhr = null;
+		if (window.XMLHttpRequest) {
+			xhr = new window.XMLHttpRequest();
+		} else { // ie
+			xhr = new ActiveObject("Microsoft")
+		}
+		xhr.open("GET", "/", false)//false不可变
+		xhr.send(null);
+		var date = xhr.getResponseHeader("Date");
+		return new Date(date);
+	}
+	function getDates(date) {
+		var da = new Date(date).getTime() - new Date(getServerDate()).getTime()
+		return parseInt(da / (1000 * 60 * 60 * 24));
+	}
+	function suv(str) {
+		var img = "";
+		if (str) {
+			var img = str;
+		}
+		return img;
+	}
+	function jine(obj) {
+		var h = ((obj.value / isNaNa(a3)).toFixed(2) * isNaNa(a2)).toFixed(2);
+		var t = (obj.value - h).toFixed(2);
+		var df = $(".total").children("p").children(".cl").html(h);
+		var df = $(".total").children("p.second").children("span.yuan").html(t);
+		$("#button").val(obj.value);
+		return t;
+
+	}
+	
+	/* 点击金额input变为空 */
+	$(".yuanj").click(function(){
+		$(".inpo").val("")
+		$(".zuigao").css("display","none");
+		$(".zuidi").css("display","none");
+		$(".ti").removeAttr("disabled","disabled")
+		}) 
+	
+	
+	$(".inpo").keyup(function(){ 
+		 var cstext=$(".inpo").val();
+	if(cstext<10){
+				$(".zuidi").css("display","block");
+				$(".zuigao").css("display","none");
+				$(".ti").attr("disabled","disabled")
+				$('.cl').empty();  
+				$('.yuan').empty(); 
+			} else{ 
+		 var h=(($(".inpo").val()/isNaNa(a3)).toFixed(2)*isNaNa(a2)).toFixed(2);
+		 var t=($(".inpo").val()-h).toFixed(2); 
+		 $(".cl").append(h);
+		var xztext=$(this).val(); 
+		 var x=((xztext/isNaNa(a3)).toFixed(2)*isNaNa(a2)).toFixed(2);
+		$('.cl').empty();  
+		$('.yuan').empty(); 
+		$('.cl').append(x);  
+		$('.yuan').append(t);
+		 $("#button").val(xztext);
+		 $(".zuidi").css("display","none")
+		 $(".ti").removeAttr("disabled","disabled")
+	 
+	 }  	
+	
+	
+	 }) 
+
+
+	function isNaNa(num) {
+		var i = num.indexOf("格");
+		var j = num.indexOf("元");
+		var sd;
+		if (i > 0) {
+			sd = num.substring(i + 2, j);
+		} else {
+			sd = num.substring(0, j);
+		}
+		return sd;
+	}
+</script>
+	<script>
+var tk=$.cookie("token");
+    $('.plus').on('mousedown', function () {
+        var cs=parseInt($('.xstext').html());
+        $('.xstext').html(cs+1);
+    });
+    $('.subtraction').on('mousedown', function () {
+        var cs=$('.xstext').text();
+        if(cs==0){
+            $('.subtraction').attr("data-am-modal","{target: '#my-alert'}"); 
+            var html="<div class='am-modal am-modal-alert' tabindex='-1' id='my-alert'><div class='am-modal-dialog'> <div class='am-modal-hd'>温馨提示</div> <div class='am-modal-bd'>请您至少选择一项商品</div> <div class='am-modal-footer'> <span class='am-modal-btn'>确定</span></div></div></div>"
+            $('body').append(html)
+        }else{
+            $('.subtraction').attr("data-am-modal","");
+            $('.xstext').html(cs-1);
+        }
+    });
+    
+    
+    
+    $(".sure").click(function(){
+     	if(!tk){
+  		   location.href="login.html";
+  	}else{
+  		  sessionStorage.removeItem("tui");
+  	}
+    
+    	var orderData={};
+    	orderData.token=$.cookie("token");
+    	orderData.Shop_name=$("#Shop_name").text();
+    	orderData.price= $(".total").children("p").children("span.cl").text();
+    	orderData.Shop_logo=$("#Shop_logo").val();
+    	orderData.marPrice=$("#button").val();
+    	//orderData.storeid=$("#storeid").val();
+    	orderData.goodsName=$("#goodsName").val();
+    	orderData.Shop_showImage=$("#Shop_showImage").val();
+    	orderData.storeId=storeId;
+  
+    	$.post("../order/getCoupon",{"orderJson":JSON.stringify(orderData)},function(data){
+    		console.log(data);
+    		
+    		sessionStorage.setItem("temp",JSON.stringify(data));
+    		location.href="../mobileGuzzler/order.html";
+    	});
+    	
+    });
+    
+</script>
+
+	<script type="text/javascript">
+var tk=$.cookie("token");
+var storeId=getUrlParam('storeId');
+function getUrlParam(name) {//获取url中参数
+	   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	   var r = window.location.search.substr(1).match(reg); 
+	   if (r != null) return unescape(r[2]); return null; 
+};
+
+function addShopColl(){
+	   $.post("../user/addCollectionShop",{"storeId":storeId,"token":tk},function(data){
+		   if(data.resultCode&&data.resultCode==100){
+		   location.href="login.html";
+		   return;
+	   }
+		   alert(data.message);
+	   });
+};
+
+$(function(){
+	$.ajax({
+		url:"../front/getStoreData",
+		data:{
+			"storeId":storeId
+		},
+		type:"post",
+		success:function (data) {
+			console.log(data);
+            $(".gasname").html(data.arr[0].name);
+            $(".gasSurver .am-u-sm .oul").html(data.arr[0].service);
+            $(".address").html(data.arr[0].detail);
+            $(".ad").css("src",data.arr[0].showImage);
+            $(".score .am-u-sm span").eq(0).html(data.arr[0].storeScore);
+			var myData = eval(data.arr);
+			var n =myData.length;
+			if(n==0){
+				alert("查询没有结果，请重新设置查询条件");
+			}
+			for(var i = 0; i < myData.length; i++){
+				var content  = myData[i]['content'];
+				
+				  $("#Gas").append('<a href="stationEvaluate.html?storeId='+""+storeId+'">'+"<span style='font-weight:700;'>"+content+'</span>'+'条评价'+
+						  '<i class="am-icon-angle-right" style="margin-left:0.5rem">'+'</i>'+'</a>'
+						  			); 
+				  $("#Gas").addClass("floatR");
+			}
+			}
+	
+	})
+})
+
+ function getCoupon(obj,id){
+	if(!tk){
+		   location.href="login.html";
+	}else{
+		  sessionStorage.removeItem("tui");
+	}
+
+	$.post("../coupon/getCouponUser",{"id":id,"token":tk,"storeId":storeId},function(data){
+	if(data.success==true){
+		obj.innerHTML="已领取";
+		
+	}else{
+		alert("不可领取");
+	} 
+	
+}) 
+
+
+
+}
+</script>
+
+</body>
+</html>

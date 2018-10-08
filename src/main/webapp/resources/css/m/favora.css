@@ -1,0 +1,137 @@
+/* @import "../static/reset.css"; */
+@charset "UTF-8";
+body {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+::-webkit-input-placeholder {
+  color: #999;
+}
+:-moz-placeholder {
+  color: #999;
+}
+::-moz-placeholder {
+  color: #999;
+}
+:-ms-input-placeholder {
+  color: #999;
+}
+header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #e6e6e6;
+  color: #333333;
+}
+header .backBtn {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  width: 18px;
+  height: 27px;
+  background: url("../../img/m/backBtn.png");
+}
+header .explain {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  color: #666666;
+  font-size: 14px;
+}
+.navs {
+  width: 100%;
+  height: 42px;
+  background-color: #FFFFFF;
+}
+.navs .nav-item {
+  width: 33%;
+  float: left;
+  display: flex;
+  height: 42px;
+  justify-content: center;
+}
+.navs .nav-item a {
+  line-height: 40px;
+  color: #333333;
+}
+.navs .nav-item .active {
+  border-bottom: 2px solid #D73535;
+  color: #D73535;
+}
+.navs > div:nth-child(2) {
+  width: 34%;
+  border-left: 1px solid #E5E5E5;
+  border-right: 1px solid #E5E5E5;
+}
+.tab {
+  display: none;
+  padding: 0 20px;
+}
+.favo-item {
+  position: relative;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 8px;
+  line-height: 28px;
+}
+
+.favo-item i {
+  position: absolute;
+  top: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  background-color: #F2F2F2;
+  border-radius: 50%;
+}
+.favo-item I:first-of-type {
+  left: -10px;
+}
+.favo-item i:last-of-type {
+  right: -10px;
+}
+.favo-item > div {
+  width: 50%;
+}
+.favo-item .item-l p:nth-child(1) {
+  font-size: 16px;
+  color: #D73535;
+}
+.favo-item .item-l p:nth-child(2) {
+  font-size: 14px;
+  position: relative;
+  top: 4px;
+}
+.favo-item .item-r p:nth-child(1) {
+  color: #D73535;
+  font-weight: bolder;
+}
+.favo-item .item-r p:nth-child(1) span:nth-child(1),
+.favo-item .item-r p:nth-child(1) span:nth-child(1) {
+  font-size: 14px;
+}
+.favo-item .item-r p:nth-child(1) span:nth-child(2) {
+  font-size: 24px;
+}
+.favo-item .item-r p:nth-child(2) {
+  font-size: 14px;
+}
+/*说明*/
+.explain-text {
+  background-color: #FFFFFF;
+  padding: 5px 10px;
+  text-align: justify;
+  line-height: 18px;
+  text-indent: 2em;
+}

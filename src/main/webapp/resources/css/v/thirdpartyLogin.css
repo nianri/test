@@ -1,0 +1,147 @@
+header {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+header .logo {
+  width: 1200px;
+  margin: 0 auto;
+  line-height: 100px;
+  height: 100%;
+  font-size: 0;
+}
+header .logo img {
+  vertical-align: middle;
+  display: inline-block;
+}
+.loginWrap {
+  width: 1090px;
+  margin: 0 auto;
+  padding-left: 110px;
+}
+.loginWrap .loginTitle {
+  margin-top: 20px;
+  font-size: 14px;
+  height: 18px;
+  line-height: 16px;
+}
+.loginWrap .loginTitle .hasAccount {
+  float: left;
+  font-weight: bold;
+  border-bottom: 2px solid #ff9934;
+  margin-right: 320px;
+}
+.loginWrap .loginTitle .noAccount {
+  float: left;
+  font-weight: bold;
+  border-bottom: 2px solid #FFFFFF;
+}
+.loginWrap .loginTitle .noAccount > a {
+  color: #FF9934;
+}
+.loginWrap .welcomeTitle {
+  font-size: 14px;
+  margin-top: 35px;
+}
+.loginWrap .inputWrap {
+  margin-top: 15px;
+  padding-left: 90px;
+  height: 40px;
+  line-height: 38px;
+  border: 1px solid #c4c4c4;
+  position: relative;
+}
+.loginWrap .inputWrap > input {
+  border: none;
+  outline: none;
+  height: 38px;
+  line-height: 38px;
+}
+.loginWrap .inputWrap > i {
+  position: absolute;
+}
+.loginWrap .phoneWrap {
+  width: 310px;
+}
+.loginWrap .phoneWrap .phoneNum {
+  width: 100%;
+}
+.loginWrap .phoneWrap > i {
+  width: 14px;
+  height: 24px;
+  background: url(../../img/v/phone.png);
+  top: 8px;
+  left: 20px;
+}
+.loginWrap .passwordWrap {
+  width: 310px;
+}
+.loginWrap .passwordWrap .password {
+  width: 100%;
+}
+.loginWrap .passwordWrap > i {
+  width: 16px;
+  height: 19px;
+  left: 20px;
+  top: 10px;
+  background: url(../../img/v/password.png);
+}
+.loginWrap .captchaWrap {
+  width: 390px;
+}
+.loginWrap .captchaWrap .capthcha {
+  margin-top: 1px;
+  display: block;
+  height: 38px;
+  float: left;
+  width: 209px;
+}
+.loginWrap .captchaWrap > i {
+  width: 22px;
+  height: 16px;
+  top: 12px;
+  left: 20px;
+  background: url(../../img/v/captcha.png);
+}
+.loginWrap .captchaWrap .imgWrap {
+  float: left;
+  width: 180px;
+  height: 40px;
+  border-left: 1px solid #c4c4c4;
+  padding: 0;
+}
+.loginWrap .captchaWrap .imgWrap img {
+  line-height: 40px;
+  display: block;
+  float: left;
+}
+.loginWrap .captchaWrap .imgWrap a {
+  font-size: 16px;
+  color: #356ed7;
+  display: block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 20px;
+}
+.loginWrap .loginButton {
+  display: block;
+  width: 150px;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid #FF9934;
+  color: #FF9934;
+  margin-left: 140px;
+  margin-top: 40px;
+  background-color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 4px;
+}
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 70px;
+  width: 100%;
+  color: #787777;
+  font-size: 16px;
+}

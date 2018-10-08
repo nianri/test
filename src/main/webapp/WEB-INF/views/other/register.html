@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>注册</title>
+		 <link rel="stylesheet" href="../resources/css/mstatic/reset.css">
+		<link rel="stylesheet" href="../resources/css/m/register.css"/>
+	 <script src="../js/home/jquery.min.js?v=2.1.4"></script>
+			 <script src="../js/user/jquery.cookie.js"></script>
+    		  <link rel="stylesheet" href="../js/home/plugins/layer/skin/layer.css" rel="stylesheet">
+            <script src="../js/home/plugins/layer/layer.min.js"></script>
+                <script src="../js/home/plugins/validate/jquery.validate.min.js"></script>
+	 <script src="../js/m/lib/zepto/zepto.js"></script>
+	</head>
+	<body>
+		<!--头部开始-->
+		<header> 
+		<div class="floatL" style="position: absolute;" onclick="javascript:history.go(-1)">
+            <img src="image/1.jpg" style="position: relative; top: 2px;width: 1rem;left:1rem;" alt="" class="returnAn" />
+            <span  style="padding-top: 0.5rem;margin-left: 1rem;color:#fff;">返回</span>
+        </div>
+			
+			<span style="color:#fff;line-height:2rem;">注册</span>
+		</header>
+		<!--头部结束-->
+		<!--输入框部分开始-->
+		<form id="form">
+			<div class="input_wrap">
+				<div class="input">
+					<input type="text" name="username" class="input_name" placeholder="请输入正在使用的手机号"/>
+				</div>
+				<div class="input" style="margin-top: 10px;">
+					<input type="password" name="password" id="password" class="input_password bj" placeholder="请设置您的密码"/>
+					<input type="text" class="show_password" placeholder="密码"/>
+					<a href="javascript:void(0)" class="see_status"></a>
+				</div>
+				<div class="input" style="margin-top: 10px;">
+					<input type="password"  name="password_confirm" class="true_password bj" placeholder="再次输入密码"/>
+					<input type="text"  class="show_password" placeholder="重复密码"/>
+					<a href="javascript:void(0)" class="see_status"></a>
+				</div>
+				<div class="auth_code">
+					<input type="text" name="yzm" class="code" placeholder="验证码"/>
+					<button type="button" id="get_code">获取验证码</button>
+				</div>
+				
+			</div>
+		</form>
+		<!--输入框部分结束-->
+		<div class="last_wrap">
+		<!--登录按钮的开始-->
+		<button class="register_go" style="color:#fff;">注册</button>
+		<!--登录按钮的结束-->
+		<div class="note" style="text-align:center;">
+				注册即视为同意<a href="xieyi.html">《油虎平台协议》</a>
+		</div>
+		</div>
+		
+		<script type="text/javascript">
+		//初始化信息校验表单
+		var	form = $("#form").validate({
+				rules: {
+					username:{
+						required: true
+						,maxlength:11
+						,isMobile: true
+						,remote:"../user/userNameExist"
+					},
+					password: {
+						required: true,
+						minlength: 6
+					},
+					password_confirm: {
+						required: true,
+					//	minlength: 6,
+						equalTo: "#password"
+					},
+					yzm:{
+						required: true
+						,maxlength:6
+					},
+					
+				},
+		        messages: {
+		        	username: {
+		                required: "请输入手机号"
+		                ,maxlength:"手机号不能超过11个字符"
+		                ,remote: "用户名已存在，请重新输入"
+		            },
+		            password: {
+						required: "请填写密码",
+						minlength:"密码长度不得少于6位"
+						//rangelength: jQuery.format("Enter at least {0} characters")
+					},
+					password_confirm: {
+						required: "请再次填写密码",
+						//minlength: jQuery.format("Enter at least {0} characters"),
+						equalTo: "两次填写的密码不一致"
+					},
+					yzm:{
+						required: "请输入验证码"
+						,maxlength:"验证码不能超过6个字符"
+					},
+		        },
+		        showErrors: function(errorMap, errorList) {  
+	 	            var msg = "";  
+	 	            $.each( errorList, function(i,v){  
+	 	            	if(i==0)v.element.focus();
+	 	              msg += (v.message+"\r\n");  
+	 	            });  
+	 	            if(msg!="") {alert(msg);}  
+	 	        },  
+	 	        /* 失去焦点时不验证 */   
+	 	        onfocusout: false ,
+	 	        onkeyup:false
+			});
+		jQuery.validator.addMethod("isMobile", function(value, element) { 
+			  var length = value.length; 
+			  var mobile = /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+			  return this.optional(element) || (length == 11 && mobile.test(value)); 
+			}, "请正确填写您的手机号码"); 
+		</script>
+		<script type="application/javascript" src='../js/m/register.js'></script>
+	</body>
+</html>

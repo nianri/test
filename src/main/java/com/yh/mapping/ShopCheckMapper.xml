@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopCheckMapper">
+  <resultMap id="BaseResultMap" type="com.yh.model.ShopCheck">
+    <id column="scheckid" jdbcType="VARCHAR" property="scheckid" />
+    <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+    <result column="submittime" jdbcType="VARCHAR" property="submittime" />
+    <result column="checktime" jdbcType="VARCHAR" property="checktime" />
+    <result column="checkdesc" jdbcType="VARCHAR" property="checkdesc" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yh.model.ShopCheck">
+    insert into shop_check9 (scheckid, shopid, submittime, 
+      checktime, checkdesc, userid, 
+      status, memo)
+    values (#{scheckid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{submittime,jdbcType=VARCHAR}, 
+      #{checktime,jdbcType=VARCHAR}, #{checkdesc,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yh.model.ShopCheck">
+    insert into shop_check9
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scheckid != null">
+        scheckid,
+      </if>
+      <if test="shopid != null">
+        shopid,
+      </if>
+      <if test="submittime != null">
+        submittime,
+      </if>
+      <if test="checktime != null">
+        checktime,
+      </if>
+      <if test="checkdesc != null">
+        checkdesc,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scheckid != null">
+        #{scheckid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="submittime != null">
+        #{submittime,jdbcType=VARCHAR},
+      </if>
+      <if test="checktime != null">
+        #{checktime,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdesc != null">
+        #{checkdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+	<select id="getShopCheckInfo" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
+		select * from shop_check where status='0' and shopid = #{shopid}
+	</select>
+	<update id="submitShopCheck" parameterType="com.yh.model.ShopCheck">
+	    update shop_check set checktime=#{checktime},checkdesc=#{checkdesc},auditorid=#{auditorid},status=#{status} 
+  		where scheckid =#{scheckid}           
+	</update>
+	<select id="getShopCheckLog" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
+		select submittime,checktime,checkdesc,status,
+		(select concat_ws("-",membercode,userphone,realname) from member_info n where m.submitterid=n.memberid) as submitname,
+		(select realname from sys_user n where m.auditorid=n.userid) as auditorname
+  		from shop_check m where shopid = #{shopid} order by submittime desc   
+	</select>
+</mapper>

@@ -1,0 +1,344 @@
+@import "./head.css";
+@import "./footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.statusNow {
+  width: 1200px;
+  height: 83px;
+  margin: 0 auto;
+}
+.statusNow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.shopDetailsWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+  border: 1px solid #CCCCCC;
+  padding-bottom: 20px;
+}
+.shopDetailsWrap .title {
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 0 0 10px;
+}
+.itemWrap {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+}
+.itemWrap > div {
+  float: left;
+}
+.itemWrap .itemName {
+  width: 167px;
+  height: 30px;
+ 
+  line-height: 30px;
+}
+.itemWrap .itemName span:nth-child(1) {
+  font-size: 14px;
+  color: #D73535;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+}
+.itemWrap .itemName span:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+}
+.itemWrap .inputWrap {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+
+}
+.itemWrap .inputWrap input {
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  line-height: 28px;
+  outline: none;
+  color: #666666;
+}
+.itemWrap .industryShow {
+  margin-left: 20px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+.itemWrap .industryShow a {
+  color: #ff9934;
+}
+.itemWrap .selectNatural {
+  margin-left: 20px;
+  font-size: 14px;
+  color: #FF9934;
+  line-height: 30px;
+}
+.itemWrap .dateType {
+  margin-left: 10px;
+  padding-left: 20px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 14px;
+  color: #666666;
+  position: relative;
+}
+.itemWrap .dateType i {
+  position: absolute;
+  width: 14px;
+  top: 8px;
+  left: 0;
+  height: 14px;
+  background: url(../../img/v/shoppingCarnoselect.png);
+  cursor: pointer;
+}
+.itemWrap .picNote {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 20px;
+  height: 30px;
+  line-height: 30px;
+}
+.expensesWrap {
+  width: 100%;
+  margin-top: 20px;
+}
+.expensesWrap > div {
+  float: left;
+}
+.expensesWrap .itemName {
+  width: 167px;
+  text-align: right;
+  font-size: 14px;
+  color: #666666;
+}
+.expensesWrap .enpenses {
+  font-size: 14px;
+  color: #666666;
+  margin-left: 20px;
+}
+.expensesWrap .enpenses p {
+  margin-bottom: 10px;
+}
+.expensesWrap .enpenses a {
+  color: #ff9934;
+}
+.expensesWrap .enpenses span {
+  color: #d73535;
+}
+.industryNote {
+  margin-top: 10px;
+  padding: 15px 20px;
+  margin-left: 167px;
+  color: #666666;
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #EEEEEE;
+}
+
+#filePicker-1{
+	 background: url(../../img/v/jia.png);
+	
+}
+.imageUploadWrap {
+  padding: 12px 0 0 200px;
+  min-height: 212px;
+  overflow: hidden;
+}
+.imageUploadWrap > div:nth-child(1) {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+.imageUploadWrap > div:nth-child(1) .webuploader-pick {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 14px;
+  color: #999999;
+  background: url(../../img/v/jia.png) no-repeat;
+  
+  
+}
+.imageUploadWrap .uploader-list {
+  float: left;
+  margin-left: 20px;
+  width: 600px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item {
+  float: left;
+  width: 200px;
+  height: 240px;
+  margin-right: 20px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item .info,
+.imageUploadWrap .uploader-list .file-item .error {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
+  text-align: center;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn1 {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.gotoWrap {
+  width: 230px;
+  height: 30px;
+  margin: 40px auto 0;
+}
+.gotoWrap .preStep {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #999999;
+}
+.gotoWrap .nextStep {
+  display: block;
+  width: 100px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 50px;
+  background-color: #ff9934;
+}
+/*主营项目选择*/
+.addMain {
+  display: block;
+  width: 80px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 20px;
+  background-color: #ff9934;
+}
+.mainProject {
+  margin: 20px 0 0 187px;
+  border-collapse: collapse;
+}
+.mainProject td,
+.mainProject th {
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #666666;
+  background-color: #e7e7e7;
+  font-size: 14px;
+  border: 1px solid #c0c0c0;
+}
+.mainShade {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.1;
+  z-index: 10;
+}
+.mainModule {
+  display: none;
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+  width: 300px;
+  height: 140px;
+  background-color: #FFFFFF;
+  z-index: 100;
+  color: #666666;
+}
+.mainModule .mainHead {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+  position: relative;
+  font-size: 16px;
+}
+.mainModule .mainHead i {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/ModuleDelete.png);
+}
+.mainModule .selcetWrap {
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+.mainModule .selcetWrap div:nth-child(1) {
+  margin-bottom: 10px;
+}
+.mainModule .selcetWrap select {
+  min-width: 80px;
+  height: 24px;
+  padding: 0 10px;
+  outline: none;
+}
+.mianTrue {
+  display: block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 20px;
+  margin-top: 10px;
+  background-color: #ff9934;
+}
+.deleteProject {
+  color: #ff9934;
+}
+.changqi{
+    background: url("../../img/v/shoppingCarSelect.png")!important;
+}

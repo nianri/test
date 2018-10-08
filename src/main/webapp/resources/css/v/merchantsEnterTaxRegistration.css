@@ -1,0 +1,247 @@
+@import "./head.css";
+@import "./footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.taxRegistrationWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+  border: 1px solid #CCCCCC;
+  padding-bottom: 20px;
+}
+.taxRegistrationWrap .title {
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 0 0 10px;
+}
+.statusNow {
+  width: 1200px;
+  height: 83px;
+  margin: 0 auto;
+}
+.statusNow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.headerNote {
+  margin-top: 20px;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+}
+.itemWrap {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+}
+.itemWrap > div {
+  float: left;
+}
+.itemWrap .itemName {
+  width: 167px;
+  height: 30px;
+  text-align: right;
+  line-height: 30px;
+}
+.itemWrap .itemName span:nth-child(1) {
+  font-size: 14px;
+  color: #D73535;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+}
+.itemWrap .itemName span:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+}
+.itemWrap .titleTwo {
+  height: 40px;
+  line-height: 20px;
+}
+.itemWrap .inputWrap {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  margin-left: 20px;
+}
+.itemWrap .inputWrap input {
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  line-height: 28px;
+  outline: none;
+  color: #666666;
+}
+.itemWrap .dropDownWrap {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+.itemWrap .dropDownWrap > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #666666;
+}
+.itemWrap .dropDownWrap > i {
+  position: absolute;
+  right: 7px;
+  top: 8px;
+  width: 13px;
+  height: 8px;
+  background: url(../../img/v/taxxiala.png);
+  cursor: pointer;
+}
+.itemWrap .dropDownWrap > ul {
+  display: none;
+  position: absolute;
+  width: 300px;
+  top: 29px;
+  left: -1px;
+  border-left: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  background-color: #FFFFFF;
+  z-index: 100;
+  opacity: 1;
+}
+.itemWrap .dropDownWrap > ul li {
+  width: 100%;
+  height: 29px;
+  line-height: 28px;
+  border-bottom: 1px solid #CCCCCC;
+  text-align: center;
+  color: #666666;
+  cursor: pointer;
+}
+.itemWrap .dropDownWrap > ul .selectTypeActive {
+  background-color: #FD9A32;
+  color: #FFFFFF;
+}
+.itemWrap .note {
+  width: 711px;
+  padding-left: 15px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #999999;
+}
+.itemWrap .selectAddressWrap {
+  margin-left: 20px;
+  padding-top: 5px;
+}
+.itemWrap .selectAddressWrap select {
+  margin-right: 10px;
+}
+.imagePrompt {
+  font-size: 12px;
+  color: #999999;
+  padding-left: 40px;
+}
+.imageUploadWrap {
+  padding: 12px 0 0 200px;
+  min-height: 212px;
+  overflow: hidden;
+}
+.imageUploadWrap > div:nth-child(1) {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+.imageUploadWrap > div:nth-child(1) .webuploader-pick {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 14px;
+  color: #999999;
+  background-color: #e7e7e7;
+}
+.imageUploadWrap .uploader-list {
+  float: left;
+  margin-left: 20px;
+  width: 600px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item {
+  float: left;
+  width: 200px;
+  height: 240px;
+  margin-right: 20px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item .info,
+.imageUploadWrap .uploader-list .file-item .error {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
+  text-align: center;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn1 {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.gotoWrap {
+  width: 230px;
+  height: 30px;
+  margin: 40px auto 0;
+}
+.gotoWrap .preStep {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #999999;
+}
+.gotoWrap .nextStep {
+  display: block;
+  width: 100px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 50px;
+  background-color: #ff9934;
+}
