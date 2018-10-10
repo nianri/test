@@ -22,7 +22,7 @@ import com.alibaba.fastjson.JSON;
 import com.yh.common.ImgConfig;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.AdvertInfo;
 import com.yh.model.Area;
 import com.yh.service.AdvertService;
@@ -43,24 +43,9 @@ public class AdvertController {
 	// 广告管理页
 	@RequestMapping(value = { "advertList" }, method = { RequestMethod.GET })
 	public String advertList(Model model) {
-		// Integer pageNo, Integer pageSize, String adName, Model model
-		// model.addAttribute("pageNo", pageNo);
-		// model.addAttribute("pageSize", pageSize);
-		// model.addAttribute("adName", adName);
-		logger.info("广告管理页...");
-		System.out.println("8888");
 		return "advert/advert_list";
 	}
-
-	@RequestMapping(value = { "Ad1" }, method = { RequestMethod.POST })
-	public @ResponseBody Object Ad1(Model model) {
-		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
-		resultInfo.setCode("A");
-		resultInfo.setInfo("B");
-		System.out.print("------------------000");
-		return resultInfo;
-	}
-
+	
 	// 广告列表-查询
 	@RequestMapping(value = { "advertSearch" }, method = { RequestMethod.POST }, produces = {
 			"application/json;charset=UTF-8" })
@@ -128,13 +113,13 @@ public class AdvertController {
 		try {
 			returnrows=0;
 			if (advertInfo.getAdvertid() != null && !"".equals(advertInfo.getAdvertid())) {
-				advertInfo.setCreatetime(common.GetNowDate().toString());
+				advertInfo.setCreatetime(Common.GetNowDate().toString());
 				System.out.println("0|"+returnrows);
 				returnrows=advertService.updateAdvertById(advertInfo);
 				System.out.println("1|"+returnrows);
 			} else {
 				advertInfo.setAdvertid(UUID.randomUUID().toString());
-				advertInfo.setCreatetime(common.GetNowDate().toString());
+				advertInfo.setCreatetime(Common.GetNowDate().toString());
 				//// ad.setImageurl(ad.getImageurl());
 				advertInfo.setOrdernum("0");
 				returnrows=advertService.insertAdvert(advertInfo);

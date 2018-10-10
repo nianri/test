@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.CouponInfo;
 import com.yh.model.SysUser;
 import com.yh.service.CouponService;
@@ -54,7 +54,7 @@ public class CouponController {
 		System.out.println(userRoleType);
 		try{
 			if(userRoleType==1){//商家
-				cuponInfo.setShopid(common.getCurrentUserShopId());
+				cuponInfo.setShopid(Common.getCurrentUserShopId());
 			}else if(userRoleType==2){ //运营人员或管理员
 				cuponInfo.setShopid("");
 			}else{
@@ -125,8 +125,8 @@ public class CouponController {
 				couponService.updateCouponById(couponInfo);				 
 			}else{
 				couponInfo.setCouponid(UUID.randomUUID().toString());
-				couponInfo.setCreatetime(common.GetNowDate().toString());
-				couponInfo.setCreatorid(common.getSession().getAttribute("userid").toString());
+				couponInfo.setCreatetime(Common.GetNowDate().toString());
+				couponInfo.setCreatorid(Common.getSession().getAttribute("userid").toString());
 				if(couponInfo.getShopid().length()>0) 
 					couponInfo.setCoupontype("1");//设置为商户券；
 				else
@@ -149,7 +149,7 @@ public class CouponController {
 	public int getUserRoleType(){
 		int roleType=0;
 		try{
-			String logincode=common.getSession().getAttribute("logincode").toString();			
+			String logincode=Common.getSession().getAttribute("logincode").toString();			
 			SysUser user=sysUserService.getSysUserByCode(logincode);
 			if( "1".equals(user.getUsertype()) && user.getShopid().length()>0){
 				//0:无1:商家2:运营人员3:管理员

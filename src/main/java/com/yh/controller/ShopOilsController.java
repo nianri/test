@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.DicPublicKey;
 import com.yh.model.ShopOils;
 import com.yh.model.SysUser;
@@ -60,7 +60,7 @@ public class ShopOilsController {
 		System.out.println(userRoleType);
 		try{
 			if(userRoleType==1){//商家
-				shopOils.setShopid(common.getCurrentUserShopId());
+				shopOils.setShopid(Common.getCurrentUserShopId());
 			}else if(userRoleType==2){ //运营人员或管理员
 				shopOils.setShopid("");
 			}else{
@@ -150,8 +150,8 @@ public class ShopOilsController {
 				System.out.println("JSON>"+JSON.toJSONString(shopOils));
 				if(shopOilsList.size()==0){
 					shopOils.setShopoilsid(UUID.randomUUID().toString());
-					shopOils.setCreatetime(common.GetNowDate().toString());
-					shopOils.setCreatorid(common.getSession().getAttribute("userid").toString());
+					shopOils.setCreatetime(Common.GetNowDate().toString());
+					shopOils.setCreatorid(Common.getSession().getAttribute("userid").toString());
 					shopOilsService.insertShopOils(shopOils);
 					codeValue=ResultEnum.SAVE_SUCCESS.getCode();
 					infoValue=ResultEnum.SAVE_SUCCESS.getInfo();
@@ -180,7 +180,7 @@ public class ShopOilsController {
 	public int getUserRoleType(){
 		int roleType=0;
 		try{
-			String logincode=common.getSession().getAttribute("logincode").toString();			
+			String logincode=Common.getSession().getAttribute("logincode").toString();			
 			SysUser user=sysUserService.getSysUserByCode(logincode);
 			if("1".equals(user.getUsertype()) && user.getShopid().length()>0){
 				//0:无1:商家2:运营人员3:管理员

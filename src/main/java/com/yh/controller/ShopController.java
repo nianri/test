@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.Shop;
 import com.yh.model.ShopCheck;
 import com.yh.model.SysUser;
@@ -214,7 +214,7 @@ public class ShopController {
 	 */	
 	@RequestMapping(value = {"getShopByRight"}, method = {RequestMethod.POST}, produces = {"application/json;charset=UTF-8"})
 	public @ResponseBody List<Shop> getShopByRight(){
-		String logincode=common.getSession().getAttribute("logincode").toString();
+		String logincode=Common.getSession().getAttribute("logincode").toString();
 		List<Shop> shopList = new ArrayList<Shop>();
 		Shop shop = new Shop();
 		try{
@@ -243,7 +243,7 @@ public class ShopController {
 	@RequestMapping(value = {"shopMap"}, method = {RequestMethod.GET})
 	public String shopMap(Model model) {	
 		Shop shop = new Shop();
-		shop=shopService.getShopById(common.getSession().getAttribute("shopid").toString());
+		shop=shopService.getShopById(Common.getSession().getAttribute("shopid").toString());
 		model.addAttribute("shop", shop);
 		return "shop/shop_map";		
 	}	

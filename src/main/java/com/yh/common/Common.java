@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-public class common {
+public class Common {
 	//private static final Log logger = LogFactory.getLog(common.class);
 	 
 	

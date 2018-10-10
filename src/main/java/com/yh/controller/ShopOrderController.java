@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.ShopOrder;
 import com.yh.model.SysUser;
 import com.yh.service.ShopOrderService;
@@ -49,7 +49,7 @@ public class ShopOrderController {
 		System.out.println(userRoleType);
 		try{
 			if(userRoleType==1){//商家
-				shopOrder.setShopid(common.getCurrentUserShopId());
+				shopOrder.setShopid(Common.getCurrentUserShopId());
 			}else if(userRoleType==2){ //运营人员或管理员
 				shopOrder.setShopid("");
 			}else{
@@ -149,7 +149,7 @@ public class ShopOrderController {
 	public int getUserRoleType(){
 		int roleType=0;
 		try{
-			String logincode=common.getSession().getAttribute("logincode").toString();			
+			String logincode=Common.getSession().getAttribute("logincode").toString();			
 			SysUser user=sysUserService.getSysUserByCode(logincode);
 			if("1".equals(user.getUsertype()) && user.getShopid().length()>0){
 				//商家 0:无1:运营人员2:管理员

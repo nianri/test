@@ -18,7 +18,7 @@ import com.alibaba.fastjson.JSON;
 import com.yh.common.MD5Util;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.SysUser;
 import com.yh.service.SysUserService;
 
@@ -121,9 +121,9 @@ public class SysUserController {
 				sysUserService.updateSysUserById(sysUser);
 			}else{
 				sysUser.setUserid(UUID.randomUUID().toString());
-				sysUser.setCreatetime(common.GetNowDate().toString());
+				sysUser.setCreatetime(Common.GetNowDate().toString());
 				sysUser.setIsdelete("1");
-				sysUser.setCreatorid(common.getSession().getAttribute("userid").toString());
+				sysUser.setCreatorid(Common.getSession().getAttribute("userid").toString());
 				sysUser.setPassword(MD5Util.MD5(sysUser.getPassword()));
 				System.out.println(JSON.toJSON(sysUser));
 				sysUserService.insertSysUser(sysUser);

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
-import com.yh.common.common;
+import com.yh.common.Common;
 import com.yh.model.Goods; 
 import com.yh.service.GoodsService;
 
@@ -91,7 +91,7 @@ public class GoodsController {
 				goodsService.updateGoodsById(goods);
 			}else{
 				goods.setGoodsid(UUID.randomUUID().toString());
-				goods.setCreatetime(common.GetNowDate().toString());
+				goods.setCreatetime(Common.GetNowDate().toString());
 				goods.setIsdelete("1");
 				goodsService.insertGoods(goods);
 			}				
