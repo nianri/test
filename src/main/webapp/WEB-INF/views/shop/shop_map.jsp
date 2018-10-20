@@ -59,7 +59,7 @@ body,html,#allmap {
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">经伟度：</label>
 				<div class="formControls col-xs-8 col-sm-5">
-					<input id="positionxy" type="text" class="input-text" value="${shop.positionxy}"  disabled="disabled">
+					<input id="positionxy" type="text" class="input-text" value="${shop.longitude},${shop.latitude}"  disabled="disabled">
 				</div>
 				<a id="btnsave" class="btn btn-primary" onclick="commitxy()" role="button">提 交</a>
 			</div>
@@ -77,7 +77,9 @@ body,html,#allmap {
 			</div>
 		</div>
 	</div>
-	 <input type="hidden" id="shopid" value="${shop.shopid}">	
+	<input type="hidden" id="shopid" value="${shop.shopid}">	
+	<input type="hidden" id="longitude" value="${shop.longitude}">	
+	<input type="hidden" id="latitude" value="${shop.latitude}">	
 </body>
 <script type="text/javascript">
 	toastr.options.positionClass = 'toast-top-center';
@@ -104,11 +106,13 @@ body,html,#allmap {
 	
 	function showInfo(e){
 		$("#positionxy").val(e.point.lng + "," + e.point.lat);
+		$("#longitude").val(e.point.lng);
+		$("#latitude").val(e.point.lat);
 		toastr.warning("经伟度已重新选择，请提交！");
 	}
 	function commitxy(){
 		if($("#shopid").val().length=="") return;
-		var rowData={"shopid":$("#shopid").val(),"positionxy":$("#positionxy").val()};
+		var rowData={"shopid":$("#shopid").val(),"longitude":$("#longitude").val(),"latitude":$("#latitude").val()};
 		$.ajax({
 			type : "post",
 			url : "${pageContext.request.contextPath}/shop/saveShopXY",

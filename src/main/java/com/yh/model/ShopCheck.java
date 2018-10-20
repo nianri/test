@@ -15,18 +15,20 @@ public class ShopCheck {
 
     private String checkdesc;
 
-    private String userid;
+    private String submitterid;
 
     private String status;
 
     private String memo;
-    private String auditorid;
+    private String auditorid;//审核人ID
     @Transient
-    private String submitname;
+    private String submitname;//提交人姓名
     @Transient
-    private String auditorname;
+    private String auditorname;//审核人姓名
     @Transient
-    private String positionxy;
+    private Double longitude;
+    @Transient
+    private Double latitude;
     
     public String getScheckid() {
         return scheckid;
@@ -68,15 +70,17 @@ public class ShopCheck {
         this.checkdesc = checkdesc == null ? null : checkdesc.trim();
     }
 
-    public String getUserid() {
-        return userid;
-    }
+    
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
-    }
+    public String getSubmitterid() {
+		return submitterid;
+	}
 
-    public String getStatus() {
+	public void setSubmitterid(String submitterid) {
+		this.submitterid = submitterid;
+	}
+
+	public String getStatus() {
         return status;
     }
 
@@ -116,12 +120,21 @@ public class ShopCheck {
 		this.auditorname = auditorname;
 	}
 
-	public String getPositionxy() {
-		return positionxy;
+	public Double getLongitude() {
+		return longitude;
 	}
 
-	public void setPositionxy(String positionxy) {
-		this.positionxy = positionxy;
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
     
 }

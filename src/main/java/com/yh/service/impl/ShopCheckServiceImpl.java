@@ -7,8 +7,6 @@ import javax.annotation.Resource;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.alibaba.fastjson.JSON;
 import com.yh.dao.ShopCheckMapper;
 import com.yh.dao.ShopMapper;
 import com.yh.model.Shop;
@@ -33,10 +31,11 @@ public class ShopCheckServiceImpl implements ShopCheckService {
 	}
 	@Transactional //(rollbackFor=Exception.class)
 	public int submitShopCheck(ShopCheck shopCheck){
-		int rtnRow=0;		
+		int rtnRow=0;	 
 		Shop shop =new Shop();
 		shop.setShopid(shopCheck.getShopid());
-		shop.setPositionxy(shopCheck.getPositionxy());
+		shop.setLatitude(shopCheck.getLatitude());
+		shop.setLongitude(shopCheck.getLongitude());
 		//未通过
 		if(shopCheck.getStatus().equals("1")){
 			shop.setStatus("2");//未通过			
@@ -44,9 +43,7 @@ public class ShopCheckServiceImpl implements ShopCheckService {
 			shop.setStatus("3");//通过
 		}else{
 			shop.setStatus("1");//未通过
-		}
-		System.out.println(JSON.toJSON(shop));
-		System.out.println(JSON.toJSON(shopCheck));			
+		}		
 		try{			
 			rtnRow=shopMapper.updateShopStatus(shop);
 			rtnRow+=shopCheckMapper.submitShopCheck(shopCheck);			

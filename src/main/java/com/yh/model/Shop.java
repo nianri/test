@@ -12,7 +12,7 @@ public class Shop implements Serializable{
 	@Column(name = "shopid")
     private String shopid;
 
-    private String userid;
+    private String memberid;
 
     private Integer shopcode;
 
@@ -27,8 +27,8 @@ public class Shop implements Serializable{
     private String cityid;
 
     private String address;
-
-    private String positionxy;
+    
+    private String areadesc;
 
     private String shoplogo;
 
@@ -69,19 +69,20 @@ public class Shop implements Serializable{
     private String trmno;
 
     private String shopkey;
-
+    private Double longitude;
+    private Double latitude;
     @Transient
-    private String provicename;//省
+    private String provicename;
     @Transient
-    private String cityname;//市
+    private String cityname;
     @Transient
-    private String countyname;//县(区)
+    private String countyname;
     @Transient
-    private String checkstatus;//入驻审核状态
+    private String checkstatus;
     @Transient
-    private String submittime;//申请提交时间
+    private String submittime;
     @Transient
-    private String member;//提交人
+    private String member;
     
     public String getShopid() {
 		return shopid;
@@ -91,15 +92,17 @@ public class Shop implements Serializable{
 		this.shopid = shopid;
 	}
 
-	public String getUserid() {
-        return userid;
-    }
+	
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
-    }
+    public String getMemberid() {
+		return memberid;
+	}
 
-    public Integer getShopcode() {
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
+	public Integer getShopcode() {
         return shopcode;
     }
 
@@ -153,14 +156,6 @@ public class Shop implements Serializable{
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
-    }
-
-    public String getPositionxy() {
-        return positionxy;
-    }
-
-    public void setPositionxy(String positionxy) {
-        this.positionxy = positionxy == null ? null : positionxy.trim();
     }
 
     public String getShoplogo() {
@@ -369,6 +364,30 @@ public class Shop implements Serializable{
 
 	public void setCountyname(String countyname) {
 		this.countyname = countyname;
+	}
+
+	public String getAreadesc() {
+		return areadesc;
+	}
+
+	public void setAreadesc(String areadesc) {
+		this.areadesc = areadesc;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
 	}
 
 	

@@ -7,16 +7,16 @@
     <result column="submittime" jdbcType="VARCHAR" property="submittime" />
     <result column="checktime" jdbcType="VARCHAR" property="checktime" />
     <result column="checkdesc" jdbcType="VARCHAR" property="checkdesc" />
-    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="submitterid" jdbcType="VARCHAR" property="submitterid" />
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="memo" jdbcType="VARCHAR" property="memo" />
   </resultMap>
   <insert id="insert" parameterType="com.yh.model.ShopCheck">
     insert into shop_check9 (scheckid, shopid, submittime, 
-      checktime, checkdesc, userid, 
+      checktime, checkdesc, submitterid, 
       status, memo)
     values (#{scheckid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{submittime,jdbcType=VARCHAR}, 
-      #{checktime,jdbcType=VARCHAR}, #{checkdesc,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{checktime,jdbcType=VARCHAR}, #{checkdesc,jdbcType=VARCHAR}, #{submitterid,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.yh.model.ShopCheck">
@@ -37,8 +37,8 @@
       <if test="checkdesc != null">
         checkdesc,
       </if>
-      <if test="userid != null">
-        userid,
+      <if test="submitterid != null">
+        submitterid,
       </if>
       <if test="status != null">
         status,
@@ -63,8 +63,8 @@
       <if test="checkdesc != null">
         #{checkdesc,jdbcType=VARCHAR},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
+      <if test="submitterid != null">
+        #{submitterid,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
@@ -83,7 +83,7 @@
 	</update>
 	<select id="getShopCheckLog" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
 		select submittime,checktime,checkdesc,status,
-		(select concat_ws("-",membercode,userphone,realname) from member_info n where m.submitterid=n.memberid) as submitname,
+		(select concat_ws("-",membercode,memberphone,realname) from member_info n where m.submitterid=n.memberid) as submitname,
 		(select realname from sys_user n where m.auditorid=n.userid) as auditorname
   		from shop_check m where shopid = #{shopid} order by submittime desc   
 	</select>

@@ -49,6 +49,19 @@
 			{field:'provincename',title:'省',width:150,sortable:true,align:"center"},
 			{field:'cityname',title:'市',width:150,sortable:true,align:"center"},
 			{field:"countyname",title:"县(区)",width:150,sortable:true,align:"center"},
+			{field:"adverttype",title:"广告类型",width:150,sortable:true,align:"center",
+				formatter : function(cellvalue,options, row) {
+					var result = "";
+					if (cellvalue == 1) {
+						result = "地域广告";
+					} else if (cellvalue == 0) {
+						result = "系统广告";
+					}else {
+					 	result = "异常";
+					}
+					return result;
+				}
+			},
 			{field:"createtime",title:"创建日期",	width:150,sortable:true,align:"center"},
 			{field:"status",title:"状态",width:100,sortable:true,align:"center",
 				formatter : function(cellvalue,options, row) {

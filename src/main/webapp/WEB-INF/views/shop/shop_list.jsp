@@ -55,10 +55,8 @@
 			},
 			{field : 'shopcode',title : '加油站编码',width:20,sortable : true,align : "center"},
 			{field : 'shopname',title : '加油站名称',width:100,sortable : true,align : "left"},
-			{field : 'provicename',title : '省',width:50,sortable : true,align : "left"},
-			{field : 'cityname',title : '市',width:50,sortable : true,align : "left"},
-			{field : 'countyname',title : '县(区)',width:50,sortable : true,align : "left"},
-			{field : "createtime",title : "创建日期",	width : 100,sortable : true,align : "center"},
+			{field : 'areadesc',title : '地址',width:200,sortable : true,align : "left"},
+			{field : "createtime",title : "申请日期",	width : 120,sortable : true,align : "center"},
 			{field : "status",title : "状态",width : 60,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";//0.否 1.是

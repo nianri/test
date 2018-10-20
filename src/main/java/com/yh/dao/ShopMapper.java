@@ -8,7 +8,6 @@ import com.yh.model.Shop;
 
 public interface ShopMapper {
     int insert(Shop shop);
-    int insertSelective(Shop shop);
     List<Shop> getShopList(Shop shop);
     int updateShopStatus(Shop shop);
     int deleteShop(@Param("shopid") String shopid);

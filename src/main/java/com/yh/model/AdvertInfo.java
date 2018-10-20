@@ -29,7 +29,7 @@ public class AdvertInfo implements Serializable{
     private String creatorid;
 
     private String status;
-
+    private String adverttype;
     private String memo;
     
     @Transient
@@ -157,6 +157,14 @@ public class AdvertInfo implements Serializable{
 
 	public void setCountyname(String countyname) {
 		this.countyname = countyname;
+	}
+
+	public String getAdverttype() {
+		return adverttype;
+	}
+
+	public void setAdverttype(String adverttype) {
+		this.adverttype = adverttype;
 	}
     
 }

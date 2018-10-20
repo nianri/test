@@ -30,7 +30,7 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">详细地址：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.address}"  name="address" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.areadesc}"  name="address" disabled="disabled">
 					</div>
 				</div>
 				<div class="row cl">

@@ -49,10 +49,7 @@ jQuery(function($) {
 		{field : 'submittime',title:'提交申请日期',width:50,sortable : true,align : "center"},
 		{field : 'member',title:'会员名',width:150,sortable : true,align : "left"	},
 		{field : 'shopname',title :'加油站名称',width:150,sortable : true,align : "left"},
-		{field : 'provicename',title:'省',width:50,sortable : true,align : "left"},
-		{field : 'cityname',title:'市',width:50,sortable : true,align : "left"},
-		{field : 'countyname',title:'县(区)',width:50,sortable : true,align : "left"},
-		{field : 'address',title:'详细地址',width:150,sortable : true,align : "left",
+		{field : 'areadesc',title:'地址',width:200,sortable : true,align : "left",
 			formatter:function(cellvalue, options, row){
 				if(cellvalue.length>15){
 					console.log(cellvalue.substring(0,15)+"...");

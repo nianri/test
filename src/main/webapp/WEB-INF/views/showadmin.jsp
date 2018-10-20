@@ -139,6 +139,7 @@
 			<dd>
 				<ul>
 					<li><a data-href="${pageContext.request.contextPath }/goods/goodsList" data-title="积分商品" href="javascript:;">积分商品</a></li>
+					<li><a data-href="${pageContext.request.contextPath }/goods/goodsOrder" data-title="兑换记录" href="javascript:;">兑换记录</a></li>
 				</ul>
 			</dd>
 		</dl>

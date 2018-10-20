@@ -110,7 +110,7 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">经伟度：</label>
 					<div class="formControls col-xs-8 col-sm-5">
-						<input type="text" class="input-text" value="${shop.positionxy}" id="positionxy" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.longitude},${shop.latitude}" id="positionxy" disabled="disabled">
 					</div>
 				</div>
 			</div>
@@ -151,6 +151,8 @@
 		<input type="hidden" id="shopid" value="${shop.shopid}">
 		<input type="hidden" id="cityname" value="${shop.cityname}">
 		<input type="hidden" id="countyname" value="${shop.countyname}">
+		<input type="hidden" id="longitude" value="${shop.longitude}">
+		<input type="hidden" id="latitude" value="${shop.latitude}">
 	</body>
 	<script type="text/javascript">
 		toastr.options.positionClass = 'toast-top-center';
@@ -169,6 +171,8 @@
 		});
 		function showInfo(e){
 			$("#positionxy").val(e.point.lng + "," + e.point.lat);
+			$("#longitude").val(e.point.lng);
+			$("#latitude").val(e.point.lat);
 			//toastr.warning("经伟度已重新选择，请提交！");
 		}
 		function submitcheck(){
@@ -181,7 +185,8 @@
 				return;
 			}
 			var rowData = {"checkdesc":$("#checkdesc").val(),"status":$("input[name='checkstatus']:checked").val(),
-							"scheckid":$("#scheckid").val(),"shopid":$("#shopid").val(),"positionxy":$("#positionxy").val()};
+							"scheckid":$("#scheckid").val(),"shopid":$("#shopid").val(),
+							"longitude":$("#longitude").val(),"latitude":$("#latitude").val()};
 			console.log(rowData);
 			$.ajax({
 				type : "post",

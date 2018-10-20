@@ -52,7 +52,17 @@
 				 	</div> 
 				</div>  	            
 				<div class="form-group">
-					<label class="col-sm-3 control-label">是否启用此广告：</label>
+					<label class="col-sm-3 control-label">广告类型：</label>
+					<div class="col-sm-8">
+						<select id="seladverttype" class="selectpicker">
+						  <option value="" >请选择</option>
+						  <option value="0" >系统广告</option>
+						  <option value="1" >地域广告</option>
+						</select>						
+					</div>					
+				</div>	
+				<div class="form-group">
+					<label class="col-sm-3 control-label">广告状态：</label>
 					<div class="col-sm-8">
 						<select id="selstatus" class="selectpicker">
 						  <option value="" >请选择</option>
@@ -60,8 +70,8 @@
 						  <option value="1" >下线</option>
 						  <option value="2" >上线</option>
 						</select>						
-					</div>
-				</div>			    
+					</div>					
+				</div>		    
                 <div class="form-group" id="imageuploader">
 					<label class="col-sm-3 control-label">广告图片：</label>
 					<div class="col-sm-8">
@@ -101,6 +111,7 @@
                 <input type="hidden" id="advertid" value="${advertInfo.advertid}"> 
                 <input type="hidden" id="imageurl" value="${advertInfo.imageurl}"> 
                 <input type="hidden" id="status" value="${advertInfo.status}"> 
+                <input type="hidden" id="adverttype" value="${advertInfo.adverttype}"> 
                 <input type="hidden" id=uploadImgService value="${uploadImgService}">                   
 			</form>
 		</div>				
@@ -141,8 +152,9 @@ function binddata(){
 		$("#imageshow").show();
 		$("#imageuploader").hide();			 
 	    $('#selstatus').selectpicker('val',$("#status").val());
+	    $('#seladverttype').selectpicker('val',$("#adverttype").val());
 	}else{
-	    $('#selstatus').selectpicker('val',"2");
+	    //$('#selstatus').selectpicker('val',"2");
 	}
 	getprovince($("#provinceid").val());
     getcity($("#provinceid").val(),$("#cityid").val());
@@ -228,7 +240,7 @@ function datasave(){
 	var tcountyid=$('#selcounty').selectpicker('val').toString();
 	var rowData={"advertid":$("#advertid").val(),"advertname":$("#advertname").val(),"imageurl":$("#imageurl").val(),
 			"status":$('#selstatus').selectpicker('val'),"detailpage":$("#detailpage").val(),
-			"provinceid":tprovinceid,"cityid":tcityid,"countyid":tcountyid};
+			"provinceid":tprovinceid,"cityid":tcityid,"countyid":tcountyid,"adverttype":$('#seladverttype').selectpicker('val')};
 	console.log(rowData);
 	if($("#advertname").val().trim()==""){
 		alert("请填写广告名称！");
@@ -244,10 +256,13 @@ function datasave(){
 	} */
 	if($("#selstatus").val()==""){
 		//alert("请选择状态！");
-		toastr.warning("请选择状态");
+		toastr.warning("请选择状态！");
 		return ;
 	}
-	
+	if($("#seladverttype").val()==""){
+		toastr.warning("请选择广告类型！");
+		return ;
+	}
 	$.ajax({
 		type : "post",
 		url : "${pageContext.request.contextPath}/advertin/saveAdvert",
@@ -276,13 +291,16 @@ function datainit(){
 	$("#advertid").val("");
 	$("#advertname").val("")
 	$("#imageurl").val(""),
-	$("#selstatus").selectpicker('val',"");
+	
 	$("#detailpage").val("");
 	$("#provinceid").val("");
 	$("#cityid").val("");
 	$("#countyid").val("");
 	$("#imageurl").val("");
 	$("#status").val("");
+	$("#selstatus").selectpicker('val',"");
+	$("#adverttype").val("");
+	$("#seladverttype").selectpicker('val',"");
 	//$("#imageshow").hide();
 	//$("#imageuploader").show();
 	$("#fileList").children('div').remove(); 

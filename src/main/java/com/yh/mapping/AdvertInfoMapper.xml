@@ -13,100 +13,22 @@
 		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
 		<result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
 		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="adverttype" jdbcType="VARCHAR" property="adverttype" />
 		<result column="memo" jdbcType="VARCHAR" property="memo" />
 	</resultMap>
 	<insert id="insertAdvert" parameterType="com.yh.model.AdvertInfo">
 		insert into advert_info(advertid, advertname, provinceid,cityid, countyid, ordernum,
-		imageurl,detailpage, createtime,creatorid, status, memo	)
+		imageurl,detailpage, createtime,creatorid, status, memo,adverttype	)
 		values (#{advertid,jdbcType=VARCHAR}, #{advertname,jdbcType=VARCHAR},
 		#{provinceid,jdbcType=VARCHAR},	#{cityid,jdbcType=VARCHAR},
 		#{countyid,jdbcType=VARCHAR}, #{ordernum,jdbcType=VARCHAR},
 		#{imageurl,jdbcType=VARCHAR}, #{detailpage,jdbcType=VARCHAR},
 		#{createtime,jdbcType=VARCHAR},	#{creatorid,jdbcType=VARCHAR},
-		#{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}	)
-	</insert>
-	<insert id="insertSelective" parameterType="com.yh.model.AdvertInfo">
-		insert into advert_info
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="advertid != null">
-				advertid,
-			</if>
-			<if test="advertname != null">
-				advertname,
-			</if>
-			<if test="provinceid != null">
-				provinceid,
-			</if>
-			<if test="cityid != null">
-				cityid,
-			</if>
-			<if test="countyid != null">
-				countyid,
-			</if>
-			<if test="ordernum != null">
-				ordernum,
-			</if>
-			<if test="imageurl != null">
-				imageurl,
-			</if>
-			<if test="detailpage != null">
-				detailpage,
-			</if>
-			<if test="createtime != null">
-				createtime,
-			</if>
-			<if test="creatorid != null">
-				creatorid,
-			</if>
-			<if test="status != null">
-				status,
-			</if>
-			<if test="memo != null">
-				memo,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="advertid != null">
-				#{advertid,jdbcType=VARCHAR},
-			</if>
-			<if test="advertname != null">
-				#{advertname,jdbcType=VARCHAR},
-			</if>
-			<if test="provinceid != null">
-				#{provinceid,jdbcType=VARCHAR},
-			</if>
-			<if test="cityid != null">
-				#{cityid,jdbcType=VARCHAR},
-			</if>
-			<if test="countyid != null">
-				#{countyid,jdbcType=VARCHAR},
-			</if>
-			<if test="ordernum != null">
-				#{ordernum,jdbcType=VARCHAR},
-			</if>
-			<if test="imageurl != null">
-				#{imageurl,jdbcType=VARCHAR},
-			</if>
-			<if test="detailpage != null">
-				#{detailpage,jdbcType=VARCHAR},
-			</if>
-			<if test="createtime != null">
-				#{createtime,jdbcType=VARCHAR},
-			</if>
-			<if test="creatorid != null">
-				#{creatorid,jdbcType=VARCHAR},
-			</if>
-			<if test="status != null">
-				#{status,jdbcType=VARCHAR},
-			</if>
-			<if test="memo != null">
-				#{memo,jdbcType=VARCHAR},
-			</if>
-		</trim>
+		#{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{adverttype,jdbcType=VARCHAR}	)
 	</insert>
 	<select id="getAllAdvert" resultMap="BaseResultMap" parameterType="com.yh.model.AdvertInfo">
 		select advertid,advertname,provinceid,cityid,countyid,ordernum,imageurl,
-  		detailpage,createtime,creatorid,status,memo,
+  		detailpage,createtime,creatorid,status,memo,adverttype,
 		(select areaname from dic_area n where m.provinceid=n.areaid) as provincename,
 		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
 		(select areaname from dic_area n where m.countyid=n.areaid) as countyname
@@ -120,13 +42,13 @@
 		order by createtime desc,provinceid,cityid
 	</select>
 	<select id="getAdvertById" resultMap="BaseResultMap" parameterType="com.yh.model.AdvertInfo">
-		select advertid,advertname,provinceid,cityid,countyid,ordernum,imageurl,
+		select advertid,advertname,provinceid,cityid,countyid,ordernum,imageurl,adverttype,
   		detailpage,createtime,creatorid,status,memo from advert_info where advertid = #{advertid}
 	</select>
 	<update id="updateAdvertById" parameterType="com.yh.model.AdvertInfo">
 		update advert_info set  advertname=#{advertname},provinceid=#{provinceid},cityid=#{cityid},
   		countyid=#{countyid},ordernum=#{ordernum},imageurl=#{imageurl},detailpage=#{detailpage},
-   		status=#{status},memo=#{memo} where advertid =#{advertid}
+   		status=#{status},memo=#{memo},adverttype=#{adverttype} where advertid =#{advertid}
 	</update>
 	<delete  id="deleteAdvertById" parameterType="com.yh.model.AdvertInfo">
   		delete from  advert_info where  advertid=#{advertid}
