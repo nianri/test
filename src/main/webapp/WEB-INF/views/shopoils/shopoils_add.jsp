@@ -44,7 +44,7 @@
 					<a id="selectoils" class="btn btn-primary" onclick="selectoils();" role="button">请选择...</a>
 				</div>				
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">产品源价：</label>
+					<label class="form-label col-xs-4 col-sm-2">产品原价：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="sourceprice" type="text" class="input-text" value="${shopoils.sourceprice}" onkeyup="num(this)" size="10">
 					</div>

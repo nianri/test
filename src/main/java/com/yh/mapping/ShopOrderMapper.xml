@@ -11,7 +11,7 @@
 		<result column="totalprice" jdbcType="DOUBLE" property="totalprice" />
 		<result column="couponprice" jdbcType="DOUBLE" property="couponprice" />
 		<result column="realprice" jdbcType="DOUBLE" property="realprice" />
-		<result column="couponid" jdbcType="VARCHAR" property="couponid" />
+		<result column="couponmemberid" jdbcType="VARCHAR" property="couponmemberid" />
 		<result column="orderdesc" jdbcType="VARCHAR" property="orderdesc" />
 		<result column="paytype" jdbcType="VARCHAR" property="paytype" />
 		<result column="paytime" jdbcType="VARCHAR" property="paytime" />
@@ -23,20 +23,20 @@
 		insert into
 		shop_order (orderid, ordercode, shopid,oilsid,memberid, ordertime,
 		totalprice,
-		couponprice, realprice, couponid,orderdesc, paytype,
+		couponprice, realprice, couponmemberid,orderdesc, paytype,
 		paytime,paycode, status, memo
 		)
 		values (#{orderid,jdbcType=VARCHAR},#{ordercode,jdbcType=INTEGER},
 		#{shopid,jdbcType=VARCHAR},#{oilsid,jdbcType=VARCHAR},
 		#{memberid,jdbcType=VARCHAR}, #{ordertime,jdbcType=VARCHAR},
 		#{totalprice,jdbcType=DOUBLE},#{couponprice,jdbcType=DOUBLE},
-		#{realprice,jdbcType=DOUBLE},#{couponid,jdbcType=VARCHAR},
+		#{realprice,jdbcType=DOUBLE},#{couponmemberid,jdbcType=VARCHAR},
 		#{orderdesc,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR},
 		#{paytime,jdbcType=VARCHAR},#{paycode,jdbcType=VARCHAR},
 		#{status,jdbcType=VARCHAR},	#{memo,jdbcType=VARCHAR})
 	</insert>
 	<select id="getShopOrderList" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopOrder">
-		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponmemberid,orderdesc,
 		paytype,paytime,paycode,t1.status,t1.memo,t1.shopid,t2.shopname,t1.memberid,integral,
 		(select oilsname from dic_oils t3 where t1.oilsid=t3.oilsid) as oilsname 
 		from shop_order t1 left	join shop_info t2 on t1.shopid=t2.shopid where 1=1
@@ -60,15 +60,15 @@
 		order by ordertime desc
 	</select>
 	<select id="getShopOrderById" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOrder">
-		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,paytype,paytime,paycode,t1.status,t1.memo,
-		t1.shopid,t2.shopname,t1.memberid,concat_ws("-",t3.membercode,t3.memberphone,t3.realname) as memberdesc,
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponmemberid,orderdesc,paytype,paytime,paycode,t1.status,t1.memo,
+		t1.shopid,t2.shopname,t1.memberid,concat_ws("-",t3.membercode,t3.phonenum,t3.realname) as memberdesc,
 		t1.integral,(select oilsname from dic_oils t3 where t1.oilsid=t3.oilsid) as oilsname 
 		from shop_order t1
 		left join shop_info t2 on	t1.shopid=t2.shopid left join member_info t3 on
 		t1.memberid=t3.memberid where orderid = #{orderid}
 	</select>
 	<select id="getShopOrderByMemberId" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOrder">
-		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponid,orderdesc,
+		select orderid,oilsid,ordercode,ordertime,totalprice,couponprice,realprice,couponmemberid,orderdesc,
 		paytype,paytime,paycode,t1.status,t1.memo,t1.shopid,t2.shopname,t1.memberid,integral 
 		from shop_order t1 left	join shop_info t2 on t1.shopid=t2.shopid 
 		where t1.memberid = #{memberid}

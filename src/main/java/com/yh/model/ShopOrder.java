@@ -24,7 +24,7 @@ public class ShopOrder implements Serializable{
 
     private Double realprice;
 
-    private String couponid;
+    private String couponmemberid;
 
     private String orderdesc;
 
@@ -112,15 +112,17 @@ public class ShopOrder implements Serializable{
         this.realprice = realprice;
     }
 
-    public String getCouponid() {
-        return couponid;
-    }
+    
 
-    public void setCouponid(String couponid) {
-        this.couponid = couponid == null ? null : couponid.trim();
-    }
+    public String getCouponmemberid() {
+		return couponmemberid;
+	}
 
-    public String getOrderdesc() {
+	public void setCouponmemberid(String couponmemberid) {
+		this.couponmemberid = couponmemberid;
+	}
+
+	public String getOrderdesc() {
         return orderdesc;
     }
 

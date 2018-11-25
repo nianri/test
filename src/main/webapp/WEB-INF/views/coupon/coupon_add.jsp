@@ -42,12 +42,12 @@
 						<input id="couponname" type="text" class="input-text" value="${coupon.couponname}" >
 					</div>				
 				</div>				
-				<div class="row cl">
+				<%-- <div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">优惠券描述：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="coupondesc" type="text" class="input-text" value="${coupon.coupondesc}" >
 					</div>
-				</div>
+				</div> --%>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">起始日期：</label>					 
 					<div class="formControls col-xs-8 col-sm-3">
@@ -58,7 +58,7 @@
 					</div>					
 				</div>	
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">结束日期：</label>					 
+					<label class="form-label col-xs-4 col-sm-2">结束效期：</label>					 
 					<div class="formControls col-xs-8 col-sm-3">
 						 <div class="input-append date" >
 						    <input class="input-text" size="16" type="text" id="endtime" readonly value="${coupon.endtime}">
@@ -67,21 +67,21 @@
 					</div>					
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">券额/份：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠券金额：</label>
 					<div class="formControls col-xs-8 col-sm-3">
-						<input id="couponamount" type="text" class="input-text" value="${coupon.couponamount}" onkeyup="num(this)" size="10">
+						<input id="couponprice" type="text" class="input-text" value="${coupon.couponprice}" onkeyup="num(this)" size="10">
 					</div>
-					<span>(元)</span>
+					<span>(元/张)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">数量：</label>
+					<label class="form-label col-xs-4 col-sm-2">总优惠数量：</label>
 					<div class="formControls col-xs-8 col-sm-3">
-						<input id="couponnums" type="text" class="input-text" value="${coupon.couponnums}" onkeyup="value=value.replace(/[^\d]/g,'')">
+						<input id="totalnums" type="text" class="input-text" value="${coupon.totalnums}" onkeyup="value=value.replace(/[^\d]/g,'')">
 					</div>
 					<span>(张)</span>
-				</div>	
+				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">满多少可用：</label>
+					<label class="form-label col-xs-4 col-sm-2">消费额：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="fullamount" type="text" class="input-text" value="${coupon.fullamount}" onkeyup="num(this)" size="10">
 					</div>
@@ -143,7 +143,7 @@
 		var rowindex="";		
 		toastr.options.positionClass = 'toast-top-center';
 		toastr.options.timeOut = 1200;
-		jQuery(function($) {
+		jQuery(function($) {			
 			$("#btnSubmit").click(function() {
 				savedata();
 			});			
@@ -157,7 +157,7 @@
 		        minView: 2,
 		        format: 'yyyy-mm-dd',//定义时间格式
 		        forceParse: true
-		    });
+		    }); 
 			$("#endtime").datetimepicker({
 				language:  'zh-CN',
 		        weekStart: 1,
@@ -248,24 +248,34 @@
 				toastr.warning("请输入起始日期！");
 				return;
 			}
-			var tendtime=$("#begintime").val();
+			var tendtime=$("#endtime").val();
 			if(tendtime==""||tendtime==null){
 				toastr.warning("请输入结束日期！");
 				return;
 			}
-			var tcouponamount=$("#couponamount").val();
-			if(tcouponamount==""||tcouponamount<="0"){
-				toastr.warning("请优惠券额！");
+			tbegintime=new Date(tbegintime.replace("-", "/").replace("-", "/"));
+			tendtime=new Date(tendtime.replace("-", "/").replace("-", "/"));
+			if(tbegintime>tendtime){
+				toastr.warning("请输入正确的起至日期！");
 				return;
 			}
-			var tcouponnums=$("#couponnums").val();
-			if(tcouponnums==""||tcouponnums<="0"){
-				toastr.warning("请输入优惠券数量！");
+			var tcouponprice=$("#couponprice").val();
+			if(tcouponprice==""||parseFloat(tcouponprice)<=0){
+				toastr.warning("请优惠券金额！");
+				return;
+			}
+			var ttotalnums=$("#totalnums").val();
+			if(ttotalnums==""||parseFloat(ttotalnums)<=0){
+				toastr.warning("请输入优惠数量！");
 				return;
 			}
 			var tfullamount=$("#fullamount").val();
-			if(tfullamount==""){
-				toastr.warning("请输入'满多少可用'！");
+			if(tfullamount==""||parseFloat(tfullamount)<=0){
+				toastr.warning("请输入消费额！");
+				return;
+			}
+			if(parseFloat(tfullamount)<=parseFloat(tcouponprice)){
+				toastr.warning("消费额必须大于优惠金额！");
 				return;
 			}
 			var tstatus=$("#status").val();
@@ -274,8 +284,8 @@
 				return;
 			}
 			
-			var rowData={"shopid":tshopid,"couponid":$("#couponid").val(),"couponname":tcouponname,"coupondesc":$("#coupondesc").val(),
-					"begintime":tbegintime,"endtime":tendtime,"couponamount":tcouponamount,"couponnums":tcouponnums,
+			var rowData={"shopid":tshopid,"couponid":$("#couponid").val(),"couponname":tcouponname,
+					"begintime":tbegintime,"endtime":tendtime,"couponprice":tcouponprice,"totalnums":ttotalnums,
 					"fullamount":tfullamount,"status":tstatus,"memo":$("#memo").val()};
 			console.log(JSON.stringify(rowData));	
 			
@@ -309,11 +319,11 @@
 			$("#shopid").val("");
 			$("#shopname").val("");
 			$("#couponname").val("");
-			$("#coupondesc").val("");
+			//$("#coupondesc").val("");
 			$("#begintime").val("");
 			$("#endtime").val("");
-			$("#couponamount").val("");			
-			$("#couponnums").val("");
+			$("#couponprice").val("");			
+			$("#totalnums").val("");
 			$("#fullamount").val("");
 			$("#status").val("");
 			$("#memo").val("");

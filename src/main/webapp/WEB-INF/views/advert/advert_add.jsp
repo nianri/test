@@ -48,7 +48,7 @@
 					<div class="col-sm-9" >				
 					    <select id="selprovince" class="selectpicker" ></select>
 						<select id="selcity" class="selectpicker" ></select>	
-						<select id="selcounty" class="selectpicker" ></select>							
+						<!-- <select id="selcounty" class="selectpicker" ></select>			 -->				
 				 	</div> 
 				</div>  	            
 				<div class="form-group">
@@ -132,7 +132,7 @@ $(document).ready(function () {
 function binddata(){
 	$('#selprovince').append("<option value='0'>请选择省份</option>");
 	$('#selcity').append("<option value='0'>请选择市</option>");
-	$('#selcounty').append("<option value='0'>请选择县(区)</option>");
+	/* $('#selcounty').append("<option value='0'>请选择县(区)</option>"); */
     $('#selprovince').on('changed.bs.select', function (e) {
         $('#selcity').empty();
         $('#selcity').append("<option value='0'>请选择市</option>"); 
@@ -141,11 +141,11 @@ function binddata(){
         $("#selcounty").selectpicker('refresh');
        	getcity($('#selprovince').selectpicker('val'),"");        
     }); 
-    $('#selcity').on('changed.bs.select', function (e) {
+    /* $('#selcity').on('changed.bs.select', function (e) {
         $('#selcounty').empty();
         $('#selcounty').append("<option value='0'>请选择县(区)</option>");        
         getcounty($('#selcity').selectpicker('val'),"");        
-    }); 
+    });  */
     
 	$('#selstatus').selectpicker('refresh');
 	if($("#advertid").val()!==""&& $("#advertid").val()!=null){
@@ -158,7 +158,7 @@ function binddata(){
 	}
 	getprovince($("#provinceid").val());
     getcity($("#provinceid").val(),$("#cityid").val());
-    getcounty($("#cityid").val(),$("#countyid").val());
+    /* getcounty($("#cityid").val(),$("#countyid").val()); */
 }
 //获取或设置省
 function getprovince(value){

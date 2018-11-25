@@ -2,7 +2,6 @@ package com.yh.service.impl;
 
 import java.util.List;
 import javax.annotation.Resource;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import com.yh.dao.CouponInfoMapper;
 import com.yh.model.CouponInfo;
@@ -19,11 +18,17 @@ public class CouponServiceImpl implements CouponService{
 	public List<CouponInfo> getCouponList(CouponInfo couponInfo){
 		return couponInfoMapper.getCouponList(couponInfo);
 	}
-    public CouponInfo getCouponById(@Param("couponid") String couponId){
+    public CouponInfo getCouponById(String couponId){
     	return couponInfoMapper.getCouponById(couponId);
     }
-    public int deleteCoupon(@Param("couponid") String couponId){
+    public int deleteCoupon(String couponId){
     	return couponInfoMapper.deleteCoupon(couponId);
+    }
+    public int couponUp(String couponId){
+    	return couponInfoMapper.couponUp(couponId);
+    }
+    public int couponDown(String couponId){
+    	return couponInfoMapper.couponDown(couponId);
     }
     public int updateCouponById(CouponInfo couponInfo){ 
     	return couponInfoMapper.updateCouponById(couponInfo);     	  

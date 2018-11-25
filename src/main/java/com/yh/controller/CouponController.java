@@ -102,9 +102,13 @@ public class CouponController {
 		if(couponId.trim().length()<=0) return "";
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
 		try{
-			couponService.deleteCoupon(couponId);
-			resultInfo.setCode(ResultEnum.DELETE_SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.DELETE_SUCCESS.getInfo());
+			if(couponService.deleteCoupon(couponId)>0){
+				resultInfo.setCode(ResultEnum.DELETE_SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.DELETE_SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			}
 		}catch(Exception ex){
 			resultInfo.setCode(ResultEnum.ERROR.getCode());
 	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
@@ -127,14 +131,75 @@ public class CouponController {
 				couponInfo.setCouponid(UUID.randomUUID().toString());
 				couponInfo.setCreatetime(Common.GetNowDate().toString());
 				couponInfo.setCreatorid(Common.getSession().getAttribute("userid").toString());
-				if(couponInfo.getShopid().length()>0) 
-					couponInfo.setCoupontype("1");//设置为商户券；
+				couponInfo.setCouponnums(couponInfo.getTotalnums());
+				couponInfo.setCoupontype("1");//设置为油站券；
+				/*if(couponInfo.getShopid().length()>0) 
+					couponInfo.setCoupontype("1");//设置为油站券；
 				else
-					couponInfo.setCoupontype("2");//设置为系统券；
+					couponInfo.setCoupontype("2");//设置为油虎券；
+				*/
 				couponService.insertCoupon(couponInfo); 				 			
-			}				
+			}
 			resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
 	        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+		}catch(Exception ex){
+			resultInfo.setCode(ResultEnum.ERROR.getCode());
+	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			logger.error(ex.getMessage());
+		}
+		return resultInfo;
+	}
+	/**
+	 * 优惠券上架
+	 * @param couponId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = {"couponUp/{couponid}"}, method = {RequestMethod.POST})
+	public @ResponseBody Object couponUp(@PathVariable(name ="couponid") String couponId, Model model) {
+		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();			 
+		try{
+			if(couponId==null || "".equals(couponId)){
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());	 
+		        return resultInfo;
+			}
+			if(couponService.couponUp(couponId)>0){	
+				resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			}
+		}catch(Exception ex){
+			resultInfo.setCode(ResultEnum.ERROR.getCode());
+	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			logger.error(ex.getMessage());
+		}
+		return resultInfo;
+	}
+	/**
+	 * 优惠券下架
+	 * @param couponId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = {"couponDown/{couponid}"}, method = {RequestMethod.POST})
+	public @ResponseBody Object couponDown(@PathVariable(name ="couponid") String couponId, Model model) {
+		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();			 
+		try{
+			if(couponId==null || "".equals(couponId)){
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());	 
+		        return resultInfo;
+			}
+			if(couponService.couponDown(couponId)>0){	
+				resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			}
 		}catch(Exception ex){
 			resultInfo.setCode(ResultEnum.ERROR.getCode());
 	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());

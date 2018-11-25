@@ -22,8 +22,8 @@ public class CouponInfo implements Serializable{
 
     private String coupontype;
 
-    private Double couponamount;
-
+    private Double couponprice;
+    private Integer totalnums;
     private Integer couponnums;
 
     private Double fullamount;
@@ -40,7 +40,15 @@ public class CouponInfo implements Serializable{
     @Transient
     private String shopname;
     
-    public String getCouponid() {
+    public Integer getTotalnums() {
+		return totalnums;
+	}
+
+	public void setTotalnums(Integer totalnums) {
+		this.totalnums = totalnums;
+	}
+
+	public String getCouponid() {
         return couponid;
     }
 
@@ -88,15 +96,17 @@ public class CouponInfo implements Serializable{
         this.coupontype = coupontype == null ? null : coupontype.trim();
     }
 
-    public Double getCouponamount() {
-        return couponamount;
-    }
+    
 
-    public void setCouponamount(Double couponamount) {
-        this.couponamount = couponamount;
-    }
+    public Double getCouponprice() {
+		return couponprice;
+	}
 
-    public Integer getCouponnums() {
+	public void setCouponprice(Double couponprice) {
+		this.couponprice = couponprice;
+	}
+
+	public Integer getCouponnums() {
         return couponnums;
     }
 

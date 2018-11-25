@@ -22,8 +22,10 @@
 			<span class="col-sm-2"> 
 				<select id="status" name="status"	class="form-control m-b">
 					<option value="">全部</option>
-					<option value="0">禁用</option>
-					<option value="1">启用</option>
+					<option value="2">上架</option>
+					<option value="1">下架</option>
+					<option value="0">待定</option>
+					<option value="3">超期</option>
 				</select>
 			</span>
 			<span>
@@ -48,13 +50,17 @@
 				formatter : function(value, row, index) {return index + 1;}
 			},
 			{field : 'shopname',title : '加油站',width : 80,sortable : true,align : "left"},
-			{field : 'couponcode',title : '优惠券编码',width : 50,sortable : true,align : "center"},
+			{field : 'couponcode',title : '优惠券编码',width : 40,sortable : true,align : "center"},
 			{field : 'couponname',title : '优惠券名称',width : 100,sortable : true,align : "left"},
-			{field : 'begintime',title : '起始日期',width : 50,sortable : true,align : "center"},
-			{field : 'endtime',title : '结束日期',width : 50,sortable : true,align : "center"},
-			{field : 'couponamount',title : '券额/份',width : 50,sortable : true,align : "center"},
-			{field : 'couponnums',title : '份数',width : 50,sortable : true,align : "center"},	
-			{field : 'fullamount',title : '满多少可用',width : 50,sortable : true,align : "center"},	
+			{field : 'endtime',title : '有效期',width : 120,sortable : true,align : "center",
+				formatter : function(cellvalue,options, row) {					
+					return options.begintime+"/"+options.endtime;
+				}
+			},
+			{field : 'couponprice',title : '优惠券金额',width : 50,sortable : true,align : "center"},
+			{field : 'totalnums',title : '总优惠数量',width : 50,sortable : true,align : "center"},	
+			{field : 'couponnums',title : '未优惠数量',width : 50,sortable : true,align : "center"},	
+			{field : 'fullamount',title : '消费额',width : 50,sortable : true,align : "center"},	
 			{field : "status",title : "状态",width : 50,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";
@@ -74,11 +80,13 @@
 			{
 				field : 'action',
 				title : '操作',
-				width : 100,
+				width : 150,
 				align : "center",
 				formatter : function(cellvalue,options, row) {
-					var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='editdata(\""
-							+ options.couponid + "\")' >编辑</a>  ";
+					var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='couponup(\""
+							+ options.couponid + "\")' >上架</a>  ";
+					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='coupondown(\""
+								+ options.couponid + "\")' >下架</a>  ";		
 					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='deletedata(\""
 							+ options.couponid + "\")' >删除</a>";
 					//console.log(html);
@@ -98,12 +106,54 @@
 		});
 		layer.full(index);
 	}
-	function editdata(couponid) {
-		var index = layer.open({
+	function couponup(couponid) {
+		/* var index = layer.open({
 			type : 2,title : "编辑产品",
 			content : "${pageContext.request.contextPath}/coupon/editCoupon/"+couponid+""
 		});
-		layer.full(index);
+		layer.full(index); */
+		layer.confirm('确认要上架吗？',function(index){			
+			$.ajax({
+				type : "post",
+				url : "${pageContext.request.contextPath}/coupon/couponUp/"+couponid,
+				dataType : "json",
+				contentType : 'application/json',
+				success : function(result) {
+					result = eval(result);
+					if(result.code=="SS01"){
+						layer.msg('上架成功。',{icon:1,time:1500});
+						binddata();
+					}else{
+						layer.msg('上架失败!',{icon:2,time:1500});
+					}
+				},
+				error : function(errorMsg) {
+					layer.msg('上架失败!',{icon:2,time:1500});	
+				}
+			});
+		});		
+	}
+	function coupondown(couponid) {
+		layer.confirm('确认要下架吗？',function(index){			
+			$.ajax({
+				type : "post",
+				url : "${pageContext.request.contextPath}/coupon/couponDown/"+couponid,
+				dataType : "json",
+				contentType : 'application/json',
+				success : function(result) {
+					result = eval(result);
+					if(result.code=="SS01"){
+						layer.msg('下架成功。',{icon:1,time:1500});
+						binddata();
+					}else{
+						layer.msg('下架失败!',{icon:2,time:1500});
+					}
+				},
+				error : function(errorMsg) {
+					layer.msg('上架失败!',{icon:2,time:1500});	
+				}
+			});
+		});		
 	}
 	function deletedata(couponid) {
 		layer.confirm('确认要删除吗？',function(index){			
@@ -114,6 +164,7 @@
 				contentType : 'application/json',
 				success : function(result) {
 					result = eval(result);
+					console.log(result);
 					if(result.code=="DS01"){
 						layer.msg('删除成功。',{icon:1,time:1500});
 						binddata();

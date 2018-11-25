@@ -161,7 +161,7 @@
 	    <if test="shopname != null and shopname !=''" >
 	        and t2.shopname like "%"#{shopname}"%"
 	    </if>
-	    order by ordernum
+	    order by t2.shopcode desc ,t3.ordernum
   </select>
   <select id="getShopOilsById" resultMap="BaseResultMap" parameterType="com.yh.model.ShopOils">
     select shopoilsid,shopid,oilsid,sourceprice,couponprice,payprice1,payprice2,
