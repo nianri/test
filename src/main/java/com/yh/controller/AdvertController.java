@@ -75,7 +75,7 @@ public class AdvertController {
 			return "";
 		AdvertInfo advertInfo = new AdvertInfo();
 		advertInfo=advertService.getAdvertById(advertId);
-		advertInfo.setImageurl(imageConfig.viewImgService+advertInfo.getImageurl());
+		//advertInfo.setImageurl(imageConfig.viewImgService+advertInfo.getImageurl());
 		model.addAttribute("advertInfo", advertInfo);
 		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
 		return "advert/advert_add";

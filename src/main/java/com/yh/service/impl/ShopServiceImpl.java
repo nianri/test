@@ -35,4 +35,7 @@ public class ShopServiceImpl implements ShopService{
 	public int saveShopXY(Shop shop){
 		return shopMapper.saveShopXY(shop);
 	}
+	public int submitShopSetting(Shop shop){
+		return shopMapper.submitShopSetting(shop);
+	}
 }

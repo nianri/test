@@ -85,7 +85,7 @@
 		(select areaname from dic_area n where m.proviceid=n.areaid) as provicename,
 		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
 		(select areaname from dic_area n where m.countyid=n.areaid) as countyname,
-		(select concat_ws("-",membercode,memberphone,realname) from member_info t where t.memberid=n.submitterid) member
+		(select concat_ws("-",membercode,phonenum,realname) from member_info t where t.memberid=n.submitterid) member
 		from shop_info m left join shop_check n on n.status='0' and m.shopid=n.shopid 
 		where m.isdelete='1' and m.status ='1'
 		<if test="shopname != null and shopname !=''">
@@ -103,4 +103,8 @@
 	<update  id="saveShopXY" parameterType="com.yh.model.Shop">
  		 update shop_info set longitude=#{longitude},latitude=#{latitude} where shopid=#{shopid}             
  	</update > 
+ 	<update  id="submitShopSetting" parameterType="com.yh.model.Shop">
+ 		 update shop_info set accountname=#{accountname},accountnums=#{accountnums},accountbank=#{accountbank} where shopid=#{shopid}             
+ 	</update >
+ 	
 </mapper>

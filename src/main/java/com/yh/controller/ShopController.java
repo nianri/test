@@ -266,4 +266,55 @@ public class ShopController {
 		}		
 		return resultInfo;
 	}
+	/**
+	 * 打开商家信息维护页面
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = {"shopSetting"}, method = {RequestMethod.GET})
+	public String shopSetting(Model model) {	
+		Shop shop = new Shop();
+		shop=shopService.getShopById(Common.getSession().getAttribute("shopid").toString());
+		model.addAttribute("shop", shop);
+		return "shop/shop_setting";		
+	}
+	/**
+	 * 提交商家信息维护数据
+	 * @param shop
+	 * @return
+	 */
+	@RequestMapping(value = {"submitShopSetting"}, method = {RequestMethod.POST})
+	public @ResponseBody Object submitShopSetting(@RequestBody Shop shop) {		
+		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
+		try{
+			if(shop.getAccountbank()==null||"".equals(shop.getAccountbank())){
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo("开户银行不能为空！");
+				return resultInfo;
+			}
+			if(shop.getAccountnums()==null||"".equals(shop.getAccountnums())){
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo("开户银行卡号不能为空！");
+				return resultInfo;
+			}
+			if(shop.getAccountname()==null||"".equals(shop.getAccountname())){
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo("开户人姓名不能为空！");
+				return resultInfo;
+			}
+			if(shopService.submitShopSetting(shop)>0){
+				resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+			}else{		
+				resultInfo.setCode(ResultEnum.ERROR.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			}
+			
+		}catch(Exception ex){
+			resultInfo.setCode(ResultEnum.ERROR.getCode());
+	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			logger.error(ex.getMessage());
+		}		
+		return resultInfo;
+	}
 }

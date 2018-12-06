@@ -110,7 +110,7 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">经伟度：</label>
 					<div class="formControls col-xs-8 col-sm-5">
-						<input type="text" class="input-text" value="${shop.longitude},${shop.latitude}" id="positionxy" disabled="disabled">
+						<input type="text" class="input-text"  id="positionxy" disabled="disabled">
 					</div>
 				</div>
 			</div>
@@ -161,13 +161,22 @@
 		var map = new BMap.Map("allmap"); 
 		
 		jQuery(function($) {
+			var posx=$("#longitude").val();
+			var posy=$("#latitude").val();
+			if(posx!=""&&posx!=""&&posy!=""&&posy!=""){
+				$("#positionxy").val(posx+","+posy);
+				map.centerAndZoom(new BMap.Point(posx, posy), 16); 
+			}else{
+				map.centerAndZoom("北京市", 11); 
+			}
+			// 初始化地图,用城市名设置地图中心点
+			//map.centerAndZoom($("#cityname").val()+$("#countyname").val(), 16); 			
+			map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+			map.addEventListener("click", showInfo);
 			$("#btnSubmit").click(function() {
 				submitcheck();
 			});
-			// 初始化地图,用城市名设置地图中心点
-			map.centerAndZoom($("#cityname").val()+$("#countyname").val(), 16); 
-			map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
-			map.addEventListener("click", showInfo);
+			
 		});
 		function showInfo(e){
 			$("#positionxy").val(e.point.lng + "," + e.point.lat);
@@ -176,6 +185,34 @@
 			//toastr.warning("经伟度已重新选择，请提交！");
 		}
 		function submitcheck(){
+			if($("#accountbank").val()==null||$("#accountbank").val()==""){
+				toastr.warning("开户银行不能为空！");
+				return ;
+			}
+			if($("#accountnums").val()==null||$("#accountnums").val()==""){
+				toastr.warning("开户银行卡号不能为空！");
+				return ;
+			}
+			if($("#accountname").val()==null||$("#accountname").val()==""){
+				toastr.warning("开户人姓名不能为空！");
+				return ;
+			}
+			if($("#licenseimg").val()==null||$("#licenseimg").val()==""){
+				toastr.warning("营业执照不能为空！");
+				return ;
+			}
+			if($("#prolicenseimg").val()==null||$("#prolicenseimg").val()==""){
+				toastr.warning("成品油许可证不能为空！");
+				return ;
+			}
+			if($("#cardtop").val()==null||$("#cardtop").val()==""){
+				toastr.warning("身份证正面照不能为空！");
+				return ;
+			}
+			if($("#carddown").val()==null||$("#carddown").val()==""){
+				toastr.warning("身份证反面照不能为空！");
+				return ;
+			}
 			if($("input[name='checkstatus']:checked").val()=="2" && $("#positionxy").val()==""){
 				toastr.warning("请选择经纬度！");
 				return;

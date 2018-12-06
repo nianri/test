@@ -83,7 +83,7 @@
 	</update>
 	<select id="getShopCheckLog" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
 		select submittime,checktime,checkdesc,status,
-		(select concat_ws("-",membercode,memberphone,realname) from member_info n where m.submitterid=n.memberid) as submitname,
+		(select concat_ws("-",membercode,phonenum,realname) from member_info n where m.submitterid=n.memberid) as submitname,
 		(select realname from sys_user n where m.auditorid=n.userid) as auditorname
   		from shop_check m where shopid = #{shopid} order by submittime desc   
 	</select>

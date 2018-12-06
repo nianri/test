@@ -17,7 +17,7 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/static/h-ui/js/H-ui.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
 
-	<title>XX运营管理平台</title>
+	<title>运营管理平台</title>
 </head>
 <body>
 <header class="navbar-wrapper">
@@ -25,7 +25,7 @@
 		<div class="container-fluid cl"> 
 			<img style="float: left; width: 5rem; margin-right: 16px; margin-left: 8px;"
 				src="${pageContext.request.contextPath}/resources/static/youhulogo.png">
-			<a class="logo navbar-logo f-l mr-10 hidden-xs" >XX运营管理平台</a>  
+			<a class="logo navbar-logo f-l mr-10 hidden-xs" >运营管理平台</a>  
 			<a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml"></a> 		
 			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav class="nav navbar-nav">
@@ -115,15 +115,15 @@
 			</dd>
 		</dl>
 		<dl id="menu-system">
-			<dt><i class="Hui-iconfont">&#xe62e;</i>商家订单 <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe62e;</i>加油订单 <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList" data-title="订单查询" href="javascript:void(0)">订单查询</a></li></ul>
 			</dd>
-		</dl>	
-		<dl id="menu-admin">
-			<dt><i class="Hui-iconfont">&#xe62d;</i>店铺定位<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+		</dl>
+		<dl id="menu-system">
+			<dt><i class="Hui-iconfont">&#xe62e;</i>我的设置 <i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
-				<ul><li><a data-href="${pageContext.request.contextPath}/shop/shopMap" data-title="店铺位置设置" href="javascript:void(0)">店铺位置设置</a></li></ul>
+				<ul><li><a data-href="${pageContext.request.contextPath}/shop/shopSetting" data-title="基础信息" href="javascript:void(0)">基础信息</a></li></ul>
 			</dd>
 		</dl>
 	</div>

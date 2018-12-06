@@ -14,4 +14,5 @@ public interface ShopService {
 	public Shop getShopById(@Param("shopid") String shopid);
 	public List<Shop> getShopByRight();
 	public int saveShopXY(Shop shop);
+	public int submitShopSetting(Shop shop);
 }

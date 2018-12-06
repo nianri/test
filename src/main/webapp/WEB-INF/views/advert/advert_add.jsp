@@ -78,21 +78,22 @@
 						<div id="uploader-demo" >
 						    <!--用来存放item-->
 						    <div id="fileList" class="uploader-list"></div>
-						    <div id="filePicker" >选择图片...</div>
+						    <div id="filePicker" >选择图片...</div>	
+						    <a id="btncancel" class="btn btn-primary" style="display:none;" onclick="reuploader();" role="button">关 闭</a>					    
 						</div>
 					 </div>
 				</div>	
-				<div class="form-group" id="imageshow" style="display:none;">
+				<%-- <div class="form-group" id="imageshow" style="display:none;">
 					<label class="col-sm-3 control-label">广告图片：</label>
 					<div class="col-sm-8">
 						<div class="portfoliobox">
 							<div class="picbox">
 								<img id="imagevalue" style="width:300px;height:200px;" src="${advertInfo.imageurl}">
-								<button type="button" class="btn btn-primary" onclick="reuploader()" >重新上传...</button>
+								<a  class="btn btn-primary" onclick="reuploader()" role="button" >重新上传...</a>
 							</div>							
 						</div>
 					</div>
-				</div>				
+				</div>	 --%>						
 				<div class="form-group" id="linkDiv">
 					<label class="col-sm-3 control-label">广告链接：</label>
 					<div class="col-sm-8">
@@ -149,16 +150,21 @@ function binddata(){
     
 	$('#selstatus').selectpicker('refresh');
 	if($("#advertid").val()!==""&& $("#advertid").val()!=null){
-		$("#imageshow").show();
-		$("#imageuploader").hide();			 
+		//$("#imageshow").show();
+		//$("#imageuploader").hide();			 
 	    $('#selstatus').selectpicker('val',$("#status").val());
 	    $('#seladverttype').selectpicker('val',$("#adverttype").val());
+	    
+	    var $li = $('<div id="' +  $('#advertid').val() + '" ><img src='+$('#imageurl').val()+'></div>') ;
+	    $("#fileList").append( $li );
 	}else{
 	    //$('#selstatus').selectpicker('val',"2");
 	}
 	getprovince($("#provinceid").val());
     getcity($("#provinceid").val(),$("#cityid").val());
     /* getcounty($("#cityid").val(),$("#countyid").val()); */
+    
+   
 }
 //获取或设置省
 function getprovince(value){
@@ -235,27 +241,27 @@ function getcounty(parentid,value){
 
 //保存
 function datasave(){
+	
 	var tprovinceid=$('#selprovince').selectpicker('val').toString();
 	var tcityid=$('#selcity').selectpicker('val').toString();
-	var tcountyid=$('#selcounty').selectpicker('val').toString();
+	//var tcountyid=$('#selcounty').selectpicker('val').toString();
 	var rowData={"advertid":$("#advertid").val(),"advertname":$("#advertname").val(),"imageurl":$("#imageurl").val(),
 			"status":$('#selstatus').selectpicker('val'),"detailpage":$("#detailpage").val(),
-			"provinceid":tprovinceid,"cityid":tcityid,"countyid":tcountyid,"adverttype":$('#seladverttype').selectpicker('val')};
-	console.log(rowData);
+			"provinceid":tprovinceid,"cityid":tcityid,"adverttype":$('#seladverttype').selectpicker('val')};
+	
 	if($("#advertname").val().trim()==""){
-		alert("请填写广告名称！");
+		toastr.warning("请填写广告名称！");
 		return ;
 	}
-	if(tprovinceid=="0"||tcityid=="0"||tcountyid=="0"){
-		alert("请选择省、市、县(区)！");
+	if(tprovinceid=="0"||tcityid=="0"){
+		toastr.warning("请选择省、市");
 		return ;
 	}	
-	/* if($("#imageurl").val()==""){
-		alert("请上传广告图片！");
+	if($("#imageurl").val()==""){
+		toastr.warning("请上传广告图片！");
 		return ;
-	} */
+	} 
 	if($("#selstatus").val()==""){
-		//alert("请选择状态！");
 		toastr.warning("请选择状态！");
 		return ;
 	}
@@ -263,6 +269,7 @@ function datasave(){
 		toastr.warning("请选择广告类型！");
 		return ;
 	}
+	
 	$.ajax({
 		type : "post",
 		url : "${pageContext.request.contextPath}/advertin/saveAdvert",
@@ -315,6 +322,7 @@ function reuploader(){
 	$("#imageshow").hide();
 	$("#imageuploader").show();
 	initwebuploader();
+	console.log($('#uploadImgService').val());
 }
 //初始化webuploader
 function initwebuploader(){
@@ -364,12 +372,11 @@ function initwebuploader(){
 	// 文件上传成功，给item添加成功class, 用样式标记上传成功。
 	uploader.on( 'uploadSuccess', function( file,response ) {
 	    $( '#'+file.id ).addClass('upload-state-done');
-	    console.log(response.imagepath);
-	    $("#imageurl").val(response.imagepath);
-	    
+	   	$("#imageurl").val(response.data.filePath);
+	   	console.log(response.data.filePath);
 	});
 	// 文件上传失败，显示上传出错。
-	uploader.on( 'uploadError', function( file ) {
+	uploader.on( 'uploadError', function( file,response ) {
 	    var $li = $( '#'+file.id ),$error = $li.find('div.error');
 	    // 避免重复创建
 	    if ( !$error.length ) {
@@ -377,6 +384,7 @@ function initwebuploader(){
 	    }
 	    $error.text('上传失败');
 	    console.log("失败！");
+	    console.log(response);
 	});
 	// 完成上传完了，成功或者失败，先删除进度条。
 	uploader.on( 'uploadComplete', function( file ) {

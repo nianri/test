@@ -15,4 +15,5 @@ public interface ShopMapper {
     Shop getShopById(@Param("shopid") String shopid);
     List<Shop> getShopByRight();
     int saveShopXY(Shop shop);
+    int submitShopSetting(Shop shop);
 }

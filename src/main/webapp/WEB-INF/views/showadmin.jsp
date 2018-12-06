@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/Hui-iconfont/1.0.8/iconfont.css" />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/h-ui.admin/skin/default/skin.css" id="skin" />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/h-ui.admin/css/style.css" />
-	<title>XX运营管理平台</title>
+	<title>运营管理平台</title>
 </head>
 <body>
 	<header class="navbar-wrapper">
@@ -22,7 +22,7 @@
 		<div class="container-fluid cl">
 			<img style="float: left; width: 5rem; margin-right: 16px; margin-left: 8px;"
 				src="${pageContext.request.contextPath}/resources/static/youhulogo.png">
-			<a class="logo navbar-logo f-l mr-10 hidden-xs"	>XX运营管理平台</a> 
+			<a class="logo navbar-logo f-l mr-10 hidden-xs"	>运营管理平台</a> 
 			<a class="logo navbar-logo-m f-l mr-10 visible-xs"	href="/aboutHui.shtml"></a> 
 			<a aria-hidden="false"	class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
