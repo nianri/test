@@ -3,7 +3,7 @@
 <mapper namespace="com.yh.dao.ShopOrderMapper">
 	<resultMap id="BaseResultMap" type="com.yh.model.ShopOrder">
 		<result column="orderid" jdbcType="VARCHAR" property="orderid" />
-		<result column="ordercode" jdbcType="INTEGER" property="ordercode" />
+		<result column="ordercode" jdbcType="VARCHAR" property="ordercode" />
 		<result column="shopid" jdbcType="VARCHAR" property="shopid" />
 		<result column="oilsid" jdbcType="VARCHAR" property="oilsid" />
 		<result column="memberid" jdbcType="VARCHAR" property="memberid" />

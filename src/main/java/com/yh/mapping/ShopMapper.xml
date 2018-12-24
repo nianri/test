@@ -8,7 +8,7 @@
 	    <result column="shopname" jdbcType="VARCHAR" property="shopname" />
 	    <result column="shopdesc" jdbcType="VARCHAR" property="shopdesc" />
 	    <result column="shopservice" jdbcType="VARCHAR" property="shopservice" />
-	    <result column="proviceid" jdbcType="VARCHAR" property="proviceid" />
+	    <result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
 	    <result column="cityid" jdbcType="VARCHAR" property="cityid" />
 	    <result column="address" jdbcType="VARCHAR" property="address" />	   
 	    <result column="shoplogo" jdbcType="VARCHAR" property="shoplogo" />
@@ -37,13 +37,13 @@
 	</resultMap>
 	<insert id="insert" parameterType="com.yh.model.Shop">
 	    insert into shop_info (shopid, memberid, shopcode,shopname, shopdesc, shopservice, 
-	      proviceid, cityid, address, shoplogo, shopimg, 
+	      provinceid, cityid, address, shoplogo, shopimg, 
 	      leadername, leadertel, leaderemail, accountbank, accountnums, accountname, 
 	      licenseimg, prolicenseimg, cardtop,carddown, createtime, creatorid, 
 	      isdelete, status, memo,mchid, trmno, shopkey,areadesc,longitude,latitude )
 	    values (#{shopid,jdbcType=VARCHAR}, #{memberid,jdbcType=VARCHAR}, #{shopcode,jdbcType=INTEGER}, 
 	      #{shopname,jdbcType=VARCHAR}, #{shopdesc,jdbcType=VARCHAR}, #{shopservice,jdbcType=VARCHAR}, 
-	      #{proviceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+	      #{provinceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
 	      #{shoplogo,jdbcType=VARCHAR}, #{shopimg,jdbcType=VARCHAR}, 
 	      #{leadername,jdbcType=VARCHAR}, #{leadertel,jdbcType=VARCHAR}, #{leaderemail,jdbcType=VARCHAR}, 
 	      #{accountbank,jdbcType=VARCHAR}, #{accountnums,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, 
@@ -55,14 +55,14 @@
 	</insert>  	
  	<select id="getShopById" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
 		select *,
-		(select n.areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select n.areaname from dic_area n where m.provinceid=n.areaid) as provicename,
 		(select n.areaname from dic_area n where m.cityid=n.areaid) as cityname,
 		(select n.areaname from dic_area n where m.countyid=n.areaid) as countyname
 		 from shop_info m where isdelete='1' and shopid = #{shopid}
 	</select>
  	<select id="getShopList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
 		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc,
-		(select areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select areaname from dic_area n where m.provinceid=n.areaid) as provicename,
 		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
 		(select areaname from dic_area n where m.countyid=n.areaid) as countyname
 		from shop_info m where isdelete='1'
@@ -82,7 +82,7 @@
  	</update >
   	<select id="getShopCheckList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
 		select m.shopid,n.submittime,shopname,address,n.status as checkstatus,areadesc,
-		(select areaname from dic_area n where m.proviceid=n.areaid) as provicename,
+		(select areaname from dic_area n where m.provinceid=n.areaid) as provicename,
 		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
 		(select areaname from dic_area n where m.countyid=n.areaid) as countyname,
 		(select concat_ws("-",membercode,phonenum,realname) from member_info t where t.memberid=n.submitterid) member

@@ -22,7 +22,7 @@ public class Shop implements Serializable{
 
     private String shopservice;
 
-    private String proviceid;
+    private String provinceid;
 
     private String cityid;
 
@@ -134,15 +134,17 @@ public class Shop implements Serializable{
         this.shopservice = shopservice == null ? null : shopservice.trim();
     }
 
-    public String getProviceid() {
-        return proviceid;
-    }
+    
 
-    public void setProviceid(String proviceid) {
-        this.proviceid = proviceid == null ? null : proviceid.trim();
-    }
+    public String getProvinceid() {
+		return provinceid;
+	}
 
-    public String getCityid() {
+	public void setProvinceid(String provinceid) {
+		this.provinceid = provinceid;
+	}
+
+	public String getCityid() {
         return cityid;
     }
 

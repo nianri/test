@@ -10,7 +10,7 @@ public class ShopOrder implements Serializable{
 	private static final long serialVersionUID = 1L;
     private String orderid;
 
-    private Integer ordercode;
+    private String ordercode;
 
     private String shopid;
     private String oilsid;
@@ -56,11 +56,11 @@ public class ShopOrder implements Serializable{
         this.orderid = orderid == null ? null : orderid.trim();
     }
 
-    public Integer getOrdercode() {
+    public String getOrdercode() {
         return ordercode;
     }
 
-    public void setOrdercode(Integer ordercode) {
+    public void setOrdercode(String ordercode) {
         this.ordercode = ordercode;
     }
 

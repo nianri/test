@@ -10,6 +10,6 @@ public class ImgConfig{
 	@Value("${uploadImgService.Url}")   
 	public  String uploadImgService;     
        
-	@Value("${viewImgService.Url}")   
-	public  String viewImgService;   
+	//@Value("${viewImgService.Url}")   
+	//public  String viewImgService;   
 }  

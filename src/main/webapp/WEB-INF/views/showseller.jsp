@@ -105,13 +105,13 @@
 		<dl id="menu-product">
 			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
-				<ul><li><a data-href="../shopOils/shopOilsList" data-title="产品列表" href="javascript:void(0)">产品列表</a></li></ul>
+				<ul><li><a data-href="../shopOils/shopOilsList" data-title="产品列表" href="javascript:void(0)">发布产品</a></li></ul>
 			</dd>
 		</dl>	
 		<dl id="menu-comments">
 			<dt><i class="Hui-iconfont">&#xe622;</i>优惠券管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
-				<ul><li><a data-href="${pageContext.request.contextPath}/coupon/couponList" data-title="优惠券管理" href="javascript:;">优惠券发布</a></li></ul>
+				<ul><li><a data-href="${pageContext.request.contextPath}/coupon/couponList" data-title="优惠券管理" href="javascript:;">发布优惠券</a></li></ul>
 			</dd>
 		</dl>
 		<dl id="menu-system">
