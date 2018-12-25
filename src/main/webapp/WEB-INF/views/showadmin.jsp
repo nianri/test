@@ -123,8 +123,9 @@
 			</dt>
 			<dd>
 				<ul>
+					<li><a data-href="${pageContext.request.contextPath}/shop/shopCheckList" data-title="加油站入驻" href="javascript:void(0)">加油站入驻</a></li>
+					<li><a data-href="${pageContext.request.contextPath}/shop/shopCheckList" data-title="加油站审核" href="javascript:void(0)">加油站审核</a></li>
 					<li><a data-href="${pageContext.request.contextPath}/shop/shopList"	data-title="加油站列表" href="javascript:void(0)">加油站列表</a></li>
-					<li><a data-href="${pageContext.request.contextPath}/shop/shopCheckList" data-title="加油站入驻审核" href="javascript:void(0)">加油站审核</a></li>
 				</ul>
 			</dd>
 		</dl>
