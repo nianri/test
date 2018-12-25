@@ -2,6 +2,7 @@ package com.yh.common;
 
 public enum ResultEnum {
 	SAVE_SUCCESS("SS01","保存成功。"),
+	REPLY_SUCCESS("RS01","回复成功。"),
     SAVE_FAILED("SF02","保存失败！"),	
     DELETE_SUCCESS("DS01","删除成功。"),
     DELETE_FAILED("DF02","删除失败！"),
