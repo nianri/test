@@ -174,7 +174,7 @@
 			</dt>
 			<dd>
 				<ul>
- 					<li><a data-href="${pageContext.request.contextPath }/sysUser/sysUserList1" data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
+ 					<li><a data-href="${pageContext.request.contextPath }/feedback/feedbackList" data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -184,7 +184,7 @@
 			</dt>
 			<dd>
 				<ul>
- 					<li><a data-href="${pageContext.request.contextPath }/sysUser/sysUserList1" data-title="意见反馈列表" href="javascript:void(0)">意见反馈列表</a></li>
+ 					<li><a data-href="${pageContext.request.contextPath }/feedbackInfo/feedbackInfoList" data-title="意见反馈列表" href="javascript:void(0)">意见反馈列表</a></li>
 				</ul>
 			</dd>
 		</dl>
