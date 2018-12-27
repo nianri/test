@@ -174,7 +174,7 @@
 			</dt>
 			<dd>
 				<ul>
- 					<li><a data-href="${pageContext.request.contextPath }/feedback/feedbackList" data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
+ 					<li><a data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList" data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
 				</ul>
 			</dd>
 		</dl>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.DicExpressMapper">
+
+<resultMap id="BaseResultMap"
+		type="com.yh.model.DicExpress">
+        <id column="expressid" property="expressid" />
+        <result column="expresscode" property="expresscode" />
+        <result column="expressname" property="expressname" />
+        <result column="createtime" property="createtime" />
+        <result column="createorid" property="createorid" />
+        <result column="status" property="status" />
+        <result column="memo" property="memo" />
+	</resultMap>
+    <!--查询快递公司列表 -->
+    <select id="getDicExpressList" resultMap="BaseResultMap" parameterType="com.yh.model.DicExpress">
+      select expressid,expresscode,expressname from dic_express
+      where 1=1
+      <if test="status !=null and status!=''">
+      and status=#{status}
+      </if>
+    </select>
+</mapper>

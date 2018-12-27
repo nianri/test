@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
 import com.yh.model.FeedbackInfo;
-import com.yh.model.Goods;
 import com.yh.service.FeedbackInfoService;
 /**
  * 
@@ -87,8 +86,8 @@ public class FeedbackInfoController {
   		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();	   
          try{
        		feedbackInfoService.updateFeedbackInfo(feedbackInfo);
-    		resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+    		resultInfo.setCode(ResultEnum.REPLY_SUCCESS.getCode());
+	        resultInfo.setInfo(ResultEnum.REPLY_SUCCESS.getInfo());
 		}catch(Exception ex){
 			resultInfo.setCode(ResultEnum.ERROR.getCode());
 	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
