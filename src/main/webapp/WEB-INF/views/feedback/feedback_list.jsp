@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-</div
+</div>
 </body>
 <script type="text/javascript">
 	var grid;
@@ -103,7 +103,6 @@
 		});
 		binddata();
 		$("#createFileSureBut").click(function (){
-            $("#createFileMModal").modal("hide");
             var replymsg = $("#replymsg").val().trim();
             if(replymsg==""||replymsg==null){
             	toastr.error("请输入回复内容");
@@ -126,8 +125,9 @@
 			contentType : 'application/json',
 			success : function(result) {
 				result = eval(result);
-				if(result.code=="SS01"){
+				if(result.code=="RS01"){
 					toastr.success(result.info);
+		            $("#createFileMModal").modal("hide");
 					binddata();
 				}else
 					toastr.error(result.info);
