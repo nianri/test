@@ -143,9 +143,6 @@
 			<dd>
 				<ul>
 					<li><a
-						data-href="${pageContext.request.contextPath}/shop/index1"
-						data-title="加油站入驻" href="javascript:void(0)">测试</a></li>
-					<li><a
 						data-href="${pageContext.request.contextPath}/shop/shopAddList"
 						data-title="加油站入驻" href="javascript:void(0)">加油站入驻</a></li>
 					<li><a

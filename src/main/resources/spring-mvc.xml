@@ -82,5 +82,4 @@
 			<bean class="com.yh.common.SysIntercptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
 </beans>  

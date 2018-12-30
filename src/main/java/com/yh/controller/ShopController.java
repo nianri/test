@@ -45,12 +45,7 @@ public class ShopController {
 	private ImgConfig imageConfig; //引用统一的参数配置类
 	
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-	
-	@RequestMapping(value = {"index1"}, method = {RequestMethod.GET})
-	public String index1() {	 
-		return "shop/index1";		
-	}
-	
+		
 	/**
 	 * 加油站入驻-列表
 	 * @return
@@ -61,7 +56,7 @@ public class ShopController {
 	}
 	/**
 	 * 加油站入驻-搜索
-	 * 搜索未申请、待审核中的加油站
+	 * 搜索未申请、待审核、审核失败的加油站
 	 * @param shop
 	 * @return
 	 */
@@ -94,7 +89,7 @@ public class ShopController {
 		Shop shop = new Shop();
 		shop = shopService.getShopById(shopId);
 		model.addAttribute("shop", shop);
-		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
+		//model.addAttribute("uploadImgService", imageConfig.uploadImgService);
 		return "shop/shop_addinfo";		
 	}
 	/**
@@ -368,7 +363,7 @@ public class ShopController {
 	public @ResponseBody Object submitShopSetting(@RequestBody Shop shop) {		
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
 		try{
-			if(shop.getAccountbank()==null||"".equals(shop.getAccountbank())){
+			/*if(shop.getAccountbank()==null||"".equals(shop.getAccountbank())){
 				resultInfo.setCode(ResultEnum.ERROR.getCode());
 		        resultInfo.setInfo("开户银行不能为空！");
 				return resultInfo;
@@ -382,7 +377,7 @@ public class ShopController {
 				resultInfo.setCode(ResultEnum.ERROR.getCode());
 		        resultInfo.setInfo("开户人姓名不能为空！");
 				return resultInfo;
-			}
+			}*/
 			if(shopService.submitShopSetting(shop)>0){
 				resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
 		        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());

@@ -40,12 +40,6 @@ public class Shop implements Serializable{
 
     private String leaderemail;
 
-    private String accountbank;
-
-    private String accountnums;
-
-    private String accountname;
-
     private String licenseimg;
 
     private String prolicenseimg;
@@ -64,11 +58,9 @@ public class Shop implements Serializable{
 
     private String memo;
 
-    private String mchid;
-
-    private String trmno;
-
-    private String shopkey;
+    private String cusid;
+    private String appid;
+    private String appkey;
     private Double longitude;
     private Double latitude;
     @Transient
@@ -200,29 +192,7 @@ public class Shop implements Serializable{
         this.leaderemail = leaderemail == null ? null : leaderemail.trim();
     }
 
-    public String getAccountbank() {
-        return accountbank;
-    }
 
-    public void setAccountbank(String accountbank) {
-        this.accountbank = accountbank == null ? null : accountbank.trim();
-    }
-
-    public String getAccountnums() {
-        return accountnums;
-    }
-
-    public void setAccountnums(String accountnums) {
-        this.accountnums = accountnums == null ? null : accountnums.trim();
-    }
-
-    public String getAccountname() {
-        return accountname;
-    }
-
-    public void setAccountname(String accountname) {
-        this.accountname = accountname == null ? null : accountname.trim();
-    }
 
     public String getLicenseimg() {
         return licenseimg;
@@ -294,30 +264,6 @@ public class Shop implements Serializable{
 
     public void setMemo(String memo) {
         this.memo = memo == null ? null : memo.trim();
-    }
-
-    public String getMchid() {
-        return mchid;
-    }
-
-    public void setMchid(String mchid) {
-        this.mchid = mchid == null ? null : mchid.trim();
-    }
-
-    public String getTrmno() {
-        return trmno;
-    }
-
-    public void setTrmno(String trmno) {
-        this.trmno = trmno == null ? null : trmno.trim();
-    }
-
-    public String getShopkey() {
-        return shopkey;
-    }
-
-    public void setShopkey(String shopkey) {
-        this.shopkey = shopkey == null ? null : shopkey.trim();
     }
 
 	public String getCheckstatus() {
@@ -392,6 +338,30 @@ public class Shop implements Serializable{
 		this.latitude = latitude;
 	}
 
+	public String getCusid() {
+		return cusid;
+	}
+
+	public void setCusid(String cusid) {
+		this.cusid = cusid;
+	}
+
+	public String getAppid() {
+		return appid;
+	}
+
+	public void setAppid(String appid) {
+		this.appid = appid;
+	}
+
+	public String getAppkey() {
+		return appkey;
+	}
+
+	public void setAppkey(String appkey) {
+		this.appkey = appkey;
+	}
+	
 	
     
 }
