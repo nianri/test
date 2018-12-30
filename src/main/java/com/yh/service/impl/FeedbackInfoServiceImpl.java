@@ -11,7 +11,7 @@ import com.yh.dao.FeedbackInfoMapper;
 import com.yh.model.FeedbackInfo;
 import com.yh.service.FeedbackInfoService;
 
-@Service
+@Service("feedbackInfoService")
 public class FeedbackInfoServiceImpl implements FeedbackInfoService{
 
 	@Resource
