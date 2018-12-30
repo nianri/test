@@ -205,26 +205,6 @@
 					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 			</dt>
 			<dd>
-				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList"
-						data-title="订单明细查询" href="javascript:void(0)">订单明细查询</a></li>
-				</ul>
-				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList2"
-						data-title="订单状态报表" href="javascript:void(0)">订单状态报表</a></li>
-				</ul>
-				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList3"
-						data-title="产品订单报表" href="javascript:void(0)">产品订单报表</a></li>
-				</ul>
-				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList4"
-						data-title="月收入报表" href="javascript:void(0)">月收入报表</a></li>
-				</ul>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList" data-title="订单明细查询" href="javascript:void(0)">订单明细查询</a></li></ul>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderStatusReport" data-title="订单状态报表" href="javascript:void(0)">订单状态报表</a></li></ul>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderOilsReport" data-title="产品订单报表" href="javascript:void(0)">产品订单报表</a></li></ul>
@@ -238,10 +218,9 @@
 			</dt>
 			<dd>
 				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath }/feedback/feedbackList"
-						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
- 					<li><a data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList" data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
+					<li><a	data-href="${pageContext.request.contextPath }/feedback/feedbackList"
+						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a>
+					</li> 					
 				</ul>
 			</dd>
 		</dl>
