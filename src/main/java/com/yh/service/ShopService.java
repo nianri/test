@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.yh.model.Shop;
 
 public interface ShopService {
+	public List<Shop> getShopAddList(Shop shop);
 	public List<Shop> getShopList(Shop shop);
 	public int updateShopStatus(Shop shop);
 	public int deleteShop(String id);

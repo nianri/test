@@ -27,7 +27,7 @@
 			</span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary ">搜索</a>
-				<a id="excelBtn" href="javascript:void(0);"	class="btn btn-primary ">导出商家</a>
+				<a id="excelBtn" href="javascript:void(0);"	class="btn btn-primary ">导出</a>
 			</span>
 			<div class="jqGrid_wrapper">
 				<table class="table-bordered" id="showtable"></table>

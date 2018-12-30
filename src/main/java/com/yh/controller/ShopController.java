@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
 import com.yh.common.Common;
+import com.yh.common.ImgConfig;
 import com.yh.model.Shop;
 import com.yh.model.ShopCheck;
 import com.yh.model.SysUser;
@@ -39,8 +41,87 @@ public class ShopController {
 	private ShopCheckService shopCheckService;
 	@Resource
 	private SysUserService sysUserService;
+	@Autowired
+	private ImgConfig imageConfig; //引用统一的参数配置类
 	
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+	
+	@RequestMapping(value = {"index1"}, method = {RequestMethod.GET})
+	public String index1() {	 
+		return "shop/index1";		
+	}
+	
+	/**
+	 * 加油站入驻-列表
+	 * @return
+	 */
+	@RequestMapping(value = {"shopAddList"}, method = {RequestMethod.GET})
+	public String shopAddList() {	 
+		return "shop/shop_addlist";		
+	}
+	/**
+	 * 加油站入驻-搜索
+	 * 搜索未申请、待审核中的加油站
+	 * @param shop
+	 * @return
+	 */
+	@RequestMapping(value = {"shopAddSearch"}, method = {RequestMethod.POST}, produces = {"application/json;charset=UTF-8"})
+	public  @ResponseBody List<Shop> shopAddSearch(@RequestBody Shop shop) {
+		List<Shop> shopList = new ArrayList<Shop>();		
+		try{
+			shopList=shopService.getShopAddList(shop);
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+        return shopList;
+	}
+	/**
+	 * 加油站入驻-填报
+	 * @return
+	 */
+	@RequestMapping(value = {"shopAddInfo"}, method = {RequestMethod.GET})
+	public String shopAddInfo(Model model) {
+		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
+		return "shop/shop_addinfo";		
+	}
+	/**
+	 * 加油站入驻-编辑
+	 * @return
+	 */
+	@RequestMapping(value = {"shopEditInfo/{shopId}"}, method = {RequestMethod.GET})
+	public String shopEditInfo(@PathVariable(name = "shopId") String shopId,Model model) {
+		if (shopId.trim().length() <= 0)	return "";
+		Shop shop = new Shop();
+		shop = shopService.getShopById(shopId);
+		model.addAttribute("shop", shop);
+		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
+		return "shop/shop_addinfo";		
+	}
+	/**
+	 * 加油站入驻-信息提交
+	 * @param shop
+	 * @return
+	 */
+	@RequestMapping(value = {"commitShopInfo"}, method = {RequestMethod.POST})
+	public @ResponseBody Object commitShopInfo(@RequestBody Shop shop) {
+		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
+		if(shop.getShopname()==null||"".equals(shop.getShopname())) {
+			
+			return resultInfo;
+		}
+		
+		try{
+			//shopService.deleteShop(shopId);
+			resultInfo.setCode(ResultEnum.DELETE_SUCCESS.getCode());
+	        resultInfo.setInfo(ResultEnum.DELETE_SUCCESS.getInfo());
+		}catch(Exception ex){
+			resultInfo.setCode(ResultEnum.ERROR.getCode());
+	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			logger.error(ex.getMessage());
+		}		
+		return resultInfo;
+	}
+	
 	
 	/**
 	 * 加油站列表
@@ -48,7 +129,7 @@ public class ShopController {
 	 */
 	@RequestMapping(value = {"shopList"}, method = {RequestMethod.GET})
 	public String shopList() {
-		logger.info("打开-加油站列表");
+		logger.info("加油站列表");
 		return "shop/shop_list";		
 	}
 	/**

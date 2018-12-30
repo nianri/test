@@ -60,11 +60,22 @@
 		(select n.areaname from dic_area n where m.countyid=n.areaid) as countyname
 		 from shop_info m where isdelete='1' and shopid = #{shopid}
 	</select>
+	<select id="getShopAddList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc
+		from shop_info m where isdelete='1'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		<if test="status == null or status ==''">
+			and status in('0','1','2')
+		</if>
+		order by shopcode desc
+	</select>
  	<select id="getShopList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
-		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc,
-		(select areaname from dic_area n where m.provinceid=n.areaid) as provicename,
-		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
-		(select areaname from dic_area n where m.countyid=n.areaid) as countyname
+		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc
 		from shop_info m where isdelete='1'
 		<if test="shopname != null and shopname !=''">
 			and shopname like "%"#{shopname}"%"
