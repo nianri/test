@@ -12,8 +12,6 @@ public class Shop implements Serializable{
 	@Column(name = "shopid")
     private String shopid;
 
-    private String memberid;
-
     private Integer shopcode;
 
     private String shopname;
@@ -25,12 +23,11 @@ public class Shop implements Serializable{
     private String provinceid;
 
     private String cityid;
-
+    private String countyid;
+    
     private String address;
     
     private String areadesc;
-
-    private String shoplogo;
 
     private String shopimg;
 
@@ -63,20 +60,28 @@ public class Shop implements Serializable{
     private String appkey;
     private Double longitude;
     private Double latitude;
+    private String shopsources;
+    private String shoplevel;
     @Transient
-    private String provicename;
+    private String provincename;
     @Transient
     private String cityname;
     @Transient
-    private String countyname;
-    @Transient
-    private String checkstatus;
+    private String countyname;  
     @Transient
     private String submittime;
     @Transient
-    private String member;
+    private String realname;
     
-    public String getShopid() {
+    public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
+	public String getShopid() {
 		return shopid;
 	}
 
@@ -84,14 +89,13 @@ public class Shop implements Serializable{
 		this.shopid = shopid;
 	}
 
-	
 
-    public String getMemberid() {
-		return memberid;
+	public String getShoplevel() {
+		return shoplevel;
 	}
 
-	public void setMemberid(String memberid) {
-		this.memberid = memberid;
+	public void setShoplevel(String shoplevel) {
+		this.shoplevel = shoplevel;
 	}
 
 	public Integer getShopcode() {
@@ -152,14 +156,6 @@ public class Shop implements Serializable{
         this.address = address == null ? null : address.trim();
     }
 
-    public String getShoplogo() {
-        return shoplogo;
-    }
-
-    public void setShoplogo(String shoplogo) {
-        this.shoplogo = shoplogo == null ? null : shoplogo.trim();
-    }
-
     public String getShopimg() {
         return shopimg;
     }
@@ -192,9 +188,15 @@ public class Shop implements Serializable{
         this.leaderemail = leaderemail == null ? null : leaderemail.trim();
     }
 
+    public String getShopsources() {
+		return shopsources;
+	}
 
+	public void setShopsources(String shopsources) {
+		this.shopsources = shopsources;
+	}
 
-    public String getLicenseimg() {
+	public String getLicenseimg() {
         return licenseimg;
     }
 
@@ -266,13 +268,6 @@ public class Shop implements Serializable{
         this.memo = memo == null ? null : memo.trim();
     }
 
-	public String getCheckstatus() {
-		return checkstatus;
-	}
-
-	public void setCheckstatus(String checkstatus) {
-		this.checkstatus = checkstatus;
-	}
 
 	public String getSubmittime() {
 		return submittime;
@@ -282,12 +277,12 @@ public class Shop implements Serializable{
 		this.submittime = submittime;
 	}
 
-	public String getProvicename() {
-		return provicename;
+	public String getProvincename() {
+		return provincename;
 	}
 
-	public void setProvicename(String provicename) {
-		this.provicename = provicename;
+	public void setProvincename(String provincename) {
+		this.provincename = provincename;
 	}
 
 	public String getCityname() {
@@ -298,13 +293,6 @@ public class Shop implements Serializable{
 		this.cityname = cityname;
 	}
 
-	public String getMember() {
-		return member;
-	}
-
-	public void setMember(String member) {
-		this.member = member;
-	}
 
 	public String getCountyname() {
 		return countyname;
@@ -360,6 +348,14 @@ public class Shop implements Serializable{
 
 	public void setAppkey(String appkey) {
 		this.appkey = appkey;
+	}
+
+	public String getCountyid() {
+		return countyid;
+	}
+
+	public void setCountyid(String countyid) {
+		this.countyid = countyid;
 	}
 	
 	

@@ -17,6 +17,9 @@
 		<script	src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/bootstrap.min.js"></script>
 		<script	src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/bootstrap-table.min.js"></script>
 		<script	src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/bootstrap-table-zh-CN.min.js"></script>
+		<style>
+			img{height:300px;width:350px;}
+		</style>
 	</head>
 	<body>
 		<div class="page-container">
@@ -52,45 +55,33 @@
 					</div>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户银行：</label>
+					<label class="form-label col-xs-4 col-sm-2">商家油站图：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountbank}" name="accountbank" disabled="disabled">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户银行卡号：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountnums}" name="accountnums" disabled="disabled">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户人姓名：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountname}" name="accountname" disabled="disabled">
+						<img name="shopimg" width="500" height="300" class="img-rounded" src="${shop.shopimg}" >
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">营业执照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img name="licenseimg" width="500" height="300" class="picture-thumb" src="${shop.licenseimg}" >
+						<img name="licenseimg" width="500" height="300" class="img-rounded" src="${shop.licenseimg}" >
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">成品油许可证：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img name="prolicenseimg" width="500" height="300" class="picture-thumb" src="${shop.prolicenseimg}" >
+						<img name="prolicenseimg" width="500" height="300" class="img-rounded" src="${shop.prolicenseimg}" >
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">身份证正面照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img name="cardtop" width="500" height="300" class="picture-thumb" src="${shop.cardtop}">
+						<img name="cardtop" width="500" height="300" class="img-rounded" src="${shop.cardtop}">
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">身份证反面照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img name="carddown" width="500" height="300" class="picture-thumb" src="${shop.carddown}">
+						<img name="carddown" width="500" height="300" class="img-rounded" src="${shop.carddown}">
 					</div>
 				</div> 
 			</form>

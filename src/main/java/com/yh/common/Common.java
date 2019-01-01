@@ -3,6 +3,8 @@ package com.yh.common;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -25,6 +27,15 @@ public class Common {
 	    //return sdf.parse(sdf.format(dt));
 	    return sdf.format(dt);
 	}	
+	/**
+	 * 生成UUID
+	 * @return
+	 */
+	public static String createUUid() {
+		UUID uuid = UUID.randomUUID();
+		String id = uuid.toString();
+		return id.toLowerCase().replaceAll("-", "");
+	}
 	public static HttpSession getSession() { 
 	    HttpSession session = null; 
 	    try { 

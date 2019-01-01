@@ -16,10 +16,11 @@
 					<option value="">全部</option>
 					<option value="0">未申请</option>
 					<option value="1">待审核</option>
-					<option value="2">审核未通过</option>
+					<option value="2">审核失败</option>
 					<option value="3">审核通过</option>
-					<option value="4">启用</option>
-					<option value="5">停用</option>
+					<option value="4">上线</option>
+					<option value="5">下线</option>
+					<option value="6">停用</option>
 				</select>
 			</span>
 			<span class="col-sm-3"> 
@@ -46,6 +47,7 @@
 			{field : 'nums',title : '#',align : 'center',width : 30,
 				formatter : function(value, row, index) {return index + 1;}
 			},
+			{field : "createtime",title : "申请日期",	width : 120,sortable : true,align : "center"},
 			{field : 'shopimg',title : '加油站图片',width : 50,sortable : true,align : "center",
 				formatter:function(cellvalue, options, rowObject){
 					if(cellvalue==null) return;
@@ -56,7 +58,6 @@
 			{field : 'shopcode',title : '加油站编码',width:20,sortable : true,align : "center"},
 			{field : 'shopname',title : '加油站名称',width:100,sortable : true,align : "left"},
 			{field : 'areadesc',title : '地址',width:200,sortable : true,align : "left"},
-			{field : "createtime",title : "申请日期",	width : 120,sortable : true,align : "center"},
 			{field : "status",title : "状态",width : 60,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";//0.否 1.是
@@ -69,8 +70,10 @@
 					}else if(cellvalue == "3"){
 						result='审核通过';
 					}else if(cellvalue == "4"){
-						result='启用';
+						result='上线';
 					}else if(cellvalue == "5"){
+						result='下线';
+					}else if(cellvalue == "6"){
 						result='停用';
 					};					
 					return result;					
@@ -81,9 +84,9 @@
 					var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='viewimg(\""
 							+ options.shopid + "\")' >查看</a>  ";
 					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='updateshopstatus(\""
-							+ options.shopid + "\",\"4\")' >启用</a>  ";
+							+ options.shopid + "\",\"4\")' >上线</a>  ";
 					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='updateshopstatus(\""
-						+ options.shopid + "\",\"5\")' >停用</a>  ";
+						+ options.shopid + "\",\"5\")' >下线</a>  ";
 					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='deleteshop(\""
 							+ options.shopid + "\")' >删除</a>";
 					//console.log(html);
