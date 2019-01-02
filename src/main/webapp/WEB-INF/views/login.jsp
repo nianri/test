@@ -18,11 +18,11 @@
 	<input type="hidden" id="TenantId" name="TenantId" value="" />
 	  <div class="wrapper">
         <div class="wrapper-container">
-            <div class="header">
+            <div class="header" style="margin-left:19%">
                 <div class="header-logo"></div>
-                <div class="header-label">油虎车服运营管理系统</div>
+                <div class="header-label" style="font-size:40px">油虎车服运营管理系统</div>
             </div>
-            <div class="wrapper-body">
+            <div class="wrapper-body" style="margin-left:15%;padding-top:10%">
                 <div class="login-container" style="margin-top:10%">
                     <div class="login-header">
                         <div class="line"></div>
