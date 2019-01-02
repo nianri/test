@@ -11,7 +11,7 @@ public class SysIntercptor implements HandlerInterceptor {
 	private static final Log logger = LogFactory.getLog(SysIntercptor.class);
 	@Override
     public boolean preHandle(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse, Object o) throws Exception {
-        System.out.println("拦截器启动！");
+        //System.out.println("拦截器启动！");
         try{
         	if("".equals(Common.getSession().getAttribute("userid").toString())||
             		Common.getSession().getAttribute("userid").toString()==null){

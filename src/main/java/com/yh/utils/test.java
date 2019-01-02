@@ -5,6 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
+
+import com.yh.model.Shop;
+import com.yh.model.ShopCheck;
+
 public class test {
 
 	public static void main(String[] args) {
@@ -14,7 +19,11 @@ public class test {
 		
 		//Calendar cal = Calendar.getInstance();
 		//System.out.println(cal.get(Calendar.DAY_OF_WEEK));
-		System.out.println(dateToWeek("2018-10-05"));
+		//System.out.println(dateToWeek("2018-10-05"));
+		/*ShopCheck shopCheck = new ShopCheck();
+		shopCheck.setStatus("1");
+		String strStatus=shopCheck.getStatus()=="1"?"2":"3";
+		System.out.println("状态》"+strStatus);*/
 	}
 	public static String dateToWeek(String datetime) {        
 		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");

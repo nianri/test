@@ -1,6 +1,8 @@
 package com.yh.common;
 
 public enum ResultEnum {
+	SUCCESS("001","操作成功。"),
+	FAILED("002","操作失败！"),	
 	SAVE_SUCCESS("SS01","保存成功。"),
 	REPLY_SUCCESS("RS01","回复成功。"),
     SAVE_FAILED("SF02","保存失败！"),	

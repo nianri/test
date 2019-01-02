@@ -20,9 +20,9 @@ public class AdminController {
 	@Resource
 	private SysUserService sysUserService;
 	
-	@RequestMapping(value = { "/welcome2" }, method = { RequestMethod.GET })
+	@RequestMapping(value = { "/welcome" }, method = { RequestMethod.GET })
 	public String welcome2() {
-		return "welcome2";
+		return "welcome";
 	}	
 	@RequestMapping(value = { "/login" }, method = { RequestMethod.GET })
 	public String login() {

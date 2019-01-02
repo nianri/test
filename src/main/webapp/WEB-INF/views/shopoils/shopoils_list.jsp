@@ -60,8 +60,8 @@
 				{field:'shopname',title:'加油站',width:80,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},
 				{field:'oilscode',title:'产品编码',width:60,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},
 				{field:'oilsname',title:'产品名称',width:150,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},
-				{field:'sourceprice',title:'产品源价',width:50,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},
-				{field:'sourceprice',title:'产品现价',sortable:false,align:"center",colspan:7,rowspan:1},
+				{field:'sourceprice',title:'产品原价/升',width:50,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},
+				{field:'sourceprice',title:'产品优惠价/升',sortable:false,align:"center",colspan:7,rowspan:1},
 				{field:'runtime',title:'调价日期',width:50,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},	
 				{field:"status",title:"状态",width:50,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle",
 					formatter: function(cellvalue,options, row) {
