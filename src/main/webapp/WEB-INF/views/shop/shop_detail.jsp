@@ -27,31 +27,37 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.shopname}" name="shopname" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.shopname}" name="shopname" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">详细地址：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.areadesc}"  name="address" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.areadesc}"  name="address" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人姓名：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadername}" name="leadername" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leadername}" name="leadername" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人电话：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadertel}" name="leadertel" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leadertel}" name="leadertel" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人邮箱：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leaderemail}" name="leaderemail" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leaderemail}" name="leaderemail" readonly>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">商家服务：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" class="input-text" value="${shop.shopservice}" name="shopservice" readonly>
 					</div>
 				</div>
 				<div class="row cl">
@@ -86,7 +92,7 @@
 				</div> 
 			</form>
 		</div>
-		<div class="breadcrumb">审核意见区</div>
+		<div class="breadcrumb">审核意见记录</div>
 		<div class="ibox-content">
 			<span class="col-sm-2"> 
 			</span>

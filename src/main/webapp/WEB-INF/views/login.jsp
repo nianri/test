@@ -41,10 +41,7 @@
 							class="form-input">
                         </div>
                         <div class="form-body form-code">
-                            
                             <input class="form-input" type="text" placeholder="验证码"
-							onblur="if(this.value==''){this.value='验证码:'}"
-							onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:"
 							style="width: 140px;" name="checkcode"> <img class="code-img"
 							id="loginform:vCode"
 							src="${pageContext.request.contextPath }/validatecode.jsp" onclick="javascript:document.getElementById('loginform:vCode').src='${pageContext.request.contextPath }/validatecode.jsp?'+Math.random();">

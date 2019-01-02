@@ -151,6 +151,9 @@
 					<li><a
 						data-href="${pageContext.request.contextPath}/shop/shopList"
 						data-title="加油站列表" href="javascript:void(0)">加油站列表</a></li>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shop/shopAccount"
+						data-title="加油站编辑" href="javascript:void(0)">加油站编辑</a></li>
 				</ul>
 			</dd>
 		</dl>

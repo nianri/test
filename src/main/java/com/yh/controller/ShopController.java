@@ -82,8 +82,8 @@ public class ShopController {
 	@RequestMapping(value = {"shopEditInfo/{shopId}"}, method = {RequestMethod.GET})
 	public String shopEditInfo(@PathVariable(name = "shopId") String shopId,Model model) {
 		Shop shop = shopService.getShopById(shopId);
-		if(!"0".equals(shop.getStatus())&&!"2".equals(shop.getStatus())){
-			return ""; //此处需要校验，非常重要
+		if("3".equals(shop.getStatus())||"4".equals(shop.getStatus())){
+			return "shop/shop_account"; //此处需要校验，非常重要
 		}else{
 			model.addAttribute("shop", shop);
 		}
@@ -185,7 +185,6 @@ public class ShopController {
 				shop.setIsdelete("1");
 				shop.setShopsources("1");
 				shop.setCreatorid(Common.getSession().getAttribute("userid").toString());
-				logger.info(JSON.toJSON(shop));
 				returnRows=shopService.insertShop(shop);
 			}
 			if(returnRows==1){
@@ -315,9 +314,6 @@ public class ShopController {
 	        resultInfo.setInfo("请提交审核意见！");
 			return resultInfo;
 		}
-		String strStatus="1".equals(shopCheck.getStatus())?"2":"3";
-		System.out.println("状态》"+shopCheck.getStatus()+"|"+strStatus);
-		
 		try{
 			int returnRows=shopService.commitCheckShop(shopCheck);
 			if(returnRows>0){
@@ -335,19 +331,12 @@ public class ShopController {
 		return resultInfo;
 	}
 	
-
-	
-	
-	///////////////////以下调试///////////////////////
-	
-	
 	/**
-	 * 加油站列表
+	 * 加油站-列表
 	 * @return
 	 */
 	@RequestMapping(value = {"shopList"}, method = {RequestMethod.GET})
 	public String shopList() {
-		logger.info("加油站列表");
 		return "shop/shop_list";		
 	}
 	/**
@@ -361,7 +350,7 @@ public class ShopController {
 		try{
 			shopList=shopService.getShopList(shop);
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
+			logger.debug(ex.getMessage());
 		}
         return shopList;
 	}
@@ -376,9 +365,13 @@ public class ShopController {
 		if(shopId.trim().length()<=0) return "";
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
 		try{
-			shopService.deleteShop(shopId);
-			resultInfo.setCode(ResultEnum.SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			if(shopService.deleteShop(shopId)>0){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+		        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+			}
 		}catch(Exception ex){
 			resultInfo.setCode(ResultEnum.FAILED.getCode());
 	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
@@ -395,9 +388,13 @@ public class ShopController {
 	public @ResponseBody Object updateShopStatus(@RequestBody Shop shop) {
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
 		try{
-			shopService.updateShopStatus(shop);			
-			resultInfo.setCode(ResultEnum.SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			if(shopService.updateShopStatus(shop)>0){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+		        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+			}
 		}catch(Exception ex){
 			resultInfo.setCode(ResultEnum.FAILED.getCode());
 	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
@@ -427,7 +424,6 @@ public class ShopController {
 	}
 		
 	
-	
 	/**
 	 * 获取店铺审核流水
 	 * @param shopId
@@ -439,7 +435,7 @@ public class ShopController {
 		try{
 			shopCheck=shopCheckService.getShopCheckLog(shopId);
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
+			logger.debug(ex.getMessage());
 		}
         return shopCheck;
 	}
@@ -470,6 +466,18 @@ public class ShopController {
 		}
 		return shopList;
 	}
+	/**
+	 * 商户账户管理
+	 * @return
+	 */
+	@RequestMapping(value = {"shopAccount"}, method = {RequestMethod.GET})
+	public String shopAccount() {
+		return "shop/shop_account";		
+	}
+	
+	///////////////////以下调试///////////////////////
+	
+	
 	/**
 	 * 打开加油站地图
 	 * @param model
