@@ -10,7 +10,7 @@ import com.yh.dao.ShopOrderMapper;
 import com.yh.model.ShopOrder;
 import com.yh.service.ShopOrderService;
 
-@Service("ShopOrderService") 
+@Service("shopOrderService") 
 public class ShopOrderServiceImpl implements ShopOrderService{
 	@Resource  
 	private ShopOrderMapper shopOrderMapper;

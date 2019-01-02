@@ -22,9 +22,12 @@
 				<input type="text" id="feedbackmsg"	placeholder="请输入反馈内容" class="form-control"></span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>
+<button id="exportBtn" class="btn btn-default" style="float:right" >导出</button>	
+<button id="exportBtn1" class="btn btn-default" style="float:right" >导出</button>				
+			
 			</span>			
 			<div class="jqGrid_wrapper">
-				<table class="table-bordered" id="showtable">
+				<table class="table-bordered" id="showtable" >
 				</table>
 			</div>
 		</div>
@@ -86,8 +89,9 @@
 				title : '操作',
 				width : 150,
 				align : "center",
+				
 				formatter : function(cellvalue,options, row) {
-					var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='getFeedbackInfo(\""
+					var html = "<a href='javascript:void(0);'  class='btn btn-primary' onclick='getFeedbackInfo(\""
 							+ options.feedbackid + "\")' >详情</a>  ";
 						if(options.status=='0'){
 							html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='reply(\""
@@ -96,7 +100,20 @@
 					//console.log(html);
 					return html;
 				}
-			}]
+			}],		 
+		});
+		$("#exportBtn").on("click", function(e) {
+			$("#showtable").tableExport({
+				fileName:'反馈列表',
+				ignoreCol : '5'
+			});
+		});
+		$("#exportBtn1").on("click", function(e) {
+			 var url = "${pageContext.request.contextPath}/export/download1.do";
+		        var fileName = "testAjaxDownload.txt";
+		        var form = $("<form></form>").attr("action", url).attr("method", "post");
+		        form.append($("<input></input>").attr("type", "hidden").attr("name", "fileName").attr("value", fileName));
+		        form.appendTo('body').submit().remove();
 		});
 		$("#queryBtn").click(function() {
 			binddata();

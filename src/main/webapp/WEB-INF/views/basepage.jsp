@@ -21,6 +21,13 @@
 		<script type="text/javascript"	src="${pageContext.request.contextPath}/resources/layer/2.4/layer.js"></script>
 		
 		<script	type="text/javascript"	src="${pageContext.request.contextPath}/resources/toastr/toastr.min.js"></script>
+
+<!-- bootstrap表格导出执行-->
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/table-export/tableExport.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/table-export/jquery.base64.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/table-export/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/utils/exportExcel.js"></script>
+
 		<link href="${pageContext.request.contextPath}/resources/toastr/toastr.min.css" rel="stylesheet" >
 		
 	</head>

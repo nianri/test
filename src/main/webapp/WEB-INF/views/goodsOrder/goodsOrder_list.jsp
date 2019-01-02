@@ -15,7 +15,7 @@
 <body class="gray-bg">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="ibox-title">
-			<h5>意见反馈列表</h5>
+			<h5>礼品兑换列表</h5>
 		</div>
 		<div class="ibox-content">
 			<span class="col-sm-2">
@@ -28,7 +28,22 @@
 				<input type="text" id="telphone"	placeholder="请输入手机号" class="form-control"></span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>
-			</span>			
+			</span>
+			<span style="float:right">
+				<ul class="nav navbar-nav"  >
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						导出
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href='javascript:void(0);'  onclick='exportData()'>导出当前页</a></li>
+							<li class="divider"></li>
+							<li><a href='javascript:void(0);'  onclick='exportData(true)'>导出全部</a></li>
+						</ul>
+					</li>
+				</ul>
+			</span>				
 			<div class="jqGrid_wrapper">
 				<table class="table-bordered" id="showtable">
 				</table>
@@ -111,6 +126,7 @@
 				}
 			}]
 		});
+		
 		$("#deliveryOrder").click(function() {
 			deliveryOrder();
 		});
@@ -196,12 +212,26 @@
 		});
 	    
 	}
-	function binddata() {
+	function exportData(isAllPage){
+		 var url = "${pageContext.request.contextPath}/export/download.do";
+		if(isAllPage){
+			var rowData=getParams();
+			exportAll(url,"goodsOrderService","礼品兑换.xlsx",rowData);
+			}else{
+			exportNowPage("#showtable","礼品兑换",'6','0');
+		}
+	}
+	function getParams(){
 		var rowData = {
 				"telphone":$("#telphone").val(),
 				"receive":$("#receive").val(),
 				"goodsname":$("#goodsname").val()
-				};
+			};
+		return rowData;
+	}
+	
+	function binddata() {
+		var rowData = getParams();
 		$.ajax({
 			type : "post",
 			url : "${pageContext.request.contextPath}/goodsOrder/getGoodsOrderList",
