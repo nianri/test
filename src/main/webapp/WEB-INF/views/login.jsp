@@ -23,13 +23,13 @@
                 <div class="header-label">油虎车服运营管理系统</div>
             </div>
             <div class="wrapper-body">
-                <div class="login-container">
+                <div class="login-container" style="margin-top:10%">
                     <div class="login-header">
                         <div class="line"></div>
                         <div class="header-user"></div>
                         <div class="line"></div>
                     </div>
-                    <div class="login-body">
+                    <div class="login-body" >
                     <form class="form form-horizontal" action="../admin/clogin"
 				method="post">
                         <div class="form-body form_user">
@@ -47,7 +47,7 @@
 							onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:"
 							style="width: 140px;" name="checkcode"> <img class="code-img"
 							id="loginform:vCode"
-							src="${pageContext.request.contextPath }/validatecode.jsp">
+							src="${pageContext.request.contextPath }/validatecode.jsp" onclick="javascript:document.getElementById('loginform:vCode').src='${pageContext.request.contextPath }/validatecode.jsp?'+Math.random();">
 						<a id="kanbuq" href="javascript:;"
 							onclick="javascript:document.getElementById('loginform:vCode').src='${pageContext.request.contextPath }/validatecode.jsp?'+Math.random();">看不清，换一张</a>
                         </div>
