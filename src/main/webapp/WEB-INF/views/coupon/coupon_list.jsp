@@ -46,20 +46,25 @@
 			pageSize : 10,
 			pageList : [ 10, 20, 30, 'All' ],
 			columns : [
-			{field:'nums',title : '#',align : 'center',width : 30,
+			{field:'nums',title : '#',align : 'center',width : 20,
 				formatter : function(value, row, index) {return index + 1;}
 			},
 			{field : 'shopname',title : '加油站',width : 80,sortable : true,align : "left"},
 			{field : 'couponcode',title : '优惠券编码',width : 40,sortable : true,align : "center"},
 			{field : 'couponname',title : '优惠券名称',width : 100,sortable : true,align : "left"},
-			{field : 'endtime',title : '有效期',width : 120,sortable : true,align : "center",
+			{field : 'createtime',title : '发布日期',width : 60,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {					
+					return options.createtime.substring(0,10);
+				} 
+			},
+			{field : 'endtime',title : '有效期',width : 60,sortable : true,align : "center"
+				/* formatter : function(cellvalue,options, row) {					
 					return options.begintime+"/"+options.endtime;
-				}
+				} */
 			},
 			{field : 'couponprice',title : '优惠券金额',width : 50,sortable : true,align : "center"},
-			{field : 'totalnums',title : '总优惠数量',width : 50,sortable : true,align : "center"},	
-			{field : 'couponnums',title : '未优惠数量',width : 50,sortable : true,align : "center"},	
+			{field : 'totalnums',title : '发布数量',width : 50,sortable : true,align : "center"},	
+			{field : 'couponnums',title : '剩余数量',width : 50,sortable : true,align : "center"},	
 			{field : 'fullamount',title : '消费额',width : 50,sortable : true,align : "center"},	
 			{field : "status",title : "状态",width : 50,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {

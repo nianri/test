@@ -12,7 +12,7 @@
 <body class="gray-bg">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="ibox-title">
-			<h5>订单状态统计报表</h5>
+			<h5>产品订单报表</h5>
 		</div>
 		<div class="ibox-content">			
 
@@ -49,7 +49,7 @@
 				{field:'nums',title:'#',align:'center',width:30,colspan:1,rowspan:2,valign:"middle",
 					formatter:function(value,row,index){return index + 1;}
 				},
-				{field:'shopname',title:'加油站',width:200,sortable:false,align:"center",rowspan:2,valign:"middle"},	
+				{field:'shopname',title:'加油站',width:200,sortable:false,align:"left",rowspan:2,valign:"middle"},	
 				{field:'qy92',title:'92#汽油',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'qy95',title:'95#汽油',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'qy98',title:'98#汽油',sortable:false,align:"center",colspan:2,rowspan:1},
@@ -58,36 +58,30 @@
 				{field:'cy20',title:'-20#柴油',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'total',title:'合计',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'shopid',title:'shopid',visible:false}, 
-				{
-					field : 'action',
-					title : '操作',
-					width : 150,
-					align : "center",
+				{field : 'action',title : '操作',width : 50,align : "center",
 					colspan:1,rowspan:2,valign:"middle",
 					formatter : function(cellvalue,options, row) {
 						var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='getShopOrderOilsReport(\""
 								+ options.shopid + "\")' >详情</a>  ";
-						
-						//console.log(html);
 						return html;
 					}
 				}
 				],
 			[
-				{field : 'count92',title : '订单量',width : 30,align : "center"},
-				{field : 'realprice92',title : '订单金额',width : 30,align : "center"},
-				{field : 'count95',title : '订单量',width : 30,align : "center"},
-				{field : 'realprice95',title : '订单金额',width : 30,align : "center"},
-				{field : 'count98',title : '订单量',width : 30,align : "center"},
-				{field : 'realprice98',title : '订单金额',width : 30,align : "center"},
-				{field : 'countC20',title : '订单量',width : 30,align : "center"},
-				{field : 'realpriceC20',title : '订单金额',width : 30,align : "center"},
-				{field : 'countC10',title : '订单量',width : 30,align : "center"},
-				{field : 'realpriceC10',title : '订单金额',width : 30,align : "center"},
-				{field : 'countC0',title : '订单量',width : 30,align : "center"},
-				{field : 'realpriceC0',title : '订单金额',width : 30,align : "center"},
-				{field : 'count',title : '订单量',width : 30,align : "center"},
-				{field : 'realprice',title : '订单金额',width : 30,align : "center"}
+				{field : 'count92',title : '订单量',width : 30,align : "right"},
+				{field : 'realprice92',title : '订单金额',width : 30,align : "right"},
+				{field : 'count95',title : '订单量',width : 30,align : "right"},
+				{field : 'realprice95',title : '订单金额',width : 30,align : "right"},
+				{field : 'count98',title : '订单量',width : 30,align : "right"},
+				{field : 'realprice98',title : '订单金额',width : 30,align : "right"},
+				{field : 'countC20',title : '订单量',width : 30,align : "right"},
+				{field : 'realpriceC20',title : '订单金额',width : 30,align : "right"},
+				{field : 'countC10',title : '订单量',width : 30,align : "right"},
+				{field : 'realpriceC10',title : '订单金额',width : 30,align : "right"},
+				{field : 'countC0',title : '订单量',width : 30,align : "right"},
+				{field : 'realpriceC0',title : '订单金额',width : 30,align : "right"},
+				{field : 'count',title : '订单量',width : 30,align : "right"},
+				{field : 'realprice',title : '订单金额',width : 30,align : "right"}
 			]]
 		});
 		$("#queryBtn").click(function() {
@@ -142,7 +136,7 @@
 	});
 	function getShopOrderOilsReport(shopid){
 		var index = layer.open({
-			type : 2,title : "加油站订单状态统计报表详情",
+			type : 2,title : "产品订单报表详情",
 			content : "${pageContext.request.contextPath}/shopOrderReport/getShopOrderOilsReport/"+shopid+""
 		});
 		layer.full(index);

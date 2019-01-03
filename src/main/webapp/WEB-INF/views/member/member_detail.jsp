@@ -19,49 +19,49 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">会员ID：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.membercode}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.membercode}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">账号：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.logincode}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.logincode}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">姓名：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.realname}"  disabled="disabled">
+						<input type="text" class="input-text" value="${member.realname}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">性别：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.sex=='1'?'男':member.sex=='0'?'女':''}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.sex=='1'?'男':member.sex=='0'?'女':''}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">手机号：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.memberphone}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.phonenum}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">生日：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.birthday}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.birthday}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">车牌号：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.carnum}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.carnum}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">注册时间：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.registertime}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.registertime}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
@@ -73,13 +73,13 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">积分：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.integral}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.totalscore}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">状态：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${member.status=='0'?'正常':member.sex=='1'?'冻结':'关停'}" disabled="disabled">
+						<input type="text" class="input-text" value="${member.status=='0'?'正常':member.sex=='1'?'冻结':'关停'}" readonly>
 					</div>
 				</div>				 
 				<div class="row cl">

@@ -19,85 +19,85 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.shopname}" name="shopname" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.shopname}" name="shopname" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">订单号：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.ordercode}"  disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.ordercode}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">下单人：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.memberdesc}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.memberdesc}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">订单时间：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.ordertime}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.ordertime}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">产品：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.oilsname}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.oilsname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">应付金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.totalprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.totalprice}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">优惠金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.couponprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.couponprice}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">实付金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.realprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.realprice}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">订单描述：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.orderdesc}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.orderdesc}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">支付类型：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.paytype}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.paytype}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">支付时间：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.paytime}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.paytime}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">支付交易单号：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.paycode}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.paycode}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">积分：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.integral}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.integral}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">状态：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shoporder.status}" disabled="disabled">
+						<input type="text" class="input-text" value="${shoporder.status}" readonly>
 					</div>
 				</div>
 				<div class="row cl">

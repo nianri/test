@@ -22,7 +22,6 @@
 			<span class="col-sm-2"> 
 				<select id="status" class="form-control m-b">
 					<option value="">全部状态</option>
-					<option value="0">异常</option>
 					<option value="1">待支付</option>
 					<option value="2">已支付</option>
 					<option value="3">加油完成</option>

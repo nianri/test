@@ -3,6 +3,7 @@ package com.yh.common;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,13 @@ public class Common {
 		String id = uuid.toString();
 		return id.toLowerCase().replaceAll("-", "");
 	}
+	/**
+     * 根据当前时间戳生成排序数值
+     * @return
+     */
+    public static String getRandomIndex(){
+        return String.valueOf(System.currentTimeMillis()+ new Random().nextInt(1000));
+    }
 	public static HttpSession getSession() { 
 	    HttpSession session = null; 
 	    try { 

@@ -8,7 +8,7 @@
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="ibox-title">
-		    <h5>会员列表</h5>
+		    <h5>注册会员列表</h5>
 		</div>                    
 		<div class="ibox-content">
 			<span class="col-sm-2"> 
@@ -47,10 +47,10 @@ jQuery(function($) {
 		},
 		{field:'membercode',title:'会员ID',width:50,sortable:true,align:"center"},
 		{field:'logincode',title:'账户名',width:50,sortable:true,align:"left",halign:"center"},
-		{field:'memberphone',title:'手机号',width:100,sortable:true,align:"center",halign:"center"},
+		{field:'phonenum',title:'手机号',width:100,sortable:true,align:"center",halign:"center"},
 		{field:'realname',title :'姓名',width:150,sortable:true,align:"left",halign:"center"},
 		{field:'carnum',title:'车牌号',width:50,sortable:true,align:"left",halign:"center"},
-		{field:'integral',title:'积分',width:50,sortable:true,align:"right",halign:"center"},
+		{field:'totalscore',title:'积分',width:50,sortable:true,align:"right",halign:"center"},
 		{field:'registertime',title:'注册日期',width:120,sortable :true,align:"center",halign:"center"},
 		{field:'status',title:'状态',width:50,sortable :true,align:"center",halign:"center",
 			formatter : function(cellvalue,options, row) {
@@ -111,6 +111,7 @@ function binddata(){
 		contentType : 'application/json',
 		success : function(result) {
 			result = eval(result);
+			console.log(result);
 			$("#showtable").bootstrapTable("load", result);
 		},
 		error : function(errorMsg) {

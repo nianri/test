@@ -19,93 +19,93 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.shopname}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.shopname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">92#汽油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count92}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count92}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">92#汽油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice92}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice92}"  readonly>
 					</div>
 				</div>
 			
 			<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">95#汽油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count95}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count95}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">95#汽油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice95}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice95}"  readonly>
 					</div>
 				</div>
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">98#汽油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count98}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count98}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">98#汽油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice98}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice98}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">-20#柴油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.countC20}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.countC20}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">-20#柴油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realpriceC20}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realpriceC20}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">-10#柴油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.countC10}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.countC10}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">-10#柴油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realpriceC10}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realpriceC10}"  readonly>
 					</div>
 				</div>
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">0#柴油订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.countC0}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.countC0}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">0#柴油订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realpriceC0}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realpriceC0}"  readonly>
 					</div>
 				</div>	<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">合计订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">合计订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice}"  readonly>
 					</div>
 				</div>
 			</form>

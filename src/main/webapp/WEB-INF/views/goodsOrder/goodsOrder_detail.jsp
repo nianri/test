@@ -19,43 +19,43 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">商品名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.goodsname}" disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.goodsname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">价格：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.price}" disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.price}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">积分：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.integral}"  disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.integral}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">收货人：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.receive}" disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.receive}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">收货手机号码：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.telphone}" disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.telphone}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">收货地址：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${goodsOrder.address}"  disabled="disabled">
+						<input type="text" class="input-text" value="${goodsOrder.address}"  readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">商品图片：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img id="headimg" width="100" height="100" class="picture-thumb" src="${goodsOrder.goodsimg}"  onerror="imgerror(this)">
+						<img id="headimg" width="200" height="200" class="picture-thumb" src="${goodsOrder.goodsimg}"  onerror="imgerror(this)">
 					</div>
 				</div>
 			</form>

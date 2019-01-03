@@ -6,14 +6,14 @@
 		<result column="membercode" jdbcType="INTEGER" property="membercode" />
 		<result column="logincode" jdbcType="VARCHAR" property="logincode" />
 		<result column="realname" jdbcType="VARCHAR" property="realname" />
-		<result column="memberphone" jdbcType="VARCHAR" property="memberphone" />
+		<result column="phonenum" jdbcType="VARCHAR" property="phonenum" />
 		<result column="password" jdbcType="VARCHAR" property="password" />
 		<result column="carnum" jdbcType="VARCHAR" property="carnum" />
 		<result column="registertime" jdbcType="VARCHAR" property="registertime" />
 		<result column="sex" jdbcType="VARCHAR" property="sex" />
 		<result column="birthday" jdbcType="VARCHAR" property="birthday" />
 		<result column="headimg" jdbcType="VARCHAR" property="headimg" />
-		<result column="integral" jdbcType="INTEGER" property="integral" />
+		<result column="totalscore" jdbcType="INTEGER" property="totalscore" />
 		<result column="islogin" jdbcType="VARCHAR" property="islogin" />
 		<result column="lastlogtime" jdbcType="VARCHAR" property="lastlogtime" />
 		<result column="openid" jdbcType="VARCHAR" property="openid" />
@@ -24,10 +24,10 @@
 	</resultMap>
 	<insert id="insertMember" parameterType="com.yh.model.MemberInfo">
 		insert into member_info	(memberid, membercode, logincode,realname,
-		memberphone, password,carnum,registertime,sex, birthday, headimg,
+		phonenum, password,carnum,registertime,sex, birthday, headimg,
 		integral,islogin,lastlogtime,openid,status,isdelete,memo)	
 		values(#{memberid,jdbcType=VARCHAR}, #{membercode,jdbcType=INTEGER},
-		#{logincode,jdbcType=VARCHAR},#{realname,jdbcType=VARCHAR},#{memberphone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+		#{logincode,jdbcType=VARCHAR},#{realname,jdbcType=VARCHAR},#{phonenum,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
 		#{carnum,jdbcType=VARCHAR}, #{registertime,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},
 		#{birthday,jdbcType=VARCHAR},#{headimg,jdbcType=VARCHAR}, #{integral,jdbcType=INTEGER},
 		#{islogin,jdbcType=VARCHAR}, #{lastlogtime,jdbcType=VARCHAR},
@@ -45,8 +45,8 @@
 		<if test="realname != null and realname !=''">
 			and realname =#{realname}
 		</if>
-		<if test="memberphone != null and memberphone !=''">
-			and memberphone =#{memberphone}
+		<if test="phonenum != null and phonenum !=''">
+			and phonenum =#{phonenum}
 		</if>
 		order by membercode desc
 	</select>

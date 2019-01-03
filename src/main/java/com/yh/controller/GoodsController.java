@@ -68,15 +68,23 @@ public class GoodsController {
 	//删除商品
 	@RequestMapping(value = {"deleteGoods/{goodsid}"}, method = {RequestMethod.POST})
 	public @ResponseBody Object deleteGoods(@PathVariable(name ="goodsid") String goodsId, Model model) {
-		if(goodsId.trim().length()<=0) return "";
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
+		if(goodsId==null||"".equals(goodsId)) {
+			resultInfo.setCode(ResultEnum.FAILED.getCode());
+	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+	        return resultInfo;
+		}
 		try{
-			goodsService.deleteGoods(goodsId);
-			resultInfo.setCode(ResultEnum.DELETE_SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.DELETE_SUCCESS.getInfo());
+			if(goodsService.deleteGoods(goodsId)>0){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+		        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+			}
 		}catch(Exception ex){
-			resultInfo.setCode(ResultEnum.ERROR.getCode());
-	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			resultInfo.setCode(ResultEnum.FAILED.getCode());
+	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
 			logger.error(ex.getMessage());
 		}
 		return resultInfo;
@@ -87,19 +95,26 @@ public class GoodsController {
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();	
 		System.out.println(JSON.toJSON(goods));
 		try{
+			int returnRows=0;
 			if(goods.getGoodsid()!=null && !"".equals(goods.getGoodsid())){
-				goodsService.updateGoodsById(goods);
+				returnRows=goodsService.updateGoodsById(goods);
 			}else{
 				goods.setGoodsid(UUID.randomUUID().toString());
 				goods.setCreatetime(Common.GetNowDate().toString());
+				goods.setCreatorid(Common.getSession().getAttribute("userid").toString());
 				goods.setIsdelete("1");
-				goodsService.insertGoods(goods);
-			}				
-			resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
-	        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
+				returnRows=goodsService.insertGoods(goods);
+			}	
+			if(returnRows>0){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+		        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+			}
 		}catch(Exception ex){
-			resultInfo.setCode(ResultEnum.ERROR.getCode());
-	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			resultInfo.setCode(ResultEnum.FAILED.getCode());
+	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
 			logger.error(ex.getMessage());
 		}
 		return resultInfo;

@@ -148,7 +148,6 @@
 				dataType : "json",
 				contentType : 'application/json',
 				success : function(result) {
-					console.log(eval(result));
 					if(result.code=="001"){
 						layer.msg('上报成功。',{icon:1,time:1500});
 						binddata();

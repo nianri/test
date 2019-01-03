@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.yh.common.ImgConfig;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
 import com.yh.common.Common;
@@ -37,8 +35,6 @@ public class AdvertController {
 	@Resource
 	private AreaService areaService;
 
-	@Autowired
-	private ImgConfig imageConfig; //引用统一的参数配置类
 
 	// 广告管理页
 	@RequestMapping(value = { "advertList" }, method = { RequestMethod.GET })
@@ -61,29 +57,23 @@ public class AdvertController {
 
 	// 添加广告
 	@RequestMapping(value = { "addAdvert" }, method = { RequestMethod.GET })
-	public String addAdvert(Model model) {
-		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
-		//// model.addAttribute("imagePath", imageConfig.imagePath);
+	public String addAdvert() {
 		return "advert/advert_add";
 	}
 
 	// 编辑广告
-	@RequestMapping(value = { "editAdvert/{advertid}" }, method = { RequestMethod.GET })
-	public String editAdvert(@PathVariable(name = "advertid") String advertId, Model model) {
-
-		if (advertId.trim().length() <= 0)
-			return "";
+	@RequestMapping(value = { "editAdvert/{advertId}" }, method = { RequestMethod.GET })
+	public String editAdvert(@PathVariable(name = "advertId") String advertId, Model model) {
+		if (advertId==null|| "".equals(advertId.trim()))	return "advert/advert_list";
 		AdvertInfo advertInfo = new AdvertInfo();
 		advertInfo=advertService.getAdvertById(advertId);
-		//advertInfo.setImageurl(imageConfig.viewImgService+advertInfo.getImageurl());
 		model.addAttribute("advertInfo", advertInfo);
-		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
 		return "advert/advert_add";
 	}
 
 	// 删除广告
-	@RequestMapping(value = { "deleteAdvert/{advertid}" }, method = { RequestMethod.POST })
-	public @ResponseBody Object deleteAdvert(@PathVariable(name = "advertid") String advertId, Model model) {
+	@RequestMapping(value = { "deleteAdvert/{advertId}" }, method = { RequestMethod.POST })
+	public @ResponseBody Object deleteAdvert(@PathVariable(name = "advertId") String advertId) {
 		if (advertId.trim().length() <= 0)
 			return "";
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
@@ -111,33 +101,35 @@ public class AdvertController {
 		System.out.println(JSON.toJSON(advertInfo));
 		int returnrows=0;
 		try {
-			returnrows=0;
 			if (advertInfo.getAdvertid() != null && !"".equals(advertInfo.getAdvertid())) {
-				advertInfo.setCreatetime(Common.GetNowDate().toString());
-				System.out.println("0|"+returnrows);
-				returnrows=advertService.updateAdvertById(advertInfo);
-				System.out.println("1|"+returnrows);
+				returnrows=advertService.updateAdvertById(advertInfo); 
 			} else {
 				advertInfo.setAdvertid(UUID.randomUUID().toString());
 				advertInfo.setCreatetime(Common.GetNowDate().toString());
-				//// ad.setImageurl(ad.getImageurl());
-				advertInfo.setOrdernum("0");
-				returnrows=advertService.insertAdvert(advertInfo);
-				System.out.println("2|"+returnrows);
+				advertInfo.setCreatorid(Common.getSession().getAttribute("userid").toString());
+				advertInfo.setOrdernum(Common.getRandomIndex());
+				returnrows=advertService.insertAdvert(advertInfo); 
 			}
-			resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
-			resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
-			System.out.println("3|"+returnrows);
-		} catch (Exception ex) {
-			returnrows=0;
-			resultInfo.setCode(ResultEnum.ERROR.getCode());
-			resultInfo.setInfo(ResultEnum.ERROR.getInfo());
-			logger.error(ex.getMessage());
-			System.out.println("4|"+ ex.getMessage() );
+			if(returnrows>0){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+				resultInfo.setInfo(ResultEnum.SUCCESS.getInfo()); 
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+				resultInfo.setInfo(ResultEnum.FAILED.getInfo()); 
+			}
+			
+		} catch (Exception ex) { 
+			resultInfo.setCode(ResultEnum.FAILED.getCode());
+			resultInfo.setInfo(ResultEnum.FAILED.getInfo());
+			logger.error(ex.getMessage()); 
 		}
 		return resultInfo;
 	}
-
+	/**
+	 * 获取广告所处的省、市
+	 * @param parentId
+	 * @return
+	 */
 	@RequestMapping("/getArea/{parentId}")
 	public @ResponseBody List<Area> getArea(@PathVariable(name = "parentId") String parentId) {
 

@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,6 @@ import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
 import com.yh.common.Common;
-import com.yh.common.ImgConfig;
 import com.yh.model.Shop;
 import com.yh.model.ShopCheck;
 import com.yh.model.SysUser;
@@ -37,8 +35,8 @@ public class ShopController {
 	private ShopCheckService shopCheckService;
 	@Resource
 	private SysUserService sysUserService;
-	@Autowired
-	private ImgConfig imageConfig; //引用统一的参数配置类
+	//@Autowired
+	//private ImgConfig imageConfig; //引用统一的参数配置类
 	
 	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		
@@ -72,7 +70,6 @@ public class ShopController {
 	 */
 	@RequestMapping(value = {"shopAddInfo"}, method = {RequestMethod.GET})
 	public String shopAddInfo(Model model) {
-		model.addAttribute("uploadImgService", imageConfig.uploadImgService);
 		return "shop/shop_addinfo";		
 	}
 	/**

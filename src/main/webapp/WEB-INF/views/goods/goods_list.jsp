@@ -8,11 +8,11 @@
 <body class="gray-bg">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="ibox-title">
-			<h5>积分商品列表</h5>
+			<h5>积分礼品-添加</h5>
 		</div>
 		<div class="ibox-content">			
 			<span class="col-sm-2">
-				<button class="btn btn-primary" onclick="adddata();">添加商品</button>
+				<button class="btn btn-primary" onclick="adddata();">添加礼品</button>
 			</span> 
 			<span class="col-sm-2"> 
 				<select id="status" name="status"	class="form-control m-b">
@@ -26,7 +26,7 @@
 				</select>
 			</span>
 			<span class="col-sm-3">
-				<input type="text" id="goodsname"	placeholder="请输入商品名称" class="form-control"></span>
+				<input type="text" id="goodsname"	placeholder="请输入礼品名称" class="form-control"></span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>
 			</span>			
@@ -39,7 +39,7 @@
 </body>
 <script type="text/javascript">
 	var grid;
-	//排序号、商品名称、所需积分、图片、添加时间、操作
+	//排序号、礼品名称、所需积分、图片、添加时间、操作
 	jQuery(function($) {
 		$('#showtable').bootstrapTable(	{
 			pagination : true,
@@ -50,18 +50,18 @@
 			{field:'nums',title : '#',align : 'center',width : 30,
 				formatter : function(value, row, index) {return index + 1;}
 			},
-			{field : 'goodscode',title : '商品编码',width : 30,sortable : true,align : "left"},
-			{field : 'goodsname',title : '商品名称',width : 150,sortable : true,align : "left"},
-			{field : 'price',title : '商品价格',width : 50,sortable : true,align : "right"},
+			{field : 'goodscode',title : '礼品编码',width : 30,sortable : true,align : "left"},
+			{field : 'goodsname',title : '礼品名称',width : 150,sortable : true,align : "left"},
+			{field : 'price',title : '礼品价格',width : 50,sortable : true,align : "right"},
 			{field : 'integral',title : '所需积分',width : 50,sortable : true,align : "right"},
-			{field : 'goodsimg',title : '商品图片',width : 100,sortable : true,align : "center",
+			{field : 'goodsimg',title : '礼品图片',width : 100,sortable : true,align : "center",
 				formatter:function(cellvalue, options, rowObject){
 					if(cellvalue==null||cellvalue=="") return;
 					if(cellvalue.split(",").length<=0) return;	
 					return "<img src=\"" +cellvalue+"\" height='60' width='80'/>";	    		   
 				}
 			},
-			{field : "createtime",title:"创建日期",width:100,sortable:true,align : "center"},
+			{field : "createtime",title:"添加日期",width:100,sortable:true,align : "center"},
 			{field : "status",title : "状态",width : 50,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";
@@ -92,7 +92,6 @@
 							+ options.goodsid + "\")' >编辑</a>  ";
 					html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='deletedata(\""
 							+ options.goodsid + "\")' >删除</a>";
-					//console.log(html);
 					return html;
 				}
 			}]
@@ -104,30 +103,36 @@
 	});
 	function adddata() {
 		var index = layer.open({
-			type : 2,title : "添加商品",
+			type : 2,title : "添加礼品",
 			content : "${pageContext.request.contextPath}/goods/addGoods"
 		});
 		layer.full(index);
 	}
 	function editdata(goodsid) {
 		var index = layer.open({
-			type : 2,title : "编辑商品",
+			type : 2,title : "编辑礼品",
 			content : "${pageContext.request.contextPath}/goods/editGoods/"+goodsid+""
 		});
 		layer.full(index);
 	}
 	function deletedata(goodsid) {
-		$.ajax({
-			type : "post",
-			url : "${pageContext.request.contextPath}/goods/deleteGoods/"+goodsid,
-			dataType : "json",
-			contentType : 'application/json',
-			success : function(result) {
-				result = eval(result);
-				console.log(result);
-				binddata();
-			},
-			error : function(errorMsg) {}
+		layer.confirm('您确认要删除吗？',function(index){	
+			$.ajax({
+				type : "post",
+				url : "${pageContext.request.contextPath}/goods/deleteGoods/"+goodsid,
+				dataType : "json",
+				contentType : 'application/json',
+				success : function(result) {
+					if(result.code=="001"){
+						layer.msg('删除成功。',{icon:1,time:1500});
+						binddata();
+					}else{
+						layer.msg('删除失败!',{icon:2,time:1500});
+					}
+					
+				},
+				error : function(errorMsg) {}
+			});
 		});
 	}
 	function binddata() {

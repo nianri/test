@@ -48,15 +48,11 @@
 				{field:'nums',title:'#',align:'center',width:30,colspan:1,rowspan:2,valign:"middle",
 					formatter:function(value,row,index){return index + 1;}
 				},
-				{field:'shopname',title:'加油站',width:80,sortable:false,align:"center",colspan:1,rowspan:2,valign:"middle"},	
+				{field:'shopname',title:'加油站',width:150,sortable:false,align:"left",colspan:1,rowspan:2,valign:"middle"},	
 				{field:'ordernum',title:'订单量',sortable:false,align:"center",colspan:6,rowspan:1},
 				{field:'orderprice',title:'订单金额',sortable:false,align:"center",colspan:3,rowspan:1},
 				{field:'shopid',title:'shopid',visible:false}, 
-				{
-					field : 'action',
-					title : '操作',
-					width : 150,
-					align : "center",
+				{field : 'action',title : '操作',width : 50,align : "center",
 					colspan:1,rowspan:2,valign:"middle",
 					formatter : function(cellvalue,options, row) {
 						var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='getShopOrderStatusReport(\""
@@ -68,15 +64,15 @@
 				}
 				],
 			[
-				{field : 'topay',title : '待支付',width : 30,align : "center"},
-				{field : 'paid',title : '已支付',width : 30,align : "center"},
-				{field : 'complete',title : '加油完成',width : 30,align : "center"},
-				{field : 'applyRefund',title : '申请退款',width : 30,align : "center"},
-				{field : 'refundSuccess',title : '退款完成',width : 30,align : "center"},
-				{field : 'total',title : '总单量',width : 30,align : "center"},	
-				{field : 'totalprice',title : '应收金额',width : 30,align : "center"},	
-				{field : 'couponprice',title : '优惠金额',width : 30,align : "center"},	
-				{field : 'realprice',title : '实付金额',width : 30,align : "center"},	
+				{field : 'topay',title : '待支付',width : 30,align : "right"},
+				{field : 'paid',title : '已支付',width : 30,align : "right"},
+				{field : 'complete',title : '加油完成',width : 30,align : "right"},
+				{field : 'applyRefund',title : '申请退款',width : 30,align : "right"},
+				{field : 'refundSuccess',title : '退款完成',width : 30,align : "right"},
+				{field : 'total',title : '总单量',width : 30,align : "right"},	
+				{field : 'totalprice',title : '应收金额',width : 30,align : "right"},	
+				{field : 'couponprice',title : '优惠金额',width : 30,align : "right"},	
+				{field : 'realprice',title : '实付金额',width : 30,align : "right"},	
 			]]
 		});
 		$("#queryBtn").click(function() {
@@ -129,7 +125,7 @@
 	});
 	function getShopOrderStatusReport(shopid){
 		var index = layer.open({
-			type : 2,title : "加油站订单状态统计报表详情",
+			type : 2,title : "订单状态报表详情",
 			content : "${pageContext.request.contextPath}/shopOrderReport/getShopOrderStatusReport/"+shopid+""
 		});
 		layer.full(index);

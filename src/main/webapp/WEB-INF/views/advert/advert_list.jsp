@@ -48,12 +48,11 @@
 			{field:'advertname',title:'广告名称',sortable : true,align : "left"},
 			{field:'provincename',title:'省',width:150,sortable:true,align:"center"},
 			{field:'cityname',title:'市',width:150,sortable:true,align:"center"},
-			/* {field:"countyname",title:"县(区)",width:150,sortable:true,align:"center"}, */
 			{field:"adverttype",title:"广告类型",width:150,sortable:true,align:"center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";
 					if (cellvalue == 1) {
-						result = "地域广告";
+						result = "市级广告";
 					} else if (cellvalue == 0) {
 						result = "系统广告";
 					}else {

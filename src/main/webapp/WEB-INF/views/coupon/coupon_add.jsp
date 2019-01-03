@@ -74,7 +74,7 @@
 					<span>(元/张)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">总优惠数量：</label>
+					<label class="form-label col-xs-4 col-sm-2">发布数量：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="totalnums" type="text" class="input-text" value="${coupon.totalnums}" onkeyup="value=value.replace(/[^\d]/g,'')">
 					</div>

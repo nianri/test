@@ -7,8 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration  
 @PropertySource(value="classpath:jdbc.properties")      
 public class ImgConfig{      
-	@Value("${uploadImgService.Url}")   
-	public  String uploadImgService;     
+	//@Value("${uploadImgService.Url}")   
+	//public  String uploadImgService;     
        
 	//@Value("${viewImgService.Url}")   
 	//public  String viewImgService;   

@@ -19,7 +19,7 @@
 		</div>
 		<div class="ibox-content">
 			<span class="col-sm-2">
-				<input type="text" id="goodsname"	placeholder="请输入商品名称" class="form-control"></span>
+				<input type="text" id="goodsname"	placeholder="请输入礼品名称" class="form-control"></span>
 			<span>			 
 			<span class="col-sm-3">
 				<input type="text" id="receive"	placeholder="请输入收货人" class="form-control"></span>
@@ -91,7 +91,7 @@
 <script type="text/javascript">
 	var grid;
 	var selectList;
-	//排序号、商品名称、所需积分、图片、添加时间、操作
+	//排序号、礼品名称、所需积分、图片、添加时间、操作
 	jQuery(function($) {
 		$('#showtable').bootstrapTable(	{
 			pagination : true,
@@ -102,18 +102,23 @@
 			{field:'nums',title : '#',align : 'center',width : 30,
 				formatter : function(value, row, index) {return index + 1;}
 			}, 
-			{field : 'goodsname',title : '名称',width : 30,sortable : true,align : "left"},
-			{field : 'price',title : '价格',width : 150,sortable : true,align : "left"},
-			{field : 'integral',title : '积分',width : 50,sortable : true,align : "right"},
-			{field : 'receive',title : '收货人',width : 150,sortable : true,align : "left"},
-			{field : 'telphone',title : '收货手机号码',width : 50,sortable : true,align : "left"},
-			{field:'orderid',title:'orderid',visible:false}, 
-			{field:'status',title:'status',visible:false}, 
-			{
-				field : 'action',
-				title : '操作',
-				width : 150,
-				align : "center",
+			{field : 'goodsname',title : '礼品名称',width : 150,sortable : true,align : "left"},
+			{field : 'price',title : '礼品价格',width : 50,sortable : true,align : "right"},
+			{field : 'integral',title : '所需积分',width : 50,sortable : true,align : "right"},
+			{field : 'receive',title : '收货人',width : 50,sortable : true,align : "left"},
+			{field : 'telphone',title : '联系电话',width : 50,sortable : true,align : "left"},
+			{field : 'orderid',title:'orderid',visible:false}, 
+			{field : 'status',title:'状态',width : 50,sortable : true,
+				formatter : function(cellvalue,options, row) {
+					if(cellvalue=="0")
+						return "待发货"
+					else if(cellvalue=="1")
+						return "已发货"
+					else if(cellvalue=="2")
+						return "已收货"
+				}
+			}, 
+			{field : 'action',title : '操作',width : 100,align : "left",
 				formatter : function(cellvalue,options, row) {
 					var html = "<a href='javascript:void(0);' class='btn btn-primary' onclick='getGoodsOrder(\""
 							+ options.orderid + "\")' >详情</a>  ";
@@ -121,7 +126,6 @@
 							html += "<a href='javascript:void(0);' class='btn btn-primary' onclick='delivery(\""
 							+ options.orderid + "\")' >发货</a>";
 						}
-					//console.log(html);
 					return html;
 				}
 			}]

@@ -27,14 +27,8 @@
 <body>
 	<header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl">
-			<img
-				style="float: left; width: 5rem; margin-right: 16px; margin-left: 8px;"
-				src="${pageContext.request.contextPath}/resources/static/youhulogo.png">
-			<a class="logo navbar-logo f-l mr-10 hidden-xs"><h4>油虎车服运营管理平台</h4></a> <a
-				class="logo navbar-logo-m f-l mr-10 visible-xs"
-				href="/aboutHui.shtml"></a> <a aria-hidden="false"
-				class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl">			
+			<span style="color:white;"><h4>油虎车服运营管理平台</h4></span> 			
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
 				<li>${realname}</li>
@@ -111,14 +105,14 @@
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-comments">
 			<dt>
-				<i class="Hui-iconfont">&#xe622;</i>优惠券管理<i
+				<i class="Hui-iconfont">&#xe622;</i> 营销管理<i
 					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 			</dt>
 			<dd>
 				<ul>
 					<li><a
 						data-href="${pageContext.request.contextPath}/coupon/couponList"
-						data-title="优惠券管理" href="javascript:;">发布优惠券</a></li>
+						data-title="发布优惠券" href="javascript:;">发布优惠券</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -131,7 +125,7 @@
 				<ul>
 					<li><a
 						data-href="${pageContext.request.contextPath}/advertin/advertList"
-						data-title="广告列表" href="javascript:void(0)">广告列表</a></li>
+						data-title="发布广告" href="javascript:void(0)">发布广告</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -166,23 +160,23 @@
 				<ul>
 					<li><a
 						data-href="${pageContext.request.contextPath }/member/memberList"
-						data-title="会员列表" href="javascript:;">会员列表</a></li>
+						data-title="注册会员列表" href="javascript:;">注册会员列表</a></li>
 				</ul>
 			</dd>
 		</dl>
 		<dl id="menu-member">
 			<dt>
-				<i class="Hui-iconfont">&#xe60d;</i> 积分商品<i
+				<i class="Hui-iconfont">&#xe60d;</i> 礼品管理<i
 					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 			</dt>
 			<dd>
 				<ul>
 					<li><a
 						data-href="${pageContext.request.contextPath }/goods/goodsList"
-						data-title="积分商品" href="javascript:;">积分商品</a></li>
-					<li><a
-						data-href="${pageContext.request.contextPath }/goods/goodsOrder"
-						data-title="兑换记录" href="javascript:;">兑换记录</a></li>
+						data-title="积分礼品添加" href="javascript:;">积分礼品添加</a></li>
+					<li><a	data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList"
+						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a>
+					</li> 	
 				</ul>
 			</dd>
 		</dl>
@@ -195,7 +189,7 @@
 				<ul>
 					<li><a
 						data-href="${pageContext.request.contextPath }/shopOils/shopOilsList"
-						data-title="产品列表" href="javascript:void(0)">产品列表</a></li>
+						data-title="发布产品" href="javascript:void(0)">发布产品</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -209,19 +203,6 @@
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderStatusReport" data-title="订单状态报表" href="javascript:void(0)">订单状态报表</a></li></ul>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderOilsReport" data-title="产品订单报表" href="javascript:void(0)">产品订单报表</a></li></ul>
 				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderMonthReport" data-title="月收入报表" href="javascript:void(0)">月收入报表</a></li></ul>
-			</dd>
-		</dl>
-		<dl>
-			<dt>
-				<i class="Hui-iconfont">&#xe62e;</i> 礼品兑换<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a	data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList"
-						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a>
-					</li> 					
-				</ul>
 			</dd>
 		</dl>
 		<dl>

@@ -15,7 +15,7 @@ public class MemberInfo implements Serializable{
 
     private String realname;
 
-    private String memberphone;
+    private String phonenum;
 
     private String password;
 
@@ -29,7 +29,7 @@ public class MemberInfo implements Serializable{
 
     private String headimg;
 
-    private Integer integral;
+    private Integer totalscore;
 
     private String islogin;
 
@@ -77,12 +77,14 @@ public class MemberInfo implements Serializable{
         this.realname = realname == null ? null : realname.trim();
     }
 
-    public String getMemberphone() {
-		return memberphone;
+    
+
+	public String getPhonenum() {
+		return phonenum;
 	}
 
-	public void setMemberphone(String memberphone) {
-		this.memberphone = memberphone;
+	public void setPhonenum(String phonenum) {
+		this.phonenum = phonenum;
 	}
 
 	public String getPassword() {
@@ -133,15 +135,17 @@ public class MemberInfo implements Serializable{
         this.headimg = headimg == null ? null : headimg.trim();
     }
 
-    public Integer getIntegral() {
-        return integral;
-    }
+    
 
-    public void setIntegral(Integer integral) {
-        this.integral = integral;
-    }
+    public Integer getTotalscore() {
+		return totalscore;
+	}
 
-    public String getIslogin() {
+	public void setTotalscore(Integer totalscore) {
+		this.totalscore = totalscore;
+	}
+
+	public String getIslogin() {
         return islogin;
     }
 

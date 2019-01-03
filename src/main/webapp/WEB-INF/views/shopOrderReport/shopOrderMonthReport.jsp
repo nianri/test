@@ -45,7 +45,7 @@
 				{field:'nums',title:'#',align:'center',width:30,colspan:1,rowspan:2,valign:"middle",
 					formatter:function(value,row,index){return index + 1;}
 				},
-				{field:'shopname',title:'加油站',width:200,sortable:false,align:"center",rowspan:2,valign:"middle"},	
+				{field:'shopname',title:'加油站',width:150,sortable:false,align:"left",rowspan:2,valign:"middle"},	
 				{field:'m1',title:'一月',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'m2',title:'二月',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'m3',title:'三月',sortable:false,align:"center",colspan:2,rowspan:1},
@@ -63,7 +63,7 @@
 				{
 					field : 'action',
 					title : '操作',
-					width : 150,
+					width : 50,
 					align : "center",
 					colspan:1,rowspan:2,valign:"middle",
 					formatter : function(cellvalue,options, row) {
@@ -122,7 +122,7 @@
 	});
 	function getShopOrderMonthReport(shopid){
 		var index = layer.open({
-			type : 2,title : "加油站月收入统计报表详情",
+			type : 2,title : "月收入统计报表详情",
 			content : "${pageContext.request.contextPath}/shopOrderReport/getShopOrderMonthReport/"+shopid+""
 		});
 		layer.full(index);

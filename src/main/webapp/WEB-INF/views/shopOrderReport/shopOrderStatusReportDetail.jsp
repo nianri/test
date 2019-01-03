@@ -19,68 +19,68 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.shopname}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.shopname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">待支付订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.topay}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.topay}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">已支付订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.paid}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.paid}"  readonly>
 					</div>
 				</div>
 			
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油完成订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.complete}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.complete}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">申请退款订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.applyRefund}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.applyRefund}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">退款完成订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.refundSuccess}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.refundSuccess}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">总单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.total}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.total}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">应收总金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.totalprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.totalprice}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">优惠总金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.couponprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.couponprice}" readonly>
 					</div>
 				</div>	
 				
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">实付总金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice}" readonly>
 					</div>
 				</div>	
 			</form>

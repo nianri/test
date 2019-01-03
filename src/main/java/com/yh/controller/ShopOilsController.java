@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSON;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
 import com.yh.common.Common;
@@ -142,26 +140,29 @@ public class ShopOilsController {
 			}
 			if(shopOils.getShopoilsid()!=null && !"".equals(shopOils.getShopoilsid())){
 				shopOilsService.updateShopOilsById(shopOils);
-				codeValue=ResultEnum.SAVE_SUCCESS.getCode();
-				infoValue=ResultEnum.SAVE_SUCCESS.getInfo();
+				codeValue=ResultEnum.SUCCESS.getCode();
+				infoValue=ResultEnum.SUCCESS.getInfo();
 			}else{
 				List<ShopOils> shopOilsList = shopOilsService.isExistsShopOils(shopOils);
-				System.out.println("ROWS>"+shopOilsList.size());
-				System.out.println("JSON>"+JSON.toJSONString(shopOils));
 				if(shopOilsList.size()==0){
 					shopOils.setShopoilsid(UUID.randomUUID().toString());
 					shopOils.setCreatetime(Common.GetNowDate().toString());
 					shopOils.setCreatorid(Common.getSession().getAttribute("userid").toString());
-					shopOilsService.insertShopOils(shopOils);
-					codeValue=ResultEnum.SAVE_SUCCESS.getCode();
-					infoValue=ResultEnum.SAVE_SUCCESS.getInfo();
+					shopOils.setOrdernum(Common.getRandomIndex());
+					if(shopOilsService.insertShopOils(shopOils)>0){
+						codeValue=ResultEnum.SUCCESS.getCode();
+						infoValue=ResultEnum.SUCCESS.getInfo();
+					}else{
+						codeValue=ResultEnum.FAILED.getCode();
+						infoValue=ResultEnum.FAILED.getInfo();
+					}
 				}else if(shopOilsList.size()==1){
 					codeValue=ResultEnum.YES_EXISTS.getCode();
 					infoValue=ResultEnum.YES_EXISTS.getInfo();
 				}else{
 					//异常数据，可能存在多条产品数据；
-					codeValue=ResultEnum.SAVE_FAILED.getCode();
-					infoValue=ResultEnum.SAVE_FAILED.getInfo();
+					codeValue=ResultEnum.FAILED.getCode();
+					infoValue=ResultEnum.FAILED.getInfo();
 				}		
 			}		
 			resultInfo.setCode(codeValue);

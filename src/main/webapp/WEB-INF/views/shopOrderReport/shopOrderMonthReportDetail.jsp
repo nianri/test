@@ -19,153 +19,153 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.shopname}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.shopname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">一月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count1}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count1}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">一月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice1}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice1}"  readonly>
 					</div>
 				</div>
 			<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">二月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count2}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count2}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">二月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice2}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice2}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">三月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count3}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count3}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">三月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice3}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice3}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">四月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count4}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count4}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">四月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice4}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice4}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">五月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count5}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count5}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">五月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice5}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice5}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">六月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count6}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count6}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">六月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice6}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice6}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">七月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count7}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count7}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">七月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice7}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice7}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">八月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count8}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count8}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">八月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice8}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice8}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">九月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count9}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count9}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">九月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice9}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice9}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count10}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count10}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice10}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice10}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十一月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count11}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count11}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十一月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice11}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice11}"  readonly>
 					</div>
 				</div><div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十二月订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count12}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count12}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">十二月订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice12}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice12}"  readonly>
 					</div>
 				</div>
 			<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">合计订单量：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.count}" disabled="disabled">
+						<input type="text" class="input-text" value="${info.count}" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">合计订单金额：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${info.realprice}"  disabled="disabled">
+						<input type="text" class="input-text" value="${info.realprice}"  readonly>
 					</div>
 				</div>
 			</form>

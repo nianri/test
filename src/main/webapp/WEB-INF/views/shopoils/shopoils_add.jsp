@@ -51,49 +51,49 @@
 					<span>(元)</span>				
 				</div>				
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周一：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周一：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice1" type="text" class="input-text" value="${shopoils.payprice1}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周二：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周二：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice2" type="text" class="input-text" value="${shopoils.payprice2}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周三：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周三：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice3" type="text" class="input-text" value="${shopoils.payprice3}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周四：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周四：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice4" type="text" class="input-text" value="${shopoils.payprice4}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周五：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周五：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice5" type="text" class="input-text" value="${shopoils.payprice5}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周六：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周六：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice6" type="text" class="input-text" value="${shopoils.payprice6}" onkeyup="num(this)" size="10">
 					</div>
 					<span>(元)</span>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">现价-周日：</label>
+					<label class="form-label col-xs-4 col-sm-2">优惠价-周日：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="payprice7" type="text" class="input-text" value="${shopoils.payprice7}" onkeyup="num(this)" size="10">
 					</div>
@@ -120,13 +120,6 @@
 							</select>
 						</span>
 					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">顺序号：</label>
-					<div class="formControls col-xs-8 col-sm-3">
-						<input id="ordernum" type="text" class="input-text" value="${shopoils.ordernum}" onkeyup="num(this)" size="10">
-					</div>
-					<span>(产品展示的前后顺序)</span>
 				</div>
 				<div class="row cl">
 					<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">						
@@ -224,10 +217,10 @@
 						var result = "";
 						if (cellvalue =="") {
 							result = "异常";
-						} else if (cellvalue=="0") {
-							result = "禁用";
-						} else if (cellvalue=="1") {
-							result = "启用";
+						} else if (cellvalue=="3") {
+							result = "审核通过";
+						} else if (cellvalue=="4") {
+							result = "上线中";
 						}
 						return result;
 					}
@@ -345,37 +338,37 @@
 			}
 			var tpayprice1=$("#payprice1").val();
 			if(tpayprice1==""||tpayprice1<="0"||tpayprice1>tsourceprice){
-				toastr.warning("请输入现价-周一，且小于等于源价！");
+				toastr.warning("请输入优惠价-周一，且小于等于源价！");
 				return;
 			}
 			var tpayprice2=$("#payprice2").val();
 			if(tpayprice2==""||tpayprice2<="0"||tpayprice2>tsourceprice){
-				toastr.warning("请输入现价-周二，且小于等于源价！");
+				toastr.warning("请输入优惠价-周二，且小于等于源价！");
 				return;
 			}
 			var tpayprice3=$("#payprice3").val();
 			if(tpayprice3==""||tpayprice3<="0"||tpayprice3>tsourceprice){
-				toastr.warning("请输入现价-周三，且小于等于源价！");
+				toastr.warning("请输入优惠价-周三，且小于等于源价！");
 				return;
 			}
 			var tpayprice4=$("#payprice4").val();
 			if(tpayprice4==""||tpayprice4<="0"||tpayprice4>tsourceprice){
-				toastr.warning("请输入现价-周四，且小于等于源价！");
+				toastr.warning("请输入优惠价-周四，且小于等于源价！");
 				return;
 			}
 			var tpayprice5=$("#payprice5").val();
 			if(tpayprice5==""||tpayprice5<="0"||tpayprice5>tsourceprice){
-				toastr.warning("请输入现价-周五，且小于等于源价！");
+				toastr.warning("请输入优惠价-周五，且小于等于源价！");
 				return;
 			}
 			var tpayprice6=$("#payprice6").val();
 			if(tpayprice6==""||tpayprice6<="0"||tpayprice6>tsourceprice){
-				toastr.warning("请输入现价-周六，且小于等于源价！");
+				toastr.warning("请输入优惠价-周六，且小于等于源价！");
 				return;
 			}
 			var tpayprice7=$("#payprice7").val();
 			if(tpayprice7==""||tpayprice7<="0"||tpayprice7>tsourceprice){
-				toastr.warning("请输入现价-周日，且小于等于源价！");
+				toastr.warning("请输入优惠价-周日，且小于等于源价！");
 				return;
 			}
 			var truntime=$("#runtime").val();
@@ -388,16 +381,11 @@
 				toastr.warning("请选择状态！");
 				return;
 			}
-			var tordernum=$("#ordernum").val();
-			if(tordernum==""||tordernum==null){
-				toastr.warning("请输入顺序号！");
-				return;
-			}
 			var rowData={"shopid":tshopid,"oilsid":toilsid,"sourceprice":tsourceprice,"payprice1":tpayprice1,
 					"payprice2":tpayprice2,"payprice3":tpayprice3,"payprice4":tpayprice4,"payprice5":tpayprice5,
 					"payprice6":tpayprice6,"payprice7":tpayprice7,"status":tstatus,"shopoilsid":$("#shopoilsid").val(),
-					"runtime":truntime,"ordernum":tordernum};
-			console.log(JSON.stringify(rowData));	
+					"runtime":truntime};
+			
 			$.ajax({
 				type : "post",
 				url : "${pageContext.request.contextPath}/shopOils/saveShopOils",
@@ -406,8 +394,7 @@
 				contentType : 'application/json',
 				success : function(result) {
 					result = eval(result);	
-					console.log(result);
-					if(result.code=="SS01"){
+					if(result.code=="001"){
 						toastr.success(result.info);
 						if($("#shopoilsid").val()==""||$("#shopoilsid").val()==null) cleardata();					 
 					}else if(result.code=="KEY00"){
