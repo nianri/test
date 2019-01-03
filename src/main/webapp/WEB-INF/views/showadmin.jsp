@@ -27,30 +27,17 @@
 <body>
 	<header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl">			
-			<span style="color:white;"><h4>油虎车服运营管理平台</h4></span> 			
+		<div class="container-fluid cl">
+			<span style="color: white;"><h4>油虎车服运营管理平台</h4></span>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
 				<li>${realname}</li>
 				<li class="dropDown dropDown_hover"><a href="#"
 					class="dropDown_A">${logincode} <i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
-						<%-- <li><a href="${pageContext.request.contextPath}/admin/editPwdPage">修改密码</a></li> --%>
 						<li><a onclick="openpwd();">修改密码</a></li>
 						<li><a
 							href="${pageContext.request.contextPath }/admin/logout">安全退出</a></li>
-					</ul></li>
-				<li id="Hui-skin" class="dropDown right dropDown_hover"><a
-					href="javascript:;" class="dropDown_A" title="换肤"> <i
-						class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i>
-				</a>
-					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" data-val="blue" title="默认（黄色）">默认（黄色）</a></li>
-						<li><a href="javascript:;" data-val="default" title="黑色">黑色</a></li>
-						<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-						<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-						<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
-						<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
 					</ul></li>
 			</ul>
 			</nav>
@@ -105,14 +92,23 @@
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-comments">
 			<dt>
-				<i class="Hui-iconfont">&#xe622;</i> 营销管理<i
+				<i class="Hui-iconfont">&#xe622;</i> 商家管理<i
 					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 			</dt>
 			<dd>
 				<ul>
 					<li><a
-						data-href="${pageContext.request.contextPath}/coupon/couponList"
-						data-title="发布优惠券" href="javascript:;">发布优惠券</a></li>
+						data-href="${pageContext.request.contextPath}/shop/shopAddList"
+						data-title="加油站入驻" href="javascript:void(0)">加油站入驻</a></li>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shop/shopCheckList"
+						data-title="加油站审核" href="javascript:void(0)">加油站审核</a></li>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shop/shopList"
+						data-title="加油站列表" href="javascript:void(0)">加油站列表</a></li>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shop/shopAccount"
+						data-title="加油站编辑" href="javascript:void(0)">加油站编辑</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -131,23 +127,14 @@
 		</dl>
 		<dl id="menu-comments">
 			<dt>
-				<i class="Hui-iconfont">&#xe622;</i> 商家管理<i
+				<i class="Hui-iconfont">&#xe622;</i> 营销管理<i
 					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 			</dt>
 			<dd>
 				<ul>
 					<li><a
-						data-href="${pageContext.request.contextPath}/shop/shopAddList"
-						data-title="加油站入驻" href="javascript:void(0)">加油站入驻</a></li>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shop/shopCheckList"
-						data-title="加油站审核" href="javascript:void(0)">加油站审核</a></li>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shop/shopList"
-						data-title="加油站列表" href="javascript:void(0)">加油站列表</a></li>
-					<li><a
-						data-href="${pageContext.request.contextPath}/shop/shopAccount"
-						data-title="加油站编辑" href="javascript:void(0)">加油站编辑</a></li>
+						data-href="${pageContext.request.contextPath}/coupon/couponList"
+						data-title="发布优惠券" href="javascript:;">发布优惠券</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -174,9 +161,50 @@
 					<li><a
 						data-href="${pageContext.request.contextPath }/goods/goodsList"
 						data-title="积分礼品添加" href="javascript:;">积分礼品添加</a></li>
-					<li><a	data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList"
-						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a>
-					</li> 	
+					<li><a
+						data-href="${pageContext.request.contextPath }/goodsOrder/goodsOrderList"
+						data-title="礼品兑换列表" href="javascript:void(0)">礼品兑换列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl>
+			<dt>
+				<i class="Hui-iconfont">&#xe62e;</i> 意见反馈<i
+					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+			</dt>
+			<dd>
+				<ul>
+					<li><a
+						data-href="${pageContext.request.contextPath }/feedbackInfo/feedbackInfoList"
+						data-title="意见反馈列表" href="javascript:void(0)">意见反馈列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-system">
+			<dt>
+				<i class="Hui-iconfont">&#xe62e;</i> 统计管理 <i
+					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+			</dt>
+			<dd>
+				<ul>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList"
+						data-title="订单明细查询" href="javascript:void(0)">订单明细查询</a></li>
+				</ul>
+				<ul>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderStatusReport"
+						data-title="订单状态报表" href="javascript:void(0)">订单状态报表</a></li>
+				</ul>
+				<ul>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderOilsReport"
+						data-title="产品订单报表" href="javascript:void(0)">产品订单报表</a></li>
+				</ul>
+				<ul>
+					<li><a
+						data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderMonthReport"
+						data-title="月收入报表" href="javascript:void(0)">月收入报表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -190,31 +218,6 @@
 					<li><a
 						data-href="${pageContext.request.contextPath }/shopOils/shopOilsList"
 						data-title="发布产品" href="javascript:void(0)">发布产品</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-system">
-			<dt>
-				<i class="Hui-iconfont">&#xe62e;</i> 数据统计 <i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrder/shopOrderList" data-title="订单明细查询" href="javascript:void(0)">订单明细查询</a></li></ul>
-				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderStatusReport" data-title="订单状态报表" href="javascript:void(0)">订单状态报表</a></li></ul>
-				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderOilsReport" data-title="产品订单报表" href="javascript:void(0)">产品订单报表</a></li></ul>
-				<ul><li><a data-href="${pageContext.request.contextPath}/shopOrderReport/shopOrderMonthReport" data-title="月收入报表" href="javascript:void(0)">月收入报表</a></li></ul>
-			</dd>
-		</dl>
-		<dl>
-			<dt>
-				<i class="Hui-iconfont">&#xe62e;</i> 意见反馈<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a
-						data-href="${pageContext.request.contextPath }/feedbackInfo/feedbackInfoList"
-						data-title="意见反馈列表" href="javascript:void(0)">意见反馈列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -259,18 +262,14 @@
 		</div>
 	</div>
 	</section>
-	<span data-href="../admin/charts2"></span>
 	<div class="contextMenu" id="Huiadminmenu">
 		<ul>
 			<li id="closethis">关闭当前</li>
 			<li id="closeall">关闭全部</li>
 		</ul>
 	</div>
-	<!--_footer 作为公共模版分离出去-->
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/Bootstrap-3.3.7/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/layer/2.4/layer.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/static/h-ui/js/H-ui.min.js"></script>
 	<script type="text/javascript"
@@ -280,9 +279,6 @@
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
 	<script type="text/javascript">
-		function okpwd() {
-			console.log("----");
-		}
 		function openpwd() {
 			$("#pwdModal").modal("show");
 		}

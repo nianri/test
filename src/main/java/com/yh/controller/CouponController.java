@@ -59,13 +59,11 @@ public class CouponController {
 				cuponInfo.setShopid("");
 			}else{
 				//当用户角色类型为其它值时，加油站ID设置一个未能查到的产品信息；
-				cuponInfo.setShopid("XX100YY");
-				logger.info("优惠券获取加油站ID为空！");
+				cuponInfo.setShopid(Common.createUUid());
 			}
 			couponInfoList=couponService.getCouponList(cuponInfo);
 		}catch(Exception ex){
 			logger.info(ex.getMessage());
-			System.out.println("xy>:"+ex.getMessage());
 		}
         return couponInfoList;
 	}

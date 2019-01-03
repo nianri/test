@@ -55,16 +55,15 @@ public class ShopOilsController {
 	public  @ResponseBody List<ShopOils> shopOilsSearch(@RequestBody ShopOils shopOils) {
 		List<ShopOils> shopOilsList = new ArrayList<ShopOils>();
 		int userRoleType= this.getUserRoleType();
-		System.out.println(userRoleType);
+		System.out.println( "SHOPID:>"+Common.getCurrentUserShopId());
 		try{
 			if(userRoleType==1){//商家
 				shopOils.setShopid(Common.getCurrentUserShopId());
 			}else if(userRoleType==2){ //运营人员或管理员
 				shopOils.setShopid("");
 			}else{
-				//当用户角色类型为其它值时，店铺ID设置一个未能查到的产品信息；
-				shopOils.setShopid("XX100YY");
-				logger.info("产品获取店铺ID为空！");
+				//当用户角色类型为其它值时，店铺ID设置一个未能查到的商家信息；
+				shopOils.setShopid(Common.createUUid()); 
 			}
 			shopOilsList=shopOilsService.getShopOilsList(shopOils);
 		}catch(Exception ex){
