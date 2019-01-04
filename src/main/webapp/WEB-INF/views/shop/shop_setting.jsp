@@ -22,56 +22,33 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">加油站名称：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.shopname}" name="shopname" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.shopname}" name="shopname" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">详细地址：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.address}"  name="address" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.address}"  name="address" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人姓名：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadername}" name="leadername" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leadername}" name="leadername" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人电话：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadertel}" name="leadertel" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leadertel}" name="leadertel" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人邮箱：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leaderemail}" name="leaderemail" disabled="disabled">
+						<input type="text" class="input-text" value="${shop.leaderemail}" name="leaderemail" readonly>
 					</div>
 				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户银行：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountbank}" id="accountbank" >
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户银行卡号：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountnums}" id="accountnums" >
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">开户人姓名：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.accountname}" id="accountname" >
-					</div>
-				</div>
-				<!-- <div class="row cl">
-					<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-						<input id="btnSubmit" class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
-					</div>
-				</div> -->
 				<div class="row cl">
 					<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">						
 						<a id="btnSubmit" class="btn btn-primary" role="button">保 存</a>
@@ -90,6 +67,8 @@
 			});
 		});
 		function submitdata(){
+			toastr.warning("正在开发中！");
+			return;
 			if($("#accountbank").val()==null||$("#accountbank").val()==""){
 				toastr.warning("开户银行不能为空！");
 				return ;

@@ -68,8 +68,11 @@ public class AdminController {
 			request.getSession().setAttribute("userid",tempSysUser.getUserid());
 			request.getSession().setAttribute("realname",tempSysUser.getRealname());
 			request.getSession().setAttribute("shopid",tempSysUser.getShopid());
+			request.getSession().setAttribute("shopname",tempSysUser.getShopname());
+			
 			model.addAttribute("logincode", tempSysUser.getLogincode());
 			model.addAttribute("realname", tempSysUser.getRealname());
+			model.addAttribute("shopname", tempSysUser.getShopname());
 			
 			if(("2".equals(tempSysUser.getUsertype()) || "3".equals(tempSysUser.getUsertype()) )&& passWord.equals(tempSysUser.getPassword())){
 				return "showadmin";//管理员操作页面				

@@ -16,6 +16,7 @@
 		<result column="status" jdbcType="VARCHAR" property="status" />
 		<result column="isdelete" jdbcType="VARCHAR" property="isdelete" />
 		<result column="memo" jdbcType="VARCHAR" property="memo" />
+		<result column="shopname" jdbcType="VARCHAR" property="shopname" />
 	</resultMap>
 	<insert id="insertSysUser" parameterType="com.yh.model.SysUser">
 		insert into sys_user (userid, usercode, logincode,realname, password, usertype,shopid, islogin, lastlogtime,
@@ -27,7 +28,8 @@
 		#{isdelete,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
 	</insert>
 	<select id="getSysUserByCode" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">
-		select logincode,userid,realname,password,status,shopid,usertype from sys_user
+		select logincode,userid,realname,password,status,shopid,usertype,
+		(select shopname from shop_info n where m.shopid=n.shopid) as shopname from sys_user m
 		where logincode =#{logincode}
 	</select>
 	<select id="getSysUserList" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">

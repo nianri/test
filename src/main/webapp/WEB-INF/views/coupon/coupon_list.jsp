@@ -50,7 +50,7 @@
 				formatter : function(value, row, index) {return index + 1;}
 			},
 			{field : 'shopname',title : '加油站',width : 80,sortable : true,align : "left"},
-			{field : 'couponcode',title : '优惠券编码',width : 40,sortable : true,align : "center"},
+			{field : 'couponcode',title : '优惠券编码',width : 50,sortable : true,align : "center"},
 			{field : 'couponname',title : '优惠券名称',width : 100,sortable : true,align : "left"},
 			{field : 'createtime',title : '发布日期',width : 60,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {					
