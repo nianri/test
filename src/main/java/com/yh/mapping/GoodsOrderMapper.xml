@@ -16,6 +16,7 @@
 		<result column="memo" property="memo" />
 		<result column="expressid" property="expressid" />
 		<result column="expressnums" property="expressnums" />
+		<result column="expressname" property="expressname"/>
 	</resultMap>
 	<!--查询礼品兑换列表 -->
 	<select id="getGoodsOrderList" resultMap="BaseResultMap"
@@ -24,7 +25,8 @@
 	go.orderid,
 	go.ordercode,
 	go.ordertime,
-	go.goodsid,address,
+	go.goodsid,
+	go.address,
 	go.receive,
 	go.memberid,
 	go.telphone,
@@ -56,7 +58,8 @@
 	go.orderid,
 	go.ordercode,
 	go.ordertime,
-	go.goodsid,address,
+	go.goodsid,
+	go.address,
 	go.receive,
 	go.memberid,
 	go.telphone,
@@ -67,6 +70,7 @@
 	go.expressnums,
 	gi.goodsname,
 	gi.price,
+	(select dic_express.expressname from dic_express where dic_express.expressid =go.expressid) expressname,
 	gi.goodsimg
 	FROM
 	goods_order go

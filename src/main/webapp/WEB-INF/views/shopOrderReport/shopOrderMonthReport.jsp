@@ -45,7 +45,13 @@
 				{field:'nums',title:'#',align:'center',width:30,colspan:1,rowspan:2,valign:"middle",
 					formatter:function(value,row,index){return index + 1;}
 				},
-				{field:'shopname',title:'加油站',width:150,sortable:false,align:"left",rowspan:2,valign:"middle"},	
+				{field:'shopname',title:'加油站',sortable:false,align:"left",rowspan:2,valign:"middle",
+					formatter : function(cellvalue,options, row) {
+						var html = "<p style='overflow: hidden;   white-space: nowrap;text-overflow: ellipsis;'>"+options.shopname+"</p> ";
+						
+						//console.log(html);
+						return html;
+					}},	
 				{field:'m1',title:'一月',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'m2',title:'二月',sortable:false,align:"center",colspan:2,rowspan:1},
 				{field:'m3',title:'三月',sortable:false,align:"center",colspan:2,rowspan:1},

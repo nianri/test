@@ -58,6 +58,18 @@
 						<img id="headimg" width="200" height="200" class="picture-thumb" src="${goodsOrder.goodsimg}"  onerror="imgerror(this)">
 					</div>
 				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">快递公司：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" class="input-text" value="${goodsOrder.expressname}" readonly>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">快递单号：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" class="input-text" value="${goodsOrder.expressnums}"  readonly>
+					</div>
+				</div>
 			</form>
 		</div>		
 	</body>

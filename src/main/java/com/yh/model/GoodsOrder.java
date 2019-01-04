@@ -68,6 +68,8 @@ public class GoodsOrder implements Serializable {
 
     // 商品图片
     private String goodsimg;
+    // 快递公司名称
+    private String expressname;
     
     public String getOrderid() {
         return orderid;
@@ -195,6 +197,14 @@ public class GoodsOrder implements Serializable {
 
 	public void setGoodsimg(String goodsimg) {
 		this.goodsimg = goodsimg;
+	}
+
+	public String getExpressname() {
+		return expressname;
+	}
+
+	public void setExpressname(String expressname) {
+		this.expressname = expressname;
 	}
 
 
