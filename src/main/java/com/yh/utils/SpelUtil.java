@@ -1,5 +1,6 @@
 package com.yh.utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.expression.Expression;
@@ -109,11 +110,13 @@ public class SpelUtil {
 		
 		FeedbackInfo feedbackInfo=new FeedbackInfo();
 		feedbackInfo.setFeedbackid("----------");
+		Map<String,Object> map=new HashMap<>();
+		map.put("name", "sss");
 //		goodsInfoParam.setGoodsLabels(Lists.newArrayList());
-		spelUtil.setRootObject(feedbackInfo);
-		spelUtil.addVariable("message", feedbackInfo);
+		spelUtil.setRootObject(map);
+		spelUtil.addVariable("message", map);
 //		System.out.println(spelUtil.getExpressionValue("#message.feedbackid"));
-	    System.out.println( spelUtil.getTemplateValue("#{feedbackid}",String.class));
+	    System.out.println( spelUtil.getTemplateValue("#{name}",String.class));
 	}
 	
 }

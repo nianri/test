@@ -25,7 +25,22 @@
 			</span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>				
-			</span>			
+			</span>	
+			<span style="float:right">
+				<ul class="nav navbar-nav"  >
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						导出
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href='javascript:void(0);'  onclick='exportData()'>导出当前页</a></li>
+							<li class="divider"></li>
+							<li><a href='javascript:void(0);'  onclick='exportData(true)'>导出全部</a></li>
+						</ul>
+					</li>
+				</ul>
+			</span>				
 			<div class="jqGrid_wrapper" style="margin-top:10px;"">
 				<table class="table-bordered" id="showtable">
 				</table>
@@ -126,6 +141,19 @@
 	    }); 
 		$("#orderYear").datetimepicker("setDate", new Date());
 	});
+	function exportData(isAllPage){
+		 var url = "${pageContext.request.contextPath}/export/download.do";
+		if(isAllPage){
+			var rowData={
+					"shopname":$("#shopname").val(),
+					"orderYear":$('#orderYear').val(),
+					"page":"oils"
+				};
+			exportAll(url,"shopOrderReportService","月收入报表.xlsx",rowData);
+			}else{
+			exportNowPage("#showtable","月收入报表",'28','0');
+		}
+	}
 	function getShopOrderMonthReport(shopid){
 		var index = layer.open({
 			type : 2,title : "月收入统计报表详情",

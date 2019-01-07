@@ -22,9 +22,21 @@
 				<input type="text" id="feedbackmsg"	placeholder="请输入反馈内容" class="form-control"></span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>
-<button id="exportBtn" class="btn btn-default" style="float:right" >导出</button>	
-<button id="exportBtn1" class="btn btn-default" style="float:right" >导出</button>				
-			
+			</span>	
+			<span style="float:right">
+				<ul class="nav navbar-nav"  >
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						导出
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href='javascript:void(0);'  onclick='exportData()'>导出当前页</a></li>
+							<li class="divider"></li>
+							<li><a href='javascript:void(0);'  onclick='exportData(true)'>导出全部</a></li>
+						</ul>
+					</li>
+				</ul>
 			</span>			
 			<div class="jqGrid_wrapper">
 				<table class="table-bordered" id="showtable" >
@@ -155,6 +167,19 @@
 		});
         });
 	});
+	function exportData(isAllPage){
+		 var url = "${pageContext.request.contextPath}/export/download.do";
+		if(isAllPage){
+			var rowData=getParams();
+			exportAll(url,"feedbackInfoService","意见反馈.xlsx",rowData);
+			}else{
+			exportNowPage("#showtable","意见反馈",'5','0');
+		}
+	}
+	function getParams(){
+		var rowData =  {"feedbackmsg":$("#feedbackmsg").val(),"status":$("#status").val()};
+		return rowData;
+	}
 	function getFeedbackInfo(feedbackid) {
 		var index = layer.open({
 			type : 2,title : "反馈详情",
