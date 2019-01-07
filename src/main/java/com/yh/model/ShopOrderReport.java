@@ -35,6 +35,8 @@ public class ShopOrderReport implements Serializable {
 	private String dateTo;
 	// 订单查询年
 	private String orderYear;
+	// 是哪个页面在导出的时候用,status为订单状态 oils为产品 month为月收入报表
+	private String page; 
 	public String getShopid() {
 		return shopid;
 	}
@@ -118,6 +120,12 @@ public class ShopOrderReport implements Serializable {
 	}
 	public void setOrderYear(String orderYear) {
 		this.orderYear = orderYear;
+	}
+	public String getPage() {
+		return page;
+	}
+	public void setPage(String page) {
+		this.page = page;
 	}
 	
 

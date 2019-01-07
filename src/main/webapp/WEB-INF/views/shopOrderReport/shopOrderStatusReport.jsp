@@ -28,7 +28,22 @@
 			</span>
 			<span>
 				<a id="queryBtn" href="javascript:void(0);" class="btn btn-primary">搜索</a>				
-			</span>			
+			</span>	
+			<span style="float:right">
+				<ul class="nav navbar-nav"  >
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						导出
+						<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href='javascript:void(0);'  onclick='exportData()'>导出当前页</a></li>
+							<li class="divider"></li>
+							<li><a href='javascript:void(0);'  onclick='exportData(true)'>导出全部</a></li>
+						</ul>
+					</li>
+				</ul>
+			</span>		
 			<div class="jqGrid_wrapper" style="margin-top:10px;"">
 				<table class="table-bordered" id="showtable">
 				</table>
@@ -123,6 +138,20 @@
 		        $("#dateFrom").datetimepicker("setEndDate",end);
 		    });
 	});
+	function exportData(isAllPage){
+		 var url = "${pageContext.request.contextPath}/export/download.do";
+		if(isAllPage){
+			var rowData={
+					"shopname":$("#shopname").val(),
+					"dateFrom":$("#dateFrom").val(),
+					"dateTo":$("#dateTo").val(),
+					"page":"status"
+				};
+			exportAll(url,"shopOrderReportService","订单状态报表.xlsx",rowData);
+			}else{
+			exportNowPage("#showtable","订单状态报表",'11','0');
+		}
+	}
 	function getShopOrderStatusReport(shopid){
 		var index = layer.open({
 			type : 2,title : "订单状态报表详情",
@@ -136,6 +165,7 @@
 				"shopname":$("#shopname").val(),
 				"dateFrom":$("#dateFrom").val(),
 				"dateTo":$("#dateTo").val(),
+				"page":"status"
 			};
 		console.log(rowData);
 		$.ajax({
