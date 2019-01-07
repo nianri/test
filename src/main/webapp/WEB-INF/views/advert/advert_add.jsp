@@ -89,7 +89,7 @@
 				</div>
 			</div>
 			<input type="hidden" id="provinceid" value="${advertInfo.provinceid}">
-            <input type="text" id="cityid" value="${advertInfo.cityid}">
+            <input type="hidden" id="cityid" value="${advertInfo.cityid}">
             <input type="hidden" id="imageurl" value="${advertInfo.imageurl}">
             <input type="hidden" id="advertid" value="${advertInfo.advertid}"> 
             <input type="hidden" id="status" value="${advertInfo.status}"> 

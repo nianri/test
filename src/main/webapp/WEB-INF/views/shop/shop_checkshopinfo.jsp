@@ -16,7 +16,7 @@
 		<script src="${pageContext.request.contextPath}/resources/static/h-ui.admin/js/H-ui.admin.js " type="text/javascript" ></script>
 		<script	type="text/javascript"	src="${pageContext.request.contextPath}/resources/toastr/toastr.min.js"></script>
 		<link href="${pageContext.request.contextPath}/resources/toastr/toastr.min.css" rel="stylesheet" >
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=F8xxgmeOcjHWtPiOS75AoVq35OBWVPNl"></script>
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=F8xxgmeOcjHWtPiOS75AoVq35OBWVPNl"></script>
 		<style type="text/css">
 			body,html,#allmap {width:100%;height:90%;overflow: false;margin:0;font-family:"微软雅黑";}
 			img{height:300px;width:350px;}
