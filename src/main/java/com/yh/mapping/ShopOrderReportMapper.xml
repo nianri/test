@@ -42,7 +42,7 @@
 	        group by si.shopid
 	 ORDER BY si.shopcode desc  
    </select>
-   <select id="getShopOrderOilsReportList" resultType="java.util.Map" parameterType="com.yh.model.ShopOrderReport">
+   <select id="getShopOrderOilsReportList" resultType="com.yh.model.ShopOrderReport" parameterType="com.yh.model.ShopOrderReport">
   select si.shopname,si.shopid,
 	(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY92#' <include refid="date_if"/> ) count92,	
 	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY92#' <include refid="date_if"/>) realprice92,	
@@ -59,7 +59,7 @@
 	(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3') <include refid="date_if"/>) count,	
 	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')   <include refid="date_if"/>) realprice
 	 from shop_info si
-	 join shop_order  sor on sor.shopid=si.shopid
+	 join shop_order  sor on sor.shopid=si.shopid and sor.`status` in  ('2','3')
 	  where si.`status` in ('3','4') and si.isdelete='1'
 	 <if test="shopid !=null and shopid !=''">
 	 and si.shopid=#{shopid}
@@ -75,9 +75,8 @@
 	        group by si.shopid
 	 ORDER BY si.shopcode desc 
    </select>
-   <select id="getShopOrderMonthReportList" resultType="java.util.Map" parameterType="com.yh.model.ShopOrderReport">
+   <select id="getShopOrderMonthReportList" resultType="com.yh.model.ShopOrderReport" parameterType="com.yh.model.ShopOrderReport">
     select si.shopname,si.shopid,
-	(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY92#' <include refid="date_if"/> ) count92,	
 		(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='1' <include refid="year_if"/> ) count1,
 	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='1' <include refid="year_if"/> ) realprice1,
 			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='2' <include refid="year_if"/> ) count2,
@@ -105,7 +104,7 @@
 			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  <include refid="year_if"/> ) count,
 	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')   <include refid="year_if"/> ) realprice
 	 from shop_info si
-	 join shop_order  sor on sor.shopid=si.shopid
+	 join shop_order  sor on sor.shopid=si.shopid and sor.`status` in  ('2','3')
 	  where si.`status` in ('3','4') and si.isdelete='1'
     <if test="shopid !=null and shopid !=''">
 	 and si.shopid=#{shopid}

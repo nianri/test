@@ -92,8 +92,8 @@ public class ShopOrderReportController {
 	 */
 	@RequestMapping(value = { "getShopOrderOilsReportList" }, method = { RequestMethod.POST }, produces = {
 			"application/json;charset=UTF-8" })
-	public @ResponseBody List<Map<String,Object>> getShopOrderOilsReportList(@RequestBody ShopOrderReport shopOrderReport) {
-		List<Map<String,Object>> shopOrderReportList = new ArrayList<Map<String,Object>>();
+	public @ResponseBody List<ShopOrderReport> getShopOrderOilsReportList(@RequestBody ShopOrderReport shopOrderReport) {
+		List<ShopOrderReport> shopOrderReportList = new ArrayList<ShopOrderReport>();
 		try {
 			shopOrderReportList = shopOrderReportService.getShopOrderOilsReportList(shopOrderReport);
 		} catch (Exception ex) {
@@ -107,7 +107,7 @@ public class ShopOrderReportController {
 	public String getShopOrderOilsReport(@PathVariable(name = "shopOrderReportid") String shopOrderReportid, Model model) {
 		if (shopOrderReportid.trim().length() <= 0)
 			return "";
-		Map<String,Object> map = shopOrderReportService.getShopOrderOilsReport(shopOrderReportid);
+		ShopOrderReport map = shopOrderReportService.getShopOrderOilsReport(shopOrderReportid);
 		model.addAttribute("info", map);
 		return "shopOrderReport/shopOrderOilsReportDetail";
 	}
@@ -130,8 +130,8 @@ public class ShopOrderReportController {
 	 */
 	@RequestMapping(value = { "getShopOrderMonthReportList" }, method = { RequestMethod.POST }, produces = {
 			"application/json;charset=UTF-8" })
-	public @ResponseBody List<Map<String,Object>> getShopOrderMonthReportList(@RequestBody ShopOrderReport shopOrderReport) {
-		List<Map<String,Object>> shopOrderReportList = new ArrayList<Map<String,Object>>();
+	public @ResponseBody List<ShopOrderReport> getShopOrderMonthReportList(@RequestBody ShopOrderReport shopOrderReport) {
+		List<ShopOrderReport> shopOrderReportList = new ArrayList<ShopOrderReport>();
 		try {
 			shopOrderReportList = shopOrderReportService.getShopOrderMonthReportList(shopOrderReport);
 		} catch (Exception ex) {
@@ -145,7 +145,7 @@ public class ShopOrderReportController {
 	public String getShopOrderMonthReport(@PathVariable(name = "shopOrderReportid") String shopOrderReportid, Model model) {
 		if (shopOrderReportid.trim().length() <= 0)
 			return "";
-		Map<String,Object> map = shopOrderReportService.getShopOrderMonthReport(shopOrderReportid);
+		ShopOrderReport map = shopOrderReportService.getShopOrderMonthReport(shopOrderReportid);
 		model.addAttribute("info", map);
 		return "shopOrderReport/shopOrderMonthReportDetail";
 	}

@@ -128,7 +128,6 @@
 		$("#queryBtn").click(function() {
 			binddata();
 		});
-		binddata();
 		$('#orderYear').datetimepicker({  
 	        format: 'yyyy',  
 	         weekStart: 1,  
@@ -140,6 +139,7 @@
 	         initialDate:new Date()
 	    }); 
 		$("#orderYear").datetimepicker("setDate", new Date());
+		binddata();
 	});
 	function exportData(isAllPage){
 		 var url = "${pageContext.request.contextPath}/export/download.do";
@@ -147,11 +147,11 @@
 			var rowData={
 					"shopname":$("#shopname").val(),
 					"orderYear":$('#orderYear').val(),
-					"page":"oils"
+					"page":"month"
 				};
 			exportAll(url,"shopOrderReportService","月收入报表.xlsx",rowData);
 			}else{
-			exportNowPage("#showtable","月收入报表",'28','0');
+			exportNowPage("#showtable","月收入报表",'28','-1');
 		}
 	}
 	function getShopOrderMonthReport(shopid){

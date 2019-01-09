@@ -15,11 +15,11 @@ public interface ShopOrderReportMapper{
      * @param shopOrderReport
      * @return
      */
-	List<Map<String,Object>> getShopOrderOilsReportList(ShopOrderReport shopOrderReport);
+	List<ShopOrderReport> getShopOrderOilsReportList(ShopOrderReport shopOrderReport);
 	/**
      * 搜索月收入统计报表
      * @param shopOrderReport
      * @return
      */
-	List<Map<String, Object>> getShopOrderMonthReportList(ShopOrderReport shopOrderReport);
+	List<ShopOrderReport> getShopOrderMonthReportList(ShopOrderReport shopOrderReport);
 }
