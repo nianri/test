@@ -31,13 +31,16 @@
 	    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
 	    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
 	    <result column="shopsources" jdbcType="VARCHAR" property="shopsources" />
-	     <result column="shoplevel" jdbcType="VARCHAR" property="shoplevel" />
+	    <result column="shoplevel" jdbcType="VARCHAR" property="shoplevel" />
+	    <result column="accountnums" jdbcType="VARCHAR" property="accountnums" />
+	    <result column="accountbank" jdbcType="VARCHAR" property="accountbank" />
+	    <result column="accountname" jdbcType="VARCHAR" property="accountname" />
 	</resultMap>
 	<insert id="insertShop" parameterType="com.yh.model.Shop">
 	    insert into shop_info (shopid,shoplevel, shopcode,shopname, shopdesc, shopservice, 
 	      provinceid, cityid, countyid,address,shopimg,leadername, leadertel, leaderemail,
 	      licenseimg, prolicenseimg, cardtop,carddown, createtime, creatorid, 
-	      isdelete, status, memo,cusid, appid, appkey,areadesc,longitude,latitude,shopsources )
+	      isdelete, status, memo,cusid, appid, appkey,areadesc,longitude,latitude,shopsources,accountnums,accountbank )
 	    values (#{shopid,jdbcType=VARCHAR}, #{shoplevel,jdbcType=VARCHAR},#{shopcode,jdbcType=INTEGER}, 
 	      #{shopname,jdbcType=VARCHAR}, #{shopdesc,jdbcType=VARCHAR}, #{shopservice,jdbcType=VARCHAR}, 
 	      #{provinceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{countyid,jdbcType=VARCHAR},
@@ -48,7 +51,8 @@
 	      #{isdelete,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
 	      #{cusid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{appkey,jdbcType=VARCHAR},
 	      #{areadesc,jdbcType=VARCHAR}, #{longitude,jdbcType=DOUBLE}, #{latitude,jdbcType=DOUBLE},
-	      #{shopsources,jdbcType=VARCHAR} )
+	      #{shopsources,jdbcType=VARCHAR},#{accountnums,jdbcType=VARCHAR},#{accountbank,jdbcType=VARCHAR},
+	      #{accountname,jdbcType=VARCHAR} )
 	</insert> 
 	<update id="updateShopById"  parameterType="com.yh.model.Shop">
 		 update shop_info
@@ -74,7 +78,10 @@
 		  <if test="areadesc!=null">areadesc=#{areadesc},</if>
 		  <if test="longitude!=null">longitude=#{longitude},</if>
 		  <if test="latitude!=null">latitude=#{latitude},</if>
-		   <if test="memo!=null">memo=#{memo},</if>
+		  <if test="memo!=null">memo=#{memo},</if>
+		  <if test="accountnums!=null">accountnums=#{accountnums},</if>
+		  <if test="accountbank!=null">accountbank=#{accountbank},</if>
+		  <if test="accountname!=null">accountname=#{accountname},</if>
 		 </trim>
 		 where shopid=#{shopid}
 	</update> 	
@@ -88,10 +95,10 @@
 			and shopname like "%"#{shopname}"%"
 		</if>
 		<if test="status != null and status !=''">
-			and status = #{status} and status in('0','2')
+			and status = #{status} and status in('0','2','5','6')
 		</if>
 		<if test="status == null or status ==''">
-			and status in('0','2')
+			and status in('0','2','5','6')
 		</if>
 		order by shopcode desc
 	</select>
@@ -126,9 +133,6 @@
 		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc from shop_info where isdelete='1'		
 		order by shopcode
 	</select>
-	<update  id="saveShopXY" parameterType="com.yh.model.Shop">
- 		 update shop_info set longitude=#{longitude},latitude=#{latitude} where shopid=#{shopid}             
- 	</update > 
  	<update  id="submitShopSetting" parameterType="com.yh.model.Shop">
  		 update shop_info set accountname=#{accountname},accountnums=#{accountnums},accountbank=#{accountbank} where shopid=#{shopid}             
  	</update >

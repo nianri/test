@@ -17,8 +17,9 @@
 			<span class="col-sm-2"> 
 				<select id="status" class="form-control m-b">
 					<option value="" selected>全部</option>
-					<option value="0">未申请</option>
+					<option value="0">未审核</option>
 					<option value="2">审核失败</option>
+					<option value="5">下线</option>
 					<option value="6">停用</option>
 				</select>
 			</span>
@@ -52,9 +53,9 @@
 				formatter:function(cellvalue, options, rowObject){
 					if(cellvalue==null||cellvalue== ""){
 						cellvalue= "${pageContext.request.contextPath}/resources/static/shopimgdefault.png";
-						return "<img src=\"" +cellvalue+"\" height='60' width='80'/>";	
+						return "<img src=\"" +cellvalue+"\" height='60' width='80' class='img-rounded' />";	
 					}else{
-						return "<img src=\"" +cellvalue+"\" height='60' width='80'/>";	
+						return "<img src=\"" +cellvalue+"\" height='60' width='80' class='img-rounded' />";	
 					}
 				}
 			},
@@ -65,12 +66,14 @@
 				formatter : function(cellvalue,options, row) {
 					var result = "";
 					if(cellvalue == "0"){
-						result='未申请';
+						result='未审核';
 					}else if(cellvalue == "2"){
 						result='<a data-toggle="popover" data-placement="left" data-content="xxx内容" onclick="checklog();">审核失败</a>';						
+					}else if(cellvalue == "5"){
+						result='下线';
 					}else if(cellvalue == "6"){
 						result='停用';
-					}					
+					}										
 					return result;					
 				}
 			},{field : 'shopid',title : 'shopid',visible : false}, 
@@ -148,6 +151,7 @@
 				dataType : "json",
 				contentType : 'application/json',
 				success : function(result) {
+					console.log(result);
 					if(result.code=="001"){
 						layer.msg('上报成功。',{icon:1,time:1500});
 						binddata();

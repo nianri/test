@@ -219,8 +219,9 @@ public class ShopController {
 				resultInfo.setInfo("商家信息不存在！");
 		        return resultInfo;
 			}
-			//未申请、审核未通过
-			if( !shop.getStatus().equals("0")&& !shop.getStatus().equals("2") ){
+			/**0:未审核1:待审核2:审核失败3:审核通过4:上线5:下线6:停用**/
+			if( !shop.getStatus().equals("0") && !shop.getStatus().equals("2")&&
+				!shop.getStatus().equals("5") && !shop.getStatus().equals("6")){
 				resultInfo.setInfo("商家信息已提交审核！");
 		        return resultInfo;
 			}			
@@ -464,7 +465,7 @@ public class ShopController {
 		return shopList;
 	}
 	/**
-	 * 商户账户管理
+	 * 商户账户管理-编辑
 	 * @return
 	 */
 	@RequestMapping(value = {"shopAccount"}, method = {RequestMethod.GET})

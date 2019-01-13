@@ -47,11 +47,11 @@ jQuery(function($) {
 			formatter:function(cellvalue, options, row){
 				var result = "";//0.否 1.是
 				if(cellvalue == 0){
-					result='未申请';
+					result='未审核';
 				}else if(cellvalue == 1){
 					result='待审核';
 				}else if(cellvalue == 2){
-					result='审核未通过';
+					result='审核失败';
 				};				
 				return result;	
     		}

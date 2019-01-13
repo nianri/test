@@ -332,42 +332,42 @@
 				return;
 			}
 			var tsourceprice=$("#sourceprice").val();
-			if(tsourceprice==""||tsourceprice<="0"){
+			if(tsourceprice==""||parseFloat(tsourceprice)<=0){
 				toastr.warning("请输入产品源价！");
 				return;
 			}
 			var tpayprice1=$("#payprice1").val();
-			if(tpayprice1==""||tpayprice1<="0"||tpayprice1>tsourceprice){
+			if(tpayprice1==""||parseFloat(tpayprice1)<=0||parseFloat(tpayprice1)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周一，且小于等于源价！");
 				return;
 			}
 			var tpayprice2=$("#payprice2").val();
-			if(tpayprice2==""||tpayprice2<="0"||tpayprice2>tsourceprice){
+			if(tpayprice2==""||parseFloat(tpayprice2)<=0||parseFloat(tpayprice2)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周二，且小于等于源价！");
 				return;
 			}
 			var tpayprice3=$("#payprice3").val();
-			if(tpayprice3==""||tpayprice3<="0"||tpayprice3>tsourceprice){
+			if(tpayprice3==""||parseFloat(tpayprice3)<=0||parseFloat(tpayprice3)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周三，且小于等于源价！");
 				return;
 			}
 			var tpayprice4=$("#payprice4").val();
-			if(tpayprice4==""||tpayprice4<="0"||tpayprice4>tsourceprice){
+			if(tpayprice4==""||parseFloat(tpayprice4)<=0||parseFloat(tpayprice4)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周四，且小于等于源价！");
 				return;
 			}
 			var tpayprice5=$("#payprice5").val();
-			if(tpayprice5==""||tpayprice5<="0"||tpayprice5>tsourceprice){
+			if(tpayprice5==""||parseFloat(tpayprice5)<=0||parseFloat(tpayprice5)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周五，且小于等于源价！");
 				return;
 			}
 			var tpayprice6=$("#payprice6").val();
-			if(tpayprice6==""||tpayprice6<="0"||tpayprice6>tsourceprice){
+			if(tpayprice6==""||parseFloat(tpayprice6)<=0||parseFloat(tpayprice6)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周六，且小于等于源价！");
 				return;
 			}
 			var tpayprice7=$("#payprice7").val();
-			if(tpayprice7==""||tpayprice7<="0"||tpayprice7>tsourceprice){
+			if(tpayprice7==""||parseFloat(tpayprice7)<=0||parseFloat(tpayprice7)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周日，且小于等于源价！");
 				return;
 			}

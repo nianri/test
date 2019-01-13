@@ -18,8 +18,8 @@
 		<link href="${pageContext.request.contextPath}/resources/toastr/toastr.min.css" rel="stylesheet" >
 		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=F8xxgmeOcjHWtPiOS75AoVq35OBWVPNl"></script>
 		<style type="text/css">
-			body,html,#allmap {width:100%;height:90%;overflow: false;margin:0;font-family:"微软雅黑";}
-			img{height:300px;width:350px;}
+			/* img{height:300px;width:350px;} */
+			body,html,#allmap {width:100%;height:90%;overflow: false;margin:0;font-family:"微软雅黑";}			
 		</style>		
 	</head>
 	<body>
@@ -71,7 +71,7 @@
 							<option value="1">1级</option>
 							<option value="2">2级</option>
 							<option value="3">3级</option>
-							<option value="4" selected>4级</option>
+							<option value="4" >4级</option>
 							<option value="5">5级</option>
 						</select>
 					</div>
@@ -79,42 +79,58 @@
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">商户AppId：</label>
 					<div class="formControls col-xs-8 col-sm-3">
-						<input id="appid" type="text" class="input-text" value="${shop.appid}" >
+						<input id="appid" type="text" class="input-text" value="${shop.appid}" readonly>
 					</div>
 					<label class="form-label col-xs-4 col-sm-2">商户AppKey：</label>
 					<div class="formControls col-xs-8 col-sm-3">
-						<input id="appkey" type="text" class="input-text" value="${shop.appkey}" >
+						<input id="appkey" type="text" class="input-text" value="${shop.appkey}" readonly>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户行：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id=accountbank type="text" class="input-text" value="${shop.accountbank}" readonly >
+					</div>
+					<label class="form-label col-xs-4 col-sm-2">开户账号：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountnums" type="text" class="input-text" value="${shop.accountnums}"   readonly>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户人：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountname" type="text" class="input-text" value="${shop.accountname}" readonly>
 					</div>
 				</div>
 				<hr>	
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">商家油站图：</label>
+					<label class="form-label col-xs-4 col-sm-2">油站实景照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img src="${shop.shopimg}" class="img-rounded" >
+						<img src="${shop.shopimg}" class="img-rounded" style="height:300px;width:350px;">
 					</div>
 				</div>		
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">营业执照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img src="${shop.licenseimg}" class="img-rounded">
+						<img src="${shop.licenseimg}" class="img-rounded" style="height:300px;width:350px;">
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">成品油许可证：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img src="${shop.prolicenseimg}" class="img-rounded">
+						<img src="${shop.prolicenseimg}" class="img-rounded" style="height:300px;width:350px;">
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">身份证正面照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img src="${shop.cardtop}" class="img-rounded">
+						<img src="${shop.cardtop}" class="img-rounded" style="height:300px;width:350px;">
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">身份证反面照：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<img src="${shop.carddown}" class="img-rounded">
+						<img src="${shop.carddown}" class="img-rounded" style="height:300px;width:350px;">
 					</div>
 				</div>
 			</form>
@@ -185,16 +201,14 @@
 			var posx=$("#longitude").val();
 			var posy=$("#latitude").val();
 			if(posx!=""&&posx!=""&&posy!=""&&posy!=""){
-				$("#positionxy").val(posx+","+posy);
-				map.centerAndZoom(new BMap.Point(posx, posy), 16); 
+				map.centerAndZoom(new BMap.Point(posx, posy), 18); 
 				var marker = new BMap.Marker(new BMap.Point(posx, posy));  // 创建标注
 				map.addOverlay(marker);               // 将标注添加到地图中
 				marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
 			}else{
 				map.centerAndZoom("北京市", 11); 
-			}
-			// 初始化地图,用城市名设置地图中心点		
-			map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+			}		
+			//map.enableScrollWheelZoom(false); //开启鼠标滚轮缩放
 			
 			$("#btnSubmit").click(function() {
 				submitcheck();

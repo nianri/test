@@ -54,7 +54,9 @@ public class Shop implements Serializable{
     private String status;
 
     private String memo;
-
+    private String accountnums;
+    private String accountbank;
+    private String accountname;
     private String cusid;
     private String appid;
     private String appkey;
@@ -73,7 +75,32 @@ public class Shop implements Serializable{
     @Transient
     private String realname;
     
-    public String getRealname() {
+    
+    public String getAccountname() {
+		return accountname;
+	}
+
+	public void setAccountname(String accountname) {
+		this.accountname = accountname;
+	}
+
+	public String getAccountnums() {
+		return accountnums;
+	}
+
+	public void setAccountnums(String accountnums) {
+		this.accountnums = accountnums;
+	}
+
+	public String getAccountbank() {
+		return accountbank;
+	}
+
+	public void setAccountbank(String accountbank) {
+		this.accountbank = accountbank;
+	}
+
+	public String getRealname() {
 		return realname;
 	}
 
