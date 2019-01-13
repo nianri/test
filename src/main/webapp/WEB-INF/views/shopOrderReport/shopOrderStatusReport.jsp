@@ -149,7 +149,7 @@
 				};
 			exportAll(url,"shopOrderReportService","订单状态报表.xlsx",rowData);
 			}else{
-			exportNowPage("#showtable","订单状态报表",'11','0');
+			exportNowPage("#showtable","订单状态报表",'11','-1');
 		}
 	}
 	function getShopOrderStatusReport(shopid){

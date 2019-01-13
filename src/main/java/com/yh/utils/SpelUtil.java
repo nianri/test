@@ -115,7 +115,6 @@ public class SpelUtil {
 //		goodsInfoParam.setGoodsLabels(Lists.newArrayList());
 		spelUtil.setRootObject(map);
 		spelUtil.addVariable("message", map);
-//		System.out.println(spelUtil.getExpressionValue("#message.feedbackid"));
 	    System.out.println( spelUtil.getTemplateValue("#{name}",String.class));
 	}
 	

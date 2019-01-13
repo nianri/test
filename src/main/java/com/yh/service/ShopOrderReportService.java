@@ -30,25 +30,25 @@ public interface ShopOrderReportService  {
          * @param shopOrderReport
          * @return
          */
-		List<Map<String,Object>> getShopOrderOilsReportList(ShopOrderReport shopOrderReport);
+		List<ShopOrderReport> getShopOrderOilsReportList(ShopOrderReport shopOrderReport);
 
 		/**
 		 * 查看产品订单统计详情
 		 * @param shopOrderReportid
 		 * @return
 		 */
-		Map<String, Object> getShopOrderOilsReport(String shopOrderReportid);
+		ShopOrderReport getShopOrderOilsReport(String shopOrderReportid);
 		/**
 		 * 查看月收入统计详情
 		 * @param shopOrderReportid
 		 * @return
 		 */
-		Map<String, Object> getShopOrderMonthReport(String shopOrderReportid);
+		ShopOrderReport getShopOrderMonthReport(String shopOrderReportid);
 
 		/**
 		 * 搜索月收入统计报表
 		 * @param shopOrderReport
 		 * @return
 		 */
-		List<Map<String, Object>> getShopOrderMonthReportList(ShopOrderReport shopOrderReport);
+		List<ShopOrderReport> getShopOrderMonthReportList(ShopOrderReport shopOrderReport);
 }

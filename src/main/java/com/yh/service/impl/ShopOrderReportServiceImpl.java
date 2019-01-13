@@ -37,17 +37,17 @@ public class ShopOrderReportServiceImpl implements ShopOrderReportService, BaseE
 	}
 
 	@Override
-	public List<Map<String, Object>> getShopOrderOilsReportList(ShopOrderReport shopOrderReport) {
-		List<Map<String, Object>> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
+	public List<ShopOrderReport> getShopOrderOilsReportList(ShopOrderReport shopOrderReport) {
+		List<ShopOrderReport> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
 
 		return list;
 	}
 
 	@Override
-	public Map<String, Object> getShopOrderOilsReport(String shopid) {
+	public ShopOrderReport getShopOrderOilsReport(String shopid) {
 		ShopOrderReport shopOrderReport = new ShopOrderReport();
 		shopOrderReport.setShopid(shopid);
-		List<Map<String, Object>> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
+		List<ShopOrderReport> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
 		if (list != null && list.size() >= 1) {
 			return list.get(list.size() - 1);
 		}
@@ -55,10 +55,10 @@ public class ShopOrderReportServiceImpl implements ShopOrderReportService, BaseE
 	}
 
 	@Override
-	public Map<String, Object> getShopOrderMonthReport(String shopid) {
+	public ShopOrderReport getShopOrderMonthReport(String shopid) {
 		ShopOrderReport shopOrderReport = new ShopOrderReport();
 		shopOrderReport.setShopid(shopid);
-		List<Map<String, Object>> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
+		List<ShopOrderReport> list = shopOrderReportMapper.getShopOrderOilsReportList(shopOrderReport);
 		if (list != null && list.size() >= 1) {
 			return list.get(list.size() - 1);
 		}
@@ -66,8 +66,8 @@ public class ShopOrderReportServiceImpl implements ShopOrderReportService, BaseE
 	}
 
 	@Override
-	public List<Map<String, Object>> getShopOrderMonthReportList(ShopOrderReport shopOrderReport) {
-		List<Map<String, Object>> list = shopOrderReportMapper.getShopOrderMonthReportList(shopOrderReport);
+	public List<ShopOrderReport> getShopOrderMonthReportList(ShopOrderReport shopOrderReport) {
+		List<ShopOrderReport> list = shopOrderReportMapper.getShopOrderMonthReportList(shopOrderReport);
 
 		return list;
 	}

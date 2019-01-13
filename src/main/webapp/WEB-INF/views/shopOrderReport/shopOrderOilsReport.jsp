@@ -167,7 +167,7 @@
 				};
 			exportAll(url,"shopOrderReportService","产品订单报表.xlsx",rowData);
 			}else{
-			exportNowPage("#showtable","产品订单报表",'16','0');
+			exportNowPage("#showtable","产品订单报表",'16','-1');
 		}
 	}
 	function binddata() {
