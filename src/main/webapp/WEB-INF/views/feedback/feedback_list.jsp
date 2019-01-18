@@ -95,6 +95,17 @@
 					return result;
 				}
 			},
+			{field : "feedbacktype",title : "反馈类型",width : 50,sortable : true,align : "center",
+				formatter : function(cellvalue,options, row) {
+					var result = "";
+					if (cellvalue !="1") {
+						result = "意见";
+					}  else {
+						result = "投诉";
+					}
+					return result;
+				}
+			},
 			{field:'feedbackid',title:'feedbackid',visible:false}, 
 			{
 				field : 'action',

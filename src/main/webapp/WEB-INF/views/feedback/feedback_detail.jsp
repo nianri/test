@@ -47,6 +47,12 @@
 					</div>
 				</div>	
 				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">反馈类型：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" class="input-text" value="${info.status!='1'?'意见':'投诉'}" disabled="disabled">
+					</div>
+				</div>	
+				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">回复内容：</label>
 					<div class="formControls col-xs-8 col-sm-9">
 						<input type="text" class="input-text" value="${info.replymsg}" disabled="disabled">

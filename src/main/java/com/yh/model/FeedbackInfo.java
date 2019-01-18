@@ -45,6 +45,11 @@ public class FeedbackInfo implements Serializable {
     * 备注
     */
     private String memo;
+    
+    /**
+     * 反馈类型 0:意见 1:投诉
+     */
+    private String feedbacktype; 
 
 
     public String getFeedbackid() {
@@ -118,6 +123,14 @@ public class FeedbackInfo implements Serializable {
 	public void setMembername(String membername) {
 		this.membername = membername;
 	}
-    
 
+	public String getFeedbacktype() {
+		return feedbacktype;
+	}
+
+	public void setFeedbacktype(String feedbacktype) {
+		this.feedbacktype = feedbacktype;
+	}
+    
+	
 }
