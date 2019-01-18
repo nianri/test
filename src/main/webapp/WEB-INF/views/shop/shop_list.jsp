@@ -52,7 +52,7 @@
 				formatter:function(cellvalue, options, rowObject){
 					if(cellvalue==null) return;
 					if(cellvalue.split(",").length<=0) return;	
-					return "<img src=\"" +cellvalue.split(",")[0]+"\" height='60' width='80'/>";	    		   
+					return "<img src=\"" +cellvalue.split(",")[0]+"\" height='60' width='80' class='img-rounded'/>";	    		   
 				}
 			},
 			{field : 'shopcode',title : '加油站编码',width:20,sortable : true,align : "center"},

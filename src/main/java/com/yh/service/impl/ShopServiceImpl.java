@@ -47,9 +47,6 @@ public class ShopServiceImpl implements ShopService{
 	public List<Shop> getShopByRight(){
 		return shopMapper.getShopByRight();
 	}
-	public int saveShopXY(Shop shop){
-		return shopMapper.saveShopXY(shop);
-	}
 	public int submitShopSetting(Shop shop){
 		return shopMapper.submitShopSetting(shop);
 	}

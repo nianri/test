@@ -17,7 +17,6 @@ public interface ShopService {
 	public List<Shop> getShopCheckList(Shop shop);
 	public Shop getShopById(@Param("shopid") String shopid);
 	public List<Shop> getShopByRight();
-	public int saveShopXY(Shop shop);
 	public int submitShopSetting(Shop shop);
 	public int commitShopToCheck(Shop shop);
 	public int commitCheckShop(ShopCheck shopCheck);

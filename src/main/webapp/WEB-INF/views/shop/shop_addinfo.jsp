@@ -50,7 +50,13 @@
 					<div class="formControls col-xs-8 col-sm-9">
 						<input type="text" class="input-text" value="${shop.address}"  id="address" >
 					</div>
-				</div>								
+				</div>	
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">商家服务(限20字)：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<input type="text" class="input-text" value="${shop.shopservice}"  id="shopservice" >
+					</div>
+				</div>							
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人姓名<span style="color:red">*</span>：</label>
 					<div class="formControls col-xs-8 col-sm-3">
@@ -63,14 +69,8 @@
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人邮箱<span style="color:red">*</span>：</label>
-					<div class="formControls col-xs-8 col-sm-9">
+					<div class="formControls col-xs-8 col-sm-3">
 						<input type="text" class="input-text" value="${shop.leaderemail}" id="leaderemail" >
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">商家服务(限20字)：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.shopservice}"  id="shopservice" >
 					</div>
 				</div>
 				<hr>
@@ -98,6 +98,22 @@
 					<label class="form-label col-xs-4 col-sm-2">商户AppKey<span style="color:red">*</span>：</label>
 					<div class="formControls col-xs-8 col-sm-3">
 						<input id="appkey" type="text" class="input-text" value="${shop.appkey}" >
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户行<span style="color:red">*</span>：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id=accountbank type="text" class="input-text" value="${shop.accountbank}" >
+					</div>
+					<label class="form-label col-xs-4 col-sm-2">开户账号<span style="color:red">*</span>：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountnums" type="text" class="input-text" value="${shop.accountnums}" >
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户人：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountname" type="text" class="input-text" value="${shop.accountname}" >
 					</div>
 				</div>
 				<hr>
@@ -239,13 +255,11 @@
 			var posx=$("#longitude").val();
 			var posy=$("#latitude").val();
 			if(posx!=""&&posx!=""&&posy!=""&&posy!=""){
-				//$("#positionxy").val(posx+","+posy);
-				map.centerAndZoom(new BMap.Point(posx, posy), 16); 
+				map.centerAndZoom(new BMap.Point(posx, posy), 18); 
 				var marker = new BMap.Marker(new BMap.Point(posx, posy));  // 创建标注
 				map.addOverlay(marker);               // 将标注添加到地图中
 				marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
 			}else{
-				//初始化地图,用城市名设置地图中心点
 				map.centerAndZoom("北京市", 11); 
 			}		
 			map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
@@ -260,7 +274,7 @@
 		function savedata(){
 			var v_shopname,v_provinceid,v_cityid,v_countyid,v_address,v_leadername,v_leadertel,v_leaderemail;
 			var v_cusid,v_appid,v_appkey,v_shopimg,v_licenseimg,v_prolicenseimg,v_cardtop,v_carddown,v_areadesc;
-			var v_longitude,v_latitude;
+			var v_longitude,v_latitude,v_accountbank,v_accountnums,v_accountname;
 			
 			v_shopname=$("#shopname").val().trim();
 			if(v_shopname==null||v_shopname==""){
@@ -319,9 +333,21 @@
 			} 
 			v_appkey=$("#appkey").val().trim();
 			if(v_appkey==null||v_appkey==""){
-				toastr.warning("请输入AppKey！");
+				toastr.warning("请输入商户AppKey！");
 				return ;
 			} 
+			v_accountbank=$("#accountbank").val().trim();
+			if(v_accountbank==null||v_accountbank==""){
+				toastr.warning("请输入开户行！");
+				return ;
+			} 
+			v_accountnums=$("#accountnums").val().trim();
+			if(v_accountnums==null||v_accountnums==""){
+				toastr.warning("请输入开户账号！");
+				return ;
+			} 
+			v_accountname=$("#accountname").val().trim();
+			
 			v_shopimg=$("#shopimg").val().trim();
 			if(v_shopimg==null||v_shopimg==""){
 				toastr.warning("请上传商家油站图！");
@@ -367,7 +393,8 @@
 				"licenseimg":v_licenseimg,"prolicenseimg":v_prolicenseimg,"cardtop":v_cardtop,"carddown":v_carddown,
 				"memo":$("#memo").val().trim(),"shopid":$("#shopid").val(),"areadesc":v_areadesc,
 				"shoplevel":v_shoplevel,"shopservice":$("#shopservice").val().trim(),
-				"longitude":v_longitude,"latitude":v_latitude};
+				"longitude":v_longitude,"latitude":v_latitude,
+				"accountbank":v_accountbank,"accountnums":v_accountnums,"accountname":v_accountname};
 			
 			$.ajax({
 				type : "post",

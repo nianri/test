@@ -91,7 +91,7 @@
 					for (var i in colvalue) {
 						rowcount += colvalue[i].totalprice;
 					}        
-					return '应付合计:'+  rowcount;
+					return rowcount.toFixed(2);
 				}
 			},
 			{field : 'couponprice',title : '优惠金额',width:40,sortable : true,align : "right",
@@ -100,7 +100,7 @@
 					for (var i in colvalue) {
 						rowcount += colvalue[i].couponprice;
 					}        
-					return '优惠合计:'+  rowcount;
+					return rowcount.toFixed(2);
 				}
 			},
 			{field : 'realprice',title : '实付金额',width:40,sortable : true,align : "right",
@@ -109,7 +109,7 @@
 					for (var i in colvalue) {
 						rowcount += colvalue[i].realprice;
 					}        
-					return '实付合计:'+  rowcount;
+					return rowcount.toFixed(2);
 				}
 			},
 			{field : 'paytype',title : '支付类型',width:50,sortable : true,align : "center",

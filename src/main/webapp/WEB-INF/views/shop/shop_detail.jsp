@@ -37,27 +37,68 @@
 					</div>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">负责人姓名：</label>
+					<label class="form-label col-xs-4 col-sm-2">商家服务(限20字)：</label>
 					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadername}" name="leadername" readonly>
+						<input type="text" class="input-text" value="${shop.shopservice}"  id="shopservice" readonly>
 					</div>
-				</div>
+				</div>							
 				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">负责人姓名：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input type="text" class="input-text" value="${shop.leadername}" id="leadername" readonly>
+					</div>
 					<label class="form-label col-xs-4 col-sm-2">负责人电话：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leadertel}" name="leadertel" readonly>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input type="text" class="input-text" value="${shop.leadertel}" id="leadertel" readonly>
 					</div>
 				</div>
 				<div class="row cl">
 					<label class="form-label col-xs-4 col-sm-2">负责人邮箱：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.leaderemail}" name="leaderemail" readonly>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input type="text" class="input-text" value="${shop.leaderemail}" id="leaderemail" readonly>
+					</div>
+				</div>
+				<hr>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">商户号：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input type="text" class="input-text" value="${shop.cusid}" id="cusid" readonly>
+					</div>
+					<label class="form-label col-xs-4 col-sm-2">商户星级：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<select id="shoplevel" class="form-control m-b">
+							<option value="1">1级</option>
+							<option value="2">2级</option>
+							<option value="3">3级</option>
+							<option value="4" selected>4级</option>
+							<option value="5">5级</option>
+						</select>
 					</div>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-2">商家服务：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" value="${shop.shopservice}" name="shopservice" readonly>
+					<label class="form-label col-xs-4 col-sm-2">商户AppId：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="appid" type="text" class="input-text" value="${shop.appid}" readonly>
+					</div>
+					<label class="form-label col-xs-4 col-sm-2">商户AppKey：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="appkey" type="text" class="input-text" value="${shop.appkey}" readonly>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户行：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id=accountbank type="text" class="input-text" value="${shop.accountbank}" readonly>
+					</div>
+					<label class="form-label col-xs-4 col-sm-2">开户账号：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountnums" type="text" class="input-text" value="${shop.accountnums}" readonly >
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-2">开户人：</label>
+					<div class="formControls col-xs-8 col-sm-3">
+						<input id="accountname" type="text" class="input-text" value="${shop.accountname}" readonly>
 					</div>
 				</div>
 				<div class="row cl">

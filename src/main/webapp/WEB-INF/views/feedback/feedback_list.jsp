@@ -13,7 +13,7 @@
 		<div class="ibox-content">			 
 			<span class="col-sm-2"> 
 				<select id="status" name="status"	class="form-control m-b">
-					<option value="">请选择回复状态</option>
+					<option value="">全部</option>
 					<option value="0">未回复</option>
 					<option value="1">已回复</option>
 				</select>
@@ -82,8 +82,8 @@
 				formatter : function(value, row, index) {return index + 1;}
 			},
 			{field : 'feedbacktime',title : '反馈时间',width : 30,sortable : true,align : "left"},
-			{field : 'membername',title : '反馈人',width : 150,sortable : true,align : "left"},
-			{field : 'feedbackmsg',title : '反馈意见',width : 50,sortable : true,align : "right"},
+			{field : 'membername',title : '反馈人',width : 50,sortable : true,align : "left"},
+			{field : 'feedbackmsg',title : '反馈意见',width : 300,sortable : true,align : "left"},
 			{field : "status",title : "状态",width : 50,sortable : true,align : "center",
 				formatter : function(cellvalue,options, row) {
 					var result = "";
@@ -110,9 +110,8 @@
 			{
 				field : 'action',
 				title : '操作',
-				width : 150,
-				align : "center",
-				
+				width : 60,
+				align : "left",				
 				formatter : function(cellvalue,options, row) {
 					var html = "<a href='javascript:void(0);'  class='btn btn-primary' onclick='getFeedbackInfo(\""
 							+ options.feedbackid + "\")' >详情</a>  ";
