@@ -136,5 +136,4 @@
  	<update  id="submitShopSetting" parameterType="com.yh.model.Shop">
  		 update shop_info set accountname=#{accountname},accountnums=#{accountnums},accountbank=#{accountbank} where shopid=#{shopid}             
  	</update >
- 	
 </mapper>

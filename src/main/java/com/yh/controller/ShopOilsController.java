@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yh.common.ResultEnum;
 import com.yh.common.ResultInfo;
+import com.alibaba.fastjson.JSON;
 import com.yh.common.Common;
 import com.yh.model.DicPublicKey;
 import com.yh.model.ShopOils;
@@ -124,10 +125,10 @@ public class ShopOilsController {
 	public @ResponseBody Object saveShopOils(@RequestBody ShopOils shopOils) {
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();	
 		String codeValue = "",infoValue="";
-		
+		logger.info(JSON.toJSON(shopOils));
 		try{
 			//获取油价上限,不可大于上限；
-			DicPublicKey dicPublicKey=dicPublicKeyService.getPublicKeyByCode("OP_TOP01");
+			DicPublicKey dicPublicKey=dicPublicKeyService.getPublicKeyByCode("OP_MAX01");
 			double keyValue=Double.parseDouble(dicPublicKey.getKeyvalue());
 			if(shopOils.getSourceprice()>keyValue||shopOils.getPayprice1()>keyValue||
 				shopOils.getPayprice2()>keyValue||shopOils.getPayprice3()>keyValue||

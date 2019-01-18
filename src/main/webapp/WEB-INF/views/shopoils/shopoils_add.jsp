@@ -331,42 +331,42 @@
 				toastr.warning("产品无效，请重新选择！");
 				return;
 			}
-			var tsourceprice=$("#sourceprice").val();
+			var tsourceprice=parseFloat($("#sourceprice").val());
 			if(tsourceprice==""||parseFloat(tsourceprice)<=0){
 				toastr.warning("请输入产品源价！");
 				return;
 			}
-			var tpayprice1=$("#payprice1").val();
+			var tpayprice1=parseFloat($("#payprice1").val());
 			if(tpayprice1==""||parseFloat(tpayprice1)<=0||parseFloat(tpayprice1)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周一，且小于等于源价！");
 				return;
 			}
-			var tpayprice2=$("#payprice2").val();
+			var tpayprice2=parseFloat($("#payprice2").val());
 			if(tpayprice2==""||parseFloat(tpayprice2)<=0||parseFloat(tpayprice2)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周二，且小于等于源价！");
 				return;
 			}
-			var tpayprice3=$("#payprice3").val();
+			var tpayprice3=parseFloat($("#payprice3").val());
 			if(tpayprice3==""||parseFloat(tpayprice3)<=0||parseFloat(tpayprice3)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周三，且小于等于源价！");
 				return;
 			}
-			var tpayprice4=$("#payprice4").val();
+			var tpayprice4=parseFloat($("#payprice4").val());
 			if(tpayprice4==""||parseFloat(tpayprice4)<=0||parseFloat(tpayprice4)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周四，且小于等于源价！");
 				return;
 			}
-			var tpayprice5=$("#payprice5").val();
+			var tpayprice5=parseFloat($("#payprice5").val());
 			if(tpayprice5==""||parseFloat(tpayprice5)<=0||parseFloat(tpayprice5)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周五，且小于等于源价！");
 				return;
 			}
-			var tpayprice6=$("#payprice6").val();
+			var tpayprice6=parseFloat($("#payprice6").val());
 			if(tpayprice6==""||parseFloat(tpayprice6)<=0||parseFloat(tpayprice6)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周六，且小于等于源价！");
 				return;
 			}
-			var tpayprice7=$("#payprice7").val();
+			var tpayprice7=parseFloat($("#payprice7").val());
 			if(tpayprice7==""||parseFloat(tpayprice7)<=0||parseFloat(tpayprice7)>parseFloat(tsourceprice)){
 				toastr.warning("请输入优惠价-周日，且小于等于源价！");
 				return;
@@ -385,6 +385,7 @@
 					"payprice2":tpayprice2,"payprice3":tpayprice3,"payprice4":tpayprice4,"payprice5":tpayprice5,
 					"payprice6":tpayprice6,"payprice7":tpayprice7,"status":tstatus,"shopoilsid":$("#shopoilsid").val(),
 					"runtime":truntime};
+			console.log(JSON.stringify(rowData));
 			
 			$.ajax({
 				type : "post",

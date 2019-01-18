@@ -378,13 +378,23 @@ public class ShopController {
 		return resultInfo;
 	}	
 	/**
-	 * 加油站启动与禁用
+	 * 加油站上线、下线
 	 * @param shop
 	 * @return
 	 */
 	@RequestMapping(value = {"updateShopStatus"}, method = {RequestMethod.POST})
 	public @ResponseBody Object updateShopStatus(@RequestBody Shop shop) {
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
+		resultInfo.setCode(ResultEnum.FAILED.getCode());
+		
+		if(shop==null||shop.getShopid()==null||shop.getShopid()==""){
+			resultInfo.setInfo("请传入商家信息！");
+			return resultInfo;
+		}
+		if(shop==null||shop.getStatus()==null||shop.getStatus()==""){
+			resultInfo.setInfo("请传入任务标识！");
+	        return resultInfo;
+		}
 		try{
 			if(shopService.updateShopStatus(shop)>0){
 				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
@@ -473,21 +483,8 @@ public class ShopController {
 		return "shop/shop_account";		
 	}
 	
-	///////////////////以下调试///////////////////////
+	/***以下调试***/
 	
-	
-	/**
-	 * 打开加油站地图
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value = {"shopMap"}, method = {RequestMethod.GET})
-	public String shopMap(Model model) {	
-		Shop shop = new Shop();
-		shop=shopService.getShopById(Common.getSession().getAttribute("shopid").toString());
-		model.addAttribute("shop", shop);
-		return "shop/shop_map";		
-	}
 	/**
 	 * 打开商家信息维护页面
 	 * @param model
@@ -501,40 +498,82 @@ public class ShopController {
 		return "shop/shop_setting";		
 	}
 	/**
-	 * 提交商家信息维护数据
+	 * 商家-变更数据
 	 * @param shop
 	 * @return
 	 */
 	@RequestMapping(value = {"submitShopSetting"}, method = {RequestMethod.POST})
-	public @ResponseBody Object submitShopSetting(@RequestBody Shop shop) {		
+	public @ResponseBody Object submitShopSetting(@RequestBody Shop shop) {
 		ResultInfo<Map<String, Object>> resultInfo = new ResultInfo<>();
+		resultInfo.setCode(ResultEnum.FAILED.getCode());
+		if(shop.getShopname()==null||"".equals(shop.getShopname())) {
+			 resultInfo.setInfo("请输入加油站名称！");
+			return resultInfo;
+		}
+		if(shop.getProvinceid()==null||"".equals(shop.getProvinceid())) {
+			resultInfo.setInfo("请选择省！");
+			return resultInfo;
+		}
+		if(shop.getCityid()==null||"".equals(shop.getCityid())) {
+			resultInfo.setInfo("请选择市！");
+			return resultInfo;
+		}
+		if(shop.getCountyid()==null||"".equals(shop.getCountyid())) {
+			resultInfo.setInfo("请选择县(区)！");
+			return resultInfo;
+		}
+		if(shop.getAddress()==null||"".equals(shop.getAddress())) {
+			resultInfo.setInfo("请输入详细地址！");
+			return resultInfo;
+		}
+		if(shop.getLeadername()==null||"".equals(shop.getLeadername())) {
+			resultInfo.setInfo("请输入负责人姓名！");
+			return resultInfo;
+		}
+		if(shop.getLeadertel()==null||"".equals(shop.getLeadertel())) {
+			resultInfo.setInfo("请输入负责人电话！");
+			return resultInfo;
+		}
+		if(shop.getLeaderemail()==null||"".equals(shop.getLeaderemail())) {
+			resultInfo.setInfo("请输入负责人邮箱！");
+			return resultInfo;
+		}		
+		if(shop.getShopimg()==null||"".equals(shop.getShopimg())) {
+			resultInfo.setInfo("请上传商家实景照！");
+			return resultInfo;
+		} 
+		if(shop.getLicenseimg()==null||"".equals(shop.getLicenseimg())) {
+			resultInfo.setInfo("请上传营业执照！");
+			return resultInfo;
+		} 
+		if(shop.getProlicenseimg()==null||"".equals(shop.getProlicenseimg())) {
+			resultInfo.setInfo("请上传成品油许可证！");
+			return resultInfo;
+		} 
+		if(shop.getCardtop()==null||"".equals(shop.getCardtop())) {
+			resultInfo.setInfo("请上传身份证正面照！");
+			return resultInfo;
+		} 
+		if(shop.getCarddown()==null||"".equals(shop.getCarddown())) {
+			resultInfo.setInfo("请上传身份证反面照！");
+			return resultInfo;
+		}
 		try{
-			/*if(shop.getAccountbank()==null||"".equals(shop.getAccountbank())){
-				resultInfo.setCode(ResultEnum.ERROR.getCode());
-		        resultInfo.setInfo("开户银行不能为空！");
-				return resultInfo;
+			int returnRows=0;
+			if(shop.getShopid()!=null&&!"".equals(shop.getShopid())){
+				shop.setStatus("0");//未审核
+				returnRows=shopService.updateShopById(shop);			
 			}
-			if(shop.getAccountnums()==null||"".equals(shop.getAccountnums())){
-				resultInfo.setCode(ResultEnum.ERROR.getCode());
-		        resultInfo.setInfo("开户银行卡号不能为空！");
-				return resultInfo;
+			if(returnRows==1){
+				resultInfo.setCode(ResultEnum.SUCCESS.getCode());
+		        resultInfo.setInfo(ResultEnum.SUCCESS.getInfo());
+			}else{
+				resultInfo.setCode(ResultEnum.FAILED.getCode());
+		        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
 			}
-			if(shop.getAccountname()==null||"".equals(shop.getAccountname())){
-				resultInfo.setCode(ResultEnum.ERROR.getCode());
-		        resultInfo.setInfo("开户人姓名不能为空！");
-				return resultInfo;
-			}*/
-			if(shopService.submitShopSetting(shop)>0){
-				resultInfo.setCode(ResultEnum.SAVE_SUCCESS.getCode());
-		        resultInfo.setInfo(ResultEnum.SAVE_SUCCESS.getInfo());
-			}else{		
-				resultInfo.setCode(ResultEnum.ERROR.getCode());
-		        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
-			}
-			
 		}catch(Exception ex){
-			resultInfo.setCode(ResultEnum.ERROR.getCode());
-	        resultInfo.setInfo(ResultEnum.ERROR.getInfo());
+			resultInfo.setCode(ResultEnum.FAILED.getCode());
+	        resultInfo.setInfo(ResultEnum.FAILED.getInfo());
 			logger.error(ex.getMessage());
 		}		
 		return resultInfo;
