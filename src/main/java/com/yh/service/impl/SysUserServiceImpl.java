@@ -6,9 +6,12 @@ import javax.annotation.Resource;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+
+import com.yh.common.MD5Util;
 import com.yh.dao.SysUserMapper;
 import com.yh.model.SysUser;
 import com.yh.service.SysUserService;
+import com.yh.utils.MD5;
 
 @Service("SysUserService")  
 public class SysUserServiceImpl implements SysUserService{
@@ -37,6 +40,11 @@ public class SysUserServiceImpl implements SysUserService{
 	}
 	public  int reSysUserPwd(SysUser sysUser){
 		return sysUserMapper.reSysUserPwd(sysUser);
+	}
+	@Override
+	public void updatePwdByPhone(SysUser sysUser) {
+		sysUser.setPassword(MD5Util.MD5(sysUser.getPassword()));
+		sysUserMapper.updatePwdByPhone(sysUser);		
 	}
 	
 }

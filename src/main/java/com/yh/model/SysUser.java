@@ -38,7 +38,23 @@ public class SysUser implements Serializable{
     @Transient
     private String shopname;
     
-    public String getUserid() {
+    private String phonenum;
+    @Transient
+    private String hash;
+    @Transient
+    private String smscode;
+    @Transient
+    private String tamp;
+    
+    public String getPhonenum() {
+		return phonenum;
+	}
+
+	public void setPhonenum(String phonenum) {
+		this.phonenum = phonenum;
+	}
+
+	public String getUserid() {
         return userid;
     }
 
@@ -157,5 +173,30 @@ public class SysUser implements Serializable{
 	public void setShopname(String shopname) {
 		this.shopname = shopname;
 	}
+
+	public String getHash() {
+		return hash;
+	}
+
+	public void setHash(String hash) {
+		this.hash = hash;
+	}
+
+	public String getSmscode() {
+		return smscode;
+	}
+
+	public void setSmscode(String smscode) {
+		this.smscode = smscode;
+	}
+
+	public String getTamp() {
+		return tamp;
+	}
+
+	public void setTamp(String tamp) {
+		this.tamp = tamp;
+	}
     
+	
 }

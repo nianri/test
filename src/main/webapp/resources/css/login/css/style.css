@@ -145,6 +145,9 @@ body{
 .btn-login{
     background-image: url('../image/login_btn.jpg');
 }
+.btn-queding{
+    background-image: url('../image/queding.jpg');
+}
 .btn-reg{
     background-image: url('../image/cancel.jpg');
 }

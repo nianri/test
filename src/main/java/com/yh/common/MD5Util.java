@@ -31,4 +31,10 @@ public class MD5Util {
             return null;  
         }  
     }  
+	public static void  main(String  ...strings ) {
+		String a="223344";
+		System.out.println(com.yh.utils.MD5.md5(a));
+		System.out.println(MD5Util.MD5(a));
+
+	}
 }

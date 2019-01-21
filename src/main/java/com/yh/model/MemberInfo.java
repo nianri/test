@@ -44,8 +44,9 @@ public class MemberInfo implements Serializable{
     private String isdelete;
 
     private String memo;
+    
 
-    public String getMemberid() {
+	public String getMemberid() {
         return memberid;
     }
 

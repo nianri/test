@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.yh.model.MemberInfo;
 import com.yh.model.SysUser;
 
 public interface SysUserMapper {
@@ -15,4 +16,6 @@ public interface SysUserMapper {
     int updateSysUserById(SysUser sysUser);
     List<SysUser> isExistLogincode(SysUser sysUser);
     int reSysUserPwd(SysUser sysUser);
+	void updatePwdByPhone(SysUser member);
+
 }

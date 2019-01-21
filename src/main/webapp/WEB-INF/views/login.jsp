@@ -48,14 +48,14 @@
 						<a id="kanbuq" href="javascript:;"
 							onclick="javascript:document.getElementById('loginform:vCode').src='${pageContext.request.contextPath }/validatecode.jsp?'+Math.random();">看不清，换一张</a>
                         </div>
-                        <div class="form-des">
-                            <!-- 
-                                <input id="input" type="checkbox">
+                        <div class="form-des" style="margin-top:20px">
+                             
+                               <input id="input" type="checkbox">
                                 <label id="label" for="input">记住密码</label>
                            
-                            <a href="#" class="des-btn">忘记密码/找回用户名</a> -->
+                            <a href="${pageContext.request.contextPath }/admin/forgetPassword" class="des-btn">忘记密码/找回用户名</a> 
                         </div>
-                        <div class="form-btns" style="margin-top:30px">
+                        <div class="form-btns" >
                             <div class="form-btn btn-login"><input name="" type="submit" class="form-btn btn-login"
 							value=""> </div>
                             <div class="form-btn btn-reg"><input

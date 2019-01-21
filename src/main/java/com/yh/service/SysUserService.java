@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.yh.model.MemberInfo;
 import com.yh.model.SysUser;
 
 public interface SysUserService {
@@ -15,5 +16,6 @@ public interface SysUserService {
 	public int insertSysUser(SysUser sysUser);
 	public int isExistLogincode(SysUser sysUser);
 	public  int reSysUserPwd(SysUser sysUser);
+	public void updatePwdByPhone(SysUser sysUser);
 	
 }
