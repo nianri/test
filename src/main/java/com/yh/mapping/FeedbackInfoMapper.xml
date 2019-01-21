@@ -11,11 +11,11 @@
         <result column="feedbackimg" property="feedbackimg" />
         <result column="replymsg" property="replymsg" />
         <result column="status" property="status" />
-        <result column="feedbacktype" property="feedbacktype "/>
+        <result column="feedbacktype" property="feedbacktype"/>
         <result column="memo" property="memo" />
 	</resultMap>
 	<select id="getFeedbackInfoList" resultMap="BaseResultMap" parameterType="com.yh.model.FeedbackInfo">
-    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype  ,
+    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype,
 (select IFNULL(mem.realname,mem.phonenum) from member_info mem where mem.memberid=info.memberid) membername 
  from feedback_info info
     where 1=1 
@@ -27,7 +27,7 @@
     </if>
   </select>
   <select id="getFeedbackInfo" resultMap="BaseResultMap" parameterType="java.lang.String">
-    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype ,
+    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype,
 (select IFNULL(mem.realname,mem.phonenum) from member_info mem where mem.memberid=info.memberid) membername 
 from feedback_info info
     where info.feedbackid=#{feedbackid}
