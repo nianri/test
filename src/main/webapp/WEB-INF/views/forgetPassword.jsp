@@ -70,11 +70,12 @@
 							<div class="form-btns">
 								<div class="form-btn btn-qd">
 									<input id="submit" name="" type="submit"
-								 class="form-btn btn-queding" value="">
+										class="form-btn btn-queding" value="">
 								</div>
-								<div class="form-btn btn-reg">
-									<input name="" type="reset" class="form-btn btn-reg" value="">
-								</div>
+									<input name="" type="reset" class="btn btn-default" value="重置"></input>
+
+								<a class="btn btn-default"
+									href="${pageContext.request.contextPath}/admin/login">返回</a>
 							</div>
 						</form>
 					</div>
@@ -89,7 +90,7 @@
 </body>
 <script type="text/javascript">
 	jQuery(function($) {
-		$("form").submit(function(e){
+		$("form").submit(function(e) {
 
 			var ph = $("#phonenumber").val().trim();
 			if (!isPoneAvailable(ph)) {
@@ -108,7 +109,7 @@
 				return;
 			}
 		});
-		
+
 		$("#phonecodebtn").click(
 				function() {
 					var ph = $("#phonenumber").val().trim();
