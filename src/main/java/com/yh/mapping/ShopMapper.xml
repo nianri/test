@@ -40,7 +40,8 @@
 	    insert into shop_info (shopid,shoplevel, shopcode,shopname, shopdesc, shopservice, 
 	      provinceid, cityid, countyid,address,shopimg,leadername, leadertel, leaderemail,
 	      licenseimg, prolicenseimg, cardtop,carddown, createtime, creatorid, 
-	      isdelete, status, memo,cusid, appid, appkey,areadesc,longitude,latitude,shopsources,accountnums,accountbank )
+	      isdelete, status, memo,cusid, appid, appkey,areadesc,longitude,latitude,shopsources,
+	      accountnums,accountbank,accountname )
 	    values (#{shopid,jdbcType=VARCHAR}, #{shoplevel,jdbcType=VARCHAR},#{shopcode,jdbcType=INTEGER}, 
 	      #{shopname,jdbcType=VARCHAR}, #{shopdesc,jdbcType=VARCHAR}, #{shopservice,jdbcType=VARCHAR}, 
 	      #{provinceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{countyid,jdbcType=VARCHAR},

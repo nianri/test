@@ -104,7 +104,7 @@
 						data-title="加油站审核" href="javascript:void(0)">加油站审核</a></li>
 					<li><a
 						data-href="${pageContext.request.contextPath}/shop/shopList"
-						data-title="加油站列表" href="javascript:void(0)">加油站列表</a></li>
+						data-title="加油站列表" href="javascript:void(0)">加油站上下线</a></li>
 					<li><a
 						data-href="${pageContext.request.contextPath}/shop/shopAccount"
 						data-title="加油站编辑" href="javascript:void(0)">加油站编辑</a></li>

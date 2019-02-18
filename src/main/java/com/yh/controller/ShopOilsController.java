@@ -128,8 +128,9 @@ public class ShopOilsController {
 		logger.info(JSON.toJSON(shopOils));
 		try{
 			//获取油价上限,不可大于上限；
-			DicPublicKey dicPublicKey=dicPublicKeyService.getPublicKeyByCode("OP_MAX01");
+			DicPublicKey dicPublicKey=dicPublicKeyService.getPublicKeyByCode("OP_MAX01");			
 			double keyValue=Double.parseDouble(dicPublicKey.getKeyvalue());
+			
 			if(shopOils.getSourceprice()>keyValue||shopOils.getPayprice1()>keyValue||
 				shopOils.getPayprice2()>keyValue||shopOils.getPayprice3()>keyValue||
 				shopOils.getPayprice4()>keyValue||shopOils.getPayprice5()>keyValue||
@@ -138,6 +139,18 @@ public class ShopOilsController {
 		        resultInfo.setInfo(ResultEnum.ERROR_KEY.getInfo());
 		        return resultInfo;
 			}
+			//获取油价下限,不可小于下限；
+			dicPublicKey=dicPublicKeyService.getPublicKeyByCode("OP_MIN01");			
+			double minPricekey=Double.parseDouble(dicPublicKey.getKeyvalue());
+			if(shopOils.getSourceprice()<minPricekey||shopOils.getPayprice1()<minPricekey||
+				shopOils.getPayprice2()<minPricekey||shopOils.getPayprice3()<minPricekey||
+				shopOils.getPayprice4()<minPricekey||shopOils.getPayprice5()<minPricekey||
+				shopOils.getPayprice6()<minPricekey||shopOils.getPayprice7()<minPricekey||minPricekey<=0){
+				resultInfo.setCode(ResultEnum.ERROR_KEY.getCode());
+		        resultInfo.setInfo(ResultEnum.ERROR_KEY.getInfo());
+		        return resultInfo;
+			}
+			
 			if(shopOils.getShopoilsid()!=null && !"".equals(shopOils.getShopoilsid())){
 				shopOilsService.updateShopOilsById(shopOils);
 				codeValue=ResultEnum.SUCCESS.getCode();
