@@ -1,0 +1,140 @@
+@import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.shopTitleWrap {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #CBCBCB;
+}
+.shopTitle {
+  width: 1200px;
+  margin: 0 auto;
+  height: 40px;
+  text-align: right;
+}
+.shopTitle > span {
+  font-size: 14px;
+  margin-right: 45px;
+}
+.shopTitle a {
+  font-size: 12px;
+  color: #181412;
+}
+.shopTitle a:first-of-type {
+  margin-right: 45px;
+}
+.shopShowContent {
+  width: 1200px;
+  margin: 10px auto 0;
+}
+.contentLeft {
+  width: 280px;
+  float: left;
+}
+.contentLeft .shopLogo {
+  display: block;
+  width: 100%;
+  height: 146px;
+  text-align: center;
+  border: 1px solid #999999;
+}
+.contentLeft .shopLogo img {
+  display: block;
+  width: 100%;
+  height:100px;
+}
+.contentLeft .shopLogo .shopName {
+  font-size: 16px;
+  font-weight: bold;
+  color: #181412;
+  margin-top: 20px;
+}
+.contentLeft .seller {
+  margin-top: 20px;
+  width: 100%;
+  height: 146px;
+  border: 1px solid #999999;
+  padding: 20px 0 20px 15px;
+}
+.contentLeft .seller > p span {
+  font-size: 16px;
+  font-weight: bold;
+}
+.contentLeft .seller .aboutShop {
+  margin-top: 20px;
+  height: 16px;
+  line-height: 16px;
+}
+.contentLeft .seller .aboutShop .writing {
+  font-size: 16px;
+  font-weight: bold;
+}
+.contentLeft .seller .aboutShop > div {
+  float: left;
+}
+.contentLeft .seller .aboutShop .rangeWrap {
+  position: relative;
+  top: 1px;
+  float: left;
+  width: 120px;
+  height: 14px;
+  margin-right: 5px;
+}
+.contentLeft .seller .aboutShop .rangeWrap .range {
+  width: 30px;
+  height: 14px;
+  background-color: #787777;
+}
+.contentLeft .goShop {
+  margin-top: 30px;
+  height: 22px;
+}
+.contentLeft .goShop > a {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 22px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+.contentLeft .goShop a:first-of-type {
+  color: #ff9934;
+  border: 1px solid #ff9934;
+  margin-left: 30px;
+  margin-right: 20px;
+}
+.contentLeft .goShop a:last-of-type {
+  color: #787777;
+  border: 1px solid #787777;
+}
+.contentRight {
+  width: 900px;
+  float: left;
+  margin-left: 20px;
+  border: 1px solid #999999;
+}
+.contentRight .operator {
+  width: 100%;
+  height: 31px;
+  border-bottom: 1px solid #999999;
+  line-height: 30px;
+  font-size: 12px;
+  padding-left: 15px;
+}
+.deliver {
+  margin-top: 30px;
+  width: 100%;
+  height: 5px;
+  background-color: #EEEEEE;
+}

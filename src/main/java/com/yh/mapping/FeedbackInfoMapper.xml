@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.FeedbackInfoMapper">
+
+<resultMap id="BaseResultMap"
+		type="com.yh.model.FeedbackInfo">
+        <id column="feedbackid" property="feedbackid" />
+        <result column="feedbacktime" property="feedbacktime" />
+        <result column="memberid" property="memberid" />
+        <result column="feedbackmsg" property="feedbackmsg" />
+        <result column="feedbackimg" property="feedbackimg" />
+        <result column="replymsg" property="replymsg" />
+        <result column="status" property="status" />
+        <result column="feedbacktype" property="feedbacktype"/>
+        <result column="memo" property="memo" />
+	</resultMap>
+	<select id="getFeedbackInfoList" resultMap="BaseResultMap" parameterType="com.yh.model.FeedbackInfo">
+    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype,
+(select IFNULL(mem.realname,mem.phonenum) from member_info mem where mem.memberid=info.memberid) membername 
+ from feedback_info info
+    where 1=1 
+    <if test="status !=null and status !=''">
+    	  and info.status=  #{status}
+    </if>
+     <if test="feedbackmsg!=null and feedbackmsg!=''">
+    	  and info.feedbackmsg like concat('%',#{feedbackmsg},'%')
+    </if>
+  </select>
+  <select id="getFeedbackInfo" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select info.feedbackid,info.feedbacktime,info.memberid,info.feedbackmsg,info.feedbackimg,info.replymsg,info.`status`,info.feedbacktype,
+(select IFNULL(mem.realname,mem.phonenum) from member_info mem where mem.memberid=info.memberid) membername 
+from feedback_info info
+    where info.feedbackid=#{feedbackid}
+  </select>
+  <update id="updateFeedbackInfoById" parameterType="com.yh.model.FeedbackInfo">
+  	update feedback_info set status=#{status},replymsg=#{replymsg} where feedbackid=#{feedbackid}
+  </update>
+</mapper>

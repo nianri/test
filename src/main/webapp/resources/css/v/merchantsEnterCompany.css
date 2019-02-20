@@ -1,0 +1,251 @@
+@import "./head.css";
+@import "./footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.statusNow {
+  width: 1200px;
+  height: 83px;
+  margin: 0 auto;
+}
+.statusNow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.companyInformationWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+  border: 1px solid #CCCCCC;
+  padding-bottom: 20px;
+}
+.companyInformationWrap .title {
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 0 0 10px;
+}
+.itemWrap {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+}
+.itemWrap > div {
+  float: left;
+}
+.itemWrap .itemName {
+  width: 167px;
+  height: 30px;
+  text-align: right;
+  line-height: 30px;
+}
+.itemWrap .itemName span:nth-child(1) {
+  font-size: 14px;
+  color: #D73535;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+}
+.itemWrap .itemName span:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+}
+.itemWrap .inputWrap {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  margin-left: 20px;
+}
+.itemWrap .inputWrap input {
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  line-height: 28px;
+  outline: none;
+  color: #666666;
+}
+.itemWrap .note {
+  width: 711px;
+  padding-left: 15px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  color: #999999;
+}
+.itemWrap .licenseType {
+  margin-left: 20px;
+  font-size: 14px;
+  color: #666666;
+  height: 30px;
+  line-height: 30px;
+}
+.itemWrap .licenseType span {
+  display: block;
+  float: left;
+  height: 30px;
+  padding-left: 18px;
+  position: relative;
+}
+.itemWrap .licenseType span i {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: url(../../img/v/weixuanze.png);
+  top: 9px;
+  left: 0;
+}
+.itemWrap .licenseType span .licenseActive {
+  background: url(../../img/v/xuanze.png);
+}
+.itemWrap .licenseType span:last-of-type {
+  margin-left: 40px;
+}
+.itemWrap .selectAddressWrap {
+  margin-left: 20px;
+  padding-top: 5px;
+}
+.itemWrap .selectAddressWrap select {
+  margin-right: 10px;
+}
+.itemWrap .interval {
+  width: 34px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+}
+.itemWrap .dateType {
+  margin-left: 10px;
+  padding-left: 20px;
+  line-height: 30px;
+  height: 30px;
+  font-size: 14px;
+  color: #666666;
+  position: relative;
+}
+.itemWrap .dateType i {
+  position: absolute;
+  width: 14px;
+  top: 8px;
+  left: 0;
+  height: 14px;
+  background: url(../../img/v/shoppingCarnoselect.png);
+  cursor: pointer;
+}
+.itemWrap .textareaWrap {
+  margin-left: 20px;
+  width: 640px;
+  height: 100px;
+  border: 1px solid #CCCCCC;
+}
+.itemWrap .textareaWrap textarea {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #666666;
+  border: none;
+  outline: none;
+  resize: none;
+  text-align: justify;
+}
+.imagePrompt {
+  font-size: 12px;
+  color: #999999;
+  padding-left: 48px;
+}
+.imageUploadWrap {
+  padding: 12px 0 0 200px;
+  min-height: 212px;
+  overflow: hidden;
+}
+.imageUploadWrap > div:nth-child(1) {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-right: 20px;
+}
+.imageUploadWrap > div:nth-child(1) .webuploader-pick {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 14px;
+  color: #999999;
+   background: url(../../img/v/jia.png) no-repeat;
+}
+.imageUploadWrap .uploader-list {
+  float: left;
+  margin-left: 20px;
+  width: 600px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item {
+  float: left;
+  width: 200px;
+  height: 240px;
+  margin-right: 20px;
+  position: relative;
+}
+.imageUploadWrap .uploader-list .file-item .info,
+.imageUploadWrap .uploader-list .file-item .error {
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
+  text-align: center;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.imageUploadWrap .uploader-list .file-item .delBtn1 {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: url(../../img/v/delUpload.png) no-repeat;
+  cursor: pointer;
+  z-index: 9999;
+}
+.gotoWrap {
+  width: 270px;
+  height: 30px;
+  margin: 40px auto 0;
+}
+.gotoWrap .preStep {
+  display: block;
+  float: left;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 14px;
+  background-color: #999999;
+}
+.gotoWrap .nextStep {
+  display: block;
+  width: 140px;
+  height: 30px;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-left: 50px;
+  background-color: #ff9934;
+}

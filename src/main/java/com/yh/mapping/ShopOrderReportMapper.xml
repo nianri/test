@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopOrderReportMapper">
+	<sql id="date_if">
+	        <if test="dateFrom != '' and dateFrom != null and dateTo != '' and dateTo != null">
+	        	  <![CDATA[ 
+	        	and str_to_date(so.ordertime,'%Y-%m-%d')  >=str_to_date(#{dateFrom},'%Y-%m-%d') and str_to_date(so.ordertime,'%Y-%m-%d') <= str_to_date(#{dateTo},'%Y-%m-%d')
+	        	]]>
+	        </if>
+	</sql>
+	<sql id="year_if">
+	      <if test="orderYear !=null and orderYear !=''">
+		and year(so.ordertime) =#{orderYear}
+	        </if>
+	</sql>
+    <!--查询商家订单列表 -->
+    <select id="getShopOrderStatusReportList" resultType="com.yh.model.ShopOrderReport" parameterType="com.yh.model.ShopOrderReport">
+	select si.shopname,si.shopid,
+	(select count(*) from shop_order so where so.shopid=si.shopid and so.`status`='1' <include refid="date_if"/> ) topay,	
+	(select count(*) from shop_order so where so.shopid=si.shopid and so.`status`='2' <include refid="date_if"/> ) paid,
+	(select count(*) from shop_order so where so.shopid=si.shopid and so.`status`='3' <include refid="date_if"/> ) complete,
+	(select count(*) from shop_order so where so.shopid=si.shopid and so.`status`='4' <include refid="date_if"/> ) applyRefund,
+	(select count(*) from shop_order so where so.shopid=si.shopid and so.`status`='5' <include refid="date_if"/> ) refundSuccess,
+	(select count(*) from shop_order so where so.shopid=si.shopid <include refid="date_if"/> ) total,
+	(select sum(totalprice) from shop_order so  where so.shopid=si.shopid  and so.`status` in  ('2','3') <include refid="date_if"/>  ) totalprice,
+	(select sum(couponprice) from shop_order so  where so.shopid=si.shopid  and so.`status` in  ('2','3')  <include refid="date_if"/> ) couponprice,
+	(select sum(realprice) from shop_order so  where so.shopid=si.shopid   and so.`status` in  ('2','3') <include refid="date_if"/>  ) realprice
+	 from shop_info si
+	 join shop_order  sor on sor.shopid=si.shopid
+	  where si.`status` in ('3','4') and si.isdelete='1'
+	 <if test="shopid !=null and shopid !=''">
+	 and si.shopid=#{shopid}
+	 </if>
+	 	 <if test="shopname !=null and shopname !=''">
+	 and si.shopname like concat('%',#{shopname},'%')
+	 </if>
+	 <if test="dateFrom != '' and dateFrom != null and dateTo != '' and dateTo != null">
+	        	  <![CDATA[ 
+	        	and str_to_date(sor.ordertime,'%Y-%m-%d')  >=str_to_date(#{dateFrom},'%Y-%m-%d') and str_to_date(sor.ordertime,'%Y-%m-%d') <= str_to_date(#{dateTo},'%Y-%m-%d')
+	        	]]>
+	        </if>
+	        group by si.shopid
+	 ORDER BY si.shopcode desc  
+   </select>
+   <select id="getShopOrderOilsReportList" resultType="com.yh.model.ShopOrderReport" parameterType="com.yh.model.ShopOrderReport">
+  select si.shopname,si.shopid,
+	(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY92#' <include refid="date_if"/> ) count92,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY92#' <include refid="date_if"/>) realprice92,	
+(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY95#' <include refid="date_if"/> ) count95,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY95#' <include refid="date_if"/> ) realprice95,	
+(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY98#' <include refid="date_if"/>) count98,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='QY98#' <include refid="date_if"/> ) realprice98,	
+(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY-20#' <include refid="date_if"/> ) countC20,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY-20#' <include refid="date_if"/>) realpriceC20,	
+(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY-10#' <include refid="date_if"/>) countC10,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY-10#' <include refid="date_if"/>) realpriceC10,	
+(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY0#' <include refid="date_if"/>) countC0,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')  and dos.oilscode='CY0#' <include refid="date_if"/>) realpriceC0,
+	(select count(*) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3') <include refid="date_if"/>) count,	
+	(select sum(so.realprice) from shop_order so join dic_oils dos on  dos.oilsid=so.oilsid  where so.shopid=si.shopid and so.`status` in  ('2','3')   <include refid="date_if"/>) realprice
+	 from shop_info si
+	 join shop_order  sor on sor.shopid=si.shopid and sor.`status` in  ('2','3')
+	  where si.`status` in ('3','4') and si.isdelete='1'
+	 <if test="shopid !=null and shopid !=''">
+	 and si.shopid=#{shopid}
+	 </if>
+	 <if test="shopname !=null and shopname !=''">
+	 and si.shopname like concat('%',#{shopname},'%')
+	 </if>
+	 <if test="dateFrom != '' and dateFrom != null and dateTo != '' and dateTo != null">
+	        	  <![CDATA[ 
+	        	and str_to_date(sor.ordertime,'%Y-%m-%d')  >=str_to_date(#{dateFrom},'%Y-%m-%d') and str_to_date(sor.ordertime,'%Y-%m-%d') <= str_to_date(#{dateTo},'%Y-%m-%d')
+	        	]]>
+	        </if>
+	        group by si.shopid
+	 ORDER BY si.shopcode desc 
+   </select>
+   <select id="getShopOrderMonthReportList" resultType="com.yh.model.ShopOrderReport" parameterType="com.yh.model.ShopOrderReport">
+    select si.shopname,si.shopid,
+		(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='1' <include refid="year_if"/> ) count1,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='1' <include refid="year_if"/> ) realprice1,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='2' <include refid="year_if"/> ) count2,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='2' <include refid="year_if"/> ) realprice2,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='3' <include refid="year_if"/> ) count3,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='3' <include refid="year_if"/> ) realprice3,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='4' <include refid="year_if"/> ) count4,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='4' <include refid="year_if"/> ) realprice4,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='5' <include refid="year_if"/> ) count5,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='5' <include refid="year_if"/> ) realprice5,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='6' <include refid="year_if"/> ) count6,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='6' <include refid="year_if"/> ) realprice6,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='7' <include refid="year_if"/> ) count7,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='7' <include refid="year_if"/> ) realprice7,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='8' <include refid="year_if"/> ) count8,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='8' <include refid="year_if"/> ) realprice8,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='9' <include refid="year_if"/> ) count9,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='9' <include refid="year_if"/> ) realprice9,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='10' <include refid="year_if"/> ) count10,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='10' <include refid="year_if"/> ) realprice10,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='11' <include refid="year_if"/> ) count11,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='11' <include refid="year_if"/> ) realprice11,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='12' <include refid="year_if"/> ) count12,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  and month(so.ordertime)='12' <include refid="year_if"/> ) realprice12,
+			(select count(*) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')  <include refid="year_if"/> ) count,
+	(select sum(so.realprice) from shop_order so  where so.shopid=si.shopid and so.`status` in  ('2','3')   <include refid="year_if"/> ) realprice
+	 from shop_info si
+	 join shop_order  sor on sor.shopid=si.shopid and sor.`status` in  ('2','3')
+	  where si.`status` in ('3','4') and si.isdelete='1'
+    <if test="shopid !=null and shopid !=''">
+	 and si.shopid=#{shopid}
+	 </if>
+	 <if test="shopname !=null and shopname !=''">
+	 and si.shopname like concat('%',#{shopname},'%')
+	 </if>
+	 <if test="orderYear !=null and orderYear !=''">
+		and year(sor.ordertime) =#{orderYear}
+	        </if>
+	        group by si.shopid
+	 ORDER BY si.shopcode desc 
+   </select>
+</mapper>

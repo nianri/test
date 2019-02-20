@@ -1,0 +1,259 @@
+@import "./head.css";
+@import "./footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css";
+@charset "utf-8";
+body {
+  background-color: #FFFFFF;
+}
+.footer {
+  margin-top: 0!important;
+}
+.statusNow {
+  width: 1200px;
+  height: 83px;
+  margin: 0 auto;
+}
+.statusNow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.content {
+  width: 1200px;
+  margin: 20px auto 0;
+  border: 1px solid #CCCCCC;
+  padding-bottom: 20px;
+}
+.content .title {
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 0 0 10px;
+}
+.waitingReview {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 15px 20px;
+  background-color: #EEEEEE;
+  color: #666666;
+  font-size: 14px;
+  line-height: 20px;
+}
+.waitingReview p > a {
+  color: #FF9934;
+}
+.contractWrap {
+  margin: 10px 0 0 20px;
+}
+.contractWrap .tabLeft {
+  float: left;
+  width: 200px;
+  height: 81px;
+}
+.contractWrap .tabLeft > div {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+  background-color: #EEEEEE;
+  cursor: pointer;
+}
+.contractWrap .tabLeft > div:last-of-type {
+  margin-top: 1px;
+}
+.contractWrap .tabLeft .tabActive {
+  background-color: #ff9934;
+  color: #FFFFFF;
+}
+.contractWrap .viewRight {
+  float: left;
+  margin-left: 20px;
+  width: 940px;
+  background-color: #EEEEEE;
+}
+.contractWrap .viewRight > div:nth-child(1) {
+  padding: 20px 0;
+  color: #666666;
+  font-size: 14px;
+  text-align: center;
+}
+.contractWrap .viewRight > div:nth-child(1) a {
+  margin: 20px auto 0;
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-color: #FF9934;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 30px;
+}
+.contractWrap .viewRight > div:nth-child(2) {
+  display: none;
+  padding: 10px 0 20px 15px;
+}
+.contractWrap .viewRight > div:nth-child(2) p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+}
+.contractWrap .viewRight > div:nth-child(2) .note {
+  font-size: 12px;
+  color: #d73535;
+}
+.contractWrap .viewRight > div:nth-child(2) a {
+  margin: 20px auto 0;
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-color: #FF9934;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 30px;
+}
+.paymentWrap {
+  padding: 10px 0 0 20px;
+}
+.paymentWrap p {
+  font-size: 14px;
+  color: #666666;
+}
+.paymentWrap table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  text-align: center;
+  line-height: 40px;
+}
+.paymentWrap table th,
+.paymentWrap table td {
+  border: 1px solid #FFFFFF;
+}
+.paymentWrap table td:nth-child(1),
+.paymentWrap table td:nth-child(2) {
+  width: 200px;
+  height: 40px;
+}
+.paymentWrap table td:nth-child(3) {
+  width: 400px;
+  height: 40px;
+}
+.paymentWrap table tr:nth-child(1) {
+  background-color: #FF9934;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.paymentWrap table tr:nth-child(n+2) {
+  background-color: #EEEEEE;
+  color: #666666;
+  font-size: 14px;
+}
+.paymentWrap a {
+  display: block;
+  width: 80px;
+  height: 30px;
+  color: #FFFFFF;
+  background-color: #FF9934;
+  margin-top: 40px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+}
+.paymentSuccessWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.paymentSuccessWrap .noteWrap {
+  padding: 15px 20px;
+  background-color: #EEEEEE;
+}
+.paymentSuccessWrap .noteWrap p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+}
+.paymentSuccessWrap .note-one {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 14px;
+  color: #D73535;
+}
+.paymentSuccessWrap .note-two {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+.paymentSuccessWrap .note-two .skip {
+  color: #FF9934;
+}
+.paymentSuccessWrap .nextStep {
+  display: block;
+  margin: 12px auto 0;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: #ff9934;
+}
+.successWrap {
+  margin-top: 20px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #EEEEEE;
+}
+.successWrap div:nth-child(1) {
+  font-size: 14px;
+  color: #333333;
+}
+.successWrap div:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 10px;
+}
+.noteWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+  padding: 15px 20px;
+  background-color: #EEEEEE;
+}
+.noteWrap p {
+  font-size: 14px;
+  color: #666666;
+  line-height: 20px;
+}
+.statusWrap {
+  width: 1200px;
+  margin: 20px auto 0;
+}
+.statusWrap .note-one {
+  color: #333333;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 40px;
+}
+.statusWrap .note-two {
+  font-size: 14px;
+  color: #D73535;
+  margin-top: 20px;
+  text-align: center;
+}
+.statusWrap .note-three {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+.statusWrap .nextStep {
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-color: #FF9934;
+  text-align: center;
+  line-height: 30px;
+  color: #FFFFFF;
+  font-size: 14px;
+  margin: 10px auto 0;
+}

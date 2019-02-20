@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.AdvertInfoMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.AdvertInfo">
+		<result column="advertid" jdbcType="VARCHAR" property="advertid" />
+		<result column="advertname" jdbcType="VARCHAR" property="advertname" />
+		<result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
+		<result column="cityid" jdbcType="VARCHAR" property="cityid" />
+		<result column="countyid" jdbcType="VARCHAR" property="countyid" />
+		<result column="ordernum" jdbcType="VARCHAR" property="ordernum" />
+		<result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+		<result column="detailpage" jdbcType="VARCHAR" property="detailpage" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+		<result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="adverttype" jdbcType="VARCHAR" property="adverttype" />
+		<result column="memo" jdbcType="VARCHAR" property="memo" />
+	</resultMap>
+	<insert id="insertAdvert" parameterType="com.yh.model.AdvertInfo">
+		insert into advert_info(advertid, advertname, provinceid,cityid, countyid, ordernum,
+		imageurl,detailpage, createtime,creatorid, status, memo,adverttype	)
+		values (#{advertid,jdbcType=VARCHAR}, #{advertname,jdbcType=VARCHAR},
+		#{provinceid,jdbcType=VARCHAR},	#{cityid,jdbcType=VARCHAR},
+		#{countyid,jdbcType=VARCHAR}, #{ordernum,jdbcType=VARCHAR},
+		#{imageurl,jdbcType=VARCHAR}, #{detailpage,jdbcType=VARCHAR},
+		#{createtime,jdbcType=VARCHAR},	#{creatorid,jdbcType=VARCHAR},
+		#{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{adverttype,jdbcType=VARCHAR}	)
+	</insert>
+	<select id="getAllAdvert" resultMap="BaseResultMap" parameterType="com.yh.model.AdvertInfo">
+		select advertid,advertname,provinceid,cityid,countyid,ordernum,imageurl,
+  		detailpage,createtime,creatorid,status,memo,adverttype,
+		(select areaname from dic_area n where m.provinceid=n.areaid) as provincename,
+		(select areaname from dic_area n where m.cityid=n.areaid) as cityname,
+		(select areaname from dic_area n where m.countyid=n.areaid) as countyname
+		from advert_info m where 1=1
+		<if test="advertname != null and advertname !=''">
+			and advertname = #{advertname}
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		order by createtime desc,provinceid,cityid
+	</select>
+	<select id="getAdvertById" resultMap="BaseResultMap" parameterType="com.yh.model.AdvertInfo">
+		select advertid,advertname,provinceid,cityid,countyid,ordernum,imageurl,adverttype,
+  		detailpage,createtime,creatorid,status,memo from advert_info where advertid = #{advertid}
+	</select>
+	<update id="updateAdvertById" parameterType="com.yh.model.AdvertInfo">
+		 update advert_info
+		 <trim prefix="set" suffixOverrides=",">
+			  <if test="advertname">advertname=#{advertname},</if>
+			  <if test="provinceid">provinceid=#{provinceid},</if>
+			  <if test="cityid">cityid=#{cityid},</if>
+			  <if test="ordernum">ordernum=#{ordernum},</if>
+			  <if test="imageurl">imageurl=#{imageurl},</if>
+			  <if test="detailpage">detailpage=#{detailpage},</if>
+			  <if test="status">status=#{status},</if>
+			  <if test="adverttype">adverttype=#{adverttype},</if>
+			  <if test="memo">memo=#{memo},</if>
+		  </trim>
+		 where advertid =#{advertid}
+	</update>
+	<delete  id="deleteAdvertById" parameterType="com.yh.model.AdvertInfo">
+  		delete from  advert_info where  advertid=#{advertid}
+  	</delete>
+</mapper>

@@ -1,0 +1,133 @@
+/* @import "../static/reset.css"; */
+@charset "UTF-8";
+body {
+  background-color: #f2f2f2;
+}
+::-webkit-input-placeholder {
+  color: #999;
+}
+:-moz-placeholder {
+  color: #999;
+}
+::-moz-placeholder {
+  color: #999;
+}
+:-ms-input-placeholder {
+  color: #999;
+}
+header {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #e51c23;
+  color: #333333;
+}
+header .backBtn {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  width: 18px;
+  height: 27px;
+  background: url(../../img/m/backBtn.png);
+}
+.input_wrap {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+.input {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #E5E5E5;
+  border-radius: 5px;
+}
+.input input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  line-height: 38px;
+  font-size: 16px;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+.input .see_status {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  width: 35px;
+  height: 20px;
+  background: url(../../img/m/hide.png);
+  background-size: 100% 100%;
+  z-index: 100%;
+}
+.input .show_password {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 0;
+}
+.last_wrap {
+  padding: 0 10px;
+}
+.register_go {
+  margin-top: 40px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  color: #333333;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #e51c23;
+}
+.auth_code {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+}
+.auth_code .code {
+  display: block;
+  float: left;
+  width: 60%;
+  height: 40px;
+  border: 1px solid #E5E5E5;
+  outline: none;
+  line-height: 38px;
+  font-size: 16px;
+  color: #333333;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-right: 5%;
+}
+.auth_code button {
+  display: block;
+  float: right;
+  width: 35%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #666666;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #E6E6E6;
+}
+.note {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333333;
+}
+.note a {
+  color: #D73535;
+}

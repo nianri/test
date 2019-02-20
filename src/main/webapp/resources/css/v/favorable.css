@@ -1,0 +1,106 @@
+.favorableTab {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+}
+.favorableTab > a {
+  display: block;
+  height: 40px;
+  width: 60px;
+  float: left;
+  color: #666666;
+  position: relative;
+}
+.favorableTab > a span {
+  position: absolute;
+  line-height: 12px;
+  right: 13px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  font-size: 12px;
+  color: #FFFFFF;
+  background-color: #D73535;
+  border-radius: 50%;
+  z-index: 100;
+  text-align: center;
+}
+.favorableTab .favorableActive {
+  color: #FF9934;
+}
+.favorableLists {
+  width: 100%;
+}
+.favorableLists .favorableItem {
+  width: 250px;
+  height: 100px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.favorableLists .favorableItem .favoLeft {
+  width: 150px;
+  height: 100px;
+  float: left;
+  background-color: #EEEEEE;
+}
+.favorableLists .favorableItem .favoLeft div:nth-child(1) {
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  color: #d73535;
+  text-align: center;
+}
+.favorableLists .favorableItem .favoLeft div:nth-child(1) span:first-of-type {
+  font-size: 14px;
+}
+.favorableLists .favorableItem .favoLeft div:nth-child(1) span:last-of-type {
+  font-size: 24px;
+}
+.favorableLists .favorableItem .favoLeft div:nth-child(2) {
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+}
+.favorableLists .favorableItem .favoLeft div:nth-child(3) {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #999999;
+  text-align: center;
+}
+.favorableLists .favorableItem .favoRight {
+  width: 100px;
+  height: 100px;
+  float: left;
+  background: url(../../img/f/favobg_03.png);
+  padding: 40px 10px;
+}
+.favorableLists .favorableItem .favoRight a {
+  display: block;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: #d73535;
+  background-color: #FFFFFF;
+}
+.favorableLists > li:nth-child(4n) {
+  margin-right: 0;
+}
+/*鍟嗗煄鐜伴噾鍒�*/
+.cashTitle {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #ff9934;
+}
+.cashWrap {
+  font-size: 14px;
+  color: #666666;
+  text-indent: 2em;
+  line-height: 18px;
+  text-align: justify;
+}

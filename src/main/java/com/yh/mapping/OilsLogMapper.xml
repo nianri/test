@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.OilsLogMapper">
+  <resultMap id="BaseResultMap" type="com.yh.model.OilsLog">
+    <result column="soilslogid" jdbcType="VARCHAR" property="soilslogid" />
+    <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+    <result column="oilsid" jdbcType="VARCHAR" property="oilsid" />
+    <result column="sourceprice" jdbcType="DOUBLE" property="sourceprice" />
+    <result column="couponprice" jdbcType="DOUBLE" property="couponprice" />
+    <result column="payprice" jdbcType="DOUBLE" property="payprice" />
+    <result column="runtime" jdbcType="VARCHAR" property="runtime" />
+    <result column="ordernum" jdbcType="VARCHAR" property="ordernum" />
+    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+    <result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+  </resultMap>
+  <insert id="insertOilsLog" parameterType="com.yh.model.OilsLog">
+    insert into shop_oilslog (soilslogid, shopid, oilsid,sourceprice, couponprice, payprice1, 
+    payprice2, payprice3, payprice4, payprice5, payprice6, payprice7,runtime, ordernum, createtime,creatorid, status, memo)
+    values (#{soilslogid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{oilsid,jdbcType=VARCHAR}, 
+      #{sourceprice,jdbcType=DOUBLE}, #{couponprice,jdbcType=DOUBLE}, #{payprice1,jdbcType=DOUBLE}, 
+      #{payprice2,jdbcType=DOUBLE}, #{payprice3,jdbcType=DOUBLE}, #{payprice4,jdbcType=DOUBLE},
+      #{payprice5,jdbcType=DOUBLE}, #{payprice6,jdbcType=DOUBLE}, #{payprice7,jdbcType=DOUBLE},
+      #{runtime,jdbcType=VARCHAR}, #{ordernum,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, 
+      #{creatorid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yh.model.OilsLog">
+    insert into shop_oilslog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="soilslogid != null">
+        soilslogid,
+      </if>
+      <if test="shopid != null">
+        shopid,
+      </if>
+      <if test="oilsid != null">
+        oilsid,
+      </if>
+      <if test="sourceprice != null">
+        sourceprice,
+      </if>
+      <if test="couponprice != null">
+        couponprice,
+      </if>
+      <if test="payprice1 != null">
+        payprice1,
+      </if>
+      <if test="payprice2 != null">
+        payprice2,
+      </if>
+      <if test="payprice3 != null">
+        payprice3,
+      </if>
+      <if test="payprice4 != null">
+        payprice4,
+      </if>
+      <if test="payprice5 != null">
+        payprice5,
+      </if>
+      <if test="payprice6 != null">
+        payprice6,
+      </if>
+      <if test="payprice7 != null">
+        payprice7,
+      </if>
+      <if test="runtime != null">
+        runtime,
+      </if>
+      <if test="ordernum != null">
+        ordernum,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="creatorid != null">
+        creatorid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="soilslogid != null">
+        #{soilslogid,jdbcType=VARCHAR},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="oilsid != null">
+        #{oilsid,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceprice != null">
+        #{sourceprice,jdbcType=DOUBLE},
+      </if>
+      <if test="couponprice != null">
+        #{couponprice,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice1 != null">
+        #{payprice1,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice2 != null">
+        #{payprice2,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice3 != null">
+        #{payprice3,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice4 != null">
+        #{payprice4,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice5 != null">
+        #{payprice5,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice6 != null">
+        #{payprice6,jdbcType=DOUBLE},
+      </if>
+      <if test="payprice7 != null">
+        #{payprice7,jdbcType=DOUBLE},
+      </if>
+      <if test="runtime != null">
+        #{runtime,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopCheckMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.ShopCheck">
+	  <id column="scheckid" jdbcType="VARCHAR" property="scheckid" />
+	  <result column="shopid" jdbcType="VARCHAR" property="shopid" />
+	  <result column="submittime" jdbcType="VARCHAR" property="submittime" />
+	  <result column="checktime" jdbcType="VARCHAR" property="checktime" />
+	  <result column="checkdesc" jdbcType="VARCHAR" property="checkdesc" />
+	  <result column="submitterid" jdbcType="VARCHAR" property="submitterid" />
+	  <result column="status" jdbcType="VARCHAR" property="status" />
+	  <result column="memo" jdbcType="VARCHAR" property="memo" />
+	</resultMap>
+	<insert id="insertShopCheck" parameterType="com.yh.model.ShopCheck">
+	   insert into shop_check (scheckid, shopid,submittime,submitterid,status,memo)
+	   values (#{scheckid,jdbcType=VARCHAR}, #{shopid,jdbcType=VARCHAR}, #{submittime,jdbcType=VARCHAR}, 
+	   #{submitterid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
+	 </insert>
+	<select id="getShopCheckInfo" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
+		select * from shop_check where status='0' and shopid = #{shopid}
+	</select>
+	<update id="submitCheckShop" parameterType="com.yh.model.ShopCheck">
+	    update shop_check set checktime=#{checktime},checkdesc=#{checkdesc},auditorid=#{auditorid},status=#{status} 
+	 		where scheckid =#{scheckid}           
+	</update>
+	<select id="getShopCheckLog" resultMap="BaseResultMap"	parameterType="com.yh.model.ShopCheck">
+		select submittime,checktime,checkdesc,status,
+		(select concat_ws("-",membercode,phonenum,realname) from member_info n where m.submitterid=n.memberid) as submitname,
+		(select realname from sys_user n where m.auditorid=n.userid) as auditorname
+	 		from shop_check m where shopid = #{shopid} order by submittime desc   
+	</select>
+</mapper>

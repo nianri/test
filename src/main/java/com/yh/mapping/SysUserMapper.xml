@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.SysUserMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.SysUser">
+		<result column="userid" jdbcType="VARCHAR" property="userid" />
+		<result column="usercode" jdbcType="INTEGER" property="usercode" />
+		<result column="logincode" jdbcType="VARCHAR" property="logincode" />
+		<result column="realname" jdbcType="VARCHAR" property="realname" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="usertype" jdbcType="VARCHAR" property="usertype" />
+		<result column="shopid" jdbcType="VARCHAR" property="shopid" />
+		<result column="islogin" jdbcType="VARCHAR" property="islogin" />
+		<result column="lastlogtime" jdbcType="VARCHAR" property="lastlogtime" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+		<result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="isdelete" jdbcType="VARCHAR" property="isdelete" />
+		<result column="memo" jdbcType="VARCHAR" property="memo" />
+		<result column="shopname" jdbcType="VARCHAR" property="shopname" />
+		<result column="phonenum" property="phonenum"/> 
+	</resultMap>
+	<insert id="insertSysUser" parameterType="com.yh.model.SysUser">
+		insert into sys_user (userid, usercode, logincode,realname, password, usertype,shopid, islogin, lastlogtime,
+		createtime, creatorid, status,isdelete, memo,phonenum)
+		values (#{userid,jdbcType=VARCHAR}, #{usercode,jdbcType=INTEGER},#{logincode,jdbcType=VARCHAR},
+		#{realname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{usertype,jdbcType=VARCHAR},
+		#{shopid,jdbcType=VARCHAR}, #{islogin,jdbcType=VARCHAR},#{lastlogtime,jdbcType=VARCHAR},
+		#{createtime,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+		#{isdelete,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR},#{phonenum})
+	</insert>
+	<select id="getSysUserByCode" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">
+		select logincode,userid,realname,password,status,shopid,usertype,phonenum,
+		(select shopname from shop_info n where m.shopid=n.shopid) as shopname from sys_user m
+		where logincode =#{logincode}
+	</select>
+	<select id="getSysUserList" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">
+		select usercode,logincode,userid,realname,password,status,shopid,usertype,createtime,phonenum,
+		(select shopname from shop_info n where m.shopid=n.shopid) as shopname from sys_user m
+		where 1=1 
+		<if test="usercode != null and usercode !='' and logincode != null and logincode !='' and realname != null and realname !=''">
+			and (usercode =#{usercode} or logincode =#{logincode} or realname =#{realname} )
+		</if>	
+		<if test="phonenum!=null and phonenum!=''">
+		and phonenum =#{phonenum}
+		</if>	
+		order by usercode desc
+	</select>
+	<select id="getSysUserById" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">
+		select *,(select shopname from shop_info n where m.shopid=n.shopid) as shopname from sys_user m where userid =#{userid}
+	</select>
+	<delete id="deleteSysUserById" parameterType="com.yh.model.SysUser">
+		delete from sys_user where userid =#{userid}
+	</delete>
+	<update id="updateSysUserById" parameterType="com.yh.model.SysUser">
+	   update sys_user set logincode=#{logincode},realname=#{realname}, phonenum=#{phonenum},
+       usertype=#{usertype},shopid=#{shopid},status=#{status},memo=#{memo}  where userid=#{userid}             
+  	</update>
+  	<select id="isExistLogincode" resultMap="BaseResultMap" parameterType="com.yh.model.SysUser">
+		select * from sys_user where userid !=#{userid} and logincode=#{logincode}
+	</select>
+	<update id="reSysUserPwd" parameterType="com.yh.model.SysUser">
+	   update sys_user set password=#{password} where userid=#{userid}             
+  	</update>
+  		<update id="updatePwdByPhone" parameterType="com.yh.model.SysUser">
+		update sys_user set password=#{password} where phonenum=#{phonenum}
+	</update>
+</mapper>

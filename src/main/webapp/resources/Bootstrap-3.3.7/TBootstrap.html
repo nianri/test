@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Test!</title>
+    <!-- <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-table.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="bootstrap-table.js"></script> 
+    <script src="bootstrap-table-zh-CN.js"></script> -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css"> 
+    <script src="js/jquery-3.2.1.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>    
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/bootstrap-table-zh-CN.min.js"></script> 
+</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+       //alert('abc');
+       // $('#showtable').bootstrapTable({
+       //      columns: [{
+       //          field: 'id',
+       //          title: 'Item ID'
+       //      }, {
+       //          field: 'name',
+       //          title: 'Item Name'
+       //      }, {
+       //          field: 'price',
+       //          title: 'Item Price'
+       //      }],
+       //      data: [{
+       //          id: 1,
+       //          name: 'Item 1',
+       //          price: '$1'
+       //      }, {
+       //          id: 2,
+       //          name: 'Item 2',
+       //          price: '$2'
+       //      }]
+       //  }); 
+
+        var result=[
+            {"nums":"1","name":"测试","value":"100"},
+            {"nums":"2","name":"测试","value":"100"},
+            {"nums":"3","name":"测试","value":"100"},
+            {"nums":"4","name":"测试","value":"100"},
+            {"nums":"5","name":"测试","value":"100"},
+            {"nums":"6","name":"测试","value":"100"},
+            {"nums":"7","name":"测试","value":"100"},
+            {"nums":"8","name":"测试","value":"100"},
+            {"nums":"9","name":"测试","value":"100"},
+            {"nums":"10","name":"测试","value":"100"},
+            {"nums":"11","name":"测试","value":"100"},
+            {"nums":"12","name":"测试","value":"100"}
+        ];
+        $('#showtable').bootstrapTable({
+            pagination: true, 
+            singleSelect: false,
+            //search: true,
+            showLoading:true,
+            pageSize: 10,  
+            pageList: [10,20,30,'All'],
+            columns: [{  
+                field: 'nums',  
+                title: '#',
+                align: 'left',
+                formatter: function (value, row, index) {  
+                   return index+1;  
+                }    
+            },{  
+                field: 'name',  
+                title: '地区' ,
+                align: 'left'  
+            },{
+                field: 'value',  
+                title: '能耗(度)' ,
+                align: 'left' 
+            } ] 
+        });
+        $("#showtable").bootstrapTable("load",result); 
+    });
+
+    
+    
+</script>
+<body>
+    <!-- <div class="page-wrap">
+        <div id="showdata" style="width:30%;height:100%;padding:1px;float:left;overflow:hidden;">
+            <table class="table table-hover" id="showtable" />
+        </div>
+    </div> -->
+    <table id="showtable"></table>
+</body>
+</html>

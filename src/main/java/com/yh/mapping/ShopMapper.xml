@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.ShopMapper">
+	<resultMap id="BaseResultMap" type="com.yh.model.Shop">
+	    <result column="shopid"  jdbcType="VARCHAR" property="shopid" />
+	    <result column="shopcode" jdbcType="INTEGER" property="shopcode" />
+	    <result column="shopname" jdbcType="VARCHAR" property="shopname" />
+	    <result column="shopdesc" jdbcType="VARCHAR" property="shopdesc" />
+	    <result column="shopservice" jdbcType="VARCHAR" property="shopservice" />
+	    <result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
+	    <result column="cityid" jdbcType="VARCHAR" property="cityid" />
+	    <result column="countyid" jdbcType="VARCHAR" property="countyid" />
+	    <result column="address" jdbcType="VARCHAR" property="address" />	 
+	    <result column="shopimg" jdbcType="VARCHAR" property="shopimg" />
+	    <result column="leadername" jdbcType="VARCHAR" property="leadername" />
+	    <result column="leadertel" jdbcType="VARCHAR" property="leadertel" />
+	    <result column="leaderemail" jdbcType="VARCHAR" property="leaderemail" />	  
+	    <result column="licenseimg" jdbcType="VARCHAR" property="licenseimg" />
+	    <result column="prolicenseimg" jdbcType="VARCHAR" property="prolicenseimg" />
+	    <result column="cardtop" jdbcType="VARCHAR" property="cardtop" />
+	    <result column="carddown" jdbcType="VARCHAR" property="carddown" />
+	    <result column="createtime" jdbcType="VARCHAR" property="createtime" />
+	    <result column="creatorid" jdbcType="VARCHAR" property="creatorid" />
+	    <result column="isdelete" jdbcType="VARCHAR" property="isdelete" />
+	    <result column="status" jdbcType="VARCHAR" property="status" />
+	    <result column="memo" jdbcType="VARCHAR" property="memo" />
+	    <result column="cusid" jdbcType="VARCHAR" property="cusid" />
+	    <result column="appid" jdbcType="VARCHAR" property="appid" />
+	    <result column="appkey" jdbcType="VARCHAR" property="appkey" />
+	    <result column="areadesc" jdbcType="VARCHAR" property="areadesc" />
+	    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+	    <result column="latitude" jdbcType="DOUBLE" property="latitude" />
+	    <result column="shopsources" jdbcType="VARCHAR" property="shopsources" />
+	    <result column="shoplevel" jdbcType="VARCHAR" property="shoplevel" />
+	    <result column="accountnums" jdbcType="VARCHAR" property="accountnums" />
+	    <result column="accountbank" jdbcType="VARCHAR" property="accountbank" />
+	    <result column="accountname" jdbcType="VARCHAR" property="accountname" />
+	</resultMap>
+	<insert id="insertShop" parameterType="com.yh.model.Shop">
+	    insert into shop_info (shopid,shoplevel, shopcode,shopname, shopdesc, shopservice, 
+	      provinceid, cityid, countyid,address,shopimg,leadername, leadertel, leaderemail,
+	      licenseimg, prolicenseimg, cardtop,carddown, createtime, creatorid, 
+	      isdelete, status, memo,cusid, appid, appkey,areadesc,longitude,latitude,shopsources,
+	      accountnums,accountbank,accountname )
+	    values (#{shopid,jdbcType=VARCHAR}, #{shoplevel,jdbcType=VARCHAR},#{shopcode,jdbcType=INTEGER}, 
+	      #{shopname,jdbcType=VARCHAR}, #{shopdesc,jdbcType=VARCHAR}, #{shopservice,jdbcType=VARCHAR}, 
+	      #{provinceid,jdbcType=VARCHAR}, #{cityid,jdbcType=VARCHAR}, #{countyid,jdbcType=VARCHAR},
+	      #{address,jdbcType=VARCHAR}, #{shopimg,jdbcType=VARCHAR}, 
+	      #{leadername,jdbcType=VARCHAR}, #{leadertel,jdbcType=VARCHAR}, #{leaderemail,jdbcType=VARCHAR},
+	      #{licenseimg,jdbcType=VARCHAR}, #{prolicenseimg,jdbcType=VARCHAR}, #{cardtop,jdbcType=VARCHAR}, 
+	      #{carddown,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+	      #{isdelete,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+	      #{cusid,jdbcType=VARCHAR}, #{appid,jdbcType=VARCHAR}, #{appkey,jdbcType=VARCHAR},
+	      #{areadesc,jdbcType=VARCHAR}, #{longitude,jdbcType=DOUBLE}, #{latitude,jdbcType=DOUBLE},
+	      #{shopsources,jdbcType=VARCHAR},#{accountnums,jdbcType=VARCHAR},#{accountbank,jdbcType=VARCHAR},
+	      #{accountname,jdbcType=VARCHAR} )
+	</insert> 
+	<update id="updateShopById"  parameterType="com.yh.model.Shop">
+		 update shop_info
+		 <trim prefix="set" suffixOverrides=",">
+		  <if test="shopname!=null">shopname=#{shopname},</if>
+		  <if test="shopdesc!=null">shopdesc=#{shopdesc},</if>
+		  <if test="shopservice!=null">shopservice=#{shopservice},</if>
+		  <if test="provinceid!=null">provinceid=#{provinceid},</if>
+		  <if test="cityid!=null">cityid=#{cityid},</if>
+		  <if test="countyid!=null">countyid=#{countyid},</if>
+		  <if test="address!=null">address=#{address},</if>
+		  <if test="shopimg!=null">shopimg=#{shopimg},</if>
+		  <if test="leadername!=null">leadername=#{leadername},</if>
+		  <if test="leadertel!=null">leadertel=#{leadertel},</if>
+		  <if test="leaderemail!=null">leaderemail=#{leaderemail},</if>
+		  <if test="licenseimg!=null">licenseimg=#{licenseimg},</if>
+		  <if test="prolicenseimg!=null">prolicenseimg=#{prolicenseimg},</if>
+		  <if test="cardtop!=null">cardtop=#{cardtop},</if>
+		  <if test="carddown!=null">carddown=#{carddown},</if>
+		  <if test="cusid!=null">cusid=#{cusid},</if>
+		  <if test="appid!=null">appid=#{appid},</if>
+		  <if test="appkey!=null">appkey=#{appkey},</if>
+		  <if test="areadesc!=null">areadesc=#{areadesc},</if>
+		  <if test="longitude!=null">longitude=#{longitude},</if>
+		  <if test="latitude!=null">latitude=#{latitude},</if>
+		  <if test="memo!=null">memo=#{memo},</if>
+		  <if test="accountnums!=null">accountnums=#{accountnums},</if>
+		  <if test="accountbank!=null">accountbank=#{accountbank},</if>
+		  <if test="accountname!=null">accountname=#{accountname},</if>
+		 </trim>
+		 where shopid=#{shopid}
+	</update> 	
+ 	<select id="getShopById" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select * from shop_info m where isdelete='1' and shopid = #{shopid}
+	</select>
+	<select id="getShopAddList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc
+		from shop_info m where isdelete='1'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status} and status in('0','2','5','6')
+		</if>
+		<if test="status == null or status ==''">
+			and status in('0','2','5','6')
+		</if>
+		order by shopcode desc
+	</select>
+ 	<select id="getShopList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc
+		from shop_info m where isdelete='1'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		<if test="status != null and status !=''">
+			and status = #{status}
+		</if>
+		order by shopcode desc
+	</select>
+	<update id="updateShopStatus" parameterType="com.yh.model.Shop">
+	     update shop_info set status=#{status} where shopid=#{shopid}             
+	</update>
+	<update  id="deleteShop" parameterType="com.yh.model.Shop">
+ 		 update shop_info set isdelete='0' where shopid=#{shopid}             
+ 	</update >
+  	<select id="getShopCheckList" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select n.scheckid,m.shopid,m.shopcode,n.submittime,shopname,address,m.status,areadesc,
+		(select realname from sys_user t where n.submitterid=t.userid) as realname
+		from shop_info m,shop_check n 
+		where m.shopid=n.shopid and m.isdelete='1' and m.status ='1' and n.status='0'
+		<if test="shopname != null and shopname !=''">
+			and shopname like "%"#{shopname}"%"
+		</if>
+		order by submittime
+	</select>
+	<select id="getShopByRight" resultMap="BaseResultMap"	parameterType="com.yh.model.Shop">
+		select shopid,shopcode,shopname,status,createtime,shopimg,areadesc from shop_info where isdelete='1'		
+		order by shopcode
+	</select>
+ 	<update  id="submitShopSetting" parameterType="com.yh.model.Shop">
+ 		 update shop_info set accountname=#{accountname},accountnums=#{accountnums},accountbank=#{accountbank} where shopid=#{shopid}             
+ 	</update >
+</mapper>

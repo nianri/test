@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yh.dao.GoodsOrderMapper">
+
+	<resultMap id="BaseResultMap" type="com.yh.model.GoodsOrder">
+		<id column="orderid" property="orderid" />
+		<result column="ordercode" property="ordercode" />
+		<result column="ordertime" property="ordertime" />
+		<result column="goodsid" property="goodsid" />
+		<result column="address" property="address" />
+		<result column="receive" property="receive" />
+		<result column="memberid" property="memberid" />
+		<result column="telphone" property="telphone" />
+		<result column="integral" property="integral" />
+		<result column="status" property="status" />
+		<result column="memo" property="memo" />
+		<result column="expressid" property="expressid" />
+		<result column="expressnums" property="expressnums" />
+		<result column="expressname" property="expressname"/>
+	</resultMap>
+	<!--查询礼品兑换列表 -->
+	<select id="getGoodsOrderList" resultMap="BaseResultMap"
+		parameterType="com.yh.model.GoodsOrder">
+	SELECT
+	go.orderid,
+	go.ordercode,
+	go.ordertime,
+	go.goodsid,
+	go.address,
+	go.receive,
+	go.memberid,
+	go.telphone,
+	go.STATUS,
+	go.integral,
+	go.memo,
+	go.expressid,
+	go.expressnums,
+	gi.goodsname,
+	gi.price
+	FROM
+	goods_order go
+	JOIN goods_info gi ON gi.goodsid = go.goodsid
+	AND gi.isdelete = '1'
+	where 1=1
+	<if test="receive!=null and receive!=''">
+	and go.receive  like concat('%',#{receive},'%')
+	</if>
+	<if test="goodsname !=null and goodsname !=''">
+	and gi.goodsname  like concat('%',#{goodsname},'%')
+	</if>
+	<if test="telphone !=null and telphone !=''">
+    	  and go.telphone=  #{telphone}
+    </if>
+	</select>
+	<select id="getGoodsOrder" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		SELECT
+	go.orderid,
+	go.ordercode,
+	go.ordertime,
+	go.goodsid,
+	go.address,
+	go.receive,
+	go.memberid,
+	go.telphone,
+	go.STATUS,
+	go.integral,
+	go.memo,
+	go.expressid,
+	go.expressnums,
+	gi.goodsname,
+	gi.price,
+	(select dic_express.expressname from dic_express where dic_express.expressid =go.expressid) expressname,
+	gi.goodsimg
+	FROM
+	goods_order go
+	JOIN goods_info gi ON gi.goodsid = go.goodsid
+	AND gi.isdelete = '1'
+		where orderid=#{orderid}
+	</select>
+	<update id="updateGoodsOrderById" parameterType="com.yh.model.GoodsOrder">
+		update goods_order set expressid=#{expressid},expressnums=#{expressnums},status=#{status} where orderid=#{orderid}
+	</update>
+</mapper>

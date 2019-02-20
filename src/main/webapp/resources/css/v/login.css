@@ -1,0 +1,167 @@
+@charset "UTF-8";
+header {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+header .logo {
+  width: 62.5%;
+  min-width: 1142px;
+  margin: 0 auto;
+  line-height: 100px;
+  height: 100%;
+  font-size: 0;
+}
+header .logo img {
+  vertical-align: middle;
+  display: inline-block;
+}
+header .logo span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 18px;
+  color: #666666;
+  font-weight: bold;
+  margin-left: 40px;
+  position: relative;
+  top: 15px;
+}
+.LoginWrapper {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  background: url("../image/logobg.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.LoginWrapper .LoginContent {
+  position: absolute;
+  right: 0;
+  width: 35%;
+  background: white;
+  top: 50%;
+  height: 303px;
+  margin-top: -151px;
+}
+.LoginWrapper .LoginContent .LoginCon {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginButton {
+  width: 100%;
+  height: 40px;
+  background: #d73535;
+  cursor: pointer;
+  color: white;
+  border: none;
+  font-size: 14px;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginTitle {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-top: 20px;
+}
+.LoginWrapper .LoginContent .LoginCon input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #cccccc;
+  outline: none;
+  text-indent: 10px;
+}
+.LoginWrapper .LoginContent .LoginCon input[type=password] {
+  margin-top: 20px;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function {
+  width: 100%;
+  font-size: 0;
+  overflow: auto;
+  margin: 20px 0;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function .Left {
+  float: left;
+  overflow: hidden;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function .Left img {
+  width: 14px;
+  height: 14px;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function .Left span {
+  margin-left: 7px;
+  font-size: 14px;
+  color: #666666;
+  vertical-align: top;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function .Left input[type=checkbox] {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+.LoginWrapper .LoginContent .LoginCon .LoginCon_function .right {
+  float: right;
+  overflow: hidden;
+  font-size: 14px;
+  vertical-align: top;
+}
+.LoginWrapper .LoginContent .LoginCon .Third-party_login {
+  width: 100%;
+  margin-top: 20px;
+}
+.LoginWrapper .LoginContent .LoginCon .Third-party_login img {
+  width: 30px;
+  height: 30px;
+}
+.LoginWrapper .LoginContent .LoginCon .Third-party_login img:last-of-type {
+  margin-left: 10px;
+}
+.LoginWrapper .LoginContent .LoginCon .Third-party_login a {
+  float: left;
+  line-height: 28px;
+  font-size: 14px;
+}
+.LoginWrapper .LoginContent .LoginCon .Third-party_login a:last-of-type {
+  float: right;
+}
+.LoginWrapper #wrapper {
+  width: 62.5%;
+  min-width: 1142px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+footer {
+  text-align: center;
+  margin: 70px 0;
+  color: #787777;
+  font-size: 16px;
+}
+.yzm {
+  width: 100%;
+  margin-top: 20px;
+}
+.yzm input {
+  width: 70%!important;
+}
+.yzm button {
+  border: none;
+  width: calc(30% - 10px);
+  height: 40px;
+  background: #999999;
+  color: white;
+  font-size: 14px;
+}
+@media screen and (max-width: 1500px) {
+  .LoginWrapper {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .LoginWrapper {
+    height: 450px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}

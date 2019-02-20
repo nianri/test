@@ -1,0 +1,57 @@
+header {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+header .logo {
+  width: 1200px;
+  margin: 0 auto;
+  line-height: 100px;
+  height: 100%;
+  font-size: 0;
+}
+header .logo img {
+  vertical-align: middle;
+  display: inline-block;
+}
+header .logo span {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 20px;
+  position: relative;
+  top: 15px;
+}
+section {
+  border-top: 1px solid #bcbcbc;
+  width: 1200px;
+  margin: 0 auto;
+}
+section div {
+  width: 100%;
+  margin-top: 150px;
+  text-align: center;
+  font-size: 18px;
+  color: #ff9913;
+}
+section a {
+  display: block;
+  width: 150px;
+  height: 38px;
+  border: 1px solid #FF9913;
+  text-align: center;
+  line-height: 38px;
+  margin: 70px auto 0;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #FF9913;
+}
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 70px;
+  width: 100%;
+  color: #787777;
+  font-size: 16px;
+}

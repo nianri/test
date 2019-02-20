@@ -1,0 +1,797 @@
+/* @import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css"; */
+@charset "utf-8";
+body {
+  background-color: #EEEEEE;
+}
+.footer {
+  margin-top: 0!important;
+}
+.content {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+.personTitle {
+  height: 35px;
+  line-height: 34px;
+  font-size: 20px;
+  color: #5c5c5c;
+  font-weight: bold;
+  border-bottom: 1px solid #d2d2d2;
+}
+.addressWrap {
+  padding: 5px 0 10px 20px;
+}
+.addressTitle {
+  height: 36px;
+  line-height: 36px;
+}
+.addressTitle div {
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+.addressTitle a {
+  float: right;
+  display: block;
+  height: 36px;
+  color: #787777;
+  position: relative;
+  padding-left: 26px;
+  font-weight: bold;
+}
+.addressTitle a > i {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  height: 21px;
+  background: url(../../img/f/addAddress.png);
+}
+.addressLists {
+  width: 1098px;
+  padding-left: 20px;
+  height: 60px;
+  overflow: hidden;
+}
+.addressItem {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  background-color: #EEEEEE;
+  padding: 10px;
+}
+.addressItem > div {
+  float: left;
+}
+.addressItem .userName {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: url(../../img/f/addressweixuanzhong.png);
+  cursor: pointer;
+}
+.addressItem .userAdressNow {
+  background: url(../../img/f/addressxuanzhong.png);
+}
+.addressItem .addressShow {
+  height: 30px;
+  line-height: 30px;
+}
+.addressItem .addressShow > span {
+  display: block;
+  float: left;
+  margin-left: 10px;
+}
+.addressItem .defaultLogo {
+  width: 80px;
+  text-align: center;
+  height: 20px;
+  color: #FFFFFF;
+  line-height: 20px;
+  background-color: #787777;
+  position: relative;
+  top: 5px;
+  margin-left: 10px;
+  display: none;
+}
+.addressItem .default {
+  display: block;
+}
+.addressItem .setAddress {
+  float: right;
+  margin-right: 20px;
+  height: 30px;
+}
+.addressItem .setAddress > a {
+  display: block;
+  height: 30px;
+  color: #181412;
+  float: left;
+  margin-left: 20px;
+  line-height: 30px;
+}
+.controllerAddressWrap {
+  width: 100%;
+  padding-left: 20px;
+  height: 35px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.showMoreAddress {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 20px;
+  line-height: 20px;
+  padding-right: 24x;
+  font-size: 14px;
+  color: #999999;
+}
+.showMoreAddress i {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 9px;
+  height: 9px;
+  background: url(../../img/f/addressShow.png);
+}
+.shouqi > i {
+  background: url(../../img/f/addressHide.png);
+}
+.fastMail {
+  padding: 20px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.fastMail p:first-of-type {
+  font-size: 16px;
+  font-weight: bold;
+}
+.fastMail p:last-of-type {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.paymentWrap {
+  padding: 20px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.paymentWrap p {
+  font-size: 16px;
+  font-weight: bold;
+}
+.paymentWrap .paywayLists {
+  margin-top: 20px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.paymentWrap .paywayLists a {
+  display: block;
+  width: 120px;
+  height: 34px;
+  font-size: 14px;
+  color: #272727;
+  font-weight: bold;
+  float: left;
+  margin-right: 15px;
+  background: url(../../img/f/payswaynoselect.png);
+}
+.paymentWrap .paywayLists .paywayActive {
+  background: url(../../img/f/paywayselect.png);
+}
+.tureInformationTitle {
+  padding: 20px 0 10px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #d2d2d2;
+}
+.goodsListsTilte {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+  background-color: #EEEEEE;
+  font-size: 12px;
+  color: #5c5c5c;
+}
+.goodsListsTilte span:nth-child(1) {
+  margin-left: 54px;
+}
+.goodsListsTilte span:nth-child(2) {
+  margin-left: 667px;
+}
+.goodsListsTilte span:nth-child(3) {
+  margin-left: 100px;
+}
+.goodsListsTilte span:nth-child(4) {
+  margin-left: 170px;
+}
+.shopWrap {
+  background-color: #fff8f1;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+.shopWrap .shopTitle {
+  font-size: 12px;
+  height: 27px;
+  padding-top: 10px;
+}
+.goodsLists .goods {
+  width: 100%;
+  padding: 5px 0;
+}
+.goodsLists .goods > div {
+  float: left;
+}
+.goodsLists .goods .goodsImg {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #D2D2D2;
+}
+.goodsLists .goods .goodsInformation {
+  width: 250px;
+  font-size: 12px;
+  margin-left: 20px;
+  line-height: 20px;
+}
+.goodsLists .goods .goodsMessage {
+  margin-left: 50px;
+  font-size: 12px;
+  width: 246px;
+  color: #999999;
+  line-height: 20px;
+}
+.goodsLists .goods .goodsMessage .prompt {
+  color: #d73535;
+  white-space: nowrap;
+}
+.goodsLists .goods .goodsSinglePrice {
+  font-size: 12px;
+  color: #272727;
+  width: 100px;
+  margin-left: 82px;
+}
+.goodsLists .goods .goodsNumber {
+  width: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: #272727;
+  margin-left: 20px;
+}
+.goodsLists .goods .goodsPriceAccount {
+  font-size: 14px;
+  color: #d73535;
+  margin-left: 164px;
+}
+/*澧ㄩ暅鎴栬�呮姢鐞嗙敤鍝佸晢鍝佸睍绀�*/
+.goodsOne .goodsSinglePrice {
+  margin-left: 376px!important;
+}
+/*闅愬舰鐪奸暅鍟嗗搧灞曠ず*/
+.goodsTwo .goodsMessage {
+  text-align: center;
+  font-size: 14px;
+}
+.goodsTwo .goodsMessage div:last-of-type {
+  margin-top: 20px;
+}
+.goodsTwo .goodsNumber p:last-of-type {
+  margin-top: 30px;
+}
+/*鐪奸暅妗嗘灦鍜岄暅鐗囧叧鑱旂殑灞曠ず*/
+.goodsThree .goodsSinglePrice {
+  margin-left: 378px!important;
+}
+.goodsThree .addGlass {
+  width: 100%;
+  height: 82px;
+  margin-top: 10px;
+}
+.goodsThree .addGlass > div {
+  float: left;
+}
+.goodsThree .addGlass .glassImg {
+  width: 82px;
+  height: 82px;
+  border: 1px solid #d2d2d2;
+}
+.goodsThree .addGlass .eyeInfo {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 20px;
+  line-height: 20px;
+  width: 300px;
+}
+.goodsThree .addGlass .glassPrice {
+  font-size: 12px;
+  width: 100px;
+  margin-left: 324px;
+}
+.goodsThree .addGlass .glassNumber {
+  width: 40px;
+  text-align: center;
+  font-size: 12px;
+  margin-left: 24px;
+}
+.buyerWrods {
+  margin-top: 10px;
+  width: 612px;
+  padding-bottom: 10px;
+}
+.textWrap {
+  height: 40px;
+  width: 612px;
+  border: 1px solid #787777;
+}
+.textWrap .text {
+  width: 100%;
+  height: 100%;
+  line-height: 38px;
+  outline: none;
+  border: none;
+  resize: none;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.wordsNumber {
+  margin-top: 10px;
+  text-align: right;
+  padding-right: 10px;
+  display: none;
+}
+.favourableWrap {
+  margin-top: 20px;
+  border-top: 1px solid #d2d2d2;
+}
+.useFavourable {
+  height: 36px;
+  line-height: 36px;
+  padding-left: 20px;
+}
+.favourable {
+  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  color: #787777;
+  padding-left: 20px;
+  background-color: #EEEEEE;
+}
+.shopFavourable {
+  font-size: 12px;
+  font-weight: bold;
+  height: 42px;
+  line-height: 42px;
+  padding-left: 20px;
+}
+.discountWrap {
+  width: 1200px;
+  padding-left: 20px;
+  margin: 0 auto;
+}
+.discountWrap > div {
+  float: left;
+  padding-right: 6px;
+  height: 82px;
+  border: 1px solid #181412;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.discountWrap .discountUse {
+  border: 1px solid #ff9934;
+}
+.discount > div {
+  float: left;
+}
+.discount div:nth-child(1) {
+  height: 82px;
+  line-height: 82px;
+  text-align: center;
+}
+.discount div:nth-child(1) span:first-of-type {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.discount div:nth-child(1) span:last-of-type {
+  font-size: 40px;
+  font-weight: bolder;
+}
+.discount div:nth-child(2) {
+  margin-left: 5px;
+  width: 86px;
+  height: 82px;
+  padding-top: 25px;
+}
+.discount div:nth-child(2) p:first-of-type {
+  font-size: 14px;
+  font-weight: bold;
+}
+.discount div:nth-child(2) p:last-of-type {
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.discount div:nth-child(3) {
+  width: 80px;
+  padding-top: 15px;
+}
+.discount div:nth-child(3) p:nth-child(1) {
+  font-size: 14px;
+}
+.discount div:nth-child(3) p:nth-child(2) {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.discount div:nth-child(3) a {
+  display: block;
+  width: 80px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #FFFFFF;
+  background-color: #ff9934;
+  margin-top: 4px;
+}
+.hasUseFavourable {
+  margin-top: 50px;
+  font-size: 12px;
+  padding-left: 20px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #EEEEEE;
+}
+.hasUseFavourable > div {
+  float: left;
+}
+.hasUseFavourable div:first-of-type {
+  margin-right: 35px;
+}
+.deliver {
+  width: 100%;
+  height: 12px;
+  background-color: #EEEEEE;
+  margin-top: 20px;
+}
+.billWrap {
+  padding-right: 10px;
+  padding-left: 900px;
+  padding-top: 20px;
+}
+.billWrap > div {
+  overflow: hidden;
+}
+.billWrap > div div {
+  float: left;
+}
+.billWrap > div .price {
+  width: 150px;
+  float: right;
+  font-size: 12px;
+  text-align: right;
+}
+.billWrap a {
+  display: block;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #ff9934;
+  border-radius: 3px;
+  float: right;
+  margin-top: 25px;
+}
+.total div:nth-child(1) {
+  font-size: 12px;
+  color: #d73535;
+  width: 40px;
+  text-align: right;
+}
+.total div:nth-child(2),
+.total div:nth-child(3) {
+  font-size: 12px;
+  color: #272727;
+}
+.total div:nth-child(3) {
+  margin-left: 28px;
+}
+.freight,
+.coupon,
+.reduce {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #272727;
+}
+.freight div:nth-child(1),
+.coupon div:nth-child(1),
+.reduce div:nth-child(1) {
+  width: 140px;
+  text-align: right;
+}
+.lastPay {
+  text-align: right;
+  margin-top: 30px;
+  padding-right: 10px;
+}
+.lastPay span:first-of-type {
+  font-size: 12px;
+  color: #272727;
+}
+.lastPay span:last-of-type,
+.lastPay span:nth-of-type(2) {
+  font-size: 20px;
+  color: #d73535;
+}
+.addressGoto {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #5c5c5c;
+  height: 30px;
+}
+.addressGoto span:first-of-type {
+  font-size: 14px;
+  color: #181412;
+}
+.addressGoto span {
+  margin-right: 5px;
+}
+.addressGoto span:last-of-type {
+  margin-right: 0;
+}
+.receiver {
+  font-size: 12px;
+  color: #5c5c5c;
+  text-align: right;
+}
+.receiver span:first-of-type {
+  font-size: 14px;
+  color: #181412;
+}
+.receiver span {
+  margin-right: 5px;
+}
+.receiver span:last-of-type {
+  margin-right: 0;
+}
+.chanageShade {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+}
+.changeAddressWrap {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 30%;
+  width: 760px;
+  height: 500px;
+  background-color: #ffffff;
+  border: 1px solid #BCBCBC;
+  box-shadow: 0 0 5px #bdb8b3;
+}
+.changeAddressWrap .title {
+  position: relative;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+  color: #272727;
+  background-color: #EEEEEE;
+  padding-left: 20px;
+}
+.changeAddressWrap .title i {
+  position: absolute;
+  width: 13px;
+  height: 16px;
+  top: 5px;
+  right: 10px;
+  background: url(../../img/f/changeaddressHide.png);
+  cursor: pointer;
+}
+.publicTitle {
+  margin-top: 20px;
+  padding-left: 25px;
+  font-size: 12px;
+  color: #999999;
+}
+.publicTitle i {
+  color: #d73535;
+  margin-right: 3px;
+  position: relative;
+  top: 2px;
+}
+.publicTitle span {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 264px;
+}
+.receiverWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.receiverWrap .receiverName {
+  width: 235px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.receiverWrap span {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.detailAddressWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.detailAddressWrap .detailAddress {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.detailAddressWrap span {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.areaWrap {
+  margin-top: 10px;
+  height: 30px;
+  font-size: 14px;
+  padding-left: 30px;
+  position: relative;
+  color: #272727;
+}
+.areaWrap .citys,
+.areaWrap .provice,
+.areaWrap .twon {
+  float: left;
+  position: relative;
+  font-size: 14px;
+  height: 30px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+  border: 1px solid #C4C4C4;
+  z-index: 999;
+}
+.areaWrap .citys i,
+.areaWrap .provice i,
+.areaWrap .twon i {
+  position: absolute;
+  width: 11px;
+  height: 7px;
+  top: 14px;
+  right: 5px;
+  cursor: pointer;
+  background: url(../../img/f/areaxiala.png);
+}
+.areaWrap .selectareaActive {
+  border-bottom: 1px solid #FFFFFF;
+}
+.showArea {
+  position: absolute;
+  display: none;
+  top: 29px;
+  left: 0px;
+  width: 400px;
+  min-height: 120px;
+  background-color: #FFFFFF;
+  z-index: 100;
+  left: 30px;
+  border: 1px solid #C4C4C4;
+  padding-top: 6px;
+}
+.showArea > a {
+  display: block;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 3px;
+  font-size: 14px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  color: #272727;
+}
+.showArea .areaActive {
+  background-color: #ff9934;
+  color: #FFFFFF;
+}
+.phoneWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.phoneWrap .movePhone,
+.phoneWrap .telPhone {
+  width: 235px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.phoneWrap .note {
+  margin-left: 6px;
+  font-size: 12px;
+  line-height: 30px;
+  color: #d73535;
+}
+.phoneWrap .orLink {
+  font-size: 12px;
+  color: #999999;
+  line-height: 30px;
+  padding: 0 5px;
+}
+.emailWrap {
+  margin-top: 10px;
+  padding-left: 20px;
+  height: 30px;
+}
+.emailWrap .email {
+  width: 500px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  line-height: 28px;
+  color: #181412;
+  padding-left: 15px;
+  font-size: 14px;
+}
+.setDefaultWrap {
+  margin-top: 10px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  color: #5c5c5c;
+  padding-left: 40px;
+  position: relative;
+}
+.setDefaultWrap i {
+  position: absolute;
+  left: 24px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  background: url(../../img/f/setDefault.png);
+  cursor: pointer;
+}
+.saveAddress {
+  margin-top: 30px;
+  display: block;
+  width: 96px;
+  height: 28px;
+  background-color: #ff9934;
+  text-align: center;
+  line-height: 26px;
+  font-size: 12px;
+  color: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 3px;
+  margin-left: 24px;
+}

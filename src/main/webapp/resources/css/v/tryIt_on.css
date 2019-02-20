@@ -1,0 +1,314 @@
+/* @import "../css/head.css";
+@import "../css/footer.css";
+@import "../static/reset.css";
+@import "../static/cityselect.css"; */
+@charset "UTF-8";
+     
+       #cue_a{
+	width:300px;
+	height: 170px;
+	background:#fff;
+	border: 3px solid #6495ED;
+	margin: 20px auto;
+	display: none;
+	z-index:99;
+	position:absolute;
+	left:670px;
+	top:250px;
+}
+#cue{
+	display: inline-block;
+    width: 100%;
+    height: 20px;
+    background: #6495ED;
+    color: #fff;
+    font-family: "Î¢ÈíÑÅºÚ";
+    text-indent: 1em;
+    line-height: 18px;
+    position: relative;
+    top: -2px;
+}
+#cue_contact{
+	width: 280px;
+	height: 110px;
+	border: 1px solid #CCCCCC;
+	text-align: center;
+	line-height: 20px;
+	padding-top: 40px;
+	margin-left: 8px;
+	margin-top: 5px;
+	color: red;
+}
+.cue_right{
+	    margin-top: 5px;
+	    margin-left: 117px;
+	    width: 60px;
+}
+       
+.conse {
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 35px;
+  overflow: hidden;
+}
+.conse .imgs {
+  width: 440px;
+  height: 590px;
+  float: left;
+  display: block;
+}
+.conse .cards {
+  width: 680px;
+  height: 680px;
+  float: right;
+  background: white;
+  position: relative;
+}
+.conse .cards .cards_tabs {
+  width: 28px;
+  position: absolute;
+  left: -28px;
+}
+.conse .cards .cards_tabs .item_tabs {
+  writing-mode: tb-rl;
+  width: 100%;
+  height: 123px;
+  text-align: center;
+  border: 1px solid #ff9934;
+  vertical-align: middle;
+  line-height: 25px;
+  color: #fe9834;
+  letter-spacing: 4px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  background: white;
+  cursor: pointer;
+}
+.titlesa {
+  margin-top: 10px;
+  margin-left: 15px;
+  font-weight: 600;
+}
+.pzs {
+  width: 136px;
+  height: 38px;
+  border: none;
+  outline: none;
+  background: #8d8d8d;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 auto;
+  display: block;
+  margin-top: 40px;
+}
+.acts {
+  background: #ff9934!important;
+  color: white!important;
+}
+.tabs_child {
+  display: none;
+}
+#cards {
+  width: 628px;
+  margin: 0 auto;
+  height: 616px;
+}
+#cards li {
+  width: 30%;
+  height: 260px;
+  border: 1px solid #eeeeee;
+  float: left;
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+#cards li img {
+  width: 80%;
+  margin: 20px 0;
+}
+.firsts {
+  text-align: left;
+  font-size: 14px;
+  width: 90%;
+  line-height: 20px;
+  margin: 0 auto;
+  color: #777777;
+}
+.lefts {
+  text-align: left;
+  width: 90%;
+  margin: 10px auto;
+  color: #d83337;
+  font-weight: 600;
+}
+.downs {
+  width: 628px;
+  margin: 0 auto;
+  overflow: hidden;
+  line-height: 28px;
+}
+.pageNums {
+  color: #ff9934;
+  font-size: 14px;
+  margin-left: 3%;
+}
+.thisNums {
+  color: #ff9934;
+  font-size: 14px;
+  margin-left: 3%;
+}
+.buttons_divs {
+  float: right;
+}
+.buttons_divs button {
+  width: 128px;
+  height: 28px;
+  border: 1px solid #ff9934;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #fe9833;
+}
+.buttons_divs button:last-of-type {
+  background: #fe9833;
+  color: white;
+}
+.leftWrap {
+  float: left;
+  width: 440px;
+}
+#bg_conse {
+  position: relative;
+  width: 440px;
+  height: 590px;
+  overflow: hidden;
+}
+#bg_conse .squres {
+  position: absolute;
+  z-index: 1000;
+  width: 10px;
+  height: 10px;
+  display: block;
+  background: red;
+  border-radius: 50%;
+  display: none;
+}
+#bg_conse .squresa {
+  position: absolute;
+  z-index: 1000;
+  width: 10px;
+  height: 10px;
+  display: block;
+  display: none;
+  background: red;
+  border-radius: 50%;
+}
+#srcs {
+  position: absolute;
+  top: 0;
+  z-index: 100000;
+  left: 0;
+  cursor: move;
+  display: none;
+}
+.toolbar {
+  position: absolute;
+  z-index: 999;
+  width: auto;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  display: none;
+}
+.toolbar .reset {
+  float: left;
+  cursor: pointer;
+}
+.toolbar .reset span {
+  font-size: 12px;
+  color: white;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.toolbar .reset img {
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.toolbar .sures {
+  float: left;
+  cursor: pointer;
+}
+.toolbar .sures span {
+  font-size: 12px;
+  color: white;
+  vertical-align: middle;
+}
+.toolbar .sures img {
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.toolbar .yes {
+  float: left;
+  display: none;
+  cursor: pointer;
+}
+.toolbar .yes span {
+  font-size: 12px;
+  color: white;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.toolbar .yes img {
+  height: 12px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.model_lists {
+  padding: 10px;
+}
+.model_lists > li {
+  float: left;
+  width: 150px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.model_lists > li img {
+  display: block;
+  width: 100%;
+}
+.model_lists > li:nth-child(4n) {
+  margin-right: 0;
+}
+.zooom_inout {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+}
+.zooom_inout > a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.zooom_inout #zoom_in {
+  background: url(../../img/f/zoom_in.png);
+  background-size: 100% 100%;
+}
+.zooom_inout #zoom_out {
+  margin-top: 10px;
+  background: url(../../img/f/zoom_out.png);
+  background-size: 100% 100%;
+}
+.note {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #ff9934;
+  text-align: justify;
+}
