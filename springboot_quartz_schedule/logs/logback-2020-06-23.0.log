@@ -1,0 +1,703 @@
+2020-06-23 23:10:32.637 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 25688 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:10:32.639 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:10:33.897 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:10:33.914 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:10:33.923 INFO main - Starting service [Tomcat]
+2020-06-23 23:10:33.923 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:10:33.950 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:10:34.074 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:10:34.075 INFO main - Root WebApplicationContext: initialization completed in 1401 ms
+2020-06-23 23:10:34.207 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:10:34.304 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:10:34.343 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:10:34.352 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:10:34.356 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:10:34.357 INFO main - RAMJobStore initialized.
+2020-06-23 23:10:34.358 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:10:34.358 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:10:34.358 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:10:34.358 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@49ca94a9
+2020-06-23 23:10:34.684 INFO main - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@27dc627a 
+2020-06-23 23:10:34.787 WARN main - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+### The error may exist in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\mapper\SchedulerMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select             job_id, create_time, update_time, job_name, job_group, job_status,   cron_expression,   description, bean_class, is_concurrent, spring_id, method_name            from task_schedule_job
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+2020-06-23 23:10:34.787 INFO main - Shutting down Quartz Scheduler
+2020-06-23 23:10:34.787 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-06-23 23:10:34.787 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-06-23 23:10:34.788 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-06-23 23:10:34.788 INFO main - HikariPool-1 - Shutdown initiated...
+2020-06-23 23:10:34.792 INFO main - HikariPool-1 - Shutdown completed.
+2020-06-23 23:10:34.794 INFO main - Stopping service [Tomcat]
+2020-06-23 23:10:34.803 INFO main - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-23 23:10:34.810 ERROR main - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+### The error may exist in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\mapper\SchedulerMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select             job_id, create_time, update_time, job_name, job_group, job_status,   cron_expression,   description, bean_class, is_concurrent, spring_id, method_name            from task_schedule_job
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.crcb.SpringbootStart.main(SpringbootStart.java:19)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+### The error may exist in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\mapper\SchedulerMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select             job_id, create_time, update_time, job_name, job_group, job_status,   cron_expression,   description, bean_class, is_concurrent, spring_id, method_name            from task_schedule_job
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:139)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1754)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 19 common frames omitted
+Caused by: org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+### The error may exist in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\mapper\SchedulerMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select             job_id, create_time, update_time, job_name, job_group, job_status,   cron_expression,   description, bean_class, is_concurrent, spring_id, method_name            from task_schedule_job
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:234)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy61.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:230)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58)
+	at com.sun.proxy.$Proxy62.getAll(Unknown Source)
+	at com.crcb.service.impl.SchedulerServiceImpl.init(SchedulerServiceImpl.java:153)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:363)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:136)
+	... 31 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'job_group' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:970)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:387)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy65.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:136)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 45 common frames omitted
+2020-06-23 23:12:16.765 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 18016 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:12:16.768 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:12:17.995 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:12:18.011 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:12:18.021 INFO main - Starting service [Tomcat]
+2020-06-23 23:12:18.021 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:12:18.038 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:12:18.170 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:12:18.171 INFO main - Root WebApplicationContext: initialization completed in 1322 ms
+2020-06-23 23:12:18.296 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:12:18.392 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:12:18.435 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:12:18.445 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:12:18.447 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:12:18.448 INFO main - RAMJobStore initialized.
+2020-06-23 23:12:18.449 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:12:18.449 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:12:18.449 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:12:18.449 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@77d4ac52
+2020-06-23 23:12:18.672 INFO main - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@359066bc 
+2020-06-23 23:12:18.816 INFO main - org.quartz.impl.StdScheduler@5729b410.......................................................................................add 
+2020-06-23 23:12:18.836 INFO main - org.quartz.impl.StdScheduler@5729b410.......................................................................................add 
+2020-06-23 23:12:19.052 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:12:19.213 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:12:19.253 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:12:19.254 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:12:19.271 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:12:19.308 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:12:19.322 INFO main - Started SpringbootStart in 3.079 seconds (JVM running for 4.751)
+2020-06-23 23:18:27.864 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 23904 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:18:27.866 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:18:29.127 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:18:29.157 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:18:29.175 INFO main - Starting service [Tomcat]
+2020-06-23 23:18:29.176 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:18:29.183 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:18:29.291 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:18:29.291 INFO main - Root WebApplicationContext: initialization completed in 1360 ms
+2020-06-23 23:18:29.407 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:18:29.507 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:18:29.546 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:18:29.557 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:18:29.559 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:18:29.559 INFO main - RAMJobStore initialized.
+2020-06-23 23:18:29.560 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:18:29.560 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:18:29.560 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:18:29.561 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@235b4cb8
+2020-06-23 23:18:29.791 INFO main - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@67fb5025 
+2020-06-23 23:18:29.841 INFO main - org.quartz.impl.StdScheduler@2a8f6e6.......................................................................................add 
+2020-06-23 23:18:29.848 INFO main - org.quartz.impl.StdScheduler@2a8f6e6.......................................................................................add 
+2020-06-23 23:18:30.032 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:18:30.184 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:18:30.226 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:18:30.226 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:18:30.237 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:18:30.266 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:18:30.271 INFO main - Started SpringbootStart in 2.889 seconds (JVM running for 4.473)
+2020-06-23 23:19:00.245 INFO quartzScheduler_Worker-1 - 定时任务名称 = [AddNumWorker] = 启动成功 
+2020-06-23 23:19:00.246 INFO quartzScheduler_Worker-2 - 定时任务名称 = [ProStatisticsWorker] = 启动成功 
+2020-06-23 23:26:54.406 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 25364 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:26:54.450 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:26:55.767 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:26:55.795 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:26:55.806 INFO main - Starting service [Tomcat]
+2020-06-23 23:26:55.806 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:26:55.813 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:26:55.928 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:26:55.928 INFO main - Root WebApplicationContext: initialization completed in 1422 ms
+2020-06-23 23:26:56.091 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:26:56.196 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:26:56.236 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:26:56.249 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:26:56.251 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:26:56.251 INFO main - RAMJobStore initialized.
+2020-06-23 23:26:56.252 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:26:56.252 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:26:56.252 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:26:56.253 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@21ea996f
+2020-06-23 23:26:56.501 INFO main - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@5b1e88f 
+2020-06-23 23:27:09.678 INFO main - org.quartz.impl.StdScheduler@723e2d08.......................................................................................add 
+2020-06-23 23:29:20.234 WARN HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m9s851ms643µs900ns).
+2020-06-23 23:29:24.999 WARN main - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.quartz.SchedulerException: Based on configured schedule, the given trigger 'AddNumWorker.AddNumWorker' will never fire.
+2020-06-23 23:29:25.000 INFO main - Shutting down Quartz Scheduler
+2020-06-23 23:29:25.001 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-06-23 23:29:25.001 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-06-23 23:29:25.002 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-06-23 23:29:25.002 INFO main - HikariPool-1 - Shutdown initiated...
+2020-06-23 23:29:25.013 INFO main - HikariPool-1 - Shutdown completed.
+2020-06-23 23:29:25.016 INFO main - Stopping service [Tomcat]
+2020-06-23 23:29:25.029 INFO main - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-23 23:29:25.037 ERROR main - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.quartz.SchedulerException: Based on configured schedule, the given trigger 'AddNumWorker.AddNumWorker' will never fire.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.crcb.SpringbootStart.main(SpringbootStart.java:19)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl': Invocation of init method failed; nested exception is org.quartz.SchedulerException: Based on configured schedule, the given trigger 'AddNumWorker.AddNumWorker' will never fire.
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:139)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1754)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 19 common frames omitted
+Caused by: org.quartz.SchedulerException: Based on configured schedule, the given trigger 'AddNumWorker.AddNumWorker' will never fire.
+	at org.quartz.core.QuartzScheduler.scheduleJob(QuartzScheduler.java:882)
+	at org.quartz.impl.StdScheduler.scheduleJob(StdScheduler.java:249)
+	at com.crcb.service.impl.SchedulerServiceImpl.addJob(SchedulerServiceImpl.java:134)
+	at com.crcb.service.impl.SchedulerServiceImpl.init(SchedulerServiceImpl.java:156)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:363)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:136)
+	... 31 common frames omitted
+2020-06-23 23:43:21.118 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 25504 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:43:21.121 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:43:22.869 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:43:22.909 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:43:22.921 INFO main - Starting service [Tomcat]
+2020-06-23 23:43:22.922 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:43:22.929 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:43:23.047 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:43:23.048 INFO main - Root WebApplicationContext: initialization completed in 1832 ms
+2020-06-23 23:43:23.191 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:43:23.301 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:43:23.340 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:43:23.351 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:43:23.352 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:43:23.353 INFO main - RAMJobStore initialized.
+2020-06-23 23:43:23.354 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:43:23.354 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:43:23.354 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:43:23.354 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@f2276c9
+2020-06-23 23:43:23.745 WARN main - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+2020-06-23 23:43:23.746 INFO main - Shutting down Quartz Scheduler
+2020-06-23 23:43:23.746 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-06-23 23:43:23.747 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-06-23 23:43:23.747 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-06-23 23:43:23.749 INFO main - HikariPool-1 - Shutdown initiated...
+2020-06-23 23:43:23.756 INFO main - HikariPool-1 - Shutdown completed.
+2020-06-23 23:43:23.760 INFO main - Stopping service [Tomcat]
+2020-06-23 23:43:23.772 INFO main - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-23 23:43:23.779 ERROR main - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.crcb.SpringbootStart.main(SpringbootStart.java:19)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduled(ScheduledAnnotationBeanPostProcessor.java:496)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$null$1(ScheduledAnnotationBeanPostProcessor.java:359)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$2(ScheduledAnnotationBeanPostProcessor.java:359)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.postProcessAfterInitialization(ScheduledAnnotationBeanPostProcessor.java:358)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:429)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	... 28 common frames omitted
+2020-06-23 23:44:19.242 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 25948 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:44:19.244 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:44:20.462 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:44:20.493 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:44:20.509 INFO main - Starting service [Tomcat]
+2020-06-23 23:44:20.510 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:44:20.518 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:44:20.636 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:44:20.636 INFO main - Root WebApplicationContext: initialization completed in 1280 ms
+2020-06-23 23:44:20.749 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:44:20.844 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:44:20.882 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:44:20.892 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:44:20.893 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:44:20.894 INFO main - RAMJobStore initialized.
+2020-06-23 23:44:20.895 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:44:20.897 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:44:20.897 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:44:20.897 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@2e62ead7
+2020-06-23 23:44:21.401 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:44:21.541 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:44:21.579 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:44:21.579 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:44:21.589 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:44:21.615 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:44:21.619 INFO main - Started SpringbootStart in 3.243 seconds (JVM running for 4.946)
+2020-06-23 23:44:39.409 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 20284 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:44:39.412 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:44:40.671 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:44:40.700 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:44:40.717 INFO main - Starting service [Tomcat]
+2020-06-23 23:44:40.717 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:44:40.723 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:44:40.836 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:44:40.836 INFO main - Root WebApplicationContext: initialization completed in 1374 ms
+2020-06-23 23:44:40.953 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:44:41.052 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:44:41.092 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:44:41.101 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:44:41.103 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:44:41.103 INFO main - RAMJobStore initialized.
+2020-06-23 23:44:41.104 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:44:41.104 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:44:41.104 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:44:41.104 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@17fede14
+2020-06-23 23:44:41.349 WARN main - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+2020-06-23 23:44:41.349 INFO main - Shutting down Quartz Scheduler
+2020-06-23 23:44:41.349 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2020-06-23 23:44:41.349 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2020-06-23 23:44:41.349 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2020-06-23 23:44:41.350 INFO main - HikariPool-1 - Shutdown initiated...
+2020-06-23 23:44:41.355 INFO main - HikariPool-1 - Shutdown completed.
+2020-06-23 23:44:41.357 INFO main - Stopping service [Tomcat]
+2020-06-23 23:44:41.365 INFO main - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-23 23:44:41.373 ERROR main - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'schedulerController': Unsatisfied dependency expressed through field 'schedulerService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.crcb.SpringbootStart.main(SpringbootStart.java:19)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'schedulerServiceImpl' defined in file [D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes\com\crcb\service\impl\SchedulerServiceImpl.class]: Initialization of bean failed; nested exception is java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1167)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled method 'init': Cron expression must consist of 6 fields (found 7 in "0 44 23 23 6 ? 2020-2020")
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduled(ScheduledAnnotationBeanPostProcessor.java:496)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$null$1(ScheduledAnnotationBeanPostProcessor.java:359)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$2(ScheduledAnnotationBeanPostProcessor.java:359)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.postProcessAfterInitialization(ScheduledAnnotationBeanPostProcessor.java:358)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:429)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	... 28 common frames omitted
+2020-06-23 23:48:03.461 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 19472 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:48:03.463 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:48:04.672 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:48:04.687 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:48:04.697 INFO main - Starting service [Tomcat]
+2020-06-23 23:48:04.698 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:48:04.703 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:48:04.838 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:48:04.839 INFO main - Root WebApplicationContext: initialization completed in 1327 ms
+2020-06-23 23:48:04.967 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:48:05.067 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:48:05.104 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:48:05.112 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:48:05.114 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:48:05.115 INFO main - RAMJobStore initialized.
+2020-06-23 23:48:05.115 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:48:05.115 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:48:05.115 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:48:05.116 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@297c9a9b
+2020-06-23 23:48:05.523 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:48:05.666 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:48:05.702 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:48:05.703 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:48:05.715 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:48:05.739 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:48:05.744 INFO main - Started SpringbootStart in 2.93 seconds (JVM running for 4.841)
+2020-06-23 23:48:21.257 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 10692 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:48:21.261 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:48:22.724 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:48:22.755 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:48:22.778 INFO main - Starting service [Tomcat]
+2020-06-23 23:48:22.778 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:48:22.787 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:48:22.910 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:48:22.911 INFO main - Root WebApplicationContext: initialization completed in 1521 ms
+2020-06-23 23:48:23.063 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:48:23.172 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:48:23.214 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:48:23.225 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:48:23.228 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:48:23.229 INFO main - RAMJobStore initialized.
+2020-06-23 23:48:23.230 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:48:23.230 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:48:23.230 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:48:23.230 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3e900e1a
+2020-06-23 23:48:23.694 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:48:23.850 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:48:23.896 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:48:23.897 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:48:23.911 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:48:23.943 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:48:23.948 INFO main - Started SpringbootStart in 3.458 seconds (JVM running for 5.353)
+2020-06-23 23:49:03.098 INFO scheduling-1 - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@52abed9d 
+2020-06-23 23:49:12.494 INFO scheduling-1 - org.quartz.impl.StdScheduler@71c4a0.......................................................................................add 
+2020-06-23 23:49:38.675 WARN HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s398ms138µs400ns).
+2020-06-23 23:50:07.962 ERROR scheduling-1 - Unexpected error occurred in scheduled task.
+org.quartz.SchedulerException: Based on configured schedule, the given trigger 'AddNumWorker.AddNumWorker' will never fire.
+	at org.quartz.core.QuartzScheduler.scheduleJob(QuartzScheduler.java:882)
+	at org.quartz.impl.StdScheduler.scheduleJob(StdScheduler.java:249)
+	at com.crcb.service.impl.SchedulerServiceImpl.addJob(SchedulerServiceImpl.java:135)
+	at com.crcb.service.impl.SchedulerServiceImpl.init(SchedulerServiceImpl.java:158)
+	at com.crcb.service.impl.SchedulerServiceImpl$$FastClassBySpringCGLIB$$e2f4e01c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.crcb.service.impl.SchedulerServiceImpl$$EnhancerBySpringCGLIB$$2aa211a9.init(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:514)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:299)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+	at java.base/java.lang.Thread.run(Thread.java:844)
+2020-06-23 23:50:47.117 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 1776 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:50:47.122 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:50:48.686 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:50:48.738 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:50:48.750 INFO main - Starting service [Tomcat]
+2020-06-23 23:50:48.750 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:50:48.758 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:50:48.888 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:50:48.888 INFO main - Root WebApplicationContext: initialization completed in 1667 ms
+2020-06-23 23:50:49.047 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:50:49.170 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:50:49.215 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:50:49.228 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:50:49.231 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:50:49.232 INFO main - RAMJobStore initialized.
+2020-06-23 23:50:49.233 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:50:49.234 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:50:49.234 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:50:49.234 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1a1ccaaf
+2020-06-23 23:50:49.802 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:50:49.960 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:50:50.011 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:50:50.012 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:50:50.023 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:50:50.050 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:50:50.054 INFO main - Started SpringbootStart in 3.883 seconds (JVM running for 5.735)
+2020-06-23 23:51:07.697 INFO scheduling-1 - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@57186526 
+2020-06-23 23:51:09.840 INFO scheduling-1 - org.quartz.impl.StdScheduler@fbcf416.......................................................................................add 
+2020-06-23 23:51:10.635 INFO scheduling-1 - org.quartz.impl.StdScheduler@fbcf416.......................................................................................add 
+2020-06-23 23:52:00.050 INFO quartzScheduler_Worker-2 - 定时任务名称 = [ProStatisticsWorker] = 启动成功 
+2020-06-23 23:52:00.050 INFO quartzScheduler_Worker-1 - 定时任务名称 = [AddNumWorker] = 启动成功 
+2020-06-23 23:52:57.526 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 17996 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:52:57.528 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:52:59.276 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:52:59.309 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:52:59.319 INFO main - Starting service [Tomcat]
+2020-06-23 23:52:59.319 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:52:59.326 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:52:59.440 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:52:59.440 INFO main - Root WebApplicationContext: initialization completed in 1841 ms
+2020-06-23 23:52:59.578 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:52:59.690 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:52:59.733 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:52:59.745 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:52:59.747 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:52:59.748 INFO main - RAMJobStore initialized.
+2020-06-23 23:52:59.748 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:52:59.749 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:52:59.749 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:52:59.749 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@78da899f
+2020-06-23 23:53:00.254 INFO main - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 23:53:00.431 INFO main - Initializing ExecutorService 'taskScheduler'
+2020-06-23 23:53:00.481 INFO main - Starting Quartz Scheduler now
+2020-06-23 23:53:00.481 INFO main - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2020-06-23 23:53:00.498 INFO main - Starting ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:53:00.532 INFO main - Tomcat started on port(s): 8089 (http) with context path ''
+2020-06-23 23:53:00.537 INFO main - Started SpringbootStart in 3.566 seconds (JVM running for 5.365)
+2020-06-23 23:53:17.702 INFO main - Starting SpringbootStart on LAPTOP-VL60LH4Q with PID 21844 (D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule\target\classes started by 纪长城 in D:\openSourcePro\gangye-springboot_quartz_schedule-master\springboot_quartz_schedule)
+2020-06-23 23:53:17.705 INFO main - No active profile set, falling back to default profiles: default
+2020-06-23 23:53:19.201 INFO main - Tomcat initialized with port(s): 8089 (http)
+2020-06-23 23:53:19.231 INFO main - Initializing ProtocolHandler ["http-nio-8089"]
+2020-06-23 23:53:19.243 INFO main - Starting service [Tomcat]
+2020-06-23 23:53:19.244 INFO main - Starting Servlet engine: [Apache Tomcat/9.0.16]
+2020-06-23 23:53:19.251 INFO main - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [D:\jdk\jdk1.9\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;D:\jdk\jdk1.8.0_65\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Program Files (x86)\MySQL\MySQL Server 5.0\bin;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;D:\maven\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;D:\VisualSVN Server\VisualSVN Server\bin;D:\VisualSVN Server\TortoiseSVN\bin;D:\Git\Git\cmd;D:\Git\TortoiseGit\bin;D:\elasticsearch-node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\erLang\erl10.7\bin;C:\Users\纪长城\AppData\Local\Microsoft\WindowsApps;C:\Users\纪长城\AppData\Roaming\npm;D:\Microsoft VS Code\bin;;.]
+2020-06-23 23:53:19.376 INFO main - Initializing Spring embedded WebApplicationContext
+2020-06-23 23:53:19.381 INFO main - Root WebApplicationContext: initialization completed in 1590 ms
+2020-06-23 23:53:19.514 INFO main - HikariPool-1 - Starting...
+2020-06-23 23:53:19.614 INFO main - HikariPool-1 - Start completed.
+2020-06-23 23:53:19.657 INFO main - Using default implementation for ThreadExecutor
+2020-06-23 23:53:19.668 INFO main - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-06-23 23:53:19.670 INFO main - Quartz Scheduler v.2.2.1 created.
+2020-06-23 23:53:19.671 INFO main - RAMJobStore initialized.
+2020-06-23 23:53:19.672 INFO main - Scheduler meta-data: Quartz Scheduler (v2.2.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-06-23 23:53:19.673 INFO main - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2020-06-23 23:53:19.673 INFO main - Quartz scheduler version: 2.2.1
+2020-06-23 23:53:19.673 INFO main - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@5fdfe8cf
+2020-06-23 23:53:24.721 INFO main - 实例化List<ScheduleJob>,从数据库读取.... com.crcb.service.impl.SchedulerServiceImpl@34a20f16 
+2020-06-23 23:53:31.921 INFO main - org.quartz.impl.StdScheduler@a3cba3a.......................................................................................add 
