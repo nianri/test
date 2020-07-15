@@ -29,7 +29,7 @@ public class Alibaba {
         return ++i;
     }
 
-    public static void main(String args[]) {
-        Alibaba t = new Alibaba("init");
-    }
+//    public static void main(String args[]) {
+//        Alibaba t = new Alibaba("init");
+//    }
 }
